@@ -1,0 +1,31 @@
+goodss_match_idcand.dat
+	lists ID from candels, target name, RA, and DEC
+	for GOODS-South
+	58 matches
+	
+goodsn_match_idcand.dat
+	lists ID from candels, target name, RA, and DEC
+	for GOODS-North
+	94 matches
+	
+SFH_goodss
+	folder containing best-estimate SFHs for the matched
+	targets in GOODS-South.
+	54 galaxies
+	(4 fits missing - probably photo-z outside the redshift range
+	i fitted; 0.2<z<5)
+	
+	
+SFH_goodsn
+	folder containing best-estimate SFHs for the matched
+	targets in GOODS-North.
+	93 galaxies
+	(1 fit missing - probably photo-z outside the redshift range
+	i fitted; 0.2<z<5)
+	
+for each SFH:
+	columns are: 	lookback time in Gyr
+			SFR in Mo/yr
+			cumulative mass in Mo
+			metallicity in log(Z/Zo)
+	

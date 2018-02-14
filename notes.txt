@@ -1,0 +1,21 @@
+2002ht [] 0.9
+2003eq [] 0.839
+K0404-009 [] 0.703 
+K0405-009 [] 0.839
+HST04Pyr [] 0.522
+
+
+missing 5 SNe Ia. Cami thinks they are may be outside photo-z fit area? 0.2 < z < 5?
+all are fairly close to hosts, farthest is 0.54 arcsec (about 10 pix)
+
+
+
+HST04Haw 07360
+has a match id, but no data. The SFH file is missing, and it is missing from the parameter summary file.
+
+
+Approach: The probabilty of a SN Ia at a given time t, is proportional
+to the the star-formation rate, then convolved with the delay time from
+then to now. 
+
+
