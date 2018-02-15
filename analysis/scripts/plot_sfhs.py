@@ -7,6 +7,26 @@ from stsci.convolve import boxcar
 rcParams['figure.figsize']=15.3, 18.75
 rcParams['font.size']=18.0
 
+def adjust_spines(ax, spines):
+    for loc, spine in ax.spines.items():
+        if loc in spines:
+            spine.set_position(('outward', 10))  # outward by 10 points
+            spine.set_smart_bounds(True)
+        else:
+            spine.set_color('none')  # don't draw spine
+
+    # turn off ticks where there is no spine
+    if 'left' in spines:
+        ax.yaxis.set_ticks_position('left')
+    else:
+        # no yaxis ticks
+        ax.yaxis.set_ticks([])
+
+    if 'bottom' in spines:
+        ax.xaxis.set_ticks_position('bottom')
+    else:
+        # no xaxis ticks
+        ax.xaxis.set_ticks([])
 
 
 if __name__=='__main__':
@@ -15,7 +35,7 @@ if __name__=='__main__':
 
     sfhs = glob.glob('../SN_SFH/*/*.dat')
     lbu = 9.5
-    lbl = 0.003
+    lbl = 0.05
     bxsmooth=3
     
     fig = plt.figure()
@@ -31,9 +51,9 @@ if __name__=='__main__':
         data = loadtxt(sfh)[1:]
         ii = where((data[:,0]>lbl)&(data[:,0]<=lbu)) # cuts the data range
         data = data[ii]
-        #data[:,1] = boxcar(data[:,1],(bxsmooth,))
+        data[:,1] = boxcar(data[:,1],(bxsmooth,))
         composite+=data[:,1]/simps(data[:,1])
-        ax1.plot(data[:,0], data[:,1]/simps(data[:,1])/len(sfhs)*10, '-', color='0.65',alpha=0.3)
+        ax1.plot(data[:,0], data[:,1]/simps(data[:,1])/len(sfhs)*30, '-', color='0.65',alpha=0.3)
     ax1.plot(data[:,0],composite/len(sfhs),'k-', label='%d SNe Hosts' %len(sfhs))
 
     codex = []
@@ -60,9 +80,9 @@ if __name__=='__main__':
     for line in lines:
         if line.startswith('#'): continue
         ias.append(line.split(',')[0])
-
     goods_composite_ia=0
     misses = 0
+    ax3 = subplot(222)
     for ia in ias:
         idx = where(codex[:,1]==ia)
         if not codex[idx][:,0]: misses+=1; continue
@@ -72,33 +92,29 @@ if __name__=='__main__':
         data = loadtxt(sfh[0])[1:]
         ii = where((data[:,0]>lbl)&(data[:,0]<=lbu))
         data = data[ii]
-        #data[:,1] = boxcar(data[:,1],(bxsmooth,))
+        data[:,1] = boxcar(data[:,1],(bxsmooth,))
         goods_composite_ia += data[:,1]/simps(data[:,1])
+        ax3.plot(data[:,0], data[:,1]/simps(data[:,1])/5., '-', color='0.65',alpha=0.3)
     norm1=len(ias)-misses
-    norm1 =1
-    ax3 = subplot(222)
     ax3.plot(data[:,0],goods_composite_ia/norm1,'b-',label='%d GOODS SNe Ia' %norm1)
-    #ax3.plot(data[:,0],composite/len(sfhs),'k',label='All SNe')
+    ax3.plot(data[:,0],composite/len(sfhs),'k',label='All SNe')
     #test1 = goods_composite_ia/composite*(len(sfhs)/norm1)
     #ax3.plot(data[:,0], test1*0.005,'r-', label='GOODS Quotient')
     #ax3.axvspan(2.2,2.8,color='red',alpha=0.1)
     ax3.axvspan(1,4,color='red',alpha=0.1)
-    show()
-    sys.exit()
     
 
-    f = open('candels_1as.csv')
-    #f = open('candels_guesses.csv')
+    f = open('candels_guesses.csv')
     lines = f.readlines()
     f.close()
     ias = []
     for line in lines:
         if line.startswith('#'): continue
-        if float(line.split(',')[-1]>0.5):
+        if (float(line.split(',')[-1])>0.5):
             ias.append(line.split(',')[0])
-
     candels_composite_ia=0
     misses = 0
+    ax4 = subplot(223)
     for ia in ias:
         idx = where(codex[:,1]==ia)
         if not codex[idx][:,0]: misses+=1; continue
@@ -110,16 +126,16 @@ if __name__=='__main__':
         data = data[ii]
         data[:,1] = boxcar(data[:,1],(bxsmooth,))
         candels_composite_ia += data[:,1]/simps(data[:,1])
+        ax4.plot(data[:,0], data[:,1]/simps(data[:,1])/5., '-', color='0.65',alpha=0.3)
     norm2=len(ias)-misses
-    ax4 = subplot(223)
     ax4.plot(data[:,0],candels_composite_ia/norm2,'b-',label='%d CANDELS SNe Ia' %norm2)
     ax4.plot(data[:,0],composite/len(sfhs),'k',label='All SNe')
-    test2 = candels_composite_ia/composite*(len(sfhs)/norm2)
-    ax4.plot(data[:,0], test2*0.005,'r-', label='CANDELS Quotient')
+    #test2 = candels_composite_ia/composite*(len(sfhs)/norm2)
+    #ax4.plot(data[:,0], test2*0.005,'r-', label='CANDELS Quotient')
+    ax4.axvspan(1,4,color='red',alpha=0.1)
 
 
     ax5 = subplot(224)
-
     ax5.plot(data[:,0],(candels_composite_ia+goods_composite_ia)/(norm1+norm2),
              'b-',label='%d SNe Ia' %(norm1+norm2))
     ax5.plot(data[:,0], composite/len(sfhs), 'k',label='All SNe')
@@ -127,18 +143,17 @@ if __name__=='__main__':
              'r-',label='SNe Ia Quotient')
 
 
-
-    u.adjust_spines(ax1, ['bottom'])#['left'])
-    u.adjust_spines(ax3, ['bottom'])
-    u.adjust_spines(ax4, ['bottom'])#['left','bottom'])
-    u.adjust_spines(ax5, ['bottom'])
+    adjust_spines(ax1, ['bottom'])#['left'])
+    adjust_spines(ax3, ['bottom'])
+    adjust_spines(ax4, ['bottom'])#['left','bottom'])
+    adjust_spines(ax5, ['bottom'])
 
     ylims = (0,0.01)
     xlims = (lbl,lbu)
-    ax1.set_ylim(ylims)
-    ax3.set_ylim(ylims)
-    ax4.set_ylim(ylims)
-    ax5.set_ylim(ylims)
+    #ax1.set_ylim(ylims)
+    #ax3.set_ylim(ylims)
+    #ax4.set_ylim(ylims)
+    #ax5.set_ylim(ylims)
 
     ax1.set_xlim(xlims)
     ax3.set_xlim(xlims)
@@ -153,5 +168,4 @@ if __name__=='__main__':
 
     plt.subplots_adjust(wspace=0.01,hspace=0.01)
     #show()
-    savefig('plot1.png',transparent=True)
-        
+    savefig('plot1.png')#,transparent=True)
