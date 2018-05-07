@@ -1,0 +1,19 @@
+\begin{thebibliography}{4}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Foreman-Mackey(2016)}]{Foreman-Mackey:2016ve}
+Foreman-Mackey, D. 2016, The Journal of Open Source Software, 24
+
+\bibitem[{{Foreman-Mackey} {et~al.}(2013){Foreman-Mackey}, {Hogg}, {Lang}, \&
+  {Goodman}}]{Foreman-Mackey:2013pd}
+{Foreman-Mackey}, D., {Hogg}, D.~W., {Lang}, D., \& {Goodman}, J. 2013, \pasp,
+  125, 306
+
+\bibitem[{{Maoz} {et~al.}(2012){Maoz}, {Mannucci}, \& {Brandt}}]{Maoz:2012a}
+{Maoz}, D., {Mannucci}, F., \& {Brandt}, T.~D. 2012, \mnras, 426, 3282
+
+\bibitem[{{Strolger} {et~al.}(2010){Strolger}, {Dahlen}, \&
+  {Riess}}]{Strolger:2010}
+{Strolger}, L., {Dahlen}, T., \& {Riess}, A.~G. 2010, \apj, 713, 32
+
+\end{thebibliography}

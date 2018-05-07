@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: strolger.aux
+The style file: apj.bst
+Database file #1: strolger.bib
+You've used 4 entries,
+            2948 wiz_defined-function locations,
+            675 strings with 5226 characters,
+and the built_in function-call counts, 1696 in all, are:
+= -- 145
+> -- 102
+< -- 1
++ -- 37
+- -- 33
+* -- 139
+:= -- 331
+add.period$ -- 4
+call.type$ -- 4
+change.case$ -- 27
+chr.to.int$ -- 4
+cite$ -- 4
+duplicate$ -- 73
+empty$ -- 104
+format.name$ -- 43
+if$ -- 323
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 4
+newline$ -- 16
+num.names$ -- 16
+pop$ -- 27
+preamble$ -- 1
+purify$ -- 27
+quote$ -- 0
+skip$ -- 61
+stack$ -- 0
+substring$ -- 74
+swap$ -- 0
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 36
+warning$ -- 0
+while$ -- 15
+width$ -- 0
+write$ -- 43
