@@ -1,4 +1,9 @@
 #!/usr/bin/env python
+'''
+This is the MCMC for SFHs and DTD
+L. Strolger
+5/2018
+'''
 import os,sys,pdb,scipy,glob,pickle,datetime
 from pylab import *
 from astropy import convolution
@@ -11,14 +16,7 @@ from strolger_util import util as u
 from strolger_util import rates_z as rz
 from strolger_util import imf
 import emcee
-'''
-This is the MCMC for SFHs and DTD
-L. Strolger
-5/2018
-'''
-
-
-
+import control_time as tc
 import warnings
 
 
@@ -219,13 +217,33 @@ if __name__ == '__main__':
     
     t0 = time.time()
     sfhs = get_sfhs(verbose=verbose, delete=delete)
-    pdb.set_trace()
 
     candels_cat = loadtxt('../ALLSFH_new_z/CANDELS_GDSS_znew_avgal_radec.dat')
 
     ia_host_codex=match_sne_hosts(gxycat=candels_cat)
 
-    print(ncore)
+    redshifts={}
+    tcp={}
+    for item in candels_cat:
+        redshifts[int(item[0])]=item[1]
+        ## tcp[int(item[0])] = tc.run(item[1],45.0,25.4,type=['ia'],dstep=3,dmstep=0.5,dastep=0.5,
+        ##                            verbose=False,plot=False,parallel=False,Nproc=1,
+        ##                            prev=0.0, extinction=False)*(1.0+item[1])
+
+
+    rds = arange(0.001, 5.5,0.1)
+    yds = []
+    for item in rds:
+        try:
+            tmp = tc.run(item,45.0,26.2,type=['ia'],dstep=3,dmstep=0.5,dastep=0.5,
+                         verbose=False,plot=False,parallel=False,Nproc=1,
+                         prev=0.0, extinction=False)*(1.0+item)
+        except:
+            pdb.set_trace()
+        yds.append(tmp)
+    yds=array(yds)
+        
+    pdb.set_trace()
     
     if not os.path.isfile(out_sampler) or delete:
         p0 = [p0 + step_size*np.random.randn(ndim) for i in range(nwalkers)]
