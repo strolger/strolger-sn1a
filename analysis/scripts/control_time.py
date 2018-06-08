@@ -184,7 +184,6 @@ def run(redshift, baseline, sens, type=['iip'], dstep=3, dmstep=0.5, dastep=0.5,
         obs_kcor=array(obs_kcor)
     if verbose: print('kcor processing time = %s'%(time.time()-start_time))
 
-
     ### replace NaNs in kcor with linearly interpolated data, and constant interpolated error
     idx = where(obs_kcor[:,0]==obs_kcor[:,0])
     junk,obs_kcor_temp= u.recast(range(len(obs_kcor)),0.,idx[0],obs_kcor[idx][:,0])
@@ -278,7 +277,7 @@ def run(redshift, baseline, sens, type=['iip'], dstep=3, dmstep=0.5, dastep=0.5,
                 ax2.plot(rest_age,efficiency2,'k--')
                 ax1.set_ylim(ymax,ymin)
                 ax2.set_ylim(0,1.2)
-                
+                tight_layout()
             sig_m = absmags[type[0]][1]
             ## Holz & Linder GL LumFunc smoothing
             sig_gl = 0.093*(redshift)
@@ -348,6 +347,7 @@ def run(redshift, baseline, sens, type=['iip'], dstep=3, dmstep=0.5, dastep=0.5,
         ax2.set_xlim(xmin,xmax)
         ax2.set_xlabel('Rest Frame Age (Days)')
         ax2.set_ylabel('Closest template Abs Mag (Vega)')
+        tight_layout()
         savefig('lightcurves.png')
     return(tot_ctrl/365.25)
 
@@ -604,9 +604,9 @@ def fline2(x,*p):
 if __name__=='__main__':
 
     types = ['ia']#,'ib','ic']
-    redshift = 0.3
-    baseline = 60.5
-    sens = 25.40
+    redshift = 1.0
+    baseline = 45.
+    sens = 26.2
     dstep=3.0 ## in days
     dmstep=0.5 ## in magnitude
     dastep=0.5 ## in magnitude
@@ -614,7 +614,7 @@ if __name__=='__main__':
     Nproc=20
     previous = 0.0
     plot = False
-    verbose = True
+    verbose = False
     extinction= False
 
     rate = 3.51e-4
