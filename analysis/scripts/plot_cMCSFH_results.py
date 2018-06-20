@@ -19,7 +19,7 @@ if __name__=='__main__':
     tot = 0
     for file in files:
         samples = pickle.load(open(file,'rb'))
-        samples = samples[:,:,:].reshape((-1,3))
+        samples = samples[:,100:,:].reshape((-1,3))
         print('adding %d samples from %s... '%(len(samples), file))
         try:
             temp = concatenate((temp, samples), axis=0)

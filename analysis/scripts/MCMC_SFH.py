@@ -19,7 +19,8 @@ import emcee
 import control_time as tc
 import warnings
 
-ndim, nwalkers, nsteps = 3, 60, 268
+ndim, nwalkers, nsteps = 3, 60, 60
+#ndim, nwalkers, nsteps = 3, 60, 268
 
 bounds = [
     [-15.,15.],
@@ -151,14 +152,14 @@ def rate_per_galaxy(sfh_data, lbu=13.65, lbl=0.05, p0 = None,
     
     dt = sum(diff(sfh_data[:,0]))/(len(sfh_data[:,0])-1)
     rate_fn = zeros((len(sfh_data),2),)
-    tmp = convolve(sfh_data[:,1], dtd, 'full')*dt*scale*frac_ia ## now convolved result in forward time
+    tmp = convolve(sfh_data[:,1], dtd, 'full')*scale*frac_ia ## now convolved result in forward time
     rate_fn[:,1]=tmp[:len(dtd)]
 
     rate_fn[:,0]=sfh_data[:,0]
     rate_fn[:,1]=rate_fn[:,1]
     rate = simps(rate_fn[:,1],x=rate_fn[:,0])
             
-    return(rate)
+    return(rate_fn[-1,1])
 
 
 def lnprior(p):
@@ -237,7 +238,7 @@ if __name__ == '__main__':
     import multiprocessing as mpc
 
     ncore = mpc.cpu_count()
-    step_sep = 1.0
+    step_sep = 5.0
     p0 = (3.3, 0.5, 2.2)
     ## p0 = (-1.5, 0.5, -12.)
     timestamp=datetime.datetime.now().strftime('%Y%m%d%H%M')

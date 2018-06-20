@@ -30,13 +30,13 @@ def rate_per_galaxy(sfh, lbu=13.65, lbl=0.05, p0 = None,
     sfh_data[:,0] = lbu-sfh_data[:,0][::-1]
     sfh_data[:,1] = sfh_data[:,1][::-1] ## now in forward time
 
-    if testing:
-        ## reframes everything in a more continuous time.
-        n_out = IUS(sfh_data[:,0], sfh_data[:,1])
-        time = arange(0,lbu+0.1,0.1)
-        sfh_data=zeros((len(time),2),)
-        sfh_data[:,0]=time
-        sfh_data[:,1]=n_out(time) ## now continuous, evenly spaced, not sure that's important.
+    ## if testing:
+    ##     ## reframes everything in a more continuous time.
+    ##     n_out = IUS(sfh_data[:,0], sfh_data[:,1])
+    ##     time = arange(0,lbu+0.1,0.1)
+    ##     sfh_data=zeros((len(time),2),)
+    ##     sfh_data[:,0]=time
+    ##     sfh_data[:,1]=n_out(time) ## now continuous, evenly spaced, not sure that's important.
 
     if testing:
         ## just makes a SFH box
@@ -45,7 +45,7 @@ def rate_per_galaxy(sfh, lbu=13.65, lbl=0.05, p0 = None,
         sfh_data[:,1] = 0.0
         sfh_data[:,1][ii]=10.
 
-    warnings.simplefilter('ignore',RuntimeWarning)
+    #warnings.simplefilter('ignore',RuntimeWarning)
     dtd = rz.dtdfunc(sfh_data[:,0], *p0)
 
     if testing:
@@ -56,13 +56,14 @@ def rate_per_galaxy(sfh, lbu=13.65, lbl=0.05, p0 = None,
 
     dt = sum(diff(sfh_data[:,0]))/(len(sfh_data[:,0])-1)
     rate_fn = zeros((len(sfh_data),2),)
-    tmp = convolve(sfh_data[:,1], dtd, 'full')*dt*scale*frac_ia ## now convolved result in forward time
+    tmp = convolve(sfh_data[:,1], dtd, 'full')*scale*frac_ia ## now convolved result in forward time
     rate_fn[:,1]=tmp[:len(dtd)]#*concatenate((array([0.]),diff(sfh_data[:,0])),)
 
     rate_fn[:,0]=sfh_data[:,0]
     rate_fn[:,1]=rate_fn[:,1]
     rate = simps(rate_fn[:,1],x=rate_fn[:,0])
 
+    pdb.set_trace()
     if testing:
         ## a check of the shift in the effective time on each
         tmp1 = sum((sfh_data[:,0])*sfh_data[:,1])/sum(sfh_data[:,1])
@@ -120,7 +121,6 @@ if __name__=='__main__':
 
     p0 = (-2.3, 4.1, -11.2)
     p0 = (3.5, 0.5, 2.2)
-    p0 = (3.8, 13., 3.74)
     ## p0 = None
 
     ## sfh  = '00529.dat'

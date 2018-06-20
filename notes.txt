@@ -8,14 +8,35 @@ HST04Pyr [] 0.522
 missing 5 SNe Ia. Cami thinks they are may be outside photo-z fit area? 0.2 < z < 5?
 all are fairly close to hosts, farthest is 0.54 arcsec (about 10 pix)
 
-
-
 HST04Haw 07360
 has a match id, but no data. The SFH file is missing, and it is missing from the parameter summary file.
 
 
-Approach: The probabilty of a SN Ia at a given time t, is proportional
-to the the star-formation rate, then convolved with the delay time from
-then to now. 
+Approach: The likelihood of a delay time distribution (DTD) model is
+evaluated by comparing the number of type Ia supernovae (SNe Ia)
+expected by the model in each galaxy, to the number that was actually
+observed, for all galaxies in the survey. The star formation histories
+(SFH) for galaxies in the GOODS field are convolved with assumed DTD
+functions to predict SN Ia rate histories, and subsequently the number
+of events observed over the effective duration of the survey. The
+likelihood of observing the number of events is the product of Poisson
+probabilities on the number expected for all galaxies, which is
+evaluated in a log-likelihood. The parameters of the DTD are explored in
+a MCMC to arrive at the maximum likelihood parameters.
+
+SFHs are provided by Camila Pacifici, for work done on the properties of
+galaxies in the GOODS fields.
+
+DTDs are a family of unimodal models, described by a fucntion dependent
+on location, width, and kirtosis. While there's no mathematical limits
+in the function, the physical limit is that DTD must have values
+(naturally positive) in the positive range of look-forward
+time. Otherwise, the convolved product with the SFHs would require SNe
+forming before their parent stars form, or SNe taken away from galaxies
+rather than forming within them. This is built in to the code to retun
+zero probability if there is effectively no physical DTD to convolve
+with.
+
+the log-likelihood is 
 
 
