@@ -1,17 +1,3 @@
-2002ht [] 0.9
-2003eq [] 0.839
-K0404-009 [] 0.703 
-K0405-009 [] 0.839
-HST04Pyr [] 0.522
-
-
-missing 5 SNe Ia. Cami thinks they are may be outside photo-z fit area? 0.2 < z < 5?
-all are fairly close to hosts, farthest is 0.54 arcsec (about 10 pix)
-
-HST04Haw 07360
-has a match id, but no data. The SFH file is missing, and it is missing from the parameter summary file.
-
-
 Approach: The likelihood of a delay time distribution (DTD) model is
 evaluated by comparing the number of type Ia supernovae (SNe Ia)
 expected by the model in each galaxy, to the number that was actually
@@ -25,7 +11,7 @@ evaluated in a log-likelihood. The parameters of the DTD are explored in
 a MCMC to arrive at the maximum likelihood parameters.
 
 SFHs are provided by Camila Pacifici, for work done on the properties of
-galaxies in the GOODS fields.
+galaxies in the GOODS fields, selected to m_lim(H) < 24
 
 DTDs are a family of unimodal models, described by a fucntion dependent
 on location, width, and kirtosis. While there's no mathematical limits
@@ -37,6 +23,18 @@ rather than forming within them. This is built in to the code to retun
 zero probability if there is effectively no physical DTD to convolve
 with.
 
-the log-likelihood is 
+the log-likelihood is coded to add only the expected number of events
+for galaxies which did not host SNe Ia, and the expected number with the
+expotenital term of the Poission expectation for galaxies which did. In
+GOODS, no host produced more than one SN Ia, which could further
+simplify the math, but was not exploited.
+
+L. Strolger, 2018-06
+
+2018-06-20: The routine is currently coded on the 10 epochs of the
+GOODS-S survey, only looking at the events that occurred in the duration
+of that survey. We also reject 2002ht and HST04Gre as they occured in
+host that are fainter that the SFH selection magnitude limit.
+
 
 
