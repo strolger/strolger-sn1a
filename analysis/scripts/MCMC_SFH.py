@@ -19,7 +19,7 @@ import emcee
 import control_time as tc
 import warnings
 
-ndim, nwalkers, nsteps = 3, 60, 60
+ndim, nwalkers, nsteps = 3, 60, 120
 #ndim, nwalkers, nsteps = 3, 60, 268
 
 bounds = [
