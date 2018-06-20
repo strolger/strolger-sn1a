@@ -25,8 +25,17 @@ if __name__=='__main__':
     tot = 0
     for file in files:
         samples = pickle.load(open(file,'rb'))
-        samples = samples[:,50:,:].reshape((-1,3))
-        print('adding %d samples... '%len(samples))
+        ## ax1 = subplot(311)
+        ## ax2 = subplot(312)
+        ## ax3 = subplot(313)
+        ## for i in range(len(samples[:,:,0])):
+        ##     ax1.plot(range(len(samples[:,:,0][0,:])), samples[:,:,0][i,:],'k-')
+        ##     ax2.plot(range(len(samples[:,:,0][0,:])), samples[:,:,1][i,:],'k-')
+        ##     ax3.plot(range(len(samples[:,:,0][0,:])), samples[:,:,2][i,:],'k-')
+        ## show()
+        ## clf()
+        samples = samples[:,150:,:].reshape((-1,3))
+        print('adding %d samples from %s... '%(len(samples), file))
         temp = concatenate((temp, samples), axis=0)
         
     print('%d total samples' %len(temp))
@@ -50,7 +59,6 @@ if __name__=='__main__':
     print('m=%2.2f, %2.2f, %2.2f' %(m_mcmc[0], m_mcmc[1], m_mcmc[2]))
     print('w=%2.2f, %2.2f, %2.2f' %(w_mcmc[0], w_mcmc[1], w_mcmc[2]))
     print('k=%2.2f, %2.2f, %2.2f' %(k_mcmc[0], k_mcmc[1], k_mcmc[2]))
-
 
     import corner
     fig = corner.corner(samples,labels=[r'$\xi$',r'$\omega$',r'$\alpha$'],

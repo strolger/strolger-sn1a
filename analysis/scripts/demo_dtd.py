@@ -19,19 +19,28 @@ if __name__=='__main__':
     ax2 = subplot(132)
     ax3 = subplot(133)
 
-    p = (5,5,5)
-
+    p0 = [-2.1, 0.4, -12.8]
+    p = p0
+    cnt=0
     for i in arange(-12,9,3.0):
-        p = (i, 5, 5)
-        ax1.plot(xx, rz.dtdfunc(xx, *p), 'k-',alpha = 0.3)
+        p[0] = i
+        ax1.plot(xx, cnt+rz.dtdfunc(xx, *p, norm=False), 'k-',alpha = 0.3)
+        cnt +=0.1 
 
-    for i in arange(1.0,12.,1.0):
-        p = (5, i, 5)
-        ax2.plot(xx, rz.dtdfunc(xx, *p), 'k-',alpha = 0.3)
+    p = p0
+    cnt = 0
+    for i in arange(0.1,12.,0.5):
+        p[1] = i
+        ax2.plot(xx, cnt+rz.dtdfunc(xx, *p), 'k-',alpha = 0.3)
+        cnt +=0.1 
 
+    p = p0
+    cnt = 0
     for i in arange(-12,9,3.0):
-        p = (5, 5, i)
-        ax3.plot(xx, rz.dtdfunc(xx, *p), 'k-',alpha = 0.3)
+        p[2] = i
+        ax3.plot(xx, cnt+rz.dtdfunc(xx, *p), 'k-',alpha = 0.3)
+        cnt+=0.1
+
 
     show()
     
