@@ -19,8 +19,8 @@ import emcee
 import control_time as tc
 import warnings
 
-ndim, nwalkers, nsteps = 3, 60, 120
-#ndim, nwalkers, nsteps = 3, 60, 268
+ndim, nwalkers, nsteps = 3, 60, 60
+#ndim, nwalkers, nsteps = 3, 60, 800
 
 bounds = [
     [-15.,15.],
@@ -51,62 +51,6 @@ def get_sfhs(verbose=True, delete=False):
     os.remove(sfh_file.replace('tgz','pkl'))
     return(sfhs)
 
-
-def get_sfhs_old(verbose=True, delete=False):
-    
-    sfhfile = 'sfh_file.pkl'
-    if not os.path.isfile(sfhfile) or delete:
-        codex = []
-        f = open('../SN_SFH/goodsn_match_idcand.dat')
-        lines=f.readlines()
-        f.close()
-        for line in lines:
-            if line.startswith('#'): continue
-            c = line.split()
-            codex.append(c[:2])
-        f = open('../SN_SFH/goodss_match_idcand.dat')
-        lines=f.readlines()
-        f.close()
-        for line in lines:
-            if line.startswith('#'): continue
-            c = line.split()
-            codex.append(c[:2])
-        codex=array(codex)
-
-        sfhs={}
-        f = open('goods_1as.csv')
-        lines = f.readlines()
-        f.close()
-
-        ias = []
-        for line in lines:
-            if line.startswith('#'): continue
-            ias.append(line.split(',')[0])
-        for event in codex:
-            index = '%05d' %int(event[0])
-            try:
-                sfh = glob.glob('../SN_SFH/*/%s.dat'%index)[0]
-            except:
-                if verbose: print('%s not found, skipping...' %index)
-                continue
-
-            sfhd = loadtxt(sfh)
-            if event[1] in ias:
-                try:
-                    sfhs[1].append(sfhd)
-                except:
-                    sfhs[1]=[sfhd]
-            else:
-                try:
-                    sfhs[0].append(sfhd)
-                except:
-                    sfhs[0]=[sfhd]
-        pickle.dump(sfhs,open(sfhfile,'wb'))
-    else:
-        print('Loading %s' %(sfhfile))
-        sfhs = pickle.load(open(sfhfile,'rb'))
-    return(sfhs)
-    
 
 def match_sne_hosts(gxycat='None',snecat='candels_south_sneia.txt', verbose=False):
     from strolger_util import convertdegsex as conv
@@ -152,12 +96,12 @@ def rate_per_galaxy(sfh_data, lbu=13.65, lbl=0.05, p0 = None,
     
     dt = sum(diff(sfh_data[:,0]))/(len(sfh_data[:,0])-1)
     rate_fn = zeros((len(sfh_data),2),)
-    tmp = convolve(sfh_data[:,1], dtd, 'full')*scale*frac_ia ## now convolved result in forward time
+    tmp = convolve(sfh_data[:,1], dtd, 'full')*dt*scale*frac_ia ## now convolved result in forward time
     rate_fn[:,1]=tmp[:len(dtd)]
 
     rate_fn[:,0]=sfh_data[:,0]
     rate_fn[:,1]=rate_fn[:,1]
-    rate = simps(rate_fn[:,1],x=rate_fn[:,0])
+    rate = rate_fn[-1,1] ## only need the current value
             
     return(rate_fn[-1,1])
 
@@ -174,12 +118,9 @@ def lnprior(p):
 def lnlike(p):
     LL1 = 0.0
     LL2 = 0.0
-    ## tcp = 2.0 ## in years
     for k in sfhs.keys():
         r_gxy = rate_per_galaxy(sfhs[k], p0=p) ## in number per year
         if ((r_gxy == 0. ) | (not isfinite(r_gxy))):
-            #LL1a = -np.inf ## in the case that the DTD is unphysical, return neg inf
-            #LL2a = -np.inf
             return(-np.inf)
         else:
             N_expected_Ia_gxy = r_gxy * tcp[k]
@@ -195,23 +136,6 @@ def lnlike(p):
         return(-np.inf)
     return(LL)
 
-
-def lnlike_old(p):
-    LL= 0.0
-    tcp = 10.0 ## in years
-    for k in sfhs.keys():
-        for i in range(len(sfhs[k])):
-            r_gxy = rate_per_galaxy(array(sfhs[k][i]), p0=p) ## in number per year
-            N_expected_Ia_gxy = r_gxy * tcp
-            LL1=-N_expected_Ia_gxy
-            if k==1:
-                LL2=log(N_expected_Ia_gxy)
-            else:
-                LL2=0.0
-        LL+= LL1 + LL2
-    if not isfinite(LL):
-        return(-np.inf)
-    return(LL)
 
 def lnprob(p):
     lp = lnprior(p)
