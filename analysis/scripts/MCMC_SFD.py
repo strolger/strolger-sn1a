@@ -19,7 +19,9 @@ def dtdfit(time,*p):
     ff, m, w, k = p
     scale = quad(imf.salpeter,3,8)[0]/quad(imf.salpeter1,0.1,125)[0]
     scale = scale *0.7**2.*1e4
-    par_model = [0.013, 2.6, 3.2, 6.1]
+    par_model = [0.013, 2.6, 3.2, 6.1] ## MD14
+    par_model = [0.009, 2.7, 2.5, 4.1] ## Driver18
+    
     sfh = rz.csfh_time(time, *par_model)
     ## sfh = rz.sfr_behroozi_12(time)
     dt = sum(diff(time))/(len(time)-1)
@@ -67,7 +69,7 @@ if __name__=='__main__':
     import time
     import multiprocessing as mpc
     ncore = mpc.cpu_count()
-    ndim, nwalkers, nsteps = 5, 1000, 10000
+    ndim, nwalkers, nsteps = 5, 1000, 1000
     step_size = 1.0
     p0 = (0.05, 3.5, 2.5, 2.5, 0.01)
 

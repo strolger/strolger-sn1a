@@ -1,7 +1,6 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  27 SEP 2018 19:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  1 OCT 2018 16:25
 entering extended mode
- restricted \write18 enabled.
- file:line:error style messages enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **strolger.tex
 (./strolger.tex
@@ -222,11 +221,7 @@ LaTeX Info: Redefining \] on input line 2667.
 LaTeX Warning: Unused global option(s):
     [apj].
 
-(./strolger.aux
-
-LaTeX Warning: Label `fig:fg2' multiply defined.
-
-)
+(./strolger.aux)
 \openout1 = `strolger.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
@@ -241,7 +236,8 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
- (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+
+(/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count110
 \scratchdimen=\dimen127
@@ -329,85 +325,91 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [2
 
 ] [3 <./figure_SNIa_rate_z_pwr_fit.png>] [4] [5]
-<figure_SNIa_rate_alpha.png, id=31, 578.16pt x 433.62pt>
+<figure_csfh_today.png, id=31, 462.528pt x 346.896pt>
+File: figure_csfh_today.png Graphic file (type png)
+
+<use figure_csfh_today.png>
+Package pdftex.def Info: figure_csfh_today.png used on input line 68.
+(pdftex.def)             Requested size: 440.84743pt x 330.6503pt.
+
+<figure_SNIa_rate_alpha.png, id=32, 578.16pt x 433.62pt>
 File: figure_SNIa_rate_alpha.png Graphic file (type png)
 
 <use figure_SNIa_rate_alpha.png>
-Package pdftex.def Info: figure_SNIa_rate_alpha.png used on input line 63.
+Package pdftex.def Info: figure_SNIa_rate_alpha.png used on input line 81.
 (pdftex.def)             Requested size: 440.84743pt x 330.63312pt.
- [6 <./figure_SNIa_rate_alpha.png>]
-<figure_dtd_families.png, id=37, 578.16pt x 433.62pt>
+ [6] [7 <./figure_csfh_today.png>] [8 <./figure_SNIa_rate_alpha.png>] <figure_d
+td_families.png, id=47, 578.16pt x 433.62pt>
 File: figure_dtd_families.png Graphic file (type png)
 
 <use figure_dtd_families.png>
-Package pdftex.def Info: figure_dtd_families.png used on input line 93.
+Package pdftex.def Info: figure_dtd_families.png used on input line 106.
 (pdftex.def)             Requested size: 469.75499pt x 352.31538pt.
- [7] [8 <./figure_dtd_families.png>]
-<figure_sfd_optimized.png, id=48, 462.528pt x 346.896pt>
+ [9 <./figure_dtd_families.png>]
+<figure_sfd_optimized.png, id=52, 462.528pt x 346.896pt>
 File: figure_sfd_optimized.png Graphic file (type png)
 
 <use figure_sfd_optimized.png>
 Package pdftex.def Info: figure_sfd_optimized.png used on input line 118.
 (pdftex.def)             Requested size: 469.75499pt x 352.33655pt.
- [9]
-<figure_sfd_corners.png, id=52, 686.565pt x 686.565pt>
+ [10] [11 <./figure_sfd_optimized.png>]
+<figure_sfd_corners.png, id=62, 686.565pt x 686.565pt>
 File: figure_sfd_corners.png Graphic file (type png)
 
 <use figure_sfd_corners.png>
-Package pdftex.def Info: figure_sfd_corners.png used on input line 162.
+Package pdftex.def Info: figure_sfd_corners.png used on input line 160.
 (pdftex.def)             Requested size: 469.75499pt x 469.74944pt.
- [10 <./figure_sfd_optimized.png>] [11] [12 <./figure_sfd_corners.png>] [13
+ [12] [13 <./figure_sfd_corners.png>] [14
 
-] <Figure_1.png, id=69, 549.252pt x 549.252pt>
+]
+<Figure_1.png, id=75, 549.252pt x 549.252pt>
 File: Figure_1.png Graphic file (type png)
-
-<use Figure_1.png>
-Package pdftex.def Info: Figure_1.png used on input line 199.
+ <use Figure_1.png>
+Package pdftex.def Info: Figure_1.png used on input line 201.
 (pdftex.def)             Requested size: 289.07999pt x 289.07399pt.
- <Figure_2.png, id=70, 462.528pt x 346.896pt>
-File: Figure_2.png Graphic file (type png)
 
-<use Figure_2.png>
-Package pdftex.def Info: Figure_2.png used on input line 205.
+<Figure_2.png, id=76, 462.528pt x 346.896pt>
+File: Figure_2.png Graphic file (type png)
+ <use Figure_2.png>
+Package pdftex.def Info: Figure_2.png used on input line 207.
 (pdftex.def)             Requested size: 325.215pt x 243.92122pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-(./strolger.bbl [14 <./Figure_1.png>] [15 <./Figure_2.png>] [16
+(./strolger.bbl [15 <./Figure_1.png>] [16 <./Figure_2.png>] [17
 
-]) [17]
-(./strolger.aux)
+]) [18] [19
 
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+]
+(./strolger.aux) ) 
 Here is how much of TeX's memory you used:
- 3904 strings out of 493014
- 49682 string characters out of 6133351
- 122525 words of memory out of 5000000
- 7370 multiletter control sequences out of 15000+600000
+ 3914 strings out of 493014
+ 49865 string characters out of 6133351
+ 122660 words of memory out of 5000000
+ 7379 multiletter control sequences out of 15000+600000
  11869 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,10n,35p,1202b,256s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
-></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
-/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></
-usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></us
-r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/
-local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/lo
-cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loca
-l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/t
-exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
-xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texl
-ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texliv
-e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive
-/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on strolger.pdf (17 pages, 646575 bytes).
+ 38i,10n,35p,1202b,258s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
+2.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.p
+fb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb>
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
+/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></u
+sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr
+/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/
+local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on strolger.pdf (19 pages, 703872 bytes).
 PDF statistics:
- 130 PDF objects out of 1000 (max. 8388607)
- 82 compressed objects within 1 object stream
+ 143 PDF objects out of 1000 (max. 8388607)
+ 90 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

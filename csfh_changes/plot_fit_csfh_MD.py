@@ -61,7 +61,7 @@ csfh = 10**(data[:,2])
 ep_csfh = 10**(data[:,2]+data[:,3])
 em_csfh = 10**(data[:,2]-data[:,4])
 ax.errorbar(redshifts1, csfh, xerr=d_red, yerr=[csfh-em_csfh,ep_csfh-csfh],
-            label = 'FUV',
+            label = 'MD14 FUV Tracers',
             fmt='o',color='purple', zorder=10)
 data = loadtxt('md14_IR.txt')
 redshifts1 = 0.5*(data[:,1]+data[:,0])
@@ -70,13 +70,13 @@ csfh = 10**(data[:,2])
 ep_csfh = 10**(data[:,2]+data[:,3])
 em_csfh = 10**(data[:,2]-data[:,4])
 ax.errorbar(redshifts1, csfh, xerr=d_red, yerr=[csfh-em_csfh,ep_csfh-csfh],
-            label='IR',
+            label='MD14 IR Tracers',
             fmt='o',color='red', zorder=10)
 
 
-ax.plot(redshifts, rz.MD_sfr_2014(redshifts, fink=False), 'r-', label='Madau & Dickinson 2014')
-ax.plot(redshifts, rz.MD_sfr_2014(redshifts), 'r--', label = 'Finkelstein et al. 2016')
-ax.plot(redshifts, func(redshifts, *fobj.params), 'b--', label = 'Better fit')
+ax.plot(redshifts, rz.MD_sfr_2014(redshifts, fink=False), 'b--', label='Madau & Dickinson (2014)')
+## ax.plot(redshifts, rz.MD_sfr_2014(redshifts), 'b:', label = 'Finkelstein et al. 2016 ')
+ax.plot(redshifts, func(redshifts, *fobj.params), 'b-', label = 'Our fit')
 ax.fill_between(redshifts, upperband, lowerband, alpha = 0.4)
 
 
@@ -95,7 +95,7 @@ print(popt, perr)
 
 ax = subplot(111)
 ax.errorbar(redshifts, csfh, xerr=d_red, yerr=[csfh-em_csfh,ep_csfh-csfh],
-            label='Driver et al. 2018',
+            label='Driver et al. (2018) data',
             fmt='o',color='k', zorder=10)
 
 
@@ -106,17 +106,25 @@ dfdp= dfdp_m(fobj.params,redshifts)
 confprob = 0.68
 yjunk, upperband, lowerband = fobj.confidence_band(redshifts, dfdp, confprob, model)
 
-ax.plot(redshifts, func(redshifts, *fobj.params), 'g--', label='Fit')
+ax.plot(redshifts, func(redshifts, *fobj.params), 'r-', label='Our fit')
 ax.fill_between(redshifts, upperband, lowerband, alpha=0.4)
+
+
+p0 = [0.015, 1.5, 5.0, 6.1]
+ax.plot(redshifts, func(redshifts, *p0), 'g-', label = 'CC rates')
+dfdp= dfdp_m(p0,redshifts)
+yjunk, upperband, lowerband = fobj.confidence_band(redshifts, dfdp, confprob, model)
+ax.fill_between(redshifts, upperband, lowerband, alpha=0.4)
+
 
 
 ax.set_yscale('log')
 ax.set_ylim(3e-3,1.1)
 ax.set_xlim(-0.1,6.1)
 ax.set_xlabel(' Redshift')
-ax.set_ylabel('CSFH ($M_{\odot}\, yr^{-1}\, Mpc^{-3}$)')
+ax.set_ylabel(r'$\dot{\rho}_{\star}$($M_{\odot}\, yr^{-1}\, Mpc^{-3}$)')
 ax.legend(loc=2, ncol=2, frameon=False)
 
-savefig('demo.png')
+savefig('figure_csfh_today.png')
 
 

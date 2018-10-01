@@ -1,4 +1,4 @@
-\begin{thebibliography}{24}
+\begin{thebibliography}{25}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{{Arnett}(1969)}]{Arnett:1969dw}
@@ -109,6 +109,13 @@ Foreman-Mackey, D. 2016, The Journal of Open Source Software, 24
 \bibitem[{{Strolger} {et~al.}(2010){Strolger}, {Dahlen}, \&
   {Riess}}]{Strolger:2010}
 {Strolger}, L., {Dahlen}, T., \& {Riess}, A.~G. 2010, \apj, 713, 32
+
+\bibitem[{{Strolger} {et~al.}(2015){Strolger}, {Dahlen}, {Rodney}, {Graur},
+  {Riess}, {McCully}, {Ravindranath}, {Mobasher}, \&
+  {Shahady}}]{Strolger:2015aa}
+{Strolger}, L.-G., {Dahlen}, T., {Rodney}, S.~A., {Graur}, O., {Riess}, A.~G.,
+  {McCully}, C., {Ravindranath}, S., {Mobasher}, B., \& {Shahady}, A.~K. 2015,
+  \apj, 813, 93
 
 \bibitem[{{Takahashi} {et~al.}(2013){Takahashi}, {Yoshida}, \&
   {Umeda}}]{Takahashi:2013jx}
