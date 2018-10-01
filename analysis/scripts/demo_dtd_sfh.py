@@ -123,12 +123,12 @@ if __name__=='__main__':
 
     p0 = (1.03, 7.98, 1.2)
     p0 = (3.3, 0.5, 2.2)
-    #p0 = ( -2.99, 12.61, -7.6)
+    p0 = (-6.2, 9.7, -0.7)
 
     sfh0 = 19962
     sfh = '../ALLSFH_new_z/gsznnpas/'+str(sfh0)+'.dat'
     r_gxy = rate_per_galaxy(sfh, p0=p0, plotit=True) ## in number per year
-    print(r_gxy)
+    print('R_Ia = %2.2f per mileneum' %(r_gxy*1e3))
 
     candels_cat = loadtxt('../ALLSFH_new_z/CANDELS_GDSS_znew_avgal_radec.dat')
     redshift = candels_cat[sfh0-1,1]
@@ -139,7 +139,7 @@ if __name__=='__main__':
                   verbose=False,plot=False,parallel=False,Nproc=1,
                   prev=45.0, extinction=False)*(1.0+redshift)
     tcp = 2*tmp1 + 8*tmp2
-    print(tcp)
+    print('Control Time = %2.2f years' %tcp)
 
     iahost=True
     if iahost:
@@ -151,7 +151,7 @@ if __name__=='__main__':
         LL1=-N_expected_Ia_gxy
         LL2=0.0
     LL = LL1 + LL2
-    print (LL1, LL2)
+    print ('lnL for galaxies is %2.1e, and for Hosts is %2.1f' %(LL1, LL2))
     print ('Log Likelihood = %2.2f' %(LL))
     
     ## pdb.set_trace()

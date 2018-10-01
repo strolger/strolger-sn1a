@@ -19,7 +19,7 @@ if __name__=='__main__':
     tot = 0
     for file in files:
         samples = pickle.load(open(file,'rb'))
-        samples = samples[:,100:,:].reshape((-1,3))
+        samples = samples[:,:,:].reshape((-1,3))
         print('adding %d samples from %s... '%(len(samples), file))
         try:
             temp = concatenate((temp, samples), axis=0)
@@ -49,22 +49,20 @@ if __name__=='__main__':
 
     parameters = [r'$\xi$',r'$\omega$',r'$\alpha$']
     c = chc()
-    c.add_chain(samples, parameters=parameters, walkers=60)
+    c.add_chain(samples, parameters=parameters, walkers=100)
     latex_table = c.analysis.get_correlation_table()
     print (latex_table)
     latex_table = c.analysis.get_covariance_table()
     print(latex_table)
     ## fig = c.plotter.plot_walks(truth={r'$\xi$': md0, r'$\omega$': md1, '$\alpha$': md2},
     ##                            convolve=100)
-    ## show()
-    ## sys.exit()
     ## fig = c.plotter.plot_distributions(truth={r'$\xi$': md0, r'$\omega$': md1, '$\alpha$': k_mcmc[0]})
 
     ## grc = c.diagnostic.gelman_rubin()
     ## gc = c.diagnostic.geweke()
     ## print(grc,gc)
-
-    fig = c.plotter.plot(figsize="column", truth={r'$\xi$': md0, r'$\omega$': md1, r'$\alpha$': md2})
+    
+    fig = c.plotter.plot(figsize="column", truth={r'$\xi$': md0, r'$\omega$': md1, '$\alpha$': k_mcmc[0]})
     fig.set_size_inches(4.5 + fig.get_size_inches())
     savefig('figure_sfh_corners.png')
     

@@ -33,7 +33,10 @@ if __name__=='__main__':
     
     ax1.set_ylabel(r'$\Phi(\tau)$')
     ax2.set_xlabel('Time (Gyr)')
+    ax1.set_title(r'$(\xi)$')
+    ax2.set_title(r'$(\omega)$')
+    ax3.set_title(r'$(\alpha)$')
     tight_layout()
-    savefig('dtd_families.png')
+    savefig('figure_dtd_families.png')
     
     

@@ -15,11 +15,10 @@ L. Strolger
 if __name__=='__main__':
 
     files = glob.glob('mc_sfd_*.pkl')
-    ## temp = zeros((1,3),)
     tot = 0
     for file in files:
         samples = pickle.load(open(file,'rb'))
-        samples = samples[:,50:,:].reshape((-1,3))
+        samples = samples[:,50:,:].reshape((-1,5))
         print('adding %d samples from %s... '%(len(samples), file))
         try:
             temp = concatenate((temp, samples), axis=0)
@@ -31,31 +30,37 @@ if __name__=='__main__':
 
     ## gives back the 68% percentile range of values on each dimension
     ff_mcmc, m_mcmc, w_mcmc, k_mcmc, lnf_mcmc = map(lambda v: (v[1], v[2]-v[1], v[1]-v[0]),
-                                          zip(*np.percentile(samples, [16, 50, 84],
-                                                             axis=0)))     
-    print(r'scale: $f=%2.2f\pm%2.2f$'%(ff_mcmc[0], ff_mcmc[1]))
+                                                    zip(*np.percentile(samples, [16, 50, 84],
+                                                                       axis=0)))     
+    print(r'scale: $f=%2.3f\pm%2.3f$'%(ff_mcmc[0], ff_mcmc[1]))
     print(r'parameters: $\xi=%2.2f\pm%2.2f$; $\omega=%2.2f\pm%2.2f$; $\alpha=%2.2f\pm%2.2f$' %(m_mcmc[0], m_mcmc[1]
                                                                                                ,w_mcmc[0], w_mcmc[1]
                                                                                                ,k_mcmc[0], k_mcmc[1]))
 
-    md0 = u.binmode(samples[:,1],bins=20)[0]
-    md1 = u.binmode(samples[:,2],bins=20)[0]
-    md2 = u.binmode(samples[:,3],bins=20)[0]
-    print(md0, md1, md2)
+    md0 = u.binmode(samples[:,1],bins=200)[0]
+    md1 = u.binmode(samples[:,2],bins=200)[0]
+    md2 = u.binmode(samples[:,3],bins=200)[0]
+    md3 = u.binmode(samples[:,4],bins=200)[0]
+    print(md0, md1, md2, md3)
 
 
     print('m=%2.2f, %2.2f, %2.2f' %(m_mcmc[0], m_mcmc[1], m_mcmc[2]))
     print('w=%2.2f, %2.2f, %2.2f' %(w_mcmc[0], w_mcmc[1], w_mcmc[2]))
     print('k=%2.2f, %2.2f, %2.2f' %(k_mcmc[0], k_mcmc[1], k_mcmc[2]))
 
-    parameters = [r'$\xi$',r'$\omega$',r'$\alpha$']
+    parameters = [r'$f$',r'$\xi$',r'$\omega$',r'$\alpha$', r'$\log ff$']
     c = chc()
-    c.add_chain(samples, parameters=parameters, walkers=1000)
-    latex_table = c.analysis.get_correlation_table()
-    print (latex_table)
+    c.add_chain(samples, parameters=parameters, walkers=1000, name='Unimodal Model')
+    table1 = c.analysis.get_latex_table(caption="Results for the tested model", label="tab:example")
+    print(table1)
+    ## latex_table = c.analysis.get_correlation_table()
+    ## print (latex_table)
+    pdb.set_trace()
     latex_table = c.analysis.get_covariance_table()
     print(latex_table)
-    ## fig = c.plotter.plot_walks(truth={r'$\xi$': md0, r'$\omega$': md1, '$\alpha$': md2},
+    ## fig = c.plotter.plot_walks(truth={r'$f$':ff_mcmc[0], 
+    ##                                   r'$\xi$': md0, r'$\omega$': md1, r'$\alpha$': md2,
+    ##                                   r'$\log ff$':lnf_mcmc[0]},
     ##                            convolve=100)
     ## show()
     ## sys.exit()
@@ -67,7 +72,10 @@ if __name__=='__main__':
 
     fig = c.plotter.plot(figsize="column",
                          truth={r'$f$':ff_mcmc[0], 
-                                r'$\xi$': md0, r'$\omega$': md1, r'$\alpha$': md2})
+                                r'$\xi$': md0, r'$\omega$': md1, r'$\alpha$': md2,
+                                r'$\log ff$':md3},
+                         extents = [[-0.3, 0.4], [-1100.,100.0], [-10., 80], [-100., 500],[-4.2,0]]
+                         )
     fig.set_size_inches(4.5 + fig.get_size_inches())
-    savefig('figure_sfh_corners.png')
+    savefig('figure_sfd_corners.png')
     

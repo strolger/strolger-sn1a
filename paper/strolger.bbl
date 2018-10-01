@@ -1,19 +1,117 @@
-\begin{thebibliography}{4}
+\begin{thebibliography}{24}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{{Arnett}(1969)}]{Arnett:1969dw}
+{Arnett}, W.~D. 1969, \apss, 5, 180
+
+\bibitem[{{Breedt} {et~al.}(2017){Breedt}, {Steeghs}, {Marsh}, {Gentile
+  Fusillo}, {Tremblay}, {Green}, {De Pasquale}, {Hermes}, {G{\"a}nsicke},
+  {Parsons}, {Bours}, {Longa-Pe{\~n}a}, \& {Rebassa-Mansergas}}]{Breedt:2017rp}
+{Breedt}, E., {Steeghs}, D., {Marsh}, T.~R., {Gentile Fusillo}, N.~P.,
+  {Tremblay}, P.~E., {Green}, M., {De Pasquale}, S., {Hermes}, J.~J.,
+  {G{\"a}nsicke}, B.~T., {Parsons}, S.~G., {Bours}, M.~C.~P., {Longa-Pe{\~n}a},
+  P., \& {Rebassa-Mansergas}, A. 2017, \mnras, 468, 2910
+
+\bibitem[{{Catal{\'a}n} {et~al.}(2008){Catal{\'a}n}, {Isern},
+  {Garc{\'{\i}}a-Berro}, \& {Ribas}}]{Catalan:2008il}
+{Catal{\'a}n}, S., {Isern}, J., {Garc{\'{\i}}a-Berro}, E., \& {Ribas}, I. 2008,
+  \mnras, 387, 1693
+
+\bibitem[{Chen {et~al.}(2014)Chen, Herwig, Denissenkov, \&
+  Paxton}]{Chen:2014rb}
+Chen, M.~C., Herwig, F., Denissenkov, P.~A., \& Paxton, B. 2014, Monthly
+  Notices of the Royal Astronomical Society, 440, 1274
+
+\bibitem[{{Cummings} {et~al.}(2018){Cummings}, {Kalirai}, {Tremblay},
+  {Ramirez-Ruiz}, \& {Choi}}]{Cummings:2018oe}
+{Cummings}, J.~D., {Kalirai}, J.~S., {Tremblay}, P.-E., {Ramirez-Ruiz}, E., \&
+  {Choi}, J. 2018, ArXiv e-prints
+
+\bibitem[{Denissenkov {et~al.}(2015)Denissenkov, Truran, Herwig, Jones, Paxton,
+  Nomoto, Suzuki, \& Toki}]{Denissenkov:2015rf}
+Denissenkov, P.~A., Truran, J.~W., Herwig, F., Jones, S., Paxton, B., Nomoto,
+  K., Suzuki, T., \& Toki, H. 2015, Monthly Notices of the Royal Astronomical
+  Society, 447, 2696
+
+\bibitem[{{Driver} {et~al.}(2018){Driver}, {Andrews}, {da Cunha}, {Davies},
+  {Lagos}, {Robotham}, {Vinsen}, {Wright}, {Alpaslan}, {Bland-Hawthorn},
+  {Bourne}, {Brough}, {Bremer}, {Cluver}, {Colless}, {Conselice}, {Dunne},
+  {Eales}, {Gomez}, {Holwerda}, {Hopkins}, {Kafle}, {Kelvin}, {Loveday},
+  {Liske}, {Maddox}, {Phillipps}, {Pimbblet}, {Rowlands}, {Sansom}, {Taylor},
+  {Wang}, \& {Wilkins}}]{Driver:2018nr}
+{Driver}, S.~P., {Andrews}, S.~K., {da Cunha}, E., {Davies}, L.~J., {Lagos},
+  C., {Robotham}, A.~S.~G., {Vinsen}, K., {Wright}, A.~H., {Alpaslan}, M.,
+  {Bland-Hawthorn}, J., {Bourne}, N., {Brough}, S., {Bremer}, M.~N., {Cluver},
+  M., {Colless}, M., {Conselice}, C.~J., {Dunne}, L., {Eales}, S.~A., {Gomez},
+  H., {Holwerda}, B., {Hopkins}, A.~M., {Kafle}, P.~R., {Kelvin}, L.~S.,
+  {Loveday}, J., {Liske}, J., {Maddox}, S.~J., {Phillipps}, S., {Pimbblet}, K.,
+  {Rowlands}, K., {Sansom}, A.~E., {Taylor}, E., {Wang}, L., \& {Wilkins},
+  S.~M. 2018, \mnras, 475, 2891
 
 \bibitem[{Foreman-Mackey(2016)}]{Foreman-Mackey:2016ve}
 Foreman-Mackey, D. 2016, The Journal of Open Source Software, 24
 
 \bibitem[{{Foreman-Mackey} {et~al.}(2013){Foreman-Mackey}, {Hogg}, {Lang}, \&
   {Goodman}}]{Foreman-Mackey:2013pd}
-{Foreman-Mackey}, D., {Hogg}, D.~W., {Lang}, D., \& {Goodman}, J. 2013, \pasp,
+{Foreman-Mackey}, D., {Hogg}, D.~W., {Lang}, D., \& {Goodman}, J. 2013, PASP,
   125, 306
+
+\bibitem[{{Hinton}(2016)}]{Hinton:2016qy}
+{Hinton}, S.~R. 2016, The Journal of Open Source Software, 1, 00045
+
+\bibitem[{{Hogg} {et~al.}(2010){Hogg}, {Bovy}, \& {Lang}}]{Hogg:2010fj}
+{Hogg}, D.~W., {Bovy}, J., \& {Lang}, D. 2010, ArXiv e-prints
+
+\bibitem[{{Kroupa}(2001)}]{Kroupa:2001gf}
+{Kroupa}, P. 2001, \mnras, 322, 231
+
+\bibitem[{{Madau} \& {Dickinson}(2014)}]{Madau:2014fk}
+{Madau}, P., \& {Dickinson}, M. 2014, \araa, 52, 415
+
+\bibitem[{{Maoz} \& {Hallakoun}(2017)}]{Maoz:2017zl}
+{Maoz}, D., \& {Hallakoun}, N. 2017, \mnras, 467, 1414
+
+\bibitem[{{Maoz} \& {Mannucci}(2012)}]{Maoz:2012}
+{Maoz}, D., \& {Mannucci}, F. 2012, PASA, 29, 447
 
 \bibitem[{{Maoz} {et~al.}(2012){Maoz}, {Mannucci}, \& {Brandt}}]{Maoz:2012a}
 {Maoz}, D., {Mannucci}, F., \& {Brandt}, T.~D. 2012, \mnras, 426, 3282
 
+\bibitem[{{Maoz} {et~al.}(2013){Maoz}, {Mannucci}, \& {Nelemans}}]{Maoz:2013}
+{Maoz}, D., {Mannucci}, F., \& {Nelemans}, G. 2013, ArXiv e-prints
+
+\bibitem[{{Napiwotzki} {et~al.}(2007){Napiwotzki}, {Karl}, {Nelemans},
+  {Yungelson}, {Christlieb}, {Drechsel}, {Heber}, {Homeier}, {Koester},
+  {Leibundgut}, {Marsh}, {Moehler}, {Renzini}, \& {Reimers}}]{Napiwotzki:2007}
+{Napiwotzki}, R., {Karl}, C.~A., {Nelemans}, G., {Yungelson}, L., {Christlieb},
+  N., {Drechsel}, H., {Heber}, U., {Homeier}, D., {Koester}, D., {Leibundgut},
+  B., {Marsh}, T.~R., {Moehler}, S., {Renzini}, A., \& {Reimers}, D. 2007, in
+  Astronomical Society of the Pacific Conference Series, Vol. 372, 15th
+  European Workshop on White Dwarfs, ed. R.~{Napiwotzki} \& M.~R. {Burleigh},
+  387
+
+\bibitem[{{Nelemans} {et~al.}(2001{\natexlab{a}}){Nelemans}, {Portegies Zwart},
+  {Verbunt}, \& {Yungelson}}]{Nelemans:2001hb}
+{Nelemans}, G., {Portegies Zwart}, S.~F., {Verbunt}, F., \& {Yungelson}, L.~R.
+  2001{\natexlab{a}}, \aap, 368, 939
+
+\bibitem[{{Nelemans} {et~al.}(2001{\natexlab{b}}){Nelemans}, {Yungelson},
+  {Portegies Zwart}, \& {Verbunt}}]{Nelemans:2001cs}
+{Nelemans}, G., {Yungelson}, L.~R., {Portegies Zwart}, S.~F., \& {Verbunt}, F.
+  2001{\natexlab{b}}, \aap, 365, 491
+
+\bibitem[{{Nomoto}(1982)}]{Nomoto:1982vh}
+{Nomoto}, K. 1982, \apj, 253, 798
+
+\bibitem[{{Salpeter}(1955)}]{Salpeter:1955rw}
+{Salpeter}, E.~E. 1955, \apj, 121, 161
+
 \bibitem[{{Strolger} {et~al.}(2010){Strolger}, {Dahlen}, \&
   {Riess}}]{Strolger:2010}
 {Strolger}, L., {Dahlen}, T., \& {Riess}, A.~G. 2010, \apj, 713, 32
+
+\bibitem[{{Takahashi} {et~al.}(2013){Takahashi}, {Yoshida}, \&
+  {Umeda}}]{Takahashi:2013jx}
+{Takahashi}, K., {Yoshida}, T., \& {Umeda}, H. 2013, \apj, 771, 28
 
 \end{thebibliography}

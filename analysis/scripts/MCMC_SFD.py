@@ -19,17 +19,19 @@ def dtdfit(time,*p):
     ff, m, w, k = p
     scale = quad(imf.salpeter,3,8)[0]/quad(imf.salpeter1,0.1,125)[0]
     scale = scale *0.7**2.*1e4
-    sfh = rz.sfr_behroozi_12(time)
+    par_model = [0.013, 2.6, 3.2, 6.1]
+    sfh = rz.csfh_time(time, *par_model)
+    ## sfh = rz.sfr_behroozi_12(time)
     dt = sum(diff(time))/(len(time)-1)
     p1 = (m, w, k)
-    res = rz.dtdfunc(time, *p1)
+    res = rz.dtdfunc(time, *p1, norm=True)
     tmp = convolve(sfh, res, 'full')
     return(ff*tmp[:len(time)]*dt*scale)
 
 
 def lnprior(p):
     ff, m, w, k, lnf = p
-    if 0.0 < ff < 1.0 and -20.0 < m < 15.0 and 0.0 < w < 20.0 and -10.0 < k < 5.0 and -5.0 < lnf < 1.0:
+    if 0.0 < ff < 1.0 and -2000.0 < m < 2000.0 and -5. < w < 100.0 and -500.0 < k < 500.0 and -4.0 < lnf < 0.0:
         return 0.0
     else:
         return -np.inf
@@ -62,26 +64,12 @@ if __name__=='__main__':
     data[:,0] = tt
     data = data[argsort(data[:,0])]
     
-    ## import scipy.optimize as op
-    ## nll = lambda *args: -lnlike(*args)
-    ## p0 = (0.05, 3.5, 2.5, 2.5, 0.5)
-    ## res = op.minimize(nll, [p0[0],p0[1],p0[2],p0[3],log(p0[4])],
-    ##                   bounds=[(0.,1.0),(-200.,200.),(0.001,10.),(-5.0,5.0),(-4.,0.)],
-    ##                   args=(data[:,0], data[:,1], data[:,2]))
-    
-    ## p2=res['x'][1:4]
-    
-    ## print(res['x'])
-    ## plot_one(rates,'junk.png',*p2, frac=res['x'][0])
-    ## pdb.set_trace()
-    ## sys.exit()
-
     import time
     import multiprocessing as mpc
     ncore = mpc.cpu_count()
-    ndim, nwalkers, nsteps = 5, 1000, 1000
+    ndim, nwalkers, nsteps = 5, 1000, 10000
     step_size = 1.0
-    p0 = (0.06, -5.5, 6.8, -5.1, -0.7)
+    p0 = (0.05, 3.5, 2.5, 2.5, 0.01)
 
 
     mckaps = glob.glob('mc_sfd_*.pkl')

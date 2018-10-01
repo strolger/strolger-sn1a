@@ -3,44 +3,62 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: strolger.aux
 The style file: apj.bst
 Database file #1: strolger.bib
-You've used 4 entries,
+Reallocated buffer (elt_size=1) to 40000 items from 20000.
+Reallocated sv_buffer (elt_size=1) to 40000 items from 20000.
+Reallocated ex_buf (elt_size=1) to 40000 items from 20000.
+Reallocated out_buf (elt_size=1) to 40000 items from 20000.
+Reallocated name_tok (elt_size=4) to 40000 items from 20000.
+Reallocated name_sep_char (elt_size=1) to 40000 items from 20000.
+Reallocated buffer (elt_size=1) to 60000 items from 40000.
+Reallocated sv_buffer (elt_size=1) to 60000 items from 40000.
+Reallocated ex_buf (elt_size=1) to 60000 items from 40000.
+Reallocated out_buf (elt_size=1) to 60000 items from 40000.
+Reallocated name_tok (elt_size=4) to 60000 items from 40000.
+Reallocated name_sep_char (elt_size=1) to 60000 items from 40000.
+Reallocated buffer (elt_size=1) to 80000 items from 60000.
+Reallocated sv_buffer (elt_size=1) to 80000 items from 60000.
+Reallocated ex_buf (elt_size=1) to 80000 items from 60000.
+Reallocated out_buf (elt_size=1) to 80000 items from 60000.
+Reallocated name_tok (elt_size=4) to 80000 items from 60000.
+Reallocated name_sep_char (elt_size=1) to 80000 items from 60000.
+You've used 24 entries,
             2948 wiz_defined-function locations,
-            675 strings with 5226 characters,
-and the built_in function-call counts, 1696 in all, are:
-= -- 145
-> -- 102
-< -- 1
-+ -- 37
-- -- 33
-* -- 139
-:= -- 331
-add.period$ -- 4
-call.type$ -- 4
-change.case$ -- 27
-chr.to.int$ -- 4
-cite$ -- 4
-duplicate$ -- 73
-empty$ -- 104
-format.name$ -- 43
-if$ -- 323
-int.to.chr$ -- 1
+            805 strings with 9687 characters,
+and the built_in function-call counts, 12729 in all, are:
+= -- 1004
+> -- 1051
+< -- 10
++ -- 389
+- -- 362
+* -- 1171
+:= -- 2452
+add.period$ -- 24
+call.type$ -- 24
+change.case$ -- 216
+chr.to.int$ -- 23
+cite$ -- 24
+duplicate$ -- 450
+empty$ -- 645
+format.name$ -- 429
+if$ -- 2390
+int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 4
-newline$ -- 16
-num.names$ -- 16
-pop$ -- 27
+missing$ -- 23
+newline$ -- 76
+num.names$ -- 97
+pop$ -- 231
 preamble$ -- 1
-purify$ -- 27
+purify$ -- 216
 quote$ -- 0
-skip$ -- 61
+skip$ -- 375
 stack$ -- 0
-substring$ -- 74
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 483
+swap$ -- 10
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 36
+type$ -- 216
 warning$ -- 0
-while$ -- 15
+while$ -- 93
 width$ -- 0
-write$ -- 43
+write$ -- 240

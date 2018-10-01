@@ -19,8 +19,8 @@ import emcee
 import control_time as tc
 import warnings
 
-ndim, nwalkers, nsteps = 3, 60, 60
-#ndim, nwalkers, nsteps = 3, 60, 800
+## ndim, nwalkers, nsteps = 3, 60, 150
+ndim, nwalkers, nsteps = 3, 60, 800
 
 bounds = [
     [-15.,15.],
@@ -120,17 +120,15 @@ def lnlike(p):
     LL2 = 0.0
     for k in sfhs.keys():
         r_gxy = rate_per_galaxy(sfhs[k], p0=p) ## in number per year
-        if ((r_gxy == 0. ) | (not isfinite(r_gxy))):
-            return(-np.inf)
+        if ((r_gxy == 0. ) | (not isfinite(r_gxy))):return(-np.inf)
+
+        N_expected_Ia_gxy = r_gxy * tcp[k]
+        LL1a=N_expected_Ia_gxy
+        if k in ia_host_codex[:,0]:
+            LL2a=log(N_expected_Ia_gxy)
         else:
-            N_expected_Ia_gxy = r_gxy * tcp[k]
-            LL1a=N_expected_Ia_gxy
-            if k in ia_host_codex[:,0]:
-                LL2a=log(N_expected_Ia_gxy)
-            else:
-                LL2a=0.0
-                
-    LL1+=LL1a; LL2+=LL2a
+            LL2a=0.0
+        LL1+=LL1a; LL2+=LL2a
     LL = - LL1 + LL2
     if not isfinite(LL):
         return(-np.inf)
@@ -203,8 +201,6 @@ if __name__ == '__main__':
     for item in range(len(in_list)):
         tcp[item+1]=out_list[item]
 
-    #lnlike(p0)
-    #pdb.set_trace()
     if not os.path.isfile(out_sampler) or delete:
         if verbose: print ('Running MCMC... watch the load sparkle!')
         ## p0 = [p0 + step_sep*np.random.randn(ndim) for i in range(nwalkers)]
