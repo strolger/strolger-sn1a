@@ -111,10 +111,16 @@ ax.fill_between(redshifts, upperband, lowerband, alpha=0.4)
 
 
 p0 = [0.015, 1.5, 5.0, 6.1]
+perr = [0.001, 0.1, 0.2, 0.2]
 ax.plot(redshifts, func(redshifts, *p0), 'g-', label = 'CC rates')
-dfdp= dfdp_m(p0,redshifts)
-yjunk, upperband, lowerband = fobj.confidence_band(redshifts, dfdp, confprob, model)
-ax.fill_between(redshifts, upperband, lowerband, alpha=0.4)
+
+zz = linspace(min(redshifts), max(redshifts), 100)
+cov = diag(array(perr)**2.)
+ps = np.random.multivariate_normal(p0, cov, 10000)
+ysample = asarray([func(zz, *pi) for pi in ps])
+lower = percentile(ysample, 15.9, axis=0)
+upper = percentile(ysample, 84.1, axis=0)
+ax.fill_between(zz, upper, lower, color='green', alpha=0.2)
 
 
 
