@@ -33,7 +33,7 @@ def dtdfit(time,*p):
 
 def lnprior(p):
     ff, m, w, k, lnf = p
-    if m==0. and w==0. and k==0.:
+    if m==0. or w==0. or k==0.:
         return -np.inf
     elif 0.0 < ff < 1.0 and -2000.0 < m < 2000.0 and -5. < w < 100.0 and -500.0 < k < 500.0 and -4.0 < lnf < 0.0:
         return 0.0

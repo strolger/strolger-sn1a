@@ -19,7 +19,8 @@ def plot_one(rates,plotname,*p, frac=0.05, age=13.6):
     lbt = age - tt
     zz = [ct.cosmoz(x) for x in lbt]
 
-    sfh = rz.sfr_behroozi_12(tt)
+    par_model = [0.013, 2.6, 3.2, 6.1]
+    sfh = rz.csfh_time(tt, *par_model)
     dtd = rz.dtdfunc(tt, *p)
     pwrl = (-1.0,1.0)
     dud = rz.powerdtd(tt, *pwrl)
