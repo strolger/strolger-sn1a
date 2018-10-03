@@ -20,7 +20,7 @@ def dtdfit(time,*p):
     scale = quad(imf.salpeter,3,8)[0]/quad(imf.salpeter1,0.1,125)[0]
     scale = scale *0.7**2.*1e4
     par_model = [0.013, 2.6, 3.2, 6.1] ## MD14
-    par_model = [0.009, 2.7, 2.5, 4.1] ## Driver18
+    ## par_model = [0.009, 2.7, 2.5, 4.1] ## Driver18
     
     sfh = rz.csfh_time(time, *par_model)
     ## sfh = rz.sfr_behroozi_12(time)
@@ -43,7 +43,11 @@ def lnlike(p, x, y, yerr):
     p1 = (ff, m, w, k)
     model = dtdfit(x,*p1)
     inv_sigma2 = 1.0/(yerr**2 + model**2*np.exp(2*lnf))
-    return -0.5*(np.sum((y-model)**2*inv_sigma2 - np.log(inv_sigma2)))
+    if sum(model)==0.:
+        retval=-np.inf
+    else:
+        retval =  -0.5*(np.sum((y-model)**2*inv_sigma2 - np.log(inv_sigma2)))
+    return retval
 
 def lnprob(p, x, y, yerr):
     lp = lnprior(p)
