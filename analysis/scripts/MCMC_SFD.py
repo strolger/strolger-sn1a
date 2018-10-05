@@ -35,7 +35,8 @@ def lnprior(p):
     ff, m, w, k, lnf = p
     ## if abs(m) < 10. or abs(w) < 10. or abs(k) < 10.:
     ##     return -np.inf
-    if 0.0 < ff < 1.0 and -2000.0 < m < 2000.0 and 0.01 < w < 100.0 and -500.0 < k < 500.0 and -4.0 < lnf < -0.1:
+    ## if 0.0 < ff < 1.0 and -2000.0 < m < 2000.0 and 0.01 < w < 100.0 and -500.0 < k < 500.0 and -4.0 < lnf < -0.1:
+    if 0.0 < ff < 1.0 and -100.0 < m < 100.0 and 0.01 < w < 10.0 and -50.0 < k < 50.0 and -4.0 < lnf < -0.1:
         return 0.0
     else:
         return -np.inf

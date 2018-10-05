@@ -43,10 +43,12 @@ if __name__=='__main__':
     md3 = u.binmode(samples[:,4],bins=200)[0]
     print(md0, md1, md2, md3)
 
-
+    print()
+    print('ff=%2.3f, %2.3f, %2.3f' %(ff_mcmc[0], ff_mcmc[1], ff_mcmc[2]))
     print('m=%2.2f, %2.2f, %2.2f' %(m_mcmc[0], m_mcmc[1], m_mcmc[2]))
     print('w=%2.2f, %2.2f, %2.2f' %(w_mcmc[0], w_mcmc[1], w_mcmc[2]))
     print('k=%2.2f, %2.2f, %2.2f' %(k_mcmc[0], k_mcmc[1], k_mcmc[2]))
+    print('lnf=%2.2f, %2.2f, %2.2f' %(lnf_mcmc[0], lnf_mcmc[1], lnf_mcmc[2]))
 
     parameters = [r'$\varepsilon$',r'$\xi$',r'$\omega$',r'$\alpha$', r'$\log f$']
     c = chc()
@@ -75,8 +77,8 @@ if __name__=='__main__':
                          truth={r'$\varepsilon$':ff_mcmc[0], 
                                 r'$\xi$': m_mcmc[0], r'$\omega$': 65., r'$\alpha$': k_mcmc[0],
                                 r'$\log f$':md3},
-                         ## extents = [[-0.2, 0.4], [-1900.,-200.0], [10., 90], [50., 500],[-4.2,0]]
-                         extents = [[-0.2, 0.4], [-1900.,200.0], [-0.1, 90], [-200., 500],[-4.2,0.1]]
+                         extents = [[-0.2, 0.4], [-1900.,-200.0], [10., 90], [50., 500],[-4.2,0]]
+                         ## extents = [[-0.2, 0.4], [-1900.,200.0], [-0.1, 90], [-200., 500],[-4.2,0.1]]
                          )
     fig.set_size_inches(4.5 + fig.get_size_inches())
     savefig('figure_sfd_corners.png')
