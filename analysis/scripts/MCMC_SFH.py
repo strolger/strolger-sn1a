@@ -20,13 +20,19 @@ import control_time as tc
 import warnings
 
 ## ndim, nwalkers, nsteps = 3, 60, 150
-ndim, nwalkers, nsteps = 3, 60, 800
+ndim, nwalkers, nsteps = 3, 60, 1000
 
 bounds = [
-    [-15.,15.],
-    [0.,15.],
-    [-15.,15.]
+    [-2000., 2000.],
+    [0.01,100.],
+    [-500.,500.]
     ]
+
+## bounds = [
+##     [-15.,15.],
+##     [0.,15.],
+##     [-15.,15.]
+##     ]
     
 
 def get_sfhs(verbose=True, delete=False):
@@ -161,11 +167,12 @@ if __name__ == '__main__':
 
     ncore = mpc.cpu_count()
     step_sep = 5.0
-    p0 = (3.3, 0.5, 2.2)
+    ## p0 = (3.3, 0.5, 2.2)
     ## p0 = (-1.5, 0.5, -12.)
+    p0 = (-100., 50, 20)
+    
     timestamp=datetime.datetime.now().strftime('%Y%m%d%H%M')
     out_sampler = 'mc_sfh_%s.pkl' %timestamp
-    ## out_sampler = 'mc_sfh_201806121453.pkl'
     verbose=True
     delete=False
     

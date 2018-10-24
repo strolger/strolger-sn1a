@@ -33,10 +33,7 @@ def dtdfit(time,*p):
 
 def lnprior(p):
     ff, m, w, k, lnf = p
-    ## if abs(m) < 10. or abs(w) < 10. or abs(k) < 10.:
-    ##     return -np.inf
-    ## if 0.0 < ff < 1.0 and -2000.0 < m < 2000.0 and 0.01 < w < 100.0 and -500.0 < k < 500.0 and -4.0 < lnf < -0.1:
-    if 0.0 < ff < 1.0 and -100.0 < m < 100.0 and 0.01 < w < 10.0 and -50.0 < k < 50.0 and -4.0 < lnf < -0.1:
+    if 0.0 < ff < 1.0 and -2000.0 < m < 2000.0 and 0.01 < w < 100.0 and -500.0 < k < 500.0 and -4.0 < lnf < 0.0:
         return 0.0
     else:
         return -np.inf
@@ -76,9 +73,10 @@ if __name__=='__main__':
     import time
     import multiprocessing as mpc
     ncore = mpc.cpu_count()
-    ndim, nwalkers, nsteps = 5, 1000, 1000
+    ndim, nwalkers, nsteps = 5, 1000, 2000
     step_size = 1.0
-    p0 = (0.05, 3.5, 2.5, 2.5, 0.01)
+    ## p0 = (0.05, 3.5, 2.5, 2.5, 0.01)
+    p0 = (0.06, -100., 50, 20, -2.5)
 
 
     mckaps = glob.glob('mc_sfd_*.pkl')
@@ -125,4 +123,4 @@ if __name__=='__main__':
     fig = corner.corner(samples,labels=['frac', r'$\xi$',r'$\omega$',r'$\alpha$', 'lnf'],
                         truths=[ff_mcmc[0], md0, md1, md2, lnf_mcmc[0]])
                         ## truths=[ff_mcmc[0], m_mcmc[0], w_mcmc[0], k_mcmc[0], lnf_mcmc[0]])
-    fig.savefig('temporary.png')
+    fig.savefig('figure_preliminary_sfd_corners.png')

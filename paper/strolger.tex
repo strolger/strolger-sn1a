@@ -37,7 +37,7 @@ For these types of analyses, the standard assumption is that the stellar death r
 We can relate volumetric SN~Ia rate history to the cosmic star formation history($\dot{\rho}_{\star}$) in a similar way, expressed mathematically by, 
 \begin{equation}
 %R_{Ia}(t) = k\varepsilon\int_0^t \dot{\rho}_{\star}(\tau) \ast \Phi(t' - \tau)\,dt',
-R_{\rm Ia}(t) = k\,\varepsilon\,\biggl[\dot{\rho}_{\star}(t) \ast \Phi(t)\biggr],
+R_{\rm Ia}(t) = k\,\varepsilon\, h^2\,\biggl[\dot{\rho}_{\star}(t) \ast \Phi(t)\biggr],
 \label{eqn:std}
 \end{equation}
 \noindent where $\Phi(t)$ is the delay-time distribution of SNe~Ia, $k$ is the fraction of the IMF (by mass) responsible for SN~Ia progenitors, $\varepsilon$ is the fraction of that population that are ultimately successful in producing SNe~Ia, and $t$ is the forward-moving clock of the universe. 
@@ -110,7 +110,7 @@ where $\delta=\alpha\,(1+\alpha^2)^{-1/2}$. Figure~\ref{fig:dtd_families} demons
 
 \section{Delay Time Distributions from Volumetric SN~Ia Rates and the Cosmic Star Formation History}
 
-\subsection{The optimized solution}
+\subsection{The optimized solution\label{sec:optimized_soln}}
 We apply a maximum likelihood estimation method to determine the best-fit unimodal delay time model to Equation~\ref{eqn:std} using a method described in \cite{Hogg:2010fj} and the {\tt emcee.py} documentation~\citep{Foreman-Mackey:2013pd}. We assume, for simplicity, that the errors of all survey data are gaussian in nature, but may be underestimated by some factor ($f$), which may be correctly justified given we are only using the statistical error produced for each value. 
 
 \begin{figure}[t] %  figure placement: here, top, bottom, or page
@@ -140,7 +140,7 @@ As for priors, we apply rather loose, arbitrary bounds on the optimization, in t
     \label{tab:results}
     \begin{tabular}{cccccc}
         \hline
-                Model test & $\varepsilon$ & $\xi$ & $\omega$ & $\alpha$ & $\log f$ \\ 
+                Model test & $\varepsilon$ & $\xi$ & $\omega$ & $\alpha$ & $\ln f$ \\ 
                 \hline
 		CSFH Max.~Likelihood &$0.062$&$-1669.7$& $69.1$& $88.7$& $-2.99$\\
                 CSFH MCMC & $0.058^{+0.003}_{-0.007}$ & $-1090^{+1050}_{-650}$ &$54^{+15}_{-40}$& $202^{+203}_{-198}$&  $-2.5^{+1.5}_{-0.9}$\\
@@ -150,10 +150,8 @@ As for priors, we apply rather loose, arbitrary bounds on the optimization, in t
 
 While the optimization results in values, and a rather interesting delay-time distribution, it is not directly possible to estimate the errors in the parameters via this maximum likelihood optimization method. A Markov chain Monte Carlo (MCMC) is better suited for that.
 
-\subsection{The MCMC solution}
+\subsection{The MCMC solution\label{sec:mcmc_sfd}}
 Exploring the parameter space in an MCMC allows both confirmation of the optimized solution and an exploration of the range of validity. We use the affine Invariant MCMC ensemble sampler from {\tt emcee.py}~\citep{Foreman-Mackey:2013pd}, and use the same likelihood function as shown in Equation~\ref{eqn:lf}, and set our uniform priors as described by the bounds, as shown in the previous section. We then set 1,000 walkers to explore 10,000 steps, for a total of 10 million iterations, the first 100,000 of which we discard as `burn-in'. The results of which are shown in Figure~\ref{fig:mcmc_sfd} and Table~\ref{tab:results}.
-
-As is shown, there is a clear convergence in $\ln f$, the factor by which reported errors in rate measures are underestimated. It seems that nearly all values are underestimated by less than 33\%, with most only 10\% underestimated. While there is a large dispersion in rate values, and seemingly inconsistent rates in some of the same redshift ranges, their statistical errors are not grossly underestimated. As fairly well constrained is $\varepsilon$, suggesting (as expected) only $10\pm10\%$ of WD stars contribute as SN~Ia progenitors. That number increases to  $0.14^{+0.13}_{-0.14}$ when the D18 CSFH is used. However, the parameters we wished to know the most about,  $\xi$, $\omega$, and $\alpha$, are very much less constrained by the MCMC. There is a clear peak around $\omega\approx60$, but that value is also highly degenerate with the value of $\xi$.  There does not appear to be any convergence or preference in the value of $\alpha$.
 
 \begin{figure}[t] %  figure placement: here, top, bottom, or page
    \centering
@@ -163,52 +161,60 @@ As is shown, there is a clear convergence in $\ln f$, the factor by which report
 \end{figure}
 \clearpage
 
+\begin{figure}[t] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=6.5in]{figure_fit_demo_werr} 
+   \caption{\footnotesize Similar to Figure~\ref{fig:sfd_optimized_curvefit}, the $R_{\rm Ia}(z)$ result of from MCMC fitting is shown (blue line), with the 68\% confidence interval, in green. }
+   \label{fig:figure_fit_demo_werr}
+\end{figure}
 
+As is shown, there is a clear convergence in $\ln f$, the factor by which reported errors in rate measures are underestimated. It seems that nearly all values are underestimated by less than 37\%, with most only about 8\% underestimated. While there is a large dispersion in rate values, and seemingly inconsistent rates in some of the same redshift ranges, their values are reasonably consistent with statistical errors, which are not grossly underestimated. Also fairly well constrained is the fraction $\varepsilon$, where only $5.8^{+0.3}_{-0.7}\%$ of WD stars contribute as SN~Ia progenitors. That number increases to  $0.14^{+0.13}_{-0.14}$ when the D18 CSFH is used. However, the parameters we wished to know the most about,  $\xi$, $\omega$, and $\alpha$, appear very much less constrained by the MCMC. There is a clear peak around $\omega\approx60$, but that value is also highly degenerate with the value of $\xi$.  There does not appear to be any convergence or preference in the value of $\alpha$.
+
+
+While this does not seem to show a clear preference for any specific value set for the model, it does indicate a specific family of solutions that are related. As shown in Figure~\ref{fig:figure_fit_demo_werr}, the 68\% confidence interval about the best fit parameters, all indicate a rather flat DTD. The $t^{-1}$ model is, however, within the 2-$\sigma$ region. 
 
 
 \section{Delay Time Distributions from Star Formation Histories}
-This is an evaluation of the maximum likelihood delay time distribution following the prescription of \cite{Maoz:2012a} but performed on the GOODS/CANDELS galaxies. In a given galaxy, the total expected rate of SNe~Ia per year will be:
+\begin{figure}[t] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=6.5in]{figure_sfh_demo} 
+   \caption{\footnotesize Similar to Figure~\ref{fig:sfd_optimized_curvefit}, the $R_{\rm Ia}(z)$ result of from MCMC fitting is shown (blue line), with the 68\% confidence interval, in green. }
+   \label{fig:figure_sfh_fit_demo}
+\end{figure}
+
+This is an evaluation of the maximum likelihood delay time distribution following the prescription of \cite{Maoz:2012a} but performed on the GOODS/CANDELS galaxies. For a given galaxy, the rate history of SNe~Ia per year ($r_i$) would be:
 \begin{equation}
-R_i = \int_0^t \Psi(t') \ast \Phi(\tau)\,dt'
+r_i (t) = k\,\varepsilon\,h^2\, \int_0^t \Psi(t')\,\Phi(\tau-t')\,dt',
+\label{eqn:rate_history}
 \end{equation}
-\noindent where $\Psi(t)$ is the star formation history of the galaxy (mapped in forward time), and $\Phi(\tau)$ is the delay time distribution model, also forward in time. The product of the integrated rate and the control time, $t'_{c, i}$, which contains all the information on the temporal sampling and depth of the survey, 
+\noindent where $\Psi$ is the star formation history of the galaxy (mapped in look-forward time), and $\Phi$ is the delay time distribution model, also in look-forward time. Figure~\ref{fig:figure_sfh_fit_demo} shows and example``SN~Ia rate history'' one would derive from Equation~\ref{eqn:rate_history} using the best-fit model from the MCMC on CSFHs, done in the previous sections.
+
+The product of the rate at the observed epoch ($r_{i,0}$) and the observed control time ($t'_{c, i}$) of the galaxy-- which contains all the information on the temporal sampling and depth of the survey--  give ($m_i$) the expected number of observed SN~Ia events over the duration of the survey, or
 \begin{equation}
-m_i = R_i \times t'_{c, i}
+m_i = r_i \, t'_{c, i}.
 \end{equation}
-\noindent which is the expected number of SN Ia events from that galaxy over the duration of the survey. The probability distribution of observed events is likely Poisson, where of catching $n_i$ SNe~Ia from that galaxy when $m_i$ are expected is
+\noindent The probability distribution of those observed events is likely Poisson, where of catching $n_i$ SNe~Ia from that galaxy when $m_i$ are expected is
 \begin{equation}
 P(n_i | m_i) = \frac{m_i^{n_i}e^{-m_i}}{n_i!}.
 \end{equation}
-The product of probabilities for all galaxies in the survey would then serve as the likelihood of a given delay-time distribution model. The log-likelihood, convenient for MCMCs, is then expressed by:cp 
+\noindent The product of probabilities for all galaxies in the survey would then serve as the likelihood of a given delay-time distribution model. The log-likelihood, convenient for MCMCs, is then expressed by:
 \begin{equation}
 L = \prod _i^N P(n_i|M_i) \Rightarrow \ln L = -\sum^N m_i+\sum^N\ln\biggl(\frac{m_i^{n_i}}{n_i!}\biggr)
 \end{equation}
-\noindent in which the last term is zero for galaxies which do not host SNe~Ia during the survey.
+\noindent in which the last term is zero for the galaxies which did not host SNe~Ia during the survey.
 
 
-The model parameters, $\xi$, $\omega$, and $\alpha$ are explored in an Affine Invariant Markov-chain Monte Carlo using {\tt emcee.py} \citep{Foreman-Mackey:2013pd}. As for priors, we restrict the parameters to the space:
-
-\begin{eqnarray*}
--15 <&  \xi &\le 15\\
-0 <&\omega &\le 15\\
--15 <&  \alpha &\le 15\\
-\end{eqnarray*}
+The model parameters, $\xi$, $\omega$, and $\alpha$ is then explorable via {\tt emcee.py}. We keep the same uniform priors as bounds, as described in Sections~\ref{sec:optimized_soln} and \ref{sec:mcmc_sfd}.
 
 
 \begin{figure}[t] %  figure placement: here, top, bottom, or page
    \centering
-   \includegraphics[width=4in]{Figure_1} 
-   \caption{\footnotesize MCMC results on 147 galaxies in CANDELS, 49 of which are SN~Ia hosts. Plot generated using {\tt corner.py} \citep{Foreman-Mackey:2016ve}.}
-   \label{fig:fg1}
-\end{figure}
-\begin{figure}[h] %  figure placement: here, top, bottom, or page
-   \centering
-   \includegraphics[width=4.5in]{Figure_2} 
-   \caption{\footnotesize Example of best-fit delay-time distribution (inset) on the SFH of a sample host galaxy. }
-   \label{fig:fg2}
+   \includegraphics[width=6.5in]{figure_sfh_corners} 
+   \caption{\footnotesize MCMC results on unimodal delay-time distribution model, fit to SFHs for 147 galaxies in CANDELS, 49 of which are SN~Ia hosts.}
+   \label{fig:mcmc_sfd}
 \end{figure}
 
-\section{discusssion}
+\section{discussion}
 
 \bibliography{strolger}{}
 

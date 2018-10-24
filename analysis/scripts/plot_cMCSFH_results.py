@@ -14,12 +14,13 @@ L. Strolger
 
 if __name__=='__main__':
 
-    files = glob.glob('mc_sfh_201806*.pkl')
+    ## files = glob.glob('mc_sfh_201810152324.pkl')
+    files = glob.glob('mc_sfh_2018*.pkl')
     ## temp = zeros((1,3),)
     tot = 0
     for file in files:
         samples = pickle.load(open(file,'rb'))
-        samples = samples[:,:,:].reshape((-1,3))
+        samples = samples[:,500:,:].reshape((-1,3))
         print('adding %d samples from %s... '%(len(samples), file))
         try:
             temp = concatenate((temp, samples), axis=0)
@@ -62,7 +63,10 @@ if __name__=='__main__':
     ## gc = c.diagnostic.geweke()
     ## print(grc,gc)
     
-    fig = c.plotter.plot(figsize="column", truth={r'$\xi$': md0, r'$\omega$': md1, '$\alpha$': k_mcmc[0]})
+    fig = c.plotter.plot(figsize="column",
+                         truth={r'$\xi$': md0, r'$\omega$': md1, '$\alpha$': k_mcmc[0]},
+                         extents = [[-1900.,100.0], [10., 90], [-50., 500]]
+                         )
     fig.set_size_inches(4.5 + fig.get_size_inches())
     savefig('figure_sfh_corners.png')
     

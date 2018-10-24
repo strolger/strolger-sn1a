@@ -1,7 +1,6 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  5 OCT 2018 14:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  24 OCT 2018 16:22
 entering extended mode
- restricted \write18 enabled.
- file:line:error style messages enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **strolger.tex
 (./strolger.tex
@@ -222,7 +221,11 @@ LaTeX Info: Redefining \] on input line 2667.
 LaTeX Warning: Unused global option(s):
     [apj].
 
-(./strolger.aux)
+(./strolger.aux
+
+LaTeX Warning: Label `fig:mcmc_sfd' multiply defined.
+
+)
 \openout1 = `strolger.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
@@ -237,8 +240,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
-
-(/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+ (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count110
 \scratchdimen=\dimen127
@@ -358,59 +360,67 @@ Package pdftex.def Info: figure_sfd_optimized.png used on input line 118.
 File: figure_sfd_corners.png Graphic file (type png)
 
 <use figure_sfd_corners.png>
-Package pdftex.def Info: figure_sfd_corners.png used on input line 160.
+Package pdftex.def Info: figure_sfd_corners.png used on input line 158.
 (pdftex.def)             Requested size: 469.75499pt x 469.74944pt.
- [12] [13 <./figure_sfd_corners.png>] [14
+ [12] [13 <./figure_sfd_corners.png>]
+<figure_fit_demo_werr.png, id=72, 462.528pt x 346.896pt>
+File: figure_fit_demo_werr.png Graphic file (type png)
 
-]
-<Figure_1.png, id=75, 549.252pt x 549.252pt>
-File: Figure_1.png Graphic file (type png)
- <use Figure_1.png>
-Package pdftex.def Info: Figure_1.png used on input line 200.
-(pdftex.def)             Requested size: 289.07999pt x 289.07399pt.
+<use figure_fit_demo_werr.png>
+Package pdftex.def Info: figure_fit_demo_werr.png used on input line 166.
+(pdftex.def)             Requested size: 469.75499pt x 352.33655pt.
+ [14
 
-<Figure_2.png, id=76, 462.528pt x 346.896pt>
-File: Figure_2.png Graphic file (type png)
- <use Figure_2.png>
-Package pdftex.def Info: Figure_2.png used on input line 206.
-(pdftex.def)             Requested size: 325.215pt x 243.92122pt.
+ <./figure_fit_demo_werr.png>]
+<figure_sfh_demo.png, id=77, 462.528pt x 346.896pt>
+File: figure_sfh_demo.png Graphic file (type png)
+ <use figure_sfh_demo.png>
+Package pdftex.def Info: figure_sfh_demo.png used on input line 180.
+(pdftex.def)             Requested size: 469.75499pt x 352.33655pt.
 
+[15] [16 <./figure_sfh_demo.png>]
+<figure_sfh_corners.png, id=85, 686.565pt x 686.565pt>
+File: figure_sfh_corners.png Graphic file (type png)
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+<use figure_sfh_corners.png>
+Package pdftex.def Info: figure_sfh_corners.png used on input line 212.
+(pdftex.def)             Requested size: 469.75499pt x 469.74944pt.
+ (./strolger.bbl [17] [18 <./figure_sfh_corners.png>] [19
 
-(./strolger.bbl [15 <./Figure_1.png>] [16 <./Figure_2.png>] [17
+]) [20] [21
 
-]) [18] [19
+] (./strolger.aux)
 
-]
-(./strolger.aux) ) 
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 3914 strings out of 493014
- 49865 string characters out of 6133351
- 122660 words of memory out of 5000000
- 7379 multiletter control sequences out of 15000+600000
+ 3922 strings out of 493014
+ 50174 string characters out of 6133351
+ 122730 words of memory out of 5000000
+ 7386 multiletter control sequences out of 15000+600000
  11869 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,10n,35p,1202b,258s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmmi12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
-2.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.p
-fb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb>
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
-/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></u
-sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr
-/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/
-local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on strolger.pdf (19 pages, 704673 bytes).
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
+/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></
+usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></us
+r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/
+local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/lo
+cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loca
+l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/t
+exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texl
+ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
+ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive
+/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2
+016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/20
+16/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on strolger.pdf (21 pages, 702897 bytes).
 PDF statistics:
- 143 PDF objects out of 1000 (max. 8388607)
- 90 compressed objects within 1 object stream
+ 151 PDF objects out of 1000 (max. 8388607)
+ 94 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

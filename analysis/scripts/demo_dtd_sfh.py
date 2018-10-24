@@ -22,6 +22,7 @@ def rate_per_galaxy(sfh, lbu=13.65, lbl=0.05, p0 = None,
         ):
     
     scale = quad(imf.salpeter,3,8)[0]/quad(imf.salpeter1,0.1,125)[0]
+    scale = scale * 0.70**2.
     if not p0:
         p0 = (-1.4, 3.5, -1.0)
     
@@ -78,10 +79,11 @@ def rate_per_galaxy(sfh, lbu=13.65, lbl=0.05, p0 = None,
         ax1.set_xlabel('Lookback Time (Gyr)')
         ax1.set_ylabel('$\psi(M_{\odot}\,yr^{-1})$')
         if title: ax1.set_title(title)
+        ## ax1.axvline(x=0, color='r')
 
         ax3 = ax1.twinx()
         ax3.plot(lbu-rate_fn[:,0],rate_fn[:,1]*1.e3, 'k-', label = '$R_{Ia}(0)=%2.2f\, (1000\, yr)^{-1}$' %(rate*1.e3), alpha=0.3)
-        ax3.set_ylabel('$R_{Ia}(\#\,(1000\, yr)^{-1})$')
+        ax3.set_ylabel('$R_{Ia}[\#\,(1000\, yr)^{-1}]$')
         ax3.legend(frameon=False)
 
         ttt,ddd = rz.greggio()
@@ -94,7 +96,7 @@ def rate_per_galaxy(sfh, lbu=13.65, lbl=0.05, p0 = None,
     
         pwrl = (-1.0,1.0)
         ax2 = axes([0.6, 0.55, 0.25, 0.25])
-        ax2.plot(time,dtd,'r-', label= 'Fit')#label='Norm = %1.1f' %(simps(dtd,x=time)))
+        ax2.plot(time,dtd,'r-', label= 'Best Fit')#label='Norm = %1.1f' %(simps(dtd,x=time)))
         ax2.plot(time,rz.powerdtd(time, *pwrl), 'b:', label=r'$t^{%.1f}$'%(pwrl[0]))
         ax2.plot(ttt,ddd,'b--', label='Greggio')
         ax2.set_ylabel('$\Phi$')
@@ -124,11 +126,12 @@ if __name__=='__main__':
     p0 = (1.03, 7.98, 1.2)
     p0 = (3.3, 0.5, 2.2)
     p0 = (-6.2, 9.7, -0.7)
-
-    sfh0 = 19962
+    p0 = (-1090, 54, 202)
+    ## sfh0 = 19962
+    sfh0 = 16531
     sfh = '../ALLSFH_new_z/gsznnpas/'+str(sfh0)+'.dat'
     r_gxy = rate_per_galaxy(sfh, p0=p0, plotit=True) ## in number per year
-    print('R_Ia = %2.2f per mileneum' %(r_gxy*1e3))
+    print('R_Ia = %2.2f per millennium' %(r_gxy*1e3))
 
     candels_cat = loadtxt('../ALLSFH_new_z/CANDELS_GDSS_znew_avgal_radec.dat')
     redshift = candels_cat[sfh0-1,1]
@@ -139,7 +142,7 @@ if __name__=='__main__':
                   verbose=False,plot=False,parallel=False,Nproc=1,
                   prev=45.0, extinction=False)*(1.0+redshift)
     tcp = 2*tmp1 + 8*tmp2
-    print('Control Time = %2.2f years' %tcp)
+    print('Control Time = %2.2f years in CANDELS' %tcp)
 
     iahost=True
     if iahost:
