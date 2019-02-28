@@ -91,7 +91,7 @@ if __name__=='__main__':
     rates = loadtxt('SNeIa_rates.txt')
     rates[:,1:] = rates[:,1:]#*1.0e-4 ## put on the right scale
     rates = rates[:,:4]
-    brates = u.gimme_rebinned_data(rates,splits=arange(0,1.167,0.167).tolist())
+    brates = u.gimme_rebinned_data(rates,splits=arange(0,1.125,0.125).tolist())
     scale_k = quad(imf.salpeter,3,8)[0]/quad(imf.salpeter1,0.1,125)[0]
     scale = scale_k * 0.7**2.*1e4## factors of h...
     lbt = age - tta
@@ -129,7 +129,7 @@ if __name__=='__main__':
     ax2.set_ylabel('$\Phi$')
     ax2.set_xlabel('Delay Time (Gyr)')
     ax.set_title(r'$k=%.4f\,M_{\odot}^{-1},\,\,\varepsilon=%2.1f\%%$' %(scale_k, p_val[0]*100))
-    savefig('figure_fit_demo_werr.png')
+    savefig('figure_fit_demo_werr.png', transparent=True)
 
 
 

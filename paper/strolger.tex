@@ -37,7 +37,7 @@ For these types of analyses, the standard assumption is that the stellar death r
 We can relate volumetric SN~Ia rate history to the cosmic star formation history($\dot{\rho}_{\star}$) in a similar way, expressed mathematically by, 
 \begin{equation}
 %R_{Ia}(t) = k\varepsilon\int_0^t \dot{\rho}_{\star}(\tau) \ast \Phi(t' - \tau)\,dt',
-R_{\rm Ia}(t) = k\,\varepsilon\, h^2\,\biggl[\dot{\rho}_{\star}(t) \ast \Phi(t)\biggr],
+R_{\rm Ia}(t) =  h^2\,k\,\varepsilon\,\biggl[\dot{\rho}_{\star}(t) \ast \Phi(t)\biggr],
 \label{eqn:std}
 \end{equation}
 \noindent where $\Phi(t)$ is the delay-time distribution of SNe~Ia, $k$ is the fraction of the IMF (by mass) responsible for SN~Ia progenitors, $\varepsilon$ is the fraction of that population that are ultimately successful in producing SNe~Ia, and $t$ is the forward-moving clock of the universe. 
@@ -56,20 +56,40 @@ k = \frac{\int\limits_{3M_{\odot}}^{8M_{\odot}} \xi(M)\,dM}{\int\limits_{0.1M_{\
 The fraction of CO WDs that are successful in making SNe~Ia is hard to determine, as we don't quite yet know the details of the progenitor mechanism or mechanisms. Estimates swing rather wildly from (perhaps) from as low as 1 in 200~\citep{Breedt:2017rp} to as optimistic as 1 in 40~\citep{Maoz:2012}. There is at least strong consensus that accretion on to a CO WD is essential, but very different plausible WD close binary scenarios from at least a theoretical standpoint~\citep{Nelemans:2001hb,Nelemans:2001cs}. The binary fractions of WDs has been recently estimated from the  the ESO-VLT Supernova-Ia Progenitor Survey~\citep[SPY]{Napiwotzki:2007} show close double WD systems may have $\varepsilon_{\rm bin}\simeq0.1\pm20\%$, with separations distributed following a power-law slope of $\alpha=-1.3\pm15\%$~\citep{Maoz:2017zl}. It is not likely all of these successfully yield SNe~Ia as their merger rates in the MW are at least a magnitude higher than best estimates of the SN~Ia rate in our galaxy, and presumably some of these will form AM CVn and R Corona Borealis stars, but at least it could be treated as an upper limit on $\varepsilon$.
 
 \subsection{The star-formation density history}
-The cosmic star formation history (CSFH), at least to $z < 5$, or over 90\% of the history of the universe, is fairly well understood, with~\cite{Madau:2014fk} providing one of the most complete compilations. However there is significant scatter in individual tracers of the compilation, as some are provided from limited probed volumes leading to large uncertainties in fluctuations with cosmic variance. The CSFH data derived recently from the combined GAMA, G10-COSMOS, and 3D-HST datasets by~\cite{Driver:2018nr} is alternatively done in a quasi-homogeneous analysis over a larger area, leading to greatly reduced total uncertainties. The derived trend is somewhat consistent with ~\cite{Madau:2014fk}, but has a notably weaker peak at `cosmic noon' ($z\sim2$) and a slower build-up of unobscured star-formation at high-$z$ (see Figure~\ref{fig:csfhs}).
-Using the parameterization in \cite{Madau:2014fk}, where
+The cosmic star formation history (CSFH), at least to $z < 5$, or over 90\% of the history of the universe, is fairly well understood, with~\cite[][MD14 hereafter]{Madau:2014fk} providing one of the most complete compilations. More recently, the CSFH derived from the combined GAMA, G10-COSMOS, and 3D-HST datasets by~\cite{Driver:2018nr} in a quasi-homogeneous analysis over a larger area, leads to greatly reduced uncertainties per datum, but fewer data than cited in the MD14 compendium (see Figure~\ref{fig:csfhs}).  Using the parameterization in MD14, where
 \begin{equation}
 \dot{\rho}_{\star}(z) = \frac{A\,(1+z)^C}{((1+z)/B)^D+1}.\label{eqn:mdp}
 \end{equation}
-\noindent We fit the above function to MD14 data using a Levenberg-Marquardt least-squares algorithm, resulting in the solid blue line and error region shown in Figure~\ref{fig:csfhs}, with $A=0.013\pm0.001$, $B=2.6\pm0.1$, $C=3.2\pm0.2$, and $D=6.1\pm0.2$, slightly different from the values fit in MD14. The same functional fit to the \cite{Driver:2018nr} data yields $A=0.009\pm0.001$, $B=2.7\pm0.5$, $C=2.5\pm0.4$, and $D=4.1\pm0.3$.
+We correct the \cite{Driver:2018nr} data for dust attenuation following the prescription in MD14, by applying 
+\begin{equation}
+	\dot{\rho}_{\star}(z) =h^3\,\biggl[1+10^{0.4\cdot A_{\rm FUV}(z)}\biggr]\, \dot{\rho}_{\star, {\rm uncorrected}}(z),
+\end{equation}
+where it is assumed $A_{\rm FUV}(z)$ has the same functional form as Equation~\ref{eqn:mdp}, fit to MD14 $A_{\rm FUV}(z)$ data, with a Levenberg-Marquardt least-squares solution of $A=1.4\pm0.1$, $B=3.5\pm0.4$, $C=0.7\pm0.2$, and $D=4.3\pm0.7$. We then fit the Equation~\ref{eqn:mdp} to the combined datasets of MD14 and \cite{Driver:2018nr}, the resulting parameters of which are shown in Table~\ref{tab:csfh_fits} and Figure~\ref{fig:csfhs}. 
+
+\begin{table}
+    \centering
+    \caption{Cosmic Star Formation History Parameter Fits}
+    \label{tab:csfh_fits}
+    \begin{tabular}{lcccc}
+         & $A$ & $B$ & $C$ & $D$ \\
+        \hline
+	Madau \& Dickinson (2014) & $0.013 \pm 0.001$ & $2.6 \pm 0.1$ & $3.2 \pm 0.2$ & $6.1 \pm 0.2$\\
+	Driver et al. (2018) & $0.014 \pm 0.001$ & $2.5 \pm 0.2$ & $3.3 \pm 0.3$ & $6.2 \pm 0.3$\\
+	\hline
+	\hline
+	Combined  Data & $0.0134 \pm 0.0009$ & $2.55 \pm 0.09$ & $3.3 \pm 0.2$ & $6.1 \pm 0.2$\\
+	%CC SNe Rates\tablenotemark{a}  & $0.015 \pm 0.001$ & $1.5 \pm 0.1$ & $5.0 \pm 0.2$ & $6.1 \pm 0.2$\\
+
+    \end{tabular}
+        %\tablenotetext{a}{\cite{Strolger:2015aa}}
+\end{table}
 
 \begin{figure}[t]
    \centering
    \includegraphics[width=6.1in]{figure_csfh_today}
-   \caption{\footnotesize Shown are the compendium cosmic star formation histories, from ~\cite{Madau:2014fk} and ~\cite{Driver:2018nr}. Lines are fits to the data as indicated, and shaded regions represent the 1-$\sigma$ confidence intervals to the fits. Also shown for comparison is the model fit to core-collapse SN rates from~\cite{Strolger:2015aa}.}
+   \caption{\footnotesize Shown are the compendium cosmic star formation histories, from ~\cite{Madau:2014fk} and ~\cite{Driver:2018nr}. Lines are fits to the data as indicated, and shaded regios represent the 1-$\sigma$ confidence intervals to the best fit.}% Also shown for comparison is the model fit to core-collapse SN rates from~\cite{Strolger:2015aa}.}
    \label{fig:csfhs}
 \end{figure}
-\noindent [NOTE: more on which is the better choice, or if analysis on the end should be done on both.]
 
 
 
