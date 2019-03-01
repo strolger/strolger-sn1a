@@ -19,11 +19,12 @@ def dtdfit(time,*p):
     ff, m, w, k = p
     scale = quad(imf.salpeter,3,8)[0]/quad(imf.salpeter1,0.1,125)[0]
     scale = scale *0.7**2.*1e4
-    par_model = [0.013, 2.6, 3.2, 6.1] ## MD14
+
+    par_model = [0.0134, 2.55, 3.3, 6.1]  ## Compendium
+    ## par_model = [0.013, 2.6, 3.2, 6.1] ## MD14
     ## par_model = [0.009, 2.7, 2.5, 4.1] ## Driver18
     
     sfh = rz.csfh_time(time, *par_model)
-    ## sfh = rz.sfr_behroozi_12(time)
     dt = sum(diff(time))/(len(time)-1)
     p1 = (m, w, k)
     res = rz.dtdfunc(time, *p1, norm=True)
@@ -64,7 +65,7 @@ if __name__=='__main__':
     rates = loadtxt('SNeIa_rates.txt')
     rates[:,1:] = rates[:,1:]#*1.0e-4 ## put on the right scale
     rates = rates[:,:4]
-    brates = u.gimme_rebinned_data(rates)#,verbose=True)
+    brates = u.gimme_rebinned_data(rates,verbose=False,splits=arange(0,1.167,0.167).tolist())
     data = deepcopy(brates)
     tt = 13.6-array([ct.cosmotime(x) for x in data[:,0]])
     data[:,0] = tt
@@ -89,7 +90,7 @@ if __name__=='__main__':
         out_sampler = 'mc_sfd_%s.pkl' %timestamp
 
     verbose=False
-    delete=True
+    delete=False
 
     t0 = time.time()
     if not os.path.isfile(out_sampler) or delete:
@@ -107,8 +108,8 @@ if __name__=='__main__':
     ## samples = samples.reshape((-1,ndim))
     ## gives back the 68% percentile range of values on each dimension
     ff_mcmc, m_mcmc, w_mcmc, k_mcmc, lnf_mcmc = map(lambda v: (v[1], v[2]-v[1], v[1]-v[0]),
-                                          zip(*np.percentile(samples, [16, 50, 84],
-                                                             axis=0)))     
+                                                    zip(*np.percentile(samples, [16, 50, 84],
+                                                                       axis=0)))     
     print(r'scale: $f=%2.2f\pm%2.2f$'%(ff_mcmc[0], ff_mcmc[1]))
     print(r'parameters: $\xi=%2.2f\pm%2.2f$; $\omega=%2.2f\pm%2.2f$; $\alpha=%2.2f\pm%2.2f$' %(m_mcmc[0], m_mcmc[1]
                                                                                                ,w_mcmc[0], w_mcmc[1]
