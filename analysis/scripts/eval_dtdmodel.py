@@ -7,10 +7,11 @@ from strolger_util import cosmotools as ct
 from scipy.integrate import simps,quad
 from strolger_util import imf
 
+csfh_model = [0.0134, 2.55, 3.3, 6.1]
+
 
 def run_model(tt, *p):
     ddt = average(diff(tt))
-    csfh_model = [0.013, 2.6, 3.2, 6.1]
     sfh = rz.csfh_time(tt, *csfh_model)
     dtd = rz.dtdfunc(tt, *p[1:])
     tmp = convolve(sfh, dtd, 'full')*ddt*p[0]#*frac*scale ## now convolved result in forward time
@@ -27,11 +28,11 @@ if __name__=='__main__':
     dt = 0.05
     age=13.6
     tt = arange(dt,age,dt)
-    p_val = [0.058, -1089, 54, 202]
-    p_err = [[0.003, -0.0007],
-             [1050., -646.],
-             [15., -40.],
-             [203., -198.]
+    p_val = [0.060, -1156., 58., 220.]
+    p_err = [[0.003, -0.004],
+             [839., -596.],
+             [14., -16.],
+             [191., -186.]
              ]
 
     ## fout, (ax, ax2) = plt.subplots(1,2, gridspec_kw = {'width_ratios':[3, 1]})
@@ -91,7 +92,7 @@ if __name__=='__main__':
     rates = loadtxt('SNeIa_rates.txt')
     rates[:,1:] = rates[:,1:]#*1.0e-4 ## put on the right scale
     rates = rates[:,:4]
-    brates = u.gimme_rebinned_data(rates,splits=arange(0,1.125,0.125).tolist())
+    brates = u.gimme_rebinned_data(rates,splits=arange(0,1.167,0.167).tolist())
     scale_k = quad(imf.salpeter,3,8)[0]/quad(imf.salpeter1,0.1,125)[0]
     scale = scale_k * 0.7**2.*1e4## factors of h...
     lbt = age - tta
@@ -121,6 +122,13 @@ if __name__=='__main__':
     upper = percentile(ysample, 97.5, axis=0)
     ax.fill_between(zz, upper, lower, color='green', alpha=0.2)
 
+
+    pwrl = (-1.0,1.0)
+    dud = rz.powerdtd(tta, *pwrl)
+    jdud = convolve(rz.csfh_time(tta, *csfh_model), dud, 'full')*average(diff(tta))*frac*scale
+    jdud = jdud[:len(dud)]
+    ax.plot(zz, jdud, 'b:')
+    ## pdb.set_trace()
 
     ax.set_xlim(0,2.5)
 

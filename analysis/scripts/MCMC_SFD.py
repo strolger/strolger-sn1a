@@ -66,7 +66,7 @@ if __name__=='__main__':
     rates[:,1:] = rates[:,1:]#*1.0e-4 ## put on the right scale
     rates = rates[:,:4]
     brates = u.gimme_rebinned_data(rates,verbose=False,splits=arange(0,1.167,0.167).tolist())
-    data = deepcopy(brates)
+    data = deepcopy(rates)
     tt = 13.6-array([ct.cosmotime(x) for x in data[:,0]])
     data[:,0] = tt
     data = data[argsort(data[:,0])]
@@ -74,11 +74,11 @@ if __name__=='__main__':
     import time
     import multiprocessing as mpc
     ncore = mpc.cpu_count()
-    ndim, nwalkers, nsteps = 5, 1000, 2000
+    ndim, nwalkers, nsteps = 5, 100, 20000
     step_size = 1.0
     ## p0 = (0.05, 3.5, 2.5, 2.5, 0.01)
-    p0 = (0.06, -100., 50, 20, -2.5)
-
+    ## p0 = (0.06, -100., 50, 20, -2.5)
+    p0 = (0.06, -1200, 70, 20, -2.5)
 
     mckaps = glob.glob('mc_sfd_*.pkl')
     if mckaps:

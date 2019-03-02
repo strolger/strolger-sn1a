@@ -18,7 +18,7 @@ if __name__=='__main__':
     tot = 0
     for file in files:
         samples = pickle.load(open(file,'rb'))
-        samples = samples[:,100:,:].reshape((-1,5))
+        samples = samples[:,50:,:].reshape((-1,5))
         print('adding %d samples from %s... '%(len(samples), file))
         try:
             temp = concatenate((temp, samples), axis=0)
@@ -77,8 +77,8 @@ if __name__=='__main__':
                          truth={r'$\varepsilon$':ff_mcmc[0], 
                                 r'$\xi$': m_mcmc[0], r'$\omega$': 65., r'$\alpha$': k_mcmc[0],
                                 r'$\log f$':md3},
-                         extents = [[-0.2, 0.4], [-1900.,-200.0], [10., 90], [50., 500],[-4.2,0]]
-                         ## extents = [[-0.2, 0.4], [-1900.,200.0], [-0.1, 90], [-200., 500],[-4.2,0.1]]
+                         ## extents = [[-0.2, 0.4], [-1900.,-200.0], [10., 90], [50., 500],[-4.2,0]]
+                         extents = [[-0.2, 0.4], [-1900.,200.0], [-0.1, 90], [-200., 500],[-4.2,0.1]]
                          )
     fig.set_size_inches(4.5 + fig.get_size_inches())
     savefig('figure_sfd_corners.png')
