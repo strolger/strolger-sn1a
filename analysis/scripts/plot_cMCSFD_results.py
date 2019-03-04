@@ -18,7 +18,10 @@ if __name__=='__main__':
     tot = 0
     for file in files:
         samples = pickle.load(open(file,'rb'))
+        ## samples = samples.reshape((-1,5))
         samples = samples[:,50:,:].reshape((-1,5))
+        idx = where(samples[:,0] > 0)
+        samples = samples[idx]
         print('adding %d samples from %s... '%(len(samples), file))
         try:
             temp = concatenate((temp, samples), axis=0)
@@ -27,6 +30,9 @@ if __name__=='__main__':
         
     print('%d total samples' %len(temp))
     samples = temp
+    leftover = len(samples) % 100
+    samples = samples[:-7]
+    
 
     ## gives back the 68% percentile range of values on each dimension
     ff_mcmc, m_mcmc, w_mcmc, k_mcmc, lnf_mcmc = map(lambda v: (v[1], v[2]-v[1], v[1]-v[0]),
@@ -52,26 +58,31 @@ if __name__=='__main__':
 
     parameters = [r'$\varepsilon$',r'$\xi$',r'$\omega$',r'$\alpha$', r'$\log f$']
     c = chc()
-    c.add_chain(samples, parameters=parameters, walkers=1000, name='Unimodal Model')
-    table1 = c.analysis.get_latex_table(caption="Results for the tested model", label="tab:example")
-    print(table1)
+    c.add_chain(samples, parameters=parameters, walkers=100, name='Unimodal Model')
+
+    ## table1 = c.analysis.get_latex_table(caption="Results for the tested model", label="tab:example")
+    ## print(table1)
+
     ## latex_table = c.analysis.get_correlation_table()
     ## print (latex_table)
-    ## pdb.set_trace()
+
     ## latex_table = c.analysis.get_covariance_table()
     ## print(latex_table)
+
     ## fig = c.plotter.plot_walks(truth={r'$\varepsilon$':ff_mcmc[0], 
     ##                                   r'$\xi$': md0, r'$\omega$': md1, r'$\alpha$': md2,
     ##                                   r'$\log f$':lnf_mcmc[0]},
-    ##                            convolve=1000)
-    ## fig = c.plotter.plot_walks(parameters=parameters[1:4], convolve=1000)
+    ##                            convolve=100)
+    ## ## fig = c.plotter.plot_walks(parameters=parameters[1:4], convolve=1000)
     ## savefig('temp.png')
     ## sys.exit()
+
     ## fig = c.plotter.plot_distributions(truth={r'$\xi$': md0, r'$\omega$': md1, '$\alpha$': k_mcmc[0]})
 
     ## grc = c.diagnostic.gelman_rubin()
     ## gc = c.diagnostic.geweke()
     ## print(grc,gc)
+
     c.configure(label_font_size=18, contour_labels='sigma')
     fig = c.plotter.plot(figsize="column",
                          truth={r'$\varepsilon$':ff_mcmc[0], 
