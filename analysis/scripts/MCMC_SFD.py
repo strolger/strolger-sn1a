@@ -29,12 +29,12 @@ def dtdfit(time,*p):
     p1 = (m, w, k)
     res = rz.dtdfunc(time, *p1, norm=True)
     tmp = convolve(sfh, res, 'full')
-    return(ff*tmp[:len(time)]*dt*scale)
+    return(np.exp(ff)*tmp[:len(time)]*dt*scale)
 
 
 def lnprior(p):
     ff, m, w, k, lnf = p
-    if 0.0 < ff < 1.0 and -2000.0 < m < 2000.0 and 0.01 < w < 100.0 and -500.0 < k < 500.0 and -4.0 < lnf < 0.0:
+    if -10.0 < ff < 0.0 and -2000.0 < m < 2000.0 and 0.01 < w < 100.0 and -500.0 < k < 500.0 and -4.0 < lnf < 0.0:
         return 0.0
     else:
         return -np.inf
@@ -66,7 +66,7 @@ if __name__=='__main__':
     rates[:,1:] = rates[:,1:]#*1.0e-4 ## put on the right scale
     rates = rates[:,:4]
     brates = u.gimme_rebinned_data(rates,verbose=False,splits=arange(0,1.167,0.167).tolist())
-    data = deepcopy(rates)
+    data = deepcopy(brates)
     tt = 13.6-array([ct.cosmotime(x) for x in data[:,0]])
     data[:,0] = tt
     data = data[argsort(data[:,0])]
@@ -78,7 +78,7 @@ if __name__=='__main__':
     step_size = 1.0
     ## p0 = (0.05, 3.5, 2.5, 2.5, 0.01)
     ## p0 = (0.06, -100., 50, 20, -2.5)
-    p0 = (0.06, -1200, 50, 200, -2.5)
+    p0 = (-2.81, -1200, 50, 200, -2.5)
 
     mckaps = glob.glob('mc_sfd_*.pkl')
     if mckaps:

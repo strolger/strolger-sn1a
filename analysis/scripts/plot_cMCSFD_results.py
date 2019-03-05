@@ -38,7 +38,7 @@ if __name__=='__main__':
     ff_mcmc, m_mcmc, w_mcmc, k_mcmc, lnf_mcmc = map(lambda v: (v[1], v[2]-v[1], v[1]-v[0]),
                                                     zip(*np.percentile(samples, [16, 50, 84],
                                                                        axis=0)))     
-    print(r'scale: $\varepsilon=%2.3f\pm%2.3f$'%(ff_mcmc[0], ff_mcmc[1]))
+    print(r'ln scale: $\varepsilon=%2.3f\pm%2.3f$'%(ff_mcmc[0], ff_mcmc[1]))
     print(r'parameters: $\xi=%2.2f\pm%2.2f$; $\omega=%2.2f\pm%2.2f$; $\alpha=%2.2f\pm%2.2f$' %(m_mcmc[0], m_mcmc[1]
                                                                                                ,w_mcmc[0], w_mcmc[1]
                                                                                                ,k_mcmc[0], k_mcmc[1]))
