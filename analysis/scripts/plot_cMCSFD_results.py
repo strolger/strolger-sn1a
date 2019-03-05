@@ -20,8 +20,6 @@ if __name__=='__main__':
         samples = pickle.load(open(file,'rb'))
         ## samples = samples.reshape((-1,5))
         samples = samples[:,50:,:].reshape((-1,5))
-        idx = where(samples[:,0] > 0)
-        samples = samples[idx]
         print('adding %d samples from %s... '%(len(samples), file))
         try:
             temp = concatenate((temp, samples), axis=0)
@@ -30,8 +28,6 @@ if __name__=='__main__':
         
     print('%d total samples' %len(temp))
     samples = temp
-    leftover = len(samples) % 100
-    samples = samples[:-7]
     
 
     ## gives back the 68% percentile range of values on each dimension
@@ -89,7 +85,7 @@ if __name__=='__main__':
                                 r'$\xi$': m_mcmc[0], r'$\omega$': 65., r'$\alpha$': k_mcmc[0],
                                 r'$\log f$':md3},
                          ## extents = [[-0.2, 0.4], [-1900.,-200.0], [10., 90], [50., 500],[-4.2,0]]
-                         extents = [[-0.2, 0.4], [-1900.,200.0], [-0.1, 90], [-200., 500],[-4.2,0.1]]
+                         ## extents = [[-0.2, 0.4], [-1900.,200.0], [-0.1, 90], [-200., 500],[-4.2,0.1]]
                          )
     fig.set_size_inches(4.5 + fig.get_size_inches())
     savefig('figure_sfd_corners.png')
