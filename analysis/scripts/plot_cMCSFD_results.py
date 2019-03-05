@@ -19,7 +19,7 @@ if __name__=='__main__':
     for file in files:
         samples = pickle.load(open(file,'rb'))
         ## samples = samples.reshape((-1,5))
-        samples = samples[:,50:,:].reshape((-1,5))
+        samples = samples[:,500:,:].reshape((-1,5))
         print('adding %d samples from %s... '%(len(samples), file))
         try:
             temp = concatenate((temp, samples), axis=0)
@@ -52,9 +52,9 @@ if __name__=='__main__':
     print('k=%2.2f, %2.2f, %2.2f' %(k_mcmc[0], k_mcmc[1], k_mcmc[2]))
     print('lnf=%2.2f, %2.2f, %2.2f' %(lnf_mcmc[0], lnf_mcmc[1], lnf_mcmc[2]))
 
-    parameters = [r'$\varepsilon$',r'$\xi$',r'$\omega$',r'$\alpha$', r'$\log f$']
+    parameters = [r'$\log\varepsilon$',r'$\xi$',r'$\omega$',r'$\alpha$', r'$\log f$']
     c = chc()
-    c.add_chain(samples, parameters=parameters, walkers=100, name='Unimodal Model')
+    c.add_chain(samples, parameters=parameters, walkers=1000, name='Unimodal Model')
 
     ## table1 = c.analysis.get_latex_table(caption="Results for the tested model", label="tab:example")
     ## print(table1)
@@ -81,8 +81,8 @@ if __name__=='__main__':
 
     c.configure(label_font_size=18, contour_labels='sigma')
     fig = c.plotter.plot(figsize="column",
-                         truth={r'$\varepsilon$':ff_mcmc[0], 
-                                r'$\xi$': m_mcmc[0], r'$\omega$': 65., r'$\alpha$': k_mcmc[0],
+                         truth={r'$\log\varepsilon$':ff_mcmc[0], 
+                                r'$\xi$': md0, r'$\omega$': md1, r'$\alpha$': k_mcmc[0],
                                 r'$\log f$':md3},
                          ## extents = [[-0.2, 0.4], [-1900.,-200.0], [10., 90], [50., 500],[-4.2,0]]
                          ## extents = [[-0.2, 0.4], [-1900.,200.0], [-0.1, 90], [-200., 500],[-4.2,0.1]]

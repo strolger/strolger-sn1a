@@ -69,7 +69,7 @@ if __name__=='__main__':
     ## p0 = (0.05, 3.5, 0.5, 2.2)
     ## p0 = (0.065, 0.1, 50., 0.1)
 
-    p0 = (0.058, -1056, 53.57, 195.8)
+    p0 = (0.058, -1845, 52.4, 17)
     rates = loadtxt('SNeIa_rates.txt')
     rates[:,1:] = rates[:,1:]#*1.0e-4 ## put on the right scale
     rates = rates[:,:4]

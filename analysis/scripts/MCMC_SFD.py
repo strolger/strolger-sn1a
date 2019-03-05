@@ -74,7 +74,7 @@ if __name__=='__main__':
     import time
     import multiprocessing as mpc
     ncore = mpc.cpu_count()
-    ndim, nwalkers, nsteps = 5, 100, 2000
+    ndim, nwalkers, nsteps = 5, 1000, 2000
     step_size = 1.0
     ## p0 = (0.05, 3.5, 2.5, 2.5, 0.01)
     ## p0 = (0.06, -100., 50, 20, -2.5)
