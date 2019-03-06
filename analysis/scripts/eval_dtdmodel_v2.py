@@ -25,8 +25,8 @@ if __name__=='__main__':
     dt = 0.05
     age=13.6
     tt = arange(dt,age,dt)
-    p_val = [-2.32, -1845., 52., 220.]
-    p_err = [[0.07, -0.06],
+    p_val = [-2.810, -1257, 59.3, 248.9]
+    p_err = [[0.05, -0.05],
              [839., -596.],
              [14., -16.],
              [191., -186.]
@@ -50,8 +50,7 @@ if __name__=='__main__':
     tta = linspace(min(tt), max(tt), 300)
     print('%d total samples' %len(temp))
     samples = temp
-    print(samples)
-    ndraws = 11
+    ndraws = 21
     draws  = samples[np.random.randint(0, len(samples), ndraws),:]
     ysample = asarray([rz.dtdfunc(tta, *pi[1:-1]) for pi in draws])
 
@@ -75,7 +74,7 @@ if __name__=='__main__':
     rates = loadtxt('SNeIa_rates.txt')
     rates[:,1:] = rates[:,1:]#*1.0e-4 ## put on the right scale
     rates = rates[:,:4]
-    brates = u.gimme_rebinned_data(rates,splits=arange(0,1.167,0.167).tolist())
+    brates = u.gimme_rebinned_data(rates,splits=arange(0,1.125,0.125).tolist())
     scale_k = quad(imf.salpeter,3,8)[0]/quad(imf.salpeter1,0.1,125)[0]
     scale = scale_k * 0.7**2.*1e4## factors of h...
     lbt = age - tta
