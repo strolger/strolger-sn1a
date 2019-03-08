@@ -15,12 +15,12 @@ L. Strolger
 if __name__=='__main__':
 
     ## files = glob.glob('mc_sfh_201810152324.pkl')
-    files = glob.glob('mc_sfh_2018*.pkl')
+    files = glob.glob('mc_sfh_2019*.pkl')
     ## temp = zeros((1,3),)
     tot = 0
     for file in files:
         samples = pickle.load(open(file,'rb'))
-        samples = samples[:,500:,:].reshape((-1,3))
+        samples = samples[:,50:,:].reshape((-1,3))
         print('adding %d samples from %s... '%(len(samples), file))
         try:
             temp = concatenate((temp, samples), axis=0)
@@ -34,9 +34,9 @@ if __name__=='__main__':
     m_mcmc, w_mcmc, k_mcmc = map(lambda v: (v[1], v[1]-v[0], v[2]-v[1]),
                                  zip(*np.percentile(samples, [16, 50, 84],
                                                     axis=0)))     
-    ## print(r'parameters: $\xi=%2.2f\pm%2.2f$; $\omega=%2.2f\pm%2.2f$; $\alpha=%2.2f\pm%2.2f$' %(m_mcmc[0], m_mcmc[1]
-    ##                                                                                            ,w_mcmc[0], w_mcmc[1]
-    ##                                                                                            ,k_mcmc[0], k_mcmc[1]))
+    print(r'parameters: $\xi=%2.2f\pm%2.2f$; $\omega=%2.2f\pm%2.2f$; $\alpha=%2.2f\pm%2.2f$' %(m_mcmc[0], m_mcmc[1]
+                                                                                               ,w_mcmc[0], w_mcmc[1]
+                                                                                               ,k_mcmc[0], k_mcmc[1]))
 
     md0 = u.binmode(samples[:,0],bins=20)[0]
     md1 = u.binmode(samples[:,1],bins=20)[0]

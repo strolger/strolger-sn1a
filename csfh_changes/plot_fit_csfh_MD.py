@@ -105,7 +105,7 @@ yjunk, upperband, lowerband = fobj.confidence_band(redshifts, dfdp, confprob, mo
 
 
 ax2.plot(redshifts, rz.MD_sfr_2014(redshifts, fink=False), 'b--', label=r'$\dot{\rho}_{\star}(z)$ Madau & Dickinson (2014)')
-ax2.plot(redshifts, rz.MD_sfr_2014(redshifts), 'b:', label = r'$\dot{\rho}_{\star}(z)$  Finkelstein et al. (2016)')
+ax2.plot(redshifts, rz.MD_sfr_2014(redshifts), 'b:', label = r'$\dot{\rho}_{\star}(z)$  Finkelstein et al. (2014)')
 ## ax.plot(redshifts, func(redshifts, *fobj.params), 'b-', label = 'Fit to Madau & Dickinson',zorder=10)
 ## ax.fill_between(redshifts, upperband, lowerband, color = bar2, alpha = 0.4)
 
@@ -154,21 +154,59 @@ h2 = ax.errorbar(redshifts, csfh, xerr=d_red, yerr=[csfh-em_csfh,ep_csfh-csfh],
 ## ax.plot(redshifts, func(redshifts, *fobj.params), '-', color=myir, label='Fit to Driver')
 ## ax.fill_between(redshifts, upperband, lowerband, color = bar1, alpha=0.4)
 
+redshifts=linspace(0,10,30)
+p0 = [0.015, 1.5, 5.0, 6.1]
+perr = [0.001, 0.1, 0.2, 0.2]
+ax2.plot(redshifts, func(redshifts, *p0)/0.7, 'g--', label = r'$\dot{\rho}_{\star}(z)$ CC SN rates, Strolger et al. (2015)', alpha=0.3)
+zz = linspace(min(redshifts), max(redshifts), 100)
+cov = diag(array(perr)**2.)
+ps = np.random.multivariate_normal(p0, cov, 10000)
+ysample = asarray([func(zz, *pi)/0.7 for pi in ps])
+lower = percentile(ysample, 15.9, axis=0)
+upper = percentile(ysample, 84.1, axis=0)
+ax2.fill_between(zz, upper, lower, color=myuv, alpha=0.2)
 
-## p0 = [0.015, 1.5, 5.0, 6.1]
-## perr = [0.001, 0.1, 0.2, 0.2]
-## ax.plot(redshifts, func(redshifts, *p0), 'g-', label = r'CCSN Rates $\dot{\rho}_{\star}(z)$')
-## zz = linspace(min(redshifts), max(redshifts), 100)
-## cov = diag(array(perr)**2.)
-## ps = np.random.multivariate_normal(p0, cov, 10000)
-## ysample = asarray([func(zz, *pi) for pi in ps])
-## lower = percentile(ysample, 15.9, axis=0)
-## upper = percentile(ysample, 84.1, axis=0)
-## ax.fill_between(zz, upper, lower, color=myuv, alpha=0.2)
+
+data = loadtxt('bouwens2015.txt')
+redshifts = data[:,0]
+csfh = 10**(data[:,1])*0.7
+ep_csfh = 10**(log10(csfh)+data[:,2])
+em_csfh = 10**(log10(csfh)-data[:,3])
 
 
+compendium3 = zeros((len(data),5),)
+compendium3[:,0]=redshifts
+compendium3[:,1]+=1.0
+compendium3[:,2]=csfh
+compendium3[:,3]=ep_csfh
+compendium3[:,4]=em_csfh
 
-compendium = concatenate((compendium1, compendium2), axis=0)
+h3 = ax.errorbar(redshifts, csfh, yerr=[csfh-em_csfh,ep_csfh-csfh],
+                 label='Bouwens et al. (2015)',
+                 fmt='v',mfc='None', mec='0.3',ms=7,
+                 zorder=4, alpha=0.9)
+
+data = loadtxt('Khusanova2019.txt')
+redshifts = data[:,0]
+csfh = 10**(data[:,1])*0.7
+ep_csfh = 10**(log10(csfh)+data[:,2])
+em_csfh = 10**(log10(csfh)-data[:,3])
+
+
+compendium4 = zeros((len(data),5),)
+compendium4[:,0]=redshifts
+compendium4[:,1]+=1.0
+compendium4[:,2]=csfh
+compendium4[:,3]=ep_csfh
+compendium4[:,4]=em_csfh
+
+h3 = ax.errorbar(redshifts, csfh, yerr=[csfh-em_csfh,ep_csfh-csfh],
+                 label='Khusanova et al. (2019)',
+                 fmt='^',mfc='None', mec='0.3',ms=7,
+                 zorder=4, alpha=0.9)
+
+
+compendium = concatenate((compendium1, compendium2,), axis=0)
 compendium = array(sorted(compendium, key=lambda x: x[0]))
 
 popt, pcov = curve_fit(func, compendium[:,0], compendium[:,2], p0 = p0, sigma = compendium[:,3])

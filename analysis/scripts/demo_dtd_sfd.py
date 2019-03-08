@@ -11,7 +11,7 @@ from copy import copy, deepcopy
 
 
 def plot_one(rates,plotname,*p, frac=0.05, age=13.6):
-    brates = u.gimme_rebinned_data(rates,splits=arange(0,1.167,0.167).tolist())
+    brates = u.gimme_rebinned_data(rates,splits=arange(0,1.125,0.125).tolist())
     scale_k = quad(imf.salpeter,3,8)[0]/quad(imf.salpeter1,0.1,125)[0]
     scale = scale_k * 0.7**2.*1e4 ## factors of h...
     dt = 0.05
@@ -43,6 +43,7 @@ def plot_one(rates,plotname,*p, frac=0.05, age=13.6):
 
     
     ax.set_xlim(0,2.5)
+    ax.set_ylim(0,1.8)
     ax.set_xlabel('Redshift')
     ax.set_ylabel(r'SN Ia Rate')
     ax.set_ylabel(r'$10^{-4}$ SNe Ia per year per Mpc$^3$')
@@ -63,12 +64,6 @@ def plot_one(rates,plotname,*p, frac=0.05, age=13.6):
 
 if __name__=='__main__':
     
-    ## p0 = (0.05, -5.1, 6.5, 2.1)
-    ## p0 = (0.1, 3.3, 7.1, 0.7)
-    ## p0 = (0.05, -2.99, 12.61, -7.6)
-    ## p0 = (0.05, 3.5, 0.5, 2.2)
-    ## p0 = (0.065, 0.1, 50., 0.1)
-
     p0 = (0.058, -1845, 52.4, 17)
     rates = loadtxt('SNeIa_rates.txt')
     rates[:,1:] = rates[:,1:]#*1.0e-4 ## put on the right scale

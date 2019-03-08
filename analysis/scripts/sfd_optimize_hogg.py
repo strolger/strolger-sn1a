@@ -41,7 +41,7 @@ def lnlike(p, x, y, yerr):
 
 
 def plot_one(rates,plotname,*p, frac=0.05, age=13.6):
-    brates = u.gimme_rebinned_data(rates,splits=arange(0,1.167,0.167).tolist())
+    brates = u.gimme_rebinned_data(rates,splits=arange(0,1.125,0.125).tolist())
     scale_k = quad(imf.salpeter,3,8)[0]/quad(imf.salpeter1,0.1,125)[0]
     scale = scale_k * 0.7**2.*1e4## factors of h...
     dt = 0.05
@@ -65,7 +65,7 @@ def plot_one(rates,plotname,*p, frac=0.05, age=13.6):
     ax = subplot(111)
     ax2 = ax.twinx()
     ax2.plot(zz, sfh, 'r-', label='CSFH')
-    ax.plot(zz, rate_fn, 'k-', label='Fit')
+    ax.plot(zz, rate_fn, 'k-', label='Fit', zorder=3)
     ax.plot(zz, jdud, 'k:', label=r'$t^{%.1f}$'%(pwrl[0]))
     
     ax.errorbar(rates[:,0], rates[:,1], yerr=[rates[:,3],rates[:,2]], fmt='o', color='0.6', alpha=0.4)
@@ -78,6 +78,7 @@ def plot_one(rates,plotname,*p, frac=0.05, age=13.6):
     ax2.set_ylim(0,0.16)
     
     ax3 = axes([0.65, 0.62, 0.23, 0.2])
+    ## ax3 = axes([0.55, 0.6, 0.33, 0.25])
     ax3.plot(tt,log10(dtd),'b-', label= 'Fit')#label='Norm = %1.1f' %(simps(dtd,x=time)))
     ax3.plot(tt,log10(rz.powerdtd(tt, *pwrl)), 'b:', label=r'$t^{%.1f}$'%(pwrl[0]))
     ax3.set_ylabel('$\log(\Phi)$')

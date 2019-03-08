@@ -20,7 +20,7 @@ import control_time as tc
 import warnings
 
 ## ndim, nwalkers, nsteps = 3, 60, 150
-ndim, nwalkers, nsteps = 3, 60, 1000
+ndim, nwalkers, nsteps = 3, 100, 2000
 
 bounds = [
     [-2000., 2000.],
@@ -28,19 +28,13 @@ bounds = [
     [-500.,500.]
     ]
 
-## bounds = [
-##     [-15.,15.],
-##     [0.,15.],
-##     [-15.,15.]
-##     ]
-    
 
 def get_sfhs(verbose=True, delete=False):
     import tarfile
     
     sfh_file = 'SFH_file.tgz'
     if not os.path.isfile(sfh_file) or delete:
-        sfhf = glob.glob('../ALLSFH_new_z/gsznnpas/*.dat')
+        sfhf = glob.glob('../ALLSFH_new_z/g[sn]znnpas/*.dat')
         sfhs = {}
         for sfh in sfhf:
             sfhv = int(os.path.basename(sfh).split('.')[0])
@@ -58,26 +52,29 @@ def get_sfhs(verbose=True, delete=False):
     return(sfhs)
 
 
-def match_sne_hosts(gxycat='None',snecat='candels_south_sneia.txt', verbose=False):
+def match_sne_hosts(gxycat='None', verbose=False):
     from strolger_util import convertdegsex as conv
     if verbose: print('Matching events to host galaxies...')
-    f = open(snecat,'r')
-    lines = f.readlines()
-    f.close()
+
     output=[]
+    snecats=['candels_south_sneia.txt','candels_north_sneia.txt']
     if verbose: print('#SN\tHost\toffset(as)\tredshift')
-    for line in lines:
-        if line.startswith('#'): continue
-        ra=line.split()[1]
-        dec=line.split()[2]
-        rr,dd = conv.s2d(ra,dec)
-        offsets = sqrt((rr-gxycat[:,-2])**2+(dd-gxycat[:,-1])**2)
-        idx = where(offsets == min(offsets))
-        if min(offsets)*3600.0 < 10.0:
-            if verbose: print('%s\t%d\t%2.2f\t%.1f' %(line.split()[0].strip('\t'),gxycat[idx][:,0],min(offsets)*3600.0,gxycat[idx][:,1]))
-            output.append([gxycat[idx][:,0],line.split()[0].strip('\t'),min(offsets)*3600.0])
-        else:
-            if verbose: print('%s has no match' %(line.split()[0].strip('\t')))
+    for snecat in snecats:
+        f = open(snecat,'r')
+        lines = f.readlines()
+        f.close()
+        for line in lines:
+            if line.startswith('#'): continue
+            ra=line.split()[1]
+            dec=line.split()[2]
+            rr,dd = conv.s2d(ra,dec)
+            offsets = sqrt((rr-gxycat[:,-2])**2+(dd-gxycat[:,-1])**2)
+            idx = where(offsets == min(offsets))
+            if min(offsets)*3600.0 < 10.0:
+                if verbose: print('%s\t%d\t%2.2f\t%.1f' %(line.split()[0].strip('\t'),gxycat[idx][:,0],min(offsets)*3600.0,gxycat[idx][:,1]))
+                output.append([gxycat[idx][:,0],line.split()[0].strip('\t'),min(offsets)*3600.0])
+            else:
+                if verbose: print('%s has no match' %(line.split()[0].strip('\t')))
     return(array(output))
     
 
@@ -125,7 +122,7 @@ def lnlike(p):
     LL1 = 0.0
     LL2 = 0.0
     for k in sfhs.keys():
-        r_gxy = rate_per_galaxy(sfhs[k], p0=p) ## in number per year
+        r_gxy = rate_per_galaxy(sfhs[k], p0=p, frac_ia=0.06) ## in number per year
         if ((r_gxy == 0. ) | (not isfinite(r_gxy))):return(-np.inf)
 
         N_expected_Ia_gxy = r_gxy * tcp[k]
@@ -169,7 +166,8 @@ if __name__ == '__main__':
     step_sep = 5.0
     ## p0 = (3.3, 0.5, 2.2)
     ## p0 = (-1.5, 0.5, -12.)
-    p0 = (-100., 50, 20)
+    ## p0 = (-100., 50, 20)
+    p0 = (-1200., 50, 200)
     
     timestamp=datetime.datetime.now().strftime('%Y%m%d%H%M')
     out_sampler = 'mc_sfh_%s.pkl' %timestamp
@@ -180,10 +178,12 @@ if __name__ == '__main__':
     if verbose: print ('Loading SFHs...')
     sfhs = get_sfhs(verbose=verbose, delete=delete)
 
-    candels_cat = loadtxt('../ALLSFH_new_z/CANDELS_GDSS_znew_avgal_radec.dat')
+    candels_cat_north = loadtxt('../ALLSFH_new_z/CANDELS_GDSN_znew_avgal_radec.dat')
+    candels_cat_north = np.delete(candels_cat_north,[40,41],1) # removes two flag columns
+    candels_cat_south = loadtxt('../ALLSFH_new_z/CANDELS_GDSS_znew_avgal_radec.dat')
+    candels_cat = concatenate((candels_cat_north, candels_cat_south), axis=0)
 
     ia_host_codex=match_sne_hosts(gxycat=candels_cat,verbose=verbose)
-
     if verbose: print ('Getting Redshifts...')
     redshifts={}
     tcp={}
@@ -238,7 +238,7 @@ if __name__ == '__main__':
     samples = samples.reshape((-1,ndim))
     fig = corner.corner(samples,labels=[r'$\xi$',r'$\omega$',r'$\alpha$'],
                         truths=[m_mcmc[0], w_mcmc[0], k_mcmc[0]])
-    fig.savefig('temporary.png')
+    fig.savefig('figure_preliminary_sfh_corners.png')
     
     
     

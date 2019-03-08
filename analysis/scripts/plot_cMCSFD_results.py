@@ -82,9 +82,9 @@ if __name__=='__main__':
     c.configure(label_font_size=18, contour_labels='sigma')
     fig = c.plotter.plot(figsize="column",
                          truth={r'$\log\varepsilon$':ff_mcmc[0], 
-                                r'$\xi$': md0, r'$\omega$': md1, r'$\alpha$': k_mcmc[0],
+                                r'$\xi$': m_mcmc[0], r'$\omega$': w_mcmc[0], r'$\alpha$': k_mcmc[0],
                                 r'$\log f$':md3},
-                         ## extents = [[-0.2, 0.4], [-1900.,-200.0], [10., 90], [50., 500],[-4.2,0]]
+                         extents = [[-3.1, -2.5], [-2000.,0.0], [10., 90], [0., 500],[-4,0]]
                          ## extents = [[-0.2, 0.4], [-1900.,200.0], [-0.1, 90], [-200., 500],[-4.2,0.1]]
                          )
     fig.set_size_inches(4.5 + fig.get_size_inches())

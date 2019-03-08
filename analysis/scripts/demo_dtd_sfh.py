@@ -14,6 +14,7 @@ from strolger_util import util as u
 from strolger_util import rates_z as rz
 from strolger_util import imf
 import control_time as tc
+import matplotlib.image as mpimg
 
 import warnings
 
@@ -106,6 +107,14 @@ def rate_per_galaxy(sfh, lbu=13.65, lbl=0.05, p0 = None,
         ax2.legend(frameon=False)
         #tight_layout()
 
+        ax4 = axes([0.6, 0.2, 0.25, 0.25])
+        #img = mpimg.imread('107.jpg')
+        #ax4.imshow(img[75:135,50:140])
+        img = mpimg.imread('206.jpg')
+        ax4.imshow(img[75:135,70:160])
+        ax4.set_yticks([])
+        ax4.set_xticks([])
+
         if title:
             savefig(title+'.png')
         else:
@@ -123,18 +132,23 @@ def liklihood(N):
 if __name__=='__main__':
 
 
-    p0 = (1.03, 7.98, 1.2)
-    p0 = (3.3, 0.5, 2.2)
-    p0 = (-6.2, 9.7, -0.7)
-    p0 = (-1090, 54, 202)
+    p0 = (-1200., 50, 200)
+
     ## sfh0 = 19962
-    sfh0 = 16531
-    sfh = '../ALLSFH_new_z/gsznnpas/'+str(sfh0)+'.dat'
+    ## sfh0 = 16531
+    sfh0 = '06969'
+    ns = 'n'
+    sfh = '../ALLSFH_new_z/g'+ns+'znnpas/'+str(sfh0)+'.dat'
+    
     r_gxy = rate_per_galaxy(sfh, p0=p0, plotit=True) ## in number per year
     print('R_Ia = %2.2f per millennium' %(r_gxy*1e3))
 
-    candels_cat = loadtxt('../ALLSFH_new_z/CANDELS_GDSS_znew_avgal_radec.dat')
-    redshift = candels_cat[sfh0-1,1]
+    candels_cat_north = loadtxt('../ALLSFH_new_z/CANDELS_GDSN_znew_avgal_radec.dat')
+    candels_cat_north = np.delete(candels_cat_north,[40,41],1) # removes two flag columns
+    candels_cat_south = loadtxt('../ALLSFH_new_z/CANDELS_GDSS_znew_avgal_radec.dat')
+    candels_cat = concatenate((candels_cat_north, candels_cat_south), axis=0)
+
+    redshift = candels_cat[int(sfh0)-1,1]
     tmp1 = tc.run(redshift,45.0,26.2,type=['ia'],dstep=3,dmstep=0.5,dastep=0.5,
                   verbose=False,plot=False,parallel=False,Nproc=1,
                   prev=0.0, extinction=False)*(1.0+redshift)
