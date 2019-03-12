@@ -134,21 +134,25 @@ if __name__=='__main__':
 
     p0 = (-1200., 50, 200)
 
-    ## sfh0 = 19962
-    ## sfh0 = 16531
-    sfh0 = '06969'
-    ns = 'n'
-    sfh = '../ALLSFH_new_z/g'+ns+'znnpas/'+str(sfh0)+'.dat'
-    
-    r_gxy = rate_per_galaxy(sfh, p0=p0, plotit=True) ## in number per year
+    sfh0 = 100529
+    sfh0 = 225895
+    if sfh0 < 200000:
+        sfh = '../ALLSFH_new_z/gnznnpas/%05d.dat'%(sfh0 - 100000)
+    else:
+        sfh = '../ALLSFH_new_z/gsznnpas/%05d.dat'%(sfh0 - 200000)
+        
+    r_gxy = rate_per_galaxy(sfh, p0=p0, plotit=True, frac_ia=0.06) ## in number per year
     print('R_Ia = %2.2f per millennium' %(r_gxy*1e3))
 
     candels_cat_north = loadtxt('../ALLSFH_new_z/CANDELS_GDSN_znew_avgal_radec.dat')
     candels_cat_north = np.delete(candels_cat_north,[40,41],1) # removes two flag columns
+    candels_cat_north[:,0]+=100000 #disambiguate the indexes
     candels_cat_south = loadtxt('../ALLSFH_new_z/CANDELS_GDSS_znew_avgal_radec.dat')
+    candels_cat_south[:,0]+=200000 #disambiguate the indexes
     candels_cat = concatenate((candels_cat_north, candels_cat_south), axis=0)
+    idx = where(candels_cat[:,0] == sfh0)
 
-    redshift = candels_cat[int(sfh0)-1,1]
+    redshift = candels_cat[:,1][idx]
     tmp1 = tc.run(redshift,45.0,26.2,type=['ia'],dstep=3,dmstep=0.5,dastep=0.5,
                   verbose=False,plot=False,parallel=False,Nproc=1,
                   prev=0.0, extinction=False)*(1.0+redshift)
@@ -170,5 +174,7 @@ if __name__=='__main__':
     LL = LL1 + LL2
     print ('lnL for galaxies is %2.1e, and for Hosts is %2.1f' %(LL1, LL2))
     print ('Log Likelihood = %2.2f' %(LL))
+    print ('TCP= %f'%tcp)
+
     
     ## pdb.set_trace()

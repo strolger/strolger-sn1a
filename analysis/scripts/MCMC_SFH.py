@@ -20,7 +20,7 @@ import control_time as tc
 import warnings
 
 ## ndim, nwalkers, nsteps = 3, 60, 150
-ndim, nwalkers, nsteps = 3, 100, 2000
+ndim, nwalkers, nsteps = 3, 100, 225
 
 bounds = [
     [-2000., 2000.],
@@ -37,7 +37,10 @@ def get_sfhs(verbose=True, delete=False):
         sfhf = glob.glob('../ALLSFH_new_z/g[sn]znnpas/*.dat')
         sfhs = {}
         for sfh in sfhf:
-            sfhv = int(os.path.basename(sfh).split('.')[0])
+            if 'gsz' in sfh:
+                sfhv = int(os.path.basename(sfh).split('.')[0])+200000
+            else:
+                sfhv = int(os.path.basename(sfh).split('.')[0])+100000
             sfhs[sfhv]=loadtxt(sfh)
         pickle.dump(sfhs, open(sfh_file.replace('tgz','pkl'),'wb'))
         tar = tarfile.open(sfh_file,mode='w:gz')
@@ -84,6 +87,7 @@ def rate_per_galaxy(sfh_data, lbu=13.65, lbl=0.05, p0 = None,
                     ):
     
     scale = quad(imf.salpeter,3,8)[0]/quad(imf.salpeter1,0.1,125)[0]
+    scale = scale * 0.70**2.
     if not tuple(p0):
         p0 = (-1.4, 3.5, -1.0)
     
@@ -105,7 +109,7 @@ def rate_per_galaxy(sfh_data, lbu=13.65, lbl=0.05, p0 = None,
     rate_fn[:,0]=sfh_data[:,0]
     rate_fn[:,1]=rate_fn[:,1]
     rate = rate_fn[-1,1] ## only need the current value
-            
+    
     return(rate_fn[-1,1])
 
 
@@ -122,15 +126,15 @@ def lnlike(p):
     LL1 = 0.0
     LL2 = 0.0
     for k in sfhs.keys():
+        LL1a = 0.0
+        LL2a = 0.0
         r_gxy = rate_per_galaxy(sfhs[k], p0=p, frac_ia=0.06) ## in number per year
         if ((r_gxy == 0. ) | (not isfinite(r_gxy))):return(-np.inf)
-
+        
         N_expected_Ia_gxy = r_gxy * tcp[k]
         LL1a=N_expected_Ia_gxy
         if k in ia_host_codex[:,0]:
             LL2a=log(N_expected_Ia_gxy)
-        else:
-            LL2a=0.0
         LL1+=LL1a; LL2+=LL2a
     LL = - LL1 + LL2
     if not isfinite(LL):
@@ -180,7 +184,9 @@ if __name__ == '__main__':
 
     candels_cat_north = loadtxt('../ALLSFH_new_z/CANDELS_GDSN_znew_avgal_radec.dat')
     candels_cat_north = np.delete(candels_cat_north,[40,41],1) # removes two flag columns
+    candels_cat_north[:,0]+=100000 #disambiguate the indexes
     candels_cat_south = loadtxt('../ALLSFH_new_z/CANDELS_GDSS_znew_avgal_radec.dat')
+    candels_cat_south[:,0]+=200000 #disambiguate the indexes
     candels_cat = concatenate((candels_cat_north, candels_cat_south), axis=0)
 
     ia_host_codex=match_sne_hosts(gxycat=candels_cat,verbose=verbose)
@@ -191,23 +197,27 @@ if __name__ == '__main__':
         redshifts[int(item[0])]=item[1]
         
     if verbose: print ('Getting control times...')
-    rds = arange(0.001, 5.5,0.1)
-    yds = []
-    for item in rds:
-        tmp1 = tc.run(item,45.0,26.2,type=['ia'],dstep=3,dmstep=0.5,dastep=0.5,
-                     verbose=False,plot=False,parallel=False,Nproc=1,
-                     prev=0.0, extinction=False)*(1.0+item)
-        tmp2 = tc.run(item,45.0,26.2,type=['ia'],dstep=3,dmstep=0.5,dastep=0.5,
-                     verbose=False,plot=False,parallel=False,Nproc=1,
-                     prev=45.0, extinction=False)*(1.0+item)
-        tmp = 2*tmp1 + 8*tmp2
-        yds.append(tmp)
-    yds=array(yds)
-    in_list = list(redshifts.values())
-    out_list = u.recast(in_list, 0., rds, yds)[1]
-    for item in range(len(in_list)):
-        tcp[item+1]=out_list[item]
+    if not os.path.isfile('tcp.pkl') or delete:
+        rds = arange(0.001, 5.5,0.1)
+        yds = []
+        for item in rds:
+            tmp1 = tc.run(item,45.0,26.2,type=['ia'],dstep=3,dmstep=0.5,dastep=0.5,
+                         verbose=False,plot=False,parallel=False,Nproc=1,
+                         prev=0.0, extinction=False)*(1.0+item)
+            tmp2 = tc.run(item,45.0,26.2,type=['ia'],dstep=3,dmstep=0.5,dastep=0.5,
+                         verbose=False,plot=False,parallel=False,Nproc=1,
+                         prev=45.0, extinction=False)*(1.0+item)
+            tmp = 2*tmp1 + 8*tmp2
+            yds.append(tmp)
+        yds=array(yds)
+        for k,v in redshifts.items():
+            out_v = float(u.recast(v, 0., rds, yds)[1])
+            tcp[k]=out_v
+        pickle.dump(tcp,open('tcp.pkl','wb'))
+    else:
+        tcp = pickle.load(open('tcp.pkl','rb'))
 
+        
     if not os.path.isfile(out_sampler) or delete:
         if verbose: print ('Running MCMC... watch the load sparkle!')
         ## p0 = [p0 + step_sep*np.random.randn(ndim) for i in range(nwalkers)]
