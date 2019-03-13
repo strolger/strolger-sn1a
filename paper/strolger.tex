@@ -319,20 +319,15 @@ L = \prod _i^N P(n_i|M_i) \Rightarrow \ln L = -\sum^N m_i+\sum^N\ln\biggl(\frac{
 
 \begin{figure}[t] %  figure placement: here, top, bottom, or page
    \centering
-   \includegraphics[width=6.5in]{figure_sfh_demo_v2} 
+   \includegraphics[width=3in]{figure_sfh_demo_v1} 
+   \includegraphics[width=3in]{figure_sfh_demo_v2} 
    \caption{\footnotesize Similar to Figure~\ref{fig:sfd_optimized_curvefit}, the $R_{\rm Ia}(z)$ result of from MCMC fitting is shown (blue line), with the 68\% confidence interval, in green. }
-   \label{fig:figure_sfh_fit_demo1}
-\end{figure}
-\begin{figure}[t] %  figure placement: here, top, bottom, or page
-   \centering
-   \includegraphics[width=6.5in]{figure_sfh_demo_v1} 
-   \caption{\footnotesize Similar to Figure~\ref{fig:sfd_optimized_curvefit}, the $R_{\rm Ia}(z)$ result of from MCMC fitting is shown (blue line), with the 68\% confidence interval, in green. }
-   \label{fig:figure_sfh_fit_demo2}
+   \label{fig:figure_sfh_fit_demo}
 \end{figure}
 
-Examples of this are shown in Figures~\ref{fig:figure_sfh_fit_demo1} and \ref{fig:figure_sfh_fit_demo2}. 
-There are 34 events we classified as SNe~Ia in the GOODS/CANDELS South field, and 39 in the North field, all but 6 of which were matched to a host galaxy in the SFH catalog. Two were rejected as the host redshifts were inconsistent with the catalog redshifts, and another 4 were rejected as they were not in the catalog, largely as they were either too faint or near the field edge to be listed in their composite photometry catalogs. 
 
+Examples of this are shown in Figure~\ref{fig:figure_sfh_fit_demo}
+There are 34 events we classified as SNe~Ia in the GOODS/CANDELS South field, and 39 in the North field, all but 6 of which were matched to a host galaxy in the SFH catalog. Two were rejected as the host redshifts were inconsistent with the catalog redshifts, and the other 4 were rejected as they were not in the catalog, largely as they were either too faint or near the field edge to be listed in their composite photometry catalogs. 
 
 The model parameters, $\xi$, $\omega$, and $\alpha$ is then explorable via {\tt emcee.py}. We keep the same uniform priors as bounds, as described in Sections~\ref{sec:optimized_soln} and \ref{sec:mcmc_sfd}.
 
@@ -342,6 +337,14 @@ The model parameters, $\xi$, $\omega$, and $\alpha$ is then explorable via {\tt 
    \includegraphics[width=6.5in]{figure_sfh_corners} 
    \caption{\footnotesize MCMC results on unimodal delay-time distribution model, fit to SFHs for 147 galaxies in CANDELS, 49 of which are SN~Ia hosts.}
    \label{fig:mcmc_sfd}
+\end{figure}
+
+
+\begin{figure}[t] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=6.5in]{figure_loglog_dtd}
+   \caption{\footnotesize temp}
+   \label{fig:logsnrate}
 \end{figure}
 
 \section{discussion}

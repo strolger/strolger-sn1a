@@ -20,8 +20,8 @@ if __name__=='__main__':
     tot = 0
     for file in files:
         samples = pickle.load(open(file,'rb'))
-        ## samples = samples[:,50:,:].reshape((-1,3))
-        samples = samples.reshape((-1,3))
+        samples = samples[:,50:,:].reshape((-1,3))
+        ## samples = samples.reshape((-1,3))
         print('adding %d samples from %s... '%(len(samples), file))
         try:
             temp = concatenate((temp, samples), axis=0)
@@ -59,10 +59,10 @@ if __name__=='__main__':
     #print(latex_table)
     #pdb.set_trace()
     ## fig = c.plotter.plot_walks(parameters=parameters[:1], convolve=100)
-    fig = c.plotter.plot_walks(truth={r'$\xi$': m_mcmc[0], r'$\omega$': w_mcmc[0], '$\alpha$': w_mcmc[0]},
-                               convolve=1000)
-    savefig('temp.png')
-    sys.exit()
+    ## fig = c.plotter.plot_walks(truth={r'$\xi$': m_mcmc[0], r'$\omega$': w_mcmc[0], '$\alpha$': w_mcmc[0]},
+    ##                           convolve=1000)
+    ## savefig('temp.png')
+    ## sys.exit()
     ## fig = c.plotter.plot_distributions(truth={r'$\xi$': md0, r'$\omega$': md1, '$\alpha$': k_mcmc[0]})
 
     ## grc = c.diagnostic.gelman_rubin()
@@ -73,7 +73,7 @@ if __name__=='__main__':
     
     fig = c.plotter.plot(figsize="column",
                          truth={r'$\xi$': md0, r'$\omega$': md1, '$\alpha$': k_mcmc[0]},
-                         ## extents = [[-1900.,100.0], [10., 90], [-50., 500]]
+                         extents = [[-1900.,100.0], [10., 90], [-50., 500]]
                          )
     fig.set_size_inches(4.5 + fig.get_size_inches())
     savefig('figure_sfh_corners.png')

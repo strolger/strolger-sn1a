@@ -98,8 +98,8 @@ def rate_per_galaxy(sfh, lbu=13.65, lbl=0.05, p0 = None,
         pwrl = (-1.0,1.0)
         ax2 = axes([0.6, 0.55, 0.25, 0.25])
         ax2.plot(time,dtd,'r-', label= 'Best Fit')#label='Norm = %1.1f' %(simps(dtd,x=time)))
-        ax2.plot(time,rz.powerdtd(time, *pwrl), 'b:', label=r'$t^{%.1f}$'%(pwrl[0]))
-        ax2.plot(ttt,ddd,'b--', label='Greggio')
+        ax2.plot(time,rz.powerdtd(time, *pwrl), 'b--', label=r'$t^{%.1f}$'%(pwrl[0]))
+        ## ax2.plot(ttt,ddd,'b--', label='Greggio')
         ax2.set_ylabel('$\Phi$')
         ax2.set_xlabel('Delay Time (Gyr)')
         ax2.set_xlim(0,12)
@@ -108,10 +108,11 @@ def rate_per_galaxy(sfh, lbu=13.65, lbl=0.05, p0 = None,
         #tight_layout()
 
         ax4 = axes([0.6, 0.2, 0.25, 0.25])
-        #img = mpimg.imread('107.jpg')
-        #ax4.imshow(img[75:135,50:140])
-        img = mpimg.imread('206.jpg')
-        ax4.imshow(img[75:135,70:160])
+        img = mpimg.imread('107.jpg') ## Thoth
+        ax4.imshow(img[75:135,50:140])
+        #img = mpimg.imread('206.jpg') ## Borg
+        #ax4.imshow(img[75:135,70:160])
+
         ax4.set_yticks([])
         ax4.set_xticks([])
 
@@ -134,8 +135,8 @@ if __name__=='__main__':
 
     p0 = (-1200., 50, 200)
 
-    sfh0 = 100529
-    sfh0 = 225895
+    ## sfh0 = 106969 ## Borg
+    sfh0 = 216531 ## Thoth
     if sfh0 < 200000:
         sfh = '../ALLSFH_new_z/gnznnpas/%05d.dat'%(sfh0 - 100000)
     else:
