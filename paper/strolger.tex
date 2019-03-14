@@ -227,19 +227,9 @@ Figure~\ref{fig:dtd_families} demonstrates the flexibility of the model in produ
    \label{fig:dtd_families}
 \end{figure}
 
-{\bf [ I am HERE]}
 
 \subsection{The Optimized Solution\label{sec:optimized_soln}}
-We apply a maximum likelihood estimation method to determine the best-fit unimodal delay time model to Equation~\ref{eqn:std} using a method described in \cite{Hogg:2010fj} and the {\tt emcee.py} documentation~\citep{Foreman-Mackey:2013pd}. We assume, for simplicity, that the errors of all survey data are gaussian in nature, but may be underestimated by some factor ($f$), which may be correctly justified given we are only using the statistical error produced for each value. 
-
-\begin{figure}[t] %  figure placement: here, top, bottom, or page
-   \centering
-   \includegraphics[width=6.5in]{figure_sfd_optimized} 
-   \caption{\footnotesize In addition to rate values shown in previous figures, the $R_{\rm Ia}(z)$ result of from optimal parameter fitting is show (black line). The CSFH is shown on in red, and along the secondary abscissa. }
-   \label{fig:sfd_optimized_curvefit}
-\end{figure}
-	
-As follows, we adopt the likelihood function to be:
+We apply a maximum likelihood estimation method to determine the best-fit unimodal delay time model to Equation~\ref{eqn:std} using a method described in \cite{Hogg:2010fj} and the {\tt emcee.py} documentation~\citep{Foreman-Mackey:2013pd}. We assume, for simplicity, that the errors of all survey data are gaussian in nature, but may be underestimated by some factor ($f$), which may be correctly justified given we are only using the statistical error produced for each value.  As follows, we adopt the likelihood function to be:
 \begin{equation}
 \ln p(y|x, \sigma, \varepsilon, \xi, \omega, \alpha, f) = -\frac{1}{2} \sum_i \biggl\{ \frac{[R_{{\rm Ia},i} - {\rm model}(t_i; \varepsilon, \xi, \omega, \alpha)]^2}{s_i^2}+\ln (2\pi s_i^2)\biggr\},
 	\label{eqn:lf}
@@ -248,10 +238,16 @@ where,
 \begin{equation}
 s_i^2 = \sigma_i^2+f^2\, {\rm model}(t_i; \varepsilon, \xi, \omega, \alpha)^2.
 \end{equation}
-We then find the optimal parameters which maximize this likelihood.
+\noindent We then find the optimal parameters which maximize this likelihood. As for priors, we require the successful fraction of progenitors to be between zero and 1 ($0<\varepsilon<1$), that the width parameters can only be positive ($\omega>0$), and the that underestimation fraction can only be between approximately zero and 1 ($-4<\ln f<0$). Otherwise, we apply rather loose and arbitrarty bounds of $-2000<\xi<2000$ and  $-500 < \alpha < 500$. The results of this fit are shown in Figure~\ref{fig:sfd_optimized_curvefit}, and in Table~\ref{tab:results}. 
 
-As for priors, we apply rather loose, arbitrary bounds on the optimization, in that we require the successful fraction of progenitors to be between zero and 1, that the width parameters can only be positive, and the that underestimation fraction can only be between zero and 1. Otherwise, the bounds are as follows for parameters $\varepsilon$, $\xi$, $\omega$, $\alpha$, and $\ln f$, respectively: [(0.,1.0),(-2000.,2000.),(0.001,100.),(-500.0,500.0),(-4.,0.)]. The results of that fit are shown in Figure~\ref{fig:sfd_optimized_curvefit}, and in Table~\ref{tab:results}. 
-
+%we apply rather loose, arbitrary bounds on the optimization, in that we
+%re as follows for parameters $\varepsilon$, $\xi$, $\omega$, $\alpha$, and $\ln f$, respectively: [(0.,1.0),(-2000.,2000.),(0.001,100.),(-500.0,500.0),(-4.,0.)].
+\begin{figure}[t] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=6.5in]{figure_sfd_optimized} 
+   \caption{\footnotesize In addition to rate values shown in previous figures, the $R_{\rm Ia}(z)$ result of from optimal parameter fitting is show (black line). The CSFH is shown on in red, and along the secondary abscissa. }
+   \label{fig:sfd_optimized_curvefit}
+\end{figure}
 
 \begin{table}
     \centering
@@ -267,10 +263,11 @@ As for priors, we apply rather loose, arbitrary bounds on the optimization, in t
     \end{tabular}
 \end{table}
 
-While the optimization results in values, and a rather interesting delay-time distribution, it is not directly possible to estimate the errors in the parameters via this maximum likelihood optimization method. A Markov chain Monte Carlo (MCMC) is better suited for that.
+While the optimization results in values with associated errors, that are broadly consistent with the $t^{-1}$ model, it is not directly possible to estimate the range of validity in this maximum likelihood optimization method. A Markov chain Monte Carlo (MCMC) is better suited for that.
+
 
 \subsection{The MCMC solution\label{sec:mcmc_sfd}}
-Exploring the parameter space in an MCMC allows both confirmation of the optimized solution and an exploration of the range of validity. We use the affine Invariant MCMC ensemble sampler from {\tt emcee.py}~\citep{Foreman-Mackey:2013pd}, and use the same likelihood function as shown in Equation~\ref{eqn:lf}, and set our uniform priors as described by the bounds, as shown in the previous section. We then set 1,000 walkers to explore 10,000 steps, for a total of 10 million iterations, the first 100,000 of which we discard as `burn-in'. The results of which are shown in Figure~\ref{fig:mcmc_sfd} and Table~\ref{tab:results}.
+Exploring the parameter space in an MCMC allows both confirmation of the optimized solution and an exploration of the range of validity. We use the affine-invariant MCMC ensemble sampler from {\tt emcee.py}~\citep{Foreman-Mackey:2013pd} using the same likelihood function as shown in Equation~\ref{eqn:lf}, and set our uniform priors as described by the bounds, as shown in the previous section, with the exception of evaluating $\ln \varepsilon$ to allow MCMC step sizes of order unity, and using the prior $ -10 < \ln \varepsilon < 0$. We then set 1,000 walkers to explore 10,000 steps, for a total of 10 million iterations, the first 100,000 of which we discard as `burn-in'. The results of which are shown in Figure~\ref{fig:mcmc_sfd} and Table~\ref{tab:results}.
 
 \begin{figure}[t] %  figure placement: here, top, bottom, or page
    \centering
@@ -287,15 +284,19 @@ Exploring the parameter space in an MCMC allows both confirmation of the optimiz
    \label{fig:figure_fit_demo_werr}
 \end{figure}
 
-As is shown, there is a clear convergence in $\ln f$, the factor by which reported errors in rate measures are underestimated. It seems that nearly all values are underestimated by less than 37\%, with most only about 8\% underestimated. While there is a large dispersion in rate values, and seemingly inconsistent rates in some of the same redshift ranges, their values are reasonably consistent with statistical errors, which are not grossly underestimated. Also fairly well constrained is the fraction $\varepsilon$, where only $5.8^{+0.3}_{-0.7}\%$ of WD stars contribute as SN~Ia progenitors. That number increases to  $0.14^{+0.13}_{-0.14}$ when the D18 CSFH is used. However, the parameters we wished to know the most about,  $\xi$, $\omega$, and $\alpha$, appear very much less constrained by the MCMC. There is a clear peak around $\omega\approx60$, but that value is also highly degenerate with the value of $\xi$.  There does not appear to be any convergence or preference in the value of $\alpha$.
+As these result show, there is a clear convergence in $\ln f$, the factor by which reported errors in rate measures are underestimated. It seems that nearly all values are underestimated by less than 37\%, with most only about 8\% underestimated. While there is a large dispersion in rate values, and seemingly inconsistent rates in some of the same redshift ranges, their values are reasonably consistent with statistical errors, which are not grossly underestimated. Also fairly well constrained is the fraction $\varepsilon$, where only $5.8^{+0.3}_{-0.7}\%$ of WD stars contribute as SN~Ia progenitors. However, the parameters we wished to know the most about,  $\xi$, $\omega$, and $\alpha$, appear very much less constrained by the MCMC. There is a clear peak around $\omega\approx60$, but that value is also highly degenerate with the value of $\xi$.  There does not appear to be any convergence or preference in the value of $\alpha$.
 
 
-While this does not seem to show a clear preference for any specific value set for the model, it does indicate a specific family of solutions that are related. As shown in Figure~\ref{fig:figure_fit_demo_werr}, the 68\% confidence interval about the best fit parameters, all indicate a rather flat DTD. The $t^{-1}$ model is, however, within the 2-$\sigma$ region. 
+While this does not seem to show a clear preference for a very specific parameterization the model, it does indicate a specific family of solutions that are related. As shown in Figure~\ref{fig:figure_fit_demo_werr}, the 68\% confidence interval about the best fit parameters, all indicate a rather flat DTD. %The $t^{-1}$ model is, however, within the 2-$\sigma$ region. 
 
 [NOTE: I should at least talk about Parallel-Tempering Ensemble MCMC, and ...]
 
 \section{Delay Time Distributions from Star Formation Histories}
-This is an evaluation of the maximum likelihood delay time distribution following the prescription of \cite{Maoz:2012a} but performed on the GOODS/CANDELS galaxies. For a given galaxy, the rate history of SNe~Ia per year ($r_i$) would be:
+This is an evaluation of the maximum likelihood delay time distribution following the prescription of \cite{Maoz:2012a} but performed on the GOODS/CANDELS galaxies. 
+
+For this analysis we use star formation histories derived using the modeling approach of \cite{Pacifici:2012ve}. In summary, the galaxy physical propertes (including star formation histories) are retrieved from a combined analysis of stellar and nebular emission, utilizing an extensive library of star formation and chemical enrichment histories to build a large library of galaxy spectral energy distributions, then determining likelihood distributions of physical parameters from a Bayesian analysis of observed spectral energy distribtions. This is method has been applied to the HST/WFC3-F160W-selected CANDELS catalogs for the GOODS-South (Guo et al. 2013), and the GOODS-North (Barro et al. , in preparation), into SFH catalogs~\cite{Pacifici:2016ul}. We adopt only the median derrived SFH of each galaxy for simplicity. 
+
+For a given galaxy, the rate history of SNe~Ia per year ($r_i$) would be:
 \begin{equation}
 r_i (t) = h^2\,k\,\varepsilon\, \int_0^t \Psi_i(t')\,\Phi(\tau-t')\,dt',
 \label{eqn:rate_history}
@@ -321,13 +322,14 @@ L = \prod _i^N P(n_i|M_i) \Rightarrow \ln L = -\sum^N m_i+\sum^N\ln\biggl(\frac{
    \centering
    \includegraphics[width=3in]{figure_sfh_demo_v1} 
    \includegraphics[width=3in]{figure_sfh_demo_v2} 
-   \caption{\footnotesize Similar to Figure~\ref{fig:sfd_optimized_curvefit}, the $R_{\rm Ia}(z)$ result of from MCMC fitting is shown (blue line), with the 68\% confidence interval, in green. }
+   \caption{\footnotesize Example star formation histories (dashed-line and left abcisa), and the resultant SN Ia rate histories (dotted-line and right abcisa) for two SN Ia host galaxies in our sample, SN 2002hp (left) and 2003dy (right), in the GOODS-South and GOODS-North fields, respectively. Insets show the delay time disribution applied (upper right, in red) compared to $t^{-1}$ (blue dashed), and a three-color HST ACS/WFC image (lower right) of the SN host galaxy.}
    \label{fig:figure_sfh_fit_demo}
 \end{figure}
 
 
-Examples of this are shown in Figure~\ref{fig:figure_sfh_fit_demo}
-There are 34 events we classified as SNe~Ia in the GOODS/CANDELS South field, and 39 in the North field, all but 6 of which were matched to a host galaxy in the SFH catalog. Two were rejected as the host redshifts were inconsistent with the catalog redshifts, and the other 4 were rejected as they were not in the catalog, largely as they were either too faint or near the field edge to be listed in their composite photometry catalogs. 
+Examples of this method are shown in Figure~\ref{fig:figure_sfh_fit_demo} which shows star-formation histories for two SN Ia host galaxies, for SN 2002hp and SN 2003dy, respectively (see ~\cite{Strolger:2004} for futher details on these events). Both events are at $z\approx 1.3$, and in the GOODS-South and GOODS-North fields, respectively. The host of SN~2002hp however is a passive galaxy that underwent a very large burst of star formation just a few Gyr ago, that when convolved with the applied delay time distribution results in a realtively large rate of SN Ia at the observed epoch of 0.93 per millineum.  Conversely, the host of SN~2003dy is actively star forming and has been over the last few Gyr, resulting in a SN Ia rate at the observed epoch about three times larger, 2.94 per millenium. Most non-hosts have predicted SN Ia rates at their observed epochs several orders of magnitude smaller than these two example hosts. 
+  
+There are 34 events we classified in ~\cite{Strolger:2004, Dahlen:2008, Rodney:2014} as SNe~Ia in the GOODS/CANDELS South field, and 39 in the North field, all but 6 of which were matched to a host galaxy in the SFH catalog. Two were rejected as the host redshifts were inconsistent with the catalog redshifts, and the other 4 were rejected as they were not in the catalog, largely as they were either too faint or near the field edge to be listed in their composite photometry catalogs. 
 
 The model parameters, $\xi$, $\omega$, and $\alpha$ is then explorable via {\tt emcee.py}. We keep the same uniform priors as bounds, as described in Sections~\ref{sec:optimized_soln} and \ref{sec:mcmc_sfd}.
 
