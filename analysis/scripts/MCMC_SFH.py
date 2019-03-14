@@ -167,7 +167,7 @@ if __name__ == '__main__':
     import multiprocessing as mpc
 
     ncore = mpc.cpu_count()
-    step_sep = 5.0
+    step_sep = 1.0
     ## p0 = (3.3, 0.5, 2.2)
     ## p0 = (-1.5, 0.5, -12.)
     ## p0 = (-100., 50, 20)

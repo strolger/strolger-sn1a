@@ -103,7 +103,8 @@ def plot_one(rates,plotname,*p, frac=0.05, age=13.6):
 
 if __name__=='__main__':
 
-    calculate = False
+    calculate = True
+    
     rates = loadtxt('SNeIa_rates.txt')
     rates[:,1:] = rates[:,1:]#*1.0e-4 ## put on the right scale
     rates = rates[:,:4]

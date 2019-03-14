@@ -1,7 +1,7 @@
 This is BibTeX, Version 0.99d (TeX Live 2018)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: strolger.aux
-The style file: apj.bst
+The style file: aasjournal.bst
 Database file #1: strolger.bib
 Reallocated buffer (elt_size=1) to 40000 items from 20000.
 Reallocated sv_buffer (elt_size=1) to 40000 items from 20000.
@@ -21,44 +21,45 @@ Reallocated ex_buf (elt_size=1) to 80000 items from 60000.
 Reallocated out_buf (elt_size=1) to 80000 items from 60000.
 Reallocated name_tok (elt_size=4) to 80000 items from 60000.
 Reallocated name_sep_char (elt_size=1) to 80000 items from 60000.
-You've used 52 entries,
-            2948 wiz_defined-function locations,
-            984 strings with 23351 characters,
-and the built_in function-call counts, 45404 in all, are:
-= -- 3018
-> -- 5486
-< -- 13
-+ -- 2042
-- -- 1983
-* -- 4969
-:= -- 8916
-add.period$ -- 52
-call.type$ -- 52
-change.case$ -- 868
-chr.to.int$ -- 51
-cite$ -- 52
-duplicate$ -- 987
-empty$ -- 1413
-format.name$ -- 2140
-if$ -- 8049
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+You've used 60 entries,
+            3166 wiz_defined-function locations,
+            1148 strings with 29995 characters,
+and the built_in function-call counts, 33790 in all, are:
+= -- 2283
+> -- 3537
+< -- 14
++ -- 1171
+- -- 1251
+* -- 3483
+:= -- 6552
+add.period$ -- 68
+call.type$ -- 60
+change.case$ -- 322
+chr.to.int$ -- 59
+cite$ -- 60
+duplicate$ -- 1020
+empty$ -- 1633
+format.name$ -- 1318
+if$ -- 6500
 int.to.chr$ -- 2
-int.to.str$ -- 1
-missing$ -- 49
-newline$ -- 160
-num.names$ -- 210
-pop$ -- 909
+int.to.str$ -- 0
+missing$ -- 57
+newline$ -- 196
+num.names$ -- 242
+pop$ -- 376
 preamble$ -- 1
-purify$ -- 868
+purify$ -- 322
 quote$ -- 0
-skip$ -- 817
+skip$ -- 821
 stack$ -- 0
-substring$ -- 1089
+substring$ -- 1011
 swap$ -- 16
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 468
+type$ -- 540
 warning$ -- 0
-while$ -- 205
+while$ -- 212
 width$ -- 0
-write$ -- 517
+write$ -- 662

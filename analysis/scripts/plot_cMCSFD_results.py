@@ -52,7 +52,7 @@ if __name__=='__main__':
     print('k=%2.2f, %2.2f, %2.2f' %(k_mcmc[0], k_mcmc[1], k_mcmc[2]))
     print('lnf=%2.2f, %2.2f, %2.2f' %(lnf_mcmc[0], lnf_mcmc[1], lnf_mcmc[2]))
 
-    parameters = [r'$\log\varepsilon$',r'$\xi$',r'$\omega$',r'$\alpha$', r'$\log f$']
+    parameters = [r'$\ln\varepsilon$',r'$\xi$',r'$\omega$',r'$\alpha$', r'$\ln f$']
     c = chc()
     c.add_chain(samples, parameters=parameters, walkers=1000, name='Unimodal Model')
 
@@ -67,7 +67,7 @@ if __name__=='__main__':
 
     ## fig = c.plotter.plot_walks(truth={r'$\varepsilon$':ff_mcmc[0], 
     ##                                   r'$\xi$': md0, r'$\omega$': md1, r'$\alpha$': md2,
-    ##                                   r'$\log f$':lnf_mcmc[0]},
+    ##                                   r'$\ln f$':lnf_mcmc[0]},
     ##                            convolve=100)
     ## ## fig = c.plotter.plot_walks(parameters=parameters[1:4], convolve=1000)
     ## savefig('temp.png')
@@ -81,9 +81,9 @@ if __name__=='__main__':
 
     c.configure(label_font_size=18, contour_labels='sigma')
     fig = c.plotter.plot(figsize="column",
-                         truth={r'$\log\varepsilon$':ff_mcmc[0], 
+                         truth={r'$\ln\varepsilon$':ff_mcmc[0], 
                                 r'$\xi$': m_mcmc[0], r'$\omega$': w_mcmc[0], r'$\alpha$': k_mcmc[0],
-                                r'$\log f$':md3},
+                                r'$\ln f$':md3},
                          extents = [[-3.1, -2.5], [-2000.,0.0], [10., 90], [0., 500],[-4,0]]
                          ## extents = [[-0.2, 0.4], [-1900.,200.0], [-0.1, 90], [-200., 500],[-4.2,0.1]]
                          )

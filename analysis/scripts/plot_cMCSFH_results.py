@@ -73,7 +73,7 @@ if __name__=='__main__':
     
     fig = c.plotter.plot(figsize="column",
                          truth={r'$\xi$': md0, r'$\omega$': md1, '$\alpha$': k_mcmc[0]},
-                         extents = [[-1900.,100.0], [10., 90], [-50., 500]]
+                         extents = [[-1900.,-100.0], [-10., 90], [-10., 500]]
                          )
     fig.set_size_inches(4.5 + fig.get_size_inches())
     savefig('figure_sfh_corners.png')
