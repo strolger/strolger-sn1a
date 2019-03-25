@@ -109,7 +109,9 @@ if __name__=='__main__':
             else:
                 print('%s not found'%file)
                 continue
-            ndata = get_data(data, p0=(-1258, 59, 248), frac_ia = 0.06, plotit=True)
+            #ndata = get_data(data, p0=(-1258, 59, 248), frac_ia = 0.06, plotit=True)
+            ndata = get_data(data, p0=(3.5, 0.5, 2.), frac_ia = 0.06, plotit=True)
+            
             sfhs[idx]=ndata
             pickle.dump(sfhs,open('ssSFRN.pkl','wb'))
     else:
@@ -142,9 +144,8 @@ if __name__=='__main__':
             ax.plot(xx[0], yy[0], '*', ms=7, color='k', alpha=0.3, label='At epoch of SN Ia')
         else:
             ax.plot(xx[0], yy[0], '*', ms=7, color='k', alpha=0.3)
-        pdb.set_trace()
         out.append([xx[0], yy[0], idx])
-        ## ax.annotate('%s' %idx, (xx[0], yy[0]))
+        ax.annotate('%s' %idx, (xx[0], yy[0]))
     out = array(out)
     ax.set_xlabel(r'$\log$ (sSFR)')
     ax.set_ylabel(r'$\log$ (sSNR)')
