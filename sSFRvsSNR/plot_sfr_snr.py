@@ -109,8 +109,8 @@ if __name__=='__main__':
             else:
                 print('%s not found'%file)
                 continue
-            #ndata = get_data(data, p0=(-1258, 59, 248), frac_ia = 0.06, plotit=True)
-            ndata = get_data(data, p0=(3.5, 0.5, 2.), frac_ia = 0.06, plotit=True)
+            ndata = get_data(data, p0=(-1258, 59, 248), frac_ia = 0.06, plotit=True)
+            ## ndata = get_data(data, p0=(3.5, 0.5, 2.), frac_ia = 0.06, plotit=True)
             
             sfhs[idx]=ndata
             pickle.dump(sfhs,open('ssSFRN.pkl','wb'))
@@ -130,22 +130,22 @@ if __name__=='__main__':
         xx = log10(sfhs[idx][ii:,1])
         yy = log10(sfhs[idx][ii:,2])
         y0 = sfhs[idx][0,2]
-        if iii == 0:
-            j1 = ax.scatter(xx, yy, c=range(len(xx)), cmap='plasma', marker='_', s=1, label='Temporal track')
-        else:
-            j1 = ax.scatter(xx, yy, c=range(len(xx)), cmap='plasma', marker='_', s=1)
+        ## if iii == 0:
+        ##     j1 = ax.scatter(xx, yy, c=range(len(xx)), cmap='plasma', marker='_', s=1, label='Temporal track')
+        ## else:
+        ##     j1 = ax.scatter(xx, yy, c=range(len(xx)), cmap='plasma', marker='_', s=1)
             
 
         if idx > 200000:
             x0 = 10**data1[int(idx-200000),3]/10**data1[int(idx-200000),1]
         else:
             x0 = 10**data2[int(idx-100000),3]/10**data2[int(idx-100000),1]
-        if iii == 0:
-            ax.plot(xx[0], yy[0], '*', ms=7, color='k', alpha=0.3, label='At epoch of SN Ia')
-        else:
-            ax.plot(xx[0], yy[0], '*', ms=7, color='k', alpha=0.3)
+        ## if iii == 0:
+        ##     ax.plot(xx[0], yy[0], '*', ms=7, color='k', alpha=0.3, label='At epoch of SN Ia')
+        ## else:
+        ##     ax.plot(xx[0], yy[0], '*', ms=7, color='k', alpha=0.3)
         out.append([xx[0], yy[0], idx])
-        ax.annotate('%s' %idx, (xx[0], yy[0]))
+        ##ax.annotate('%s' %idx, (xx[0], yy[0]))
     out = array(out)
     ax.set_xlabel(r'$\log$ (sSFR)')
     ax.set_ylabel(r'$\log$ (sSNR)')
@@ -173,18 +173,23 @@ if __name__=='__main__':
     ax.fill_between(xx, upper, lower, color='blue', alpha=0.2)
     
 
-    ax.set_xlim(-12, -8)
-    ax.set_ylim(-14, -11)
+    ax.set_xlim(-12.5, -8)
+    #ax.set_ylim(-14, -11)
     
+    ## plt.subplots_adjust(bottom=0.1, right=0.8, top=0.9)
+    ## cax = plt.axes([0.85, 0.1, 0.075, 0.8])
+    ## cbar = plt.colorbar(j1, cax=cax)
+    ## cbar.ax.set_yticklabels(arange(0, 15, 1))
+    ## cbar.ax.set_ylabel('Lookback Time (Gyr)')
+
+    data = loadtxt('mannucci05.txt')
+    ax.errorbar(data[:,0], log10(data[:,1]),
+                yerr=log10((data[:,1]-data[:,2])/data[:,1]),
+                fmt='o', label='Mannucci et al. (2005)')
+
     ax.legend(loc=2,frameon=False)
 
-    plt.subplots_adjust(bottom=0.1, right=0.8, top=0.9)
-    cax = plt.axes([0.85, 0.1, 0.075, 0.8])
-    
-    
-    cbar = plt.colorbar(j1, cax=cax)
-    cbar.ax.set_yticklabels(arange(0, 15, 1))
-    cbar.ax.set_ylabel('Lookback Time (Gyr)')
+
     savefig('figure_ssfr.png')
     
             
