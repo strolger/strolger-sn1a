@@ -165,13 +165,15 @@ if __name__=='__main__':
 
     p0 = (1.,1.,0.0)
     popt, pcov = curve_fit(line_fn, out[:,0], out[:,1], p0=p0)
+    perr = sqrt(diag(pcov))
     ax.plot(xx, line_fn(xx, *popt), 'b-', label='Our model')
     ps = np.random.multivariate_normal(popt, pcov, 10000)
     ysample = asarray([line_fn(xx, *pi) for pi in ps])
     lower = percentile(ysample, 15.9, axis=0)
     upper = percentile(ysample, 84.1, axis=0)
     ax.fill_between(xx, upper, lower, color='blue', alpha=0.2)
-    
+
+    print(popt,pcov)
 
     ax.set_xlim(-12.5, -8)
     #ax.set_ylim(-14, -11)
@@ -186,6 +188,17 @@ if __name__=='__main__':
     ax.errorbar(data[:,0], log10(data[:,1]),
                 yerr=log10((data[:,1]-data[:,2])/data[:,1]),
                 fmt='o', label='Mannucci et al. (2005)')
+
+
+    data = loadtxt('sullivan06.txt')
+    ax.errorbar(data[:,0], log10(data[:,1]),
+                yerr=log10((data[:,1]-data[:,2])/data[:,1]),
+                fmt='o', label='Sullivan et al. (2006)')
+
+    data = loadtxt('smith12.txt')
+    ax.errorbar(data[:,0], log10(data[:,1]),
+                yerr=log10((data[:,1]-data[:,2])/data[:,1]),
+                fmt='o', label='Smith et al. (2012)')
 
     ax.legend(loc=2,frameon=False)
 

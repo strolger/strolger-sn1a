@@ -18,8 +18,6 @@ if __name__=='__main__':
     lbu = 13.65
     xx = arange(0.05, lbu, 0.005)
     tt = lbu - xx
-    #p0 = (-1258, 59, 248)
-    p0 = (-23.1, 4.1, -1.1)
     p0a = (1., 4.7, 0.28)
     p0b = (lbu-2., 2.6, 0.8, 0.7)
     p0c = (-3, 4.7, 0.28)
@@ -30,14 +28,13 @@ if __name__=='__main__':
     ax2.set_title('SFH')
     ax2.set_xlabel('Lookback time (Gyr)')
     ax2.set_ylabel(r' M$_{\odot}$ yr$^{-1}$')
+    #ax2.legend(frameon=False)
 
     data = zeros((len(xx), 2),)
     data[:,0] = xx
     data[:,1] = 300*func1(xx, *p0a)
     mdata = cumsum(data[:,1][::-1])[::-1]*0.005*1e9*0.4
-    sfh_val = data[:,1]/mdata
-    #sfh_val[where(sfh_val < 1e-11)]=1e-11
-    rdata = pss.rate_per_galaxy(data, p0 = p0, frac_ia = 0.06)
+    rdata = pss.rate_per_galaxy(data, p0 = (-1258, 59, 248), frac_ia = 0.06)
     junk, rdn=u.recast(data[:,0], 0., lbu-rdata[:,0], rdata[:,1])
 
     ax3 = axes([0.23, 0.60, 0.23, 0.2])
@@ -46,7 +43,7 @@ if __name__=='__main__':
     ax3.set_ylabel(r'M$_{\odot}$')
     ax3.set_xlabel('Lookback time (Gyr)')
     ax2.plot(data[:,0], data[:,1],'r-', label='"Grean Pea" Dwarf')
-    ax.scatter(log10(sfh_val), log10(rdn/mdata), c=range(len(data[:,0])), cmap='plasma', marker='_', s=1)
+    ax.scatter(log10(data[:,1]/mdata), log10(rdn/mdata), c=range(len(data[:,0])), cmap='plasma', marker='_', s=1)
     ax.plot(log10(data[:,1]/mdata)[0], log10(rdn/mdata)[0], '*', ms=10, color='k', alpha=0.3)
 
 
@@ -55,49 +52,44 @@ if __name__=='__main__':
     data[:,1] = 18*func2(xx, *p0b)
     data[:,1][isnan(data[:,1])]=0.0
     mdata = cumsum(data[:,1][::-1])[::-1]*0.005*1e9
-    sfh_val = data[:,1]/mdata
-    sfh_val[where(sfh_val < 1e-11)]=1e-11
-    rdata = pss.rate_per_galaxy(data, p0 = p0, frac_ia = 0.06)
+    rdata = pss.rate_per_galaxy(data, p0 = (-1258, 59, 248), frac_ia = 0.06)
     junk, rdn=u.recast(data[:,0], 0., lbu-rdata[:,0], rdata[:,1])
 
     ax3.plot(data[:,0], mdata, '--')
     ax2.plot(data[:,0], data[:,1],'r--', label='Ultra Diffuse Dwarf')
-    ax.scatter(log10(sfh_val), log10(rdn/mdata), c=range(len(data[:,0])), cmap='plasma', marker='_', s=1)
+    ax.scatter(log10(data[:,1]/mdata), log10(rdn/mdata), c=range(len(data[:,0])), cmap='plasma', marker='_', s=1)
     ax.plot(log10(data[:,1]/mdata)[0], log10(rdn/mdata)[0], '*', ms=10, color='k', alpha=0.3)
 
     data = zeros((len(xx), 2),)
     data[:,0] = xx
+    ##data[:,1] = 2.25*func1(xx, *p0c)+0.18*func2(xx, *p0d)
     p_o = (7, 1.5, 1.5)
     data[:,1] = u.gauss(xx,*p_o) 
     mdata = cumsum(data[:,1][::-1])[::-1]*0.005*1e9*0.8
-    sfh_val = data[:,1]/mdata
-    sfh_val[where(sfh_val < 1e-11)]=1e-11
-    rdata = pss.rate_per_galaxy(data, p0 = p0, frac_ia = 0.06)
+    rdata = pss.rate_per_galaxy(data, p0 = (-1258, 59, 248), frac_ia = 0.06)
     junk, rdn=u.recast(data[:,0], 0., lbu-rdata[:,0], rdata[:,1])
 
 
     ax3.plot(data[:,0], mdata, ':')
     ax2.plot(data[:,0],data[:,1],'r:', label='Dwarf')
-    ax.scatter(log10(sfh_val), log10(rdn/mdata), c=range(len(data[:,0])), cmap='plasma', marker='_', s=1)
+    ax.scatter(log10(data[:,1]/mdata), log10(rdn/mdata), c=range(len(data[:,0])), cmap='plasma', marker='_', s=1)
     ax.plot(log10(data[:,1]/mdata)[0], log10(rdn/mdata)[0], '*', ms=10, color='k', alpha=0.3)
 
-    nns = arange(2,11,1)
-    for nn in nns:
-        data = zeros((len(xx), 2),)
-        data[:,0] = xx
-        p_o = (7, nn, 0.5)
-        data[:,1] = u.gauss(xx,*p_o) 
-        mdata = cumsum(data[:,1][::-1])[::-1]*0.005*1e9*0.8
-        sfh_val = data[:,1]/mdata
-        sfh_val[where(sfh_val < 1e-11)]=1e-11
-        rdata = pss.rate_per_galaxy(data, p0 = p0, frac_ia = 0.06)
-        junk, rdn=u.recast(data[:,0], 0., lbu-rdata[:,0], rdata[:,1])
+
+    data = zeros((len(xx), 2),)
+    data[:,0] = xx
+    ##data[:,1] = 2.25*func1(xx, *p0c)+0.18*func2(xx, *p0d)
+    p_o = (7, 8., 4.5)
+    data[:,1] = u.gauss(xx,*p_o) 
+    mdata = cumsum(data[:,1][::-1])[::-1]*0.005*1e9*0.8
+    rdata = pss.rate_per_galaxy(data, p0 = (-1258, 59, 248), frac_ia = 0.06)
+    junk, rdn=u.recast(data[:,0], 0., lbu-rdata[:,0], rdata[:,1])
 
 
-        ax3.plot(data[:,0], mdata, ':')
-        ax2.plot(data[:,0],data[:,1],'r:', label='Dwarf')
-        ax.scatter(log10(sfh_val), log10(rdn/mdata), c=range(len(data[:,0])), cmap='plasma', marker='_', s=1)
-        ax.plot(-11.5, log10(rdn/mdata)[0], '*', ms=10, color='k', alpha=0.3)
+    ax3.plot(data[:,0], mdata, ':')
+    ax2.plot(data[:,0],data[:,1],'r:', label='Dwarf')
+    ax.scatter(log10(data[:,1]/mdata), log10(rdn/mdata), c=range(len(data[:,0])), cmap='plasma', marker='_', s=1)
+    ax.plot(log10(data[:,1]/mdata)[0], log10(rdn/mdata)[0], '*', ms=10, color='k', alpha=0.3)
 
 
 
@@ -114,15 +106,15 @@ if __name__=='__main__':
                  [  9.46250054e-03,   1.91379154e-01,   9.59494348e-01]])
 
 
-    ## ax.plot(ssfx, pss.line_fn(ssfx, *p_m), 'b-', label='Our model')
-    ## ps = np.random.multivariate_normal(p_m, p_c, 10000)
-    ## ysample = asarray([pss.line_fn(ssfx, *pi) for pi in ps])
-    ## lower = percentile(ysample, 15.9, axis=0)
-    ## upper = percentile(ysample, 84.1, axis=0)
-    ## ax.fill_between(ssfx, upper, lower, color='blue', alpha=0.2)
-    ## lower = percentile(ysample, 2.5, axis=0)
-    ## upper = percentile(ysample, 97.5, axis=0)
-    ## ax.fill_between(ssfx, upper, lower, color='blue', alpha=0.2)
+    ax.plot(ssfx, pss.line_fn(ssfx, *p_m), 'b-', label='Our model')
+    ps = np.random.multivariate_normal(p_m, p_c, 10000)
+    ysample = asarray([pss.line_fn(ssfx, *pi) for pi in ps])
+    lower = percentile(ysample, 15.9, axis=0)
+    upper = percentile(ysample, 84.1, axis=0)
+    ax.fill_between(ssfx, upper, lower, color='blue', alpha=0.2)
+    lower = percentile(ysample, 2.5, axis=0)
+    upper = percentile(ysample, 97.5, axis=0)
+    ax.fill_between(ssfx, upper, lower, color='blue', alpha=0.2)
     
 
     ax.set_xlim(-12.5, -8.)
