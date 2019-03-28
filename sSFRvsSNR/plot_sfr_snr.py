@@ -109,8 +109,9 @@ if __name__=='__main__':
             else:
                 print('%s not found'%file)
                 continue
-            ndata = get_data(data, p0=(-1258, 59, 248), frac_ia = 0.06, plotit=True)
-            ## ndata = get_data(data, p0=(3.5, 0.5, 2.), frac_ia = 0.06, plotit=True)
+            ## ndata = get_data(data, p0=(-1258, 59, 248), frac_ia = 0.06, plotit=True)
+            ## ndata = get_data(data, p0=(-23.1, 4.1, -1.1), frac_ia = 0.06, plotit=True)
+            ndata = get_data(data, p0=(2.5, 1.0, 2.), frac_ia = 0.06, plotit=True)
             
             sfhs[idx]=ndata
             pickle.dump(sfhs,open('ssSFRN.pkl','wb'))
@@ -151,32 +152,66 @@ if __name__=='__main__':
     ax.set_ylabel(r'$\log$ (sSNR)')
 
     p_n = (1.19e-7, 0.586, 1.01e-11, 1.04e-9)
-    ## p_e = (2.20e-7, 0.084, 0.55e-11, 0.41e-9)
-    ## pcov = diag(array(p_e)**2.)
+    p_e = (2.20e-7, 0.084, 0.55e-11, 0.41e-9)
+    pcov = diag(0.2*array(p_e)**2.)
     xx = arange(-13, -7.5, 0.5)
     ax.plot(xx, log10(peices(10**xx, *p_n)), 'k--', label='Andersen & Hjorth (2018) model')
-    ## ps = np.random.multivariate_normal(p_n, pcov, 10000)
-    ## ysample = asarray([log10(peices(10**xx, *pi)) for pi in ps])
-    ## idx = where(~isnan(ysample[:,0]))
-    ## ysample=ysample[idx]
-    ## lower = percentile(ysample, 15.9, axis=0)
-    ## upper = percentile(ysample, 84.1, axis=0)
+    ps = np.random.multivariate_normal(p_n, pcov, 10000)
+    ysample = asarray([log10(peices(10**xx, *pi)) for pi in ps])
+    idx = where(~isnan(ysample[:,0]))
+    ysample=ysample[idx]
+    lower = percentile(ysample, 15.9, axis=0)
+    upper = percentile(ysample, 84.1, axis=0)
     ## ax.fill_between(xx, upper, lower, color='red', alpha=0.2)
 
-    p0 = (1.,1.,0.0)
-    popt, pcov = curve_fit(line_fn, out[:,0], out[:,1], p0=p0)
+
+
+    popt = (0.12212169, 3.08357917, 5.71209495)
+    pcov = array([[9.41823879e-05, 1.89562431e-03, 9.46250054e-03],
+                  [1.89562431e-03, 3.82514562e-02, 1.91379154e-01],
+                  [9.46250054e-03, 1.91379154e-01, 9.59494348e-01]])
+
     perr = sqrt(diag(pcov))
-    ax.plot(xx, line_fn(xx, *popt), 'b-', label='Our model')
+    ax.plot(xx, line_fn(xx, *popt), 'b-', label=r'$\Phi\propto e^{-t}$')
     ps = np.random.multivariate_normal(popt, pcov, 10000)
     ysample = asarray([line_fn(xx, *pi) for pi in ps])
     lower = percentile(ysample, 15.9, axis=0)
     upper = percentile(ysample, 84.1, axis=0)
     ax.fill_between(xx, upper, lower, color='blue', alpha=0.2)
+    lower = percentile(ysample, 2.5, axis=0)
+    upper = percentile(ysample, 97.5, axis=0)
+    ax.fill_between(xx, upper, lower, color='blue', alpha=0.2)
 
+
+    popt=(-4.77238208e-04,  9.90040272e-01, -3.01111121e+00)
+    pcov=array([[5.09893718e-08, 1.02627168e-06, 5.12290288e-06],
+                [1.02627168e-06, 2.07089528e-05, 1.03610770e-04],
+                [5.12290288e-06, 1.03610770e-04, 5.19460796e-04]])
+
+
+    perr = sqrt(diag(pcov))
+    ax.plot(xx, line_fn(xx, *popt), 'r-', label=r'$\Phi\propto t^{-1}$')
+    ps = np.random.multivariate_normal(popt, pcov, 10000)
+    ysample = asarray([line_fn(xx, *pi) for pi in ps])
+    lower = percentile(ysample, 15.9, axis=0)
+    upper = percentile(ysample, 84.1, axis=0)
+    ax.fill_between(xx, upper, lower, color='red', alpha=0.2)
+    lower = percentile(ysample, 2.5, axis=0)
+    upper = percentile(ysample, 97.5, axis=0)
+    ax.fill_between(xx, upper, lower, color='red', alpha=0.2)
+
+
+    p0 = (1.,1.,0.0)
+    popt, pcov = curve_fit(line_fn, out[:,0], out[:,1], p0=p0)
+    perr = sqrt(diag(pcov))
+    #ax.plot(xx, line_fn(xx, *popt), 'g-', label=r'$\Phi(t)\propto$G(2.5,1..0)')
+    ps = np.random.multivariate_normal(popt, pcov, 10000)
+    ysample = asarray([line_fn(xx, *pi) for pi in ps])
+    lower = percentile(ysample, 15.9, axis=0)
+    upper = percentile(ysample, 84.1, axis=0)
+    #ax.fill_between(xx, upper, lower, color='green', alpha=0.2)
     print(popt,pcov)
 
-    ax.set_xlim(-12.5, -8)
-    #ax.set_ylim(-14, -11)
     
     ## plt.subplots_adjust(bottom=0.1, right=0.8, top=0.9)
     ## cax = plt.axes([0.85, 0.1, 0.075, 0.8])
@@ -184,23 +219,29 @@ if __name__=='__main__':
     ## cbar.ax.set_yticklabels(arange(0, 15, 1))
     ## cbar.ax.set_ylabel('Lookback Time (Gyr)')
 
+    ax2 = ax.twinx()
     data = loadtxt('mannucci05.txt')
-    ax.errorbar(data[:,0], log10(data[:,1]),
+    ax2.errorbar(data[:,0], log10(data[:,1]),
                 yerr=log10((data[:,1]-data[:,2])/data[:,1]),
                 fmt='o', label='Mannucci et al. (2005)')
 
 
     data = loadtxt('sullivan06.txt')
-    ax.errorbar(data[:,0], log10(data[:,1]),
+    ax2.errorbar(data[:,0], log10(data[:,1]),
                 yerr=log10((data[:,1]-data[:,2])/data[:,1]),
                 fmt='o', label='Sullivan et al. (2006)')
 
     data = loadtxt('smith12.txt')
-    ax.errorbar(data[:,0], log10(data[:,1]),
+    ax2.errorbar(data[:,0], log10(data[:,1]),
                 yerr=log10((data[:,1]-data[:,2])/data[:,1]),
                 fmt='o', label='Smith et al. (2012)')
 
+    ax.set_xlim(-13.0, -8)
+    ax.set_ylim(-14.5, -11.5)
+    ax2.set_ylim(-14.5, -11.5)
+
     ax.legend(loc=2,frameon=False)
+    ax2.legend(loc=4,frameon=False)
 
 
     savefig('figure_ssfr.png')
