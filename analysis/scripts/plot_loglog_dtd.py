@@ -6,11 +6,12 @@ from strolger_util import rates_z as rz
 from scipy.optimize import curve_fit
 from scipy.stats import chisquare
 import pickle
+rcParams['font.size']=12.0
 
 
 scale = (0.0210)*0.062*(0.7)**2
 ax = subplot(111)
-
+ax2 = ax.twinx()
 
 p0 = [-1257.93, 59.32, 248.88] ## from MCMC
 
@@ -57,10 +58,16 @@ ax.plot(time,rz.powerdtd(time, *pwrl, normed=False)*(5.4e-3), '--', color=color,
 
 data = loadtxt('maoz_table2.txt')
 msc = 1.0e-4*0.7**2
-ax.errorbar(data[:,0], data[:,3]*msc,
-            xerr=[-1*data[:,1],data[:,2]],
-            yerr=[-1*data[:,4]*msc,data[:,5]*msc],
-            fmt='o', color='k', mfc='1.0')
+idx = where(data[:,6]==1)
+ax2.errorbar(data[idx][:,0], data[idx][:,3]*msc,
+            xerr=[-1*data[idx][:,1],data[idx][:,2]],
+            yerr=[-1*data[idx][:,4]*msc,data[idx][:,5]*msc],
+            fmt='o', color='k', mfc='1.0', mec='red', label='Cluster Rates')
+idx = where(data[:,6]==0)
+ax2.errorbar(data[idx][:,0], data[idx][:,3]*msc,
+            xerr=[-1*data[idx][:,1],data[idx][:,2]],
+            yerr=[-1*data[idx][:,4]*msc,data[idx][:,5]*msc],
+            fmt='o', color='k', mfc='1.0', mec='blue', label='Field Rates')
 
 
 
@@ -101,9 +108,12 @@ ax.set_ylabel(r'SN Ia yr$^{-1}$ ($10^{10}$ M$_{\odot}$)$^{-1}$')
 ax.set_xlabel('Delay Time (Gyr)')
 ax.set_xlim(0.03, 14)
 ax.set_ylim(5e-5,0.1)
-ax.legend(frameon=False)
+ax2.set_ylim(5e-5,0.1)
+ax.legend(loc=1,frameon=False)
+ax2.legend(loc=3,frameon=False)
 ax.set_xscale('log')
 ax.set_yscale('log')
+ax2.set_yscale('log')
 
 savefig('figure_loglog_dtd.png')
 ##show()
