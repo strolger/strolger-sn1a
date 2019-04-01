@@ -75,7 +75,7 @@ ax2.errorbar(data[idx][:,0], data[idx][:,3]*msc,
 rz.dtdfunc(time,*p0)
 popt, pcov = curve_fit(func, data[:,0], data[:,3]*msc, p0=p_t, sigma=data[:,4]*msc)
 print(popt)
-ax.plot(time,dtd*scale*popt,'b-', lw=2, label= 'Best Fit')#label='Norm = %1.1f' %(simps(dtd,x=time)))
+ax.plot(time,dtd*scale*popt,'b-', lw=2, label= 'Exponential model')#label='Norm = %1.1f' %(simps(dtd,x=time)))
 
 
 files = glob.glob('mc_sfd_*.pkl')

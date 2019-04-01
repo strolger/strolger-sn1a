@@ -10,7 +10,7 @@ if __name__=='__main__':
 
     ## mock data
     tt = arange(0.04,13.6,0.1)
-    p_pwr = (-1., 1.)
+    p_pwr = (-1, 1.)
     yy = rz.powerdtd(tt, *p_pwr)#, normed=False)
 
 
@@ -28,7 +28,7 @@ if __name__=='__main__':
     p0 = (1,1,1)
     popt,pcov=curve_fit(rz.dtdfunc, tt, yy, p0=p0)
     ax.plot(tt, rz.dtdfunc(tt,*popt), '-',color='orange')
-    print(popt)
+    print(popt,pcov)
     p1=(-1258, 59, 248)
 
     yy = rz.dtdfunc(tt,*p1)
