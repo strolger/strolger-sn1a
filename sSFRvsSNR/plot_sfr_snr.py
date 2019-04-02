@@ -157,7 +157,8 @@ if __name__=='__main__':
     p_e = (2.20e-7, 0.084, 0.55e-11, 0.41e-9)
     pcov = diag(0.2*array(p_e)**2.)
     xx = arange(-13, -7.5, 0.5)
-    ax.plot(xx, log10(peices(10**xx, *p_n)), 'k--', label='Andersen & Hjorth (2018) rate model')
+    ax.plot(xx, log10(peices(10**xx, *p_n)), '--', color='#4BADFF',
+            label='Andersen & Hjorth (2018)\n rate model')
     ps = np.random.multivariate_normal(p_n, pcov, 10000)
     ysample = asarray([log10(peices(10**xx, *pi)) for pi in ps])
     idx = where(~isnan(ysample[:,0]))
@@ -170,19 +171,19 @@ if __name__=='__main__':
 
 
     ## t**(-1)
-    ## popt=(-4.77238208e-04,  9.90040272e-01, -3.01111121e+00)
-    ## pcov=array([[5.09893718e-08, 1.02627168e-06, 5.12290288e-06],
-    ##             [1.02627168e-06, 2.07089528e-05, 1.03610770e-04],
-    ##             [5.12290288e-06, 1.03610770e-04, 5.19460796e-04]])
+    popt=(-4.77238208e-04,  9.90040272e-01, -3.01111121e+00)
+    pcov=array([[5.09893718e-08, 1.02627168e-06, 5.12290288e-06],
+                [1.02627168e-06, 2.07089528e-05, 1.03610770e-04],
+                [5.12290288e-06, 1.03610770e-04, 5.19460796e-04]])
 
 
     ## t**(-1.1)
-    popt=( -1.94866195e-04,   9.95757343e-01,  -2.95934114e+00)
-    pcov=array([[  8.37865874e-08,   1.68638241e-06,   8.41799528e-06],
-                [  1.68638241e-06,   3.40291314e-05,   1.70253711e-04],
-                [  8.41799528e-06,   1.70253711e-04,   8.53578632e-04]])
+    ## popt=( -1.94866195e-04,   9.95757343e-01,  -2.95934114e+00)
+    ## pcov=array([[  8.37865874e-08,   1.68638241e-06,   8.41799528e-06],
+    ##             [  1.68638241e-06,   3.40291314e-05,   1.70253711e-04],
+    ##             [  8.41799528e-06,   1.70253711e-04,   8.53578632e-04]])
     perr = sqrt(diag(pcov))
-    ax.plot(xx, line_fn(xx, *popt), 'r-', label=r'$\beta=-1.1$')
+    ax.plot(xx, line_fn(xx, *popt), '-', color='#F0CBC8', label=r'$\beta=-1.0$')
     ps = np.random.multivariate_normal(popt, pcov, 10000)
     ysample = asarray([line_fn(xx, *pi) for pi in ps])
     lower = percentile(ysample, 15.9, axis=0)
@@ -205,10 +206,10 @@ if __name__=='__main__':
     ysample = asarray([line_fn(xx, *pi) for pi in ps])
     lower = percentile(ysample, 15.9, axis=0)
     upper = percentile(ysample, 84.1, axis=0)
-    ax.fill_between(xx, upper, lower, color='blue', alpha=0.2)
+    ax.fill_between(xx, upper, lower, color='green', alpha=0.2)
     lower = percentile(ysample, 2.5, axis=0)
     upper = percentile(ysample, 97.5, axis=0)
-    ax.fill_between(xx, upper, lower, color='blue', alpha=0.2)
+    ax.fill_between(xx, upper, lower, color='green', alpha=0.2)
 
     p0 = (1.,1.,0.0)
     popt, pcov = curve_fit(line_fn, out[:,0], out[:,1], p0=p0)
@@ -230,33 +231,64 @@ if __name__=='__main__':
 
     ax2 = ax.twinx()
     data = loadtxt('mannucci05.txt')
-    lolims = zeros((len(data)),)
-    lolims[0]=1.0
-    
-    ax2.errorbar(data[:,0], log10(data[:,1]),
-                 yerr=[log10((data[:,1]-data[:,2])/data[:,1]),log10((data[:,1]-data[:,2])/data[:,1])],
-                 lolims=lolims,
-                 fmt='o', ms=10, label='Mannucci et al. (2005)')
+    ax2.errorbar(data[1:,0], log10(data[1:,1]),
+                 yerr=log10((data[1:,1]-data[1:,2])/data[1:,1]),
+                 fmt='o', ms=10, mfc='white', label='Mannucci et al. (2005)')
+    ax2.errorbar(data[0,0], log10(data[0,1]),
+                 yerr=0.5,xerr=data[0,0]+11,
+                 uplims=0.5,
+                 fmt='o', ms=10, mfc='white', color='#2077B4')
 
 
 
     data = loadtxt('sullivan06.txt')
-    ax2.errorbar(data[:,0], log10(data[:,1]),
-                yerr=log10((data[:,1]-data[:,2])/data[:,1]),
-                fmt='o', ms=10, label='Sullivan et al. (2006)')
+    ax2.errorbar(data[1:,0], log10(data[1:,1]),
+                 yerr=-log10((data[1:,1]-data[1:,2])/data[1:,1]),
+                 fmt='o', ms=10, mfc='white', label='Sullivan et al. (2006)')
+    ax2.errorbar(data[0,0], log10(data[0,1]),
+                 yerr=0.5,xerr=data[0,0]+11,
+                 uplims=0.5,
+                 fmt='o', ms=10, mfc='white',color='#FF7F0E')
 
     data = loadtxt('smith12.txt')
+    lolims = zeros((len(data)),)
+    lolims[0]=1.0
     ax2.errorbar(data[:,0], log10(data[:,1]),
-                yerr=log10((data[:,1]-data[:,2])/data[:,1]),
-                fmt='o', ms=10, label='Smith et al. (2012)')
+                 yerr=[-log10((data[:,1]-data[:,2])/data[:,1]),log10((data[:,1]-data[:,2])/data[:,1])],
+                 uplims=lolims,
+                 fmt='o', ms=10, mfc='white', label='Smith et al. (2012)')
+    ax2.errorbar(data[0,0], log10(data[0,1]),
+                 yerr=0.5,xerr=data[0,0]+11,
+                 uplims=0.5,
+                 fmt='o', ms=10, mfc='white', color='#2CA02C')
+    
 
-    ax.set_xlim(-13.0, -8)
-    ax.set_ylim(-14.5, -11.5)
-    ax2.set_ylim(-14.5, -11.5)
+    ax.set_xticks(list(arange(-12.5, -7,1)))
+    ax.set_yticks(list(arange(-14, -10, 1)))
+    ax2.set_yticks([])
+    ax.set_xlim(-13, -8)
+    ax.set_ylim(-14.25, -11.25)
+    ax2.set_ylim(-14.25, -11.25)
 
     ax.legend(loc=2,frameon=False)
     ax2.legend(loc=4,frameon=False)
 
+    tx = arange(-13,-10, 1) 
+    #ax.fill_between(tx, log10(p_n[0]*p_n[2]**p_n[1]), -15, color='0.75', alpha=0.3)
+    tx = arange(-9,-7, 1) 
+    #ax.fill_between(tx, log10(p_n[0]*p_n[3]**p_n[1]), -11, color='0.75', alpha=0.3)
+
+
+    ax2.annotate('Passive Gal. & UDGs', xy=(-12.4,-13.8), xycoords='data',
+                rotation=0, size=10, zorder=100,
+                bbox=dict(boxstyle="round4", fc="w", ec='w', alpha=0.7)
+                )
+    
+    ax.annotate('Green\n Peas', (-8.75,-11.75), xycoords='data',
+                rotation=0, size=10, zorder=100,
+                bbox=dict(boxstyle="round4", fc="w", ec='w', alpha=0.7)
+                )
+                
 
     savefig('figure_ssfr.png')
     
