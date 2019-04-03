@@ -10,7 +10,7 @@ if __name__=='__main__':
 
     ## mock data
     tt = arange(0.04,13.6,0.1)
-    p_pwr = (-1, 1.)
+    p_pwr = (-1.4, 1.)
     yy = rz.powerdtd(tt, *p_pwr)#, normed=False)
 
 

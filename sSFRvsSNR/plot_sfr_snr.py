@@ -113,6 +113,7 @@ if __name__=='__main__':
             ndata = get_data(data, p0=(-1258, 59, 248), frac_ia = 0.06, plotit=True) ## my model
             ## ndata = get_data(data, p0=(-23.1, 4.1, -1.1), frac_ia = 0.06, plotit=True) ## t**-1
             ## ndata = get_data(data, p0=(-13.4, 2.4, -1.1), frac_ia = 0.06, plotit=True) ## t**-1.1
+            ## ndata = get_data(data, p0=(-4.3, 1.3, -1.8), frac_ia = 0.06, plotit=True) ## t**-1.1
             ## ndata = get_data(data, p0=(2.5, 1.0, 2.), frac_ia = 0.06, plotit=True) ## very delayed
             
             sfhs[idx]=ndata
@@ -177,21 +178,50 @@ if __name__=='__main__':
                 [5.12290288e-06, 1.03610770e-04, 5.19460796e-04]])
 
 
-    ## t**(-1.1)
-    ## popt=( -1.94866195e-04,   9.95757343e-01,  -2.95934114e+00)
-    ## pcov=array([[  8.37865874e-08,   1.68638241e-06,   8.41799528e-06],
-    ##             [  1.68638241e-06,   3.40291314e-05,   1.70253711e-04],
-    ##             [  8.41799528e-06,   1.70253711e-04,   8.53578632e-04]])
     perr = sqrt(diag(pcov))
-    ax.plot(xx, line_fn(xx, *popt), '-', color='#F0CBC8', label=r'$\beta=-1.0$')
+    ax.plot(xx, line_fn(xx, *popt), '--', color='#F0CBC8')#, label=r'$\beta=-1.0$')
     ps = np.random.multivariate_normal(popt, pcov, 10000)
     ysample = asarray([line_fn(xx, *pi) for pi in ps])
     lower = percentile(ysample, 15.9, axis=0)
     upper = percentile(ysample, 84.1, axis=0)
-    ## ax.fill_between(xx, upper, lower, color='red', alpha=0.2)
+    ax.fill_between(xx, upper, lower, color='red', alpha=0.2)
     lower = percentile(ysample, 2.5, axis=0)
     upper = percentile(ysample, 97.5, axis=0)
-    ## ax.fill_between(xx, upper, lower, color='red', alpha=0.2)
+    ax.fill_between(xx, upper, lower, color='red', alpha=0.2)
+
+
+
+    ## t**(-1.1)
+    popt=( -1.94866195e-04,   9.95757343e-01,  -2.95934114e+00)
+    pcov=array([[  8.37865874e-08,   1.68638241e-06,   8.41799528e-06],
+                [  1.68638241e-06,   3.40291314e-05,   1.70253711e-04],
+                [  8.41799528e-06,   1.70253711e-04,   8.53578632e-04]])
+    perr = sqrt(diag(pcov))
+    ax.plot(xx, line_fn(xx, *popt), '-', color='#F0CBC8', label=r'$\beta=-1.1^{+0.1}_{-0.3}$')
+    ps = np.random.multivariate_normal(popt, pcov, 10000)
+    ysample = asarray([line_fn(xx, *pi) for pi in ps])
+    lower = percentile(ysample, 15.9, axis=0)
+    upper = percentile(ysample, 84.1, axis=0)
+    ax.fill_between(xx, upper, lower, color='red', alpha=0.2)
+    lower = percentile(ysample, 2.5, axis=0)
+    upper = percentile(ysample, 97.5, axis=0)
+    ax.fill_between(xx, upper, lower, color='red', alpha=0.2)
+
+    ## t**(-1.4)
+    popt = (-5.31848823e-05,  9.98648036e-01, -2.89739937e+00)
+    pcov = array([[1.48390185e-07, 2.98669972e-06, 1.49089903e-05],
+                  [2.98669972e-06, 6.02686101e-05, 3.01537222e-04],
+                  [1.49089903e-05, 3.01537222e-04, 1.51179138e-03]])
+    perr = sqrt(diag(pcov))
+    ax.plot(xx, line_fn(xx, *popt), '--', color='#F0CBC8')#, label=r'$\beta=-1.4$')
+    ps = np.random.multivariate_normal(popt, pcov, 10000)
+    ysample = asarray([line_fn(xx, *pi) for pi in ps])
+    lower = percentile(ysample, 15.9, axis=0)
+    upper = percentile(ysample, 84.1, axis=0)
+    ax.fill_between(xx, upper, lower, color='red', alpha=0.2)
+    lower = percentile(ysample, 2.5, axis=0)
+    upper = percentile(ysample, 97.5, axis=0)
+    ax.fill_between(xx, upper, lower, color='red', alpha=0.2)
 
 
     ## exponetial model
