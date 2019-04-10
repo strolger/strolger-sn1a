@@ -6,7 +6,7 @@ from strolger_util import cosmocalc
 
 if __name__=='__main__':
 
-    spec = loadtxt('qui.txt')
+    spec = loadtxt('sf.txt')
     z=0.156
     ## dist=739.73 #in Mpc
     dist = cosmocalc.run(z)[0]
@@ -36,16 +36,19 @@ if __name__=='__main__':
     ## ax.set_xlim(2000,10000)
     ## show()
 
-    ## seddist = seddist/sum(seddist)
-    ## outfile = 'out.txt'
-    ## f=open(outfile,'w')
-    ## for i in range(len(lamz)):
-    ##     f.write('%f %f\n' %(lamz[i], seddist[i]))
-    ## f.close()
+    seddist = seddist/sum(seddist)
+    outfile = 'out.txt'
+    if os.path.isfile(outfile):os.remove(outfile)
+    f=open(outfile,'w')
+    for i in range(len(lamz)):
+        f.write('%f %f\n' %(lamz[i], seddist[i]))
+    f.close()
+    ## sys.exit()
 
+    ## data = loadtxt('STIS.sp.1337548.csv') ##s/n = 3 passive
+    ## data = loadtxt('STIS.sp.1337490.csv') ##s/n=10 passive
+    data = loadtxt('STIS.sp.1339769.csv') ##s/n=10 active
 
-    data = loadtxt('STIS.sp.1337548.csv') ##s/n = 3
-    ## data = loadtxt('STIS.sp.1337490.csv') ##s/n=10
     ax = subplot(111)
     ax2 = ax.twinx()
     noise = np.random.normal(0, sqrt(data[:,-1]), len(data[:,-1]))

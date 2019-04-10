@@ -7,6 +7,7 @@ from scipy.optimize import curve_fit
 from scipy.stats import chisquare
 import pickle
 rcParams['font.size']=12.0
+#rcParams['figure.figsize']=8,8
 
 
 scale = (0.0210)*0.062*(0.7)**2
@@ -114,6 +115,6 @@ ax2.legend(loc=3,frameon=False)
 ax.set_xscale('log')
 ax.set_yscale('log')
 ax2.set_yscale('log')
-
+ax2.set_yticks([])
 savefig('figure_loglog_dtd.png')
 ##show()

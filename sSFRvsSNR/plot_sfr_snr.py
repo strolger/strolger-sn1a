@@ -13,7 +13,7 @@ from strolger_util import imf
 import warnings
 warnings.simplefilter('ignore',RuntimeWarning)
 np.seterr(divide='ignore', invalid='ignore') 
-rcParams['font.size']=12.0
+rcParams['font.size']=15.0
 
 def rate_per_galaxy(sfh_data, lbu=13.65, lbl=0.05, p0 = None,
                     frac_ia = 0.05,
