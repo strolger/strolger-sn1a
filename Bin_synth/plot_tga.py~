@@ -1,0 +1,13 @@
+#!/usr/bin/env python
+import os,sys,pdb,scipy,glob
+from pylab import *
+from strolger_util import util as u
+
+if __name__=='__main__':
+    
+
+
+    data=loadtxt('toonan_ga.txt')
+    ax.plot(data[:,0], data[:,1],label='Toonan et al. 2013')
+    show()
+    

@@ -73,7 +73,6 @@ ax2.errorbar(data[idx][:,0], data[idx][:,3]*msc,
 
 
 
-rz.dtdfunc(time,*p0)
 popt, pcov = curve_fit(func, data[:,0], data[:,3]*msc, p0=p_t, sigma=data[:,4]*msc)
 print(popt)
 ax.plot(time,dtd*scale*popt,'b-', lw=2, label= 'Exponential model')#label='Norm = %1.1f' %(simps(dtd,x=time)))
@@ -110,8 +109,8 @@ ax.set_xlabel('Delay Time (Gyr)')
 ax.set_xlim(0.03, 14)
 ax.set_ylim(5e-5,0.1)
 ax2.set_ylim(5e-5,0.1)
-ax.legend(loc=1,frameon=False)
-ax2.legend(loc=3,frameon=False)
+ax.legend(loc=1,numpoints=1,frameon=False)
+ax2.legend(loc=3,numpoints=1,frameon=False)
 ax.set_xscale('log')
 ax.set_yscale('log')
 ax2.set_yscale('log')
