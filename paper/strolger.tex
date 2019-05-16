@@ -23,15 +23,10 @@
 \end{abstract}
 
 \section{Introduction}
-Understanding cosmic type Ia supernova (SN~Ia) rates have a critical importance to understanding galaxy evolutionary feedback mechanisms, the cosmic iron enrichment and $\alpha$-process element enrichment histories \citep{Maoz:2017ck}, and constraining the physical mechanisms of SN~Ia progenitors. However, tracing rate histories has been a slog, with the first precise measures of the local ($z\approx0.0$) rate in the early 1990s \cite[cf.][]{Cappellaro:1993qm,Cappellaro:1997,Cappellaro:1999}, and the first measures beyond the local Hubble flow beginning in the early 2000s as collateral results of the dark energy experiments~\citep{Riess:1998,Perlmutter:1999}. Since then, there have been several measures of the volumetric SN~Ia rate at various redshifts by various groups. These rate values have not always been in total agreement with one another, and there may be several valid reasons as to why (see rev. by \textcolor{red}{Haden?}). For the time being, it is probably best to consider each published rate as a valid measure that may (or may not) have misestimated uncertainties. A collection of those volumetric SN~Ia rates is shown in Table~\ref{tab:sn1a_rates} and Figure~\ref{fig:sn1a_rates}.  For illustration, we bin the rate data into 8 quantiles of nearly equal number of measures, and present those binned measures, weighted by reported statistical uncertainties only, in Table~\ref{tab:sn1a_bin} and Figure~\ref{fig:sn1a_rates}.
+%\textcolor{red}{[Note: much of this is more an introduction to volumetric rates. Need more of an introduction to measures of host rates.]} 
+The understanding of cosmic type Ia supernova (SN~Ia) rates has critical importance to understanding galaxy evolutionary feedback mechanisms, cosmic iron enrichment and $\alpha$-process element enrichment histories \citep[see][]{Maoz:2017ck}, and perhaps most importantly, constraining the physical mechanisms of SN~Ia progenitors, and therefore providing some constraint on the systematic uncertainties of dark energy. However, determining precise SN~Ia rates and rate histories, and establishing the connections of those rates to host (and cosmic) properties has been a slog. 
 
-\begin{figure}[t]
-   \centering
-   \includegraphics[width=6.1in]{figure_SNIa_rate_z_pwr_fit}
-   \caption{\footnotesize Type Ia supernova volumetric rate measures from various sources in the literature (gray points, see Table~\ref{tab:sn1a_rates} for their sources), and binned (black points, see Table~\ref{tab:sn1a_bin}), largely for illustration. The solid red lines show a broken power-law fit to the data in redshift space. The dashed red line (and associated uncertainty region, in gray) is from~\cite{Okumura:2014}.}
-   \label{fig:sn1a_rates}
-\end{figure}
-
+In tracing the cosmic (or volumetric) rate history, the first precise measures of the local ($z\approx0.0$) rate came in the early 1990s \cite[cf.][]{Cappellaro:1993qm,Cappellaro:1999}, and the first measures beyond the local Hubble flow came in the early 2000s, many as collateral results of the dark energy experiments~\citep{Riess:1998,Perlmutter:1999}. Since then, there have been several measures of the volumetric SN~Ia rate at various redshifts by various groups, a collection of which is shown in Table~\ref{tab:sn1a_rates} and Figure~\ref{fig:sn1a_rates}. Not all rate measures have been in total agreement with one another (see the large scatter just below $z\sim0.5$), with the reasons as to why ranging from statistical variation, to differences on the treatment of declining SNe, to ultimately differences in the assessment of effective survey duration, through modeling and through simulation. It is left to a future study to attempt a reanalysis of some (or all) of the reported rate measures in at least a self-consistent assessment to reduce some of the unreported systematic uncertainties. However for the time being, it is probably best to consider each published rate as a valid measure that may (or may not) have misestimated uncertainties. 
 
 \startlongtable
 \begin{deluxetable}{lcccl}
@@ -102,7 +97,23 @@ Understanding cosmic type Ia supernova (SN~Ia) rates have a critical importance 
 \label{tab:sn1a_rates}
 \end{deluxetable}
 
-It would be reasonable to assume the volumetric rates follow a broken power law evolution with redshift, i.e., $R_{\rm Ia}=R_0\,(1+z)^A$ where at $z<1$ the power-law slope is $A=1.50\pm0.02$ (with $R_0 = 2.47\pm0.02\times10^{-5}$ yr$^{-1}$ Mpc$^{-3}$ $h_{70}^3$), which flattens substantially to $A=-0.06\pm0.2$ at redshifts greater than 1, as is shown in  Figure~\ref{fig:sn1a_rates}. This is broadly consistent with the power-law fit of \cite{Okumura:2014}, especially to $z\sim1$, and the locus is consistent with the volumetric SN~Ia rate at $z\approx0$ converted by \cite{Li:2011b} to $2.7\pm0.3\times10^{-5}$ yr$^{-1}$. 
+
+From this rate history and a comparison to the cosmic star formation history, one can reconstruct (or infer) the distribution of times from SN progenitor formation to explosion, assuming the mechanism is ubiquitous enough that it can be characterized by a singular distribution of delay times. It has been long assumed that this delay time distribution can distinguish between single-degenerate \citep{Whelan:1973,Nomoto:1982vh} and double-degenerate \citep{Iben:1984, Webbink:1984} models. 
+
+Another method in reconstructing delay times results from an analysis of the star-formation histories in individual host galaxies~\citep{Brandt:2010, Maoz:2011, Maoz:2012a}, under the same assumptions as above. Rather than using bulk star formation properties, averaged in large temporal bins (by redshift), the method uses spectral analysis tools to reconstruct star formation histories, then determine the contributions (in broad times bins) from a delay time distribution that maximize the likelihood that the hosts would produce SNe Ia in the duration of a survey. However, to date, this method has not been done to redshifts $z\sim1$, the results in clustered and field environments are different, and the results are dependent on the assumed model.
+
+In this paper, we present a analysis of delay time distributions using these two separate methods, from a comparison of volumetric SN~Ia rates to cosmic star formation rates (Section~\ref{sec:rates}), and a maximized likelihood method from SN~Ia host star formation histories (Section~\ref{sec:sfh}). In Section~\ref{sec:discussion} we discuss the results from each of these methods and put them into context with results from other work, and into context with binary synthesis models.
+
+\section{Delay Time Distributions from Volumetric SN~Ia Rates and the Cosmic Star Formation History}\label{sec:rates}
+
+\begin{figure}[t]
+   \centering
+   \includegraphics[width=6.1in]{figure_SNIa_rate_z_pwr_fit}
+   \caption{\footnotesize Type Ia supernova volumetric rate measures from various sources in the literature (gray points, see Table~\ref{tab:sn1a_rates} for their sources), and binned (black points, see Table~\ref{tab:sn1a_bin}), largely for illustration. The solid red lines show a broken power-law fit to the data in redshift space. The dashed red line (and associated uncertainty region, in gray) is from~\cite{Okumura:2014}.}
+   \label{fig:sn1a_rates}
+\end{figure}
+
+The various SN~Ia volumetric rate measurements are shown in Table~\ref{tab:sn1a_rates} and Figure~\ref{fig:sn1a_rates}. For illustration purposes through out this manuscript, we bin the rate data into 8 quantiles of nearly equal number of measures, and present those binned measures, weighted by reported statistical uncertainties only, as also shown in Figure~\ref{fig:sn1a_rates} and in Table~\ref{tab:sn1a_bin}. None of the analysis presented herein is performed on the binned measures, rather directly on the rate values themselves.
 
 \begin{table}[h]
    \centering
@@ -126,11 +137,7 @@ $1.73 \pm{0.52}$ & $0.61^{+0.14}_{-0.10}$& 7\\
    \label{tab:sn1a_bin}
 \end{table}
 
-
-While the broken power-law model is useful for predicting yields from volumetric surveys, e.g., for the Wide Field InfraRed Survey Telescope \cite[\textit{WFIRST, }][]{Hounsell:2018fv}, it does not inherently reveal much on the nature of SN~Ia progenitor mechanisms. This is better done through an assessment of delay-time distributions.
-
-
-\section{Delay Time Distributions from Volumetric SN~Ia Rates and the Cosmic Star Formation History}
+It would be reasonable to assume the volumetric rates follow a broken power law evolution with redshift, $R_{\rm Ia}=R_0\,(1+z)^A$, where at $z<1$ the power-law slope is $A=1.50\pm0.02$ (with $R_0 = 2.47\pm0.02\times10^{-5}$ yr$^{-1}$ Mpc$^{-3}$ $h_{70}^3$), which flattens substantially to $A=-0.06\pm0.2$ at redshifts greater than 1, as is shown in  Figure~\ref{fig:sn1a_rates}. This is broadly consistent with the power-law fit from \cite{Okumura:2014}, especially to $z\la1$. The locus is also consistent with the volumetric SN~Ia rate at $z\approx0$ converted by \cite{Li:2011b} to $2.7\pm0.3\times10^{-5}$ yr$^{-1}$. While the broken power-law model is useful for predicting yields from volumetric surveys, e.g., for the Wide Field InfraRed Survey Telescope \cite[\textit{WFIRST, }][]{Hounsell:2018fv}, it does not inherently reveal much on the nature of SN~Ia progenitor mechanisms. This is better done through an assessment of delay-time distributions.
 
 For these types of analyses, the standard assumption is that the stellar death rate (or supernova rate) is related to the stellar birth rate, convolved with some delay-time distribution that contains all the temporal factors of stellar evolution (e.g., main sequence lifetime, etc.) and binary star evolution (e.g., accretion rates or merger times). Two additional terms include the fraction of the initial mass function (or IMF) that are the progenitors to the SNe~Ia (presumably $3 - 8\, \rm{M}_{\odot}$ zero-age main sequence stars, see discussion in Section~\ref{sec:wds}), and the fraction of that population that are actually capable of producing events, as not are necessarily in the right type of binary system or systems.
 
@@ -245,13 +252,6 @@ While the optimization results a model that is broadly consistent with the $t^{-
 Exploring the parameter space in an MCMC allows both confirmation of the optimized solution and an exploration of the range of validity. We use the affine-invariant MCMC ensemble sampler from {\tt emcee.py}~\citep{Foreman-Mackey:2013pd} using the same likelihood function as shown in Equation~\ref{eqn:lf}, and set our uniform priors as described by the bounds, as shown in the previous section, with the exception of evaluating $\ln \varepsilon$ to allow MCMC step sizes of order unity, and using the prior $ -10 < \ln \varepsilon < 0$. We then set 1,000 walkers to explore 10,000 steps, for a total of 10 million iterations, the first 100,000 of which we discard as `burn-in'. The results of which are shown in Figure~\ref{fig:mcmc_sfd} and Table~\ref{tab:results}.
 
 
-\begin{figure}[t] %  figure placement: here, top, bottom, or page
-   \centering
-   \includegraphics[width=6.5in]{figure_sfd_corners} 
-   \caption{\footnotesize MCMC results on the parameters of a unimodal delay-time distribution model, fit to volumetric rate data and CSFH. Dashed lines indicate the maximum likelihood values. The $1-\sigma$ and $2-\sigma$ regions about those best fits are shown in dark and light blue, respectively. The plot generated using {\tt ChainConsumer.py} \citep{Hinton:2016qy}.}
-   \label{fig:mcmc_sfd}
-\end{figure}
-\clearpage
 
 \begin{figure}[t] %  figure placement: here, top, bottom, or page
    \centering
@@ -265,7 +265,7 @@ As these result show, there is a clear convergence in $\ln f$, the factor by whi
 
 While this does not seem to show a clear preference for a very specific parameterization the model, it does indicate a specific family of solutions that are related. With highly negative locations and broad widths, only the exponential-like tail of the distributions fall in the positive time space. As shown in Figure~\ref{fig:figure_fit_demo_werr}, the 68\% confidence interval about the best fit parameters, all indicate a rather flat DTD. \textcolor{red}{I should at least talk about Parallel-Tempering Ensemble MCMC, and perhaps Dynamic Nested Sampling}
 
-\section{Delay Time Distributions from Star Formation Histories}
+\section{Delay Time Distributions from Star Formation Histories}\label{sec:sfh}
 This is an evaluation of the maximum likelihood delay time distribution following the prescription of \cite{Maoz:2012a} but performed on the GOODS/CANDELS galaxies. For this analysis we use star formation histories derived using the Bayesian modeling approach of \cite{Pacifici:2012ve}. In summary, the galaxy physical properties are retrieved from a combined analysis of stellar and nebular emission utilizing an extensive library of star formation and chemical enrichment histories. These libraries build a large repository of rest-frame galaxy spectral energy distributions, which are then used to determine likelihood distributions of physical parameters from a Bayesian analysis of observed spectral energy distributions. This is method has been applied to the HST/WFC3-F160W-selected CANDELS catalogs for the GOODS-South \citep{Guo:2013rp}, and the GOODS-North \textcolor{red}{(Barro et al. , in preparation)}, into SFH catalogs~\cite[cf. ][]{Pacifici:2016ul}. We adopt only the median derived SFH of each galaxy for simplicity in this analysis.
 
 For a given galaxy, the rate history of SNe~Ia per year ($r_i$) would be:
@@ -299,12 +299,6 @@ Figure~\ref{fig:figure_sfh_fit_demo} shows examples ``SN~Ia rate history'' one w
   
 There are 34 events we classified as SNe~Ia in the GOODS-South field, and 39 in the North field \citep{Strolger:2004, Dahlen:2008, Rodney:2014fj}, all but 6 of which were matched to a host galaxy in the SFH catalog. Two of these were rejected as the events spectroscopic redshifts were very inconsistent with the SFH catalog redshifts, and the other 4 were simply not in the SFH catalog, as they were either too faint or near the field edge to be listed in the composite photometry catalogs. 
 
-\begin{figure}[t] %  figure placement: here, top, bottom, or page
-   \centering
-   \includegraphics[width=6.5in]{figure_sfh_corners} 
-   \caption{\footnotesize MCMC results on unimodal delay-time distribution model, fit to SFHs for 33,678 galaxies in the GOODS fields, 67 of which are SN~Ia hosts.}
-   \label{fig:mcmc_sfh}
-\end{figure}
 
 The model parameters, $\xi$, $\omega$, and $\alpha$ are then explorable via {\tt emcee.py}. We keep the same uniform priors as bounds, as described in Sections~\ref{sec:optimized_soln} and \ref{sec:mcmc_sfd}. We fix the fraction $\varepsilon=0.06$ for convenience, and set 100 walkers exploring 500 steps on these parameters, the results of which are shown in Table~\ref{tab:results}.
 \begin{table}[h]
@@ -325,7 +319,7 @@ The model parameters, $\xi$, $\omega$, and $\alpha$ are then explorable via {\tt
 
 
 
-\section{discussion}
+\section{discussion}\label{sec:discussion}
 All three methods point to a family of delay-time distribution models that are somewhat similar to power-law models, but are more exponential, having much fewer prompt events in the 40 Myr to 1 Gyr range. The model also helps to clarify a discussion of 'prompt' vs 'delayed' progenitor mechanism. 
 
 It is useful to evaluate the SN Ia rate that would result from the average galaxy (approx. $10^{10}$ M$_{\odot}$), undergoing a single, 1 M$_{\odot}$ yr$^{-1}$ burst of star formation, and the number of SNe Ia per year that would result over time. Figure~\ref{fig:logsnrate} shows the DTDs recovered in various time bins from Sloan galaxy data~\cite{Maoz:2010a, Maoz:2011, Maoz:2012a,Graur:2013} along with the derived power-law DTD models for field and galaxy cluster hosts. Rather than suggesting different power-law slopes, our best-fit DTD connects the data in clustered and field environments. 
@@ -341,23 +335,68 @@ The Hubble-time integrated SN Ia production efficiency, combining the $k$ and $\
    \label{fig:logsnrate}
 \end{figure}
 
+\begin{figure}[t] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=6.5in]{figure_toonan}
+   \caption{\footnotesize }
+   \label{fig:toonan}
+\end{figure}
+\acknowledgments
+
+
+\appendix
+\section{Rates from}
+
+
+\begin{figure}[t] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=6.5in]{figure_sfd_corners} 
+   \caption{\footnotesize MCMC results on the parameters of a unimodal delay-time distribution model, fit to volumetric rate data and CSFH. Dashed lines indicate the maximum likelihood values. The $1-\sigma$ and $2-\sigma$ regions about those best fits are shown in dark and light blue, respectively. The plot generated using {\tt ChainConsumer.py} \citep{Hinton:2016qy}.}
+   \label{fig:mcmc_sfd}
+\end{figure}
+\clearpage
+
+\begin{table}
+    \centering
+    \caption{Parameter Covariance MCMC SFD}
+    \label{tab:parameter_covariance1}
+    \begin{tabular}{c|ccccc}
+         & $f$ & $\xi$ & $\omega$ & $\alpha$ & $\log \phi$\\ 
+        \hline
+              $f$ &  0.41 & -125.69 &  6.61 & 33.98 & -0.41 \\ 
+            $\xi$ & -125.69 & 412816.10 & -14898.10 & -52398.20 & 518.74 \\ 
+         $\omega$ &  6.61 & -14898.10 & 660.60 & 2209.32 & -22.89 \\ 
+         $\alpha$ & 33.98 & -52398.20 & 2209.32 & 27290.24 & -131.67 \\ 
+        $\log \phi$ & -0.41 & 518.74 & -22.89 & -131.67 &  2.35 \\ 
+        \hline
+    \end{tabular}
+\end{table}
+
+
+\begin{figure}[t] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=6.5in]{figure_sfh_corners} 
+   \caption{\footnotesize MCMC results on unimodal delay-time distribution model, fit to SFHs for 33,678 galaxies in the GOODS fields, 67 of which are SN~Ia hosts.}
+   \label{fig:mcmc_sfh}
+\end{figure}
+
+\begin{table}
+    \centering
+    \caption{Parameter Covariance MCMC SFD}
+    \label{tab:parameter_covariance2}
+    \begin{tabular}{c|ccccc}
+         & $f$ & $\xi$ & $\omega$ & $\alpha$ & $\log \phi$\\ 
+        \hline
+              $f$ &  0.41 & -125.69 &  6.61 & 33.98 & -0.41 \\ 
+            $\xi$ & -125.69 & 412816.10 & -14898.10 & -52398.20 & 518.74 \\ 
+         $\omega$ &  6.61 & -14898.10 & 660.60 & 2209.32 & -22.89 \\ 
+         $\alpha$ & 33.98 & -52398.20 & 2209.32 & 27290.24 & -131.67 \\ 
+        $\log \phi$ & -0.41 & 518.74 & -22.89 & -131.67 &  2.35 \\ 
+        \hline
+    \end{tabular}
+\end{table}
+
 \bibliography{strolger}{}
-%
-%\begin{table}
-%    \centering
-%    \caption{Parameter Covariance MCMC SFD}
-%    \label{tab:parameter_covariance}
-%    \begin{tabular}{c|ccccc}
-%         & $f$ & $\xi$ & $\omega$ & $\alpha$ & $\log \phi$\\ 
-%        \hline
-%              $f$ &  0.41 & -125.69 &  6.61 & 33.98 & -0.41 \\ 
-%            $\xi$ & -125.69 & 412816.10 & -14898.10 & -52398.20 & 518.74 \\ 
-%         $\omega$ &  6.61 & -14898.10 & 660.60 & 2209.32 & -22.89 \\ 
-%         $\alpha$ & 33.98 & -52398.20 & 2209.32 & 27290.24 & -131.67 \\ 
-%        $\log \phi$ & -0.41 & 518.74 & -22.89 & -131.67 &  2.35 \\ 
-%        \hline
-%    \end{tabular}
-%\end{table}
 
 
 \end{document}

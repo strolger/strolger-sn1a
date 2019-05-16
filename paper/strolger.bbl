@@ -33,6 +33,11 @@ Botticella, M.~T., Riello, M., Cappellaro, E., {et~al.} 2008, \aap, 479, 49
 {Bouwens}, R.~J., {Illingworth}, G.~D., {Oesch}, P.~A., {et~al.} 2015, \apj,
   803, 34, \dodoi{10.1088/0004-637X/803/1/34}
 
+\bibitem[{{Brandt} {et~al.}(2010){Brandt}, {Tojeiro}, {Aubourg}, {Heavens},
+  {Jimenez}, \& {Strauss}}]{Brandt:2010}
+{Brandt}, T.~D., {Tojeiro}, R., {Aubourg}, {\'E}., {et~al.} 2010, \aj, 140,
+  804, \dodoi{10.1088/0004-6256/140/3/804}
+
 \bibitem[{{Breedt} {et~al.}(2017){Breedt}, {Steeghs}, {Marsh}, {Gentile
   Fusillo}, {Tremblay}, {Green}, {De Pasquale}, {Hermes}, {G{\"a}nsicke},
   {Parsons}, {Bours}, {Longa-Pe{\~n}a}, \& {Rebassa-Mansergas}}]{Breedt:2017rp}
@@ -42,11 +47,6 @@ Botticella, M.~T., Riello, M., Cappellaro, E., {et~al.} 2008, \aap, 479, 49
 \bibitem[{Cappellaro {et~al.}(1999)Cappellaro, Evans, \&
   Turatto}]{Cappellaro:1999}
 Cappellaro, E., Evans, R., \& Turatto, M. 1999, \aap, 351, 459
-
-\bibitem[{{Cappellaro} \& {Turatto}(1997)}]{Cappellaro:1997}
-{Cappellaro}, E., \& {Turatto}, M. 1997, in NATO ASIC Proc. 486: Thermonuclear
-  Supernovae, ed. {P.~Ruiz-Lapuente, R.~Canal, \& J.~Isern}, 77--+.
-\newblock \url{http://adsabs.harvard.edu/abs/1997thsu.conf...77C}
 
 \bibitem[{{Cappellaro} {et~al.}(1993){Cappellaro}, {Turatto}, {Benetti},
   {Tsvetkov}, {Bartunov}, \& {Makarova}}]{Cappellaro:1993qm}
@@ -169,6 +169,10 @@ Denissenkov, P.~A., Truran, J.~W., Herwig, F., {et~al.} 2015, Monthly Notices
   {Strolger}}]{Hounsell:2018fv}
 {Hounsell}, R., {Scolnic}, D., {Foley}, R.~J., {et~al.} 2018, \apj, 867, 23,
   \dodoi{10.3847/1538-4357/aac08b}
+
+\bibitem[{{Iben} \& {Tutukov}(1984)}]{Iben:1984}
+{Iben}, Jr., I., \& {Tutukov}, A.~V. 1984, \apjs, 54, 335,
+  \dodoi{10.1086/190932}
 
 \bibitem[{{Khusanova} {et~al.}(2019){Khusanova}, {F{\`e}vre}, {Cassata},
   {Cucciati}, {Lemaux}, {Tasca}, {Thomas}, {Garilli}, {Brun}, {Maccagni},
@@ -364,5 +368,11 @@ Strolger, L.-G., Riess, A.~G., Dahlen, T., {et~al.} 2004, \apj, 613, 200
   {Stubbs}, \& {Suntzeff}}]{Tonry:2003}
 {Tonry}, J.~L., {Schmidt}, B.~P., {Barris}, B., {et~al.} 2003, \apj, 594, 1,
   \dodoi{10.1086/376865}
+
+\bibitem[{{Webbink}(1984)}]{Webbink:1984}
+{Webbink}, R.~F. 1984, \apj, 277, 355, \dodoi{10.1086/161701}
+
+\bibitem[{{Whelan} \& {Iben}(1973)}]{Whelan:1973}
+{Whelan}, J., \& {Iben}, I.~J. 1973, \apj, 186, 1007, \dodoi{10.1086/152565}
 
 \end{thebibliography}
