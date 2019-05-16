@@ -141,7 +141,7 @@ perr = sqrt(diag(pcov))
 print(popt, perr)
 
 h2 = ax.errorbar(redshifts, csfh, xerr=d_red, yerr=[csfh-em_csfh,ep_csfh-csfh],
-                 label='Driver et al. (2018)',
+                 label=r'Driver et al. (2018)$^{a}$',
                  fmt='o',color='0.3',ms=7,
                  zorder=4, alpha=0.9)
 
@@ -154,7 +154,7 @@ h2 = ax.errorbar(redshifts, csfh, xerr=d_red, yerr=[csfh-em_csfh,ep_csfh-csfh],
 ## ax.plot(redshifts, func(redshifts, *fobj.params), '-', color=myir, label='Fit to Driver')
 ## ax.fill_between(redshifts, upperband, lowerband, color = bar1, alpha=0.4)
 
-redshifts=linspace(0,10,30)
+redshifts=arange(0,10,0.1)
 p0 = [0.015, 1.5, 5.0, 6.1]
 perr = [0.001, 0.1, 0.2, 0.2]
 ax2.plot(redshifts, func(redshifts, *p0)/0.7, 'g--', label = r'$\dot{\rho}_{\star}(z)$ CC SN rates, Strolger et al. (2015)', alpha=0.3)
@@ -164,7 +164,7 @@ ps = np.random.multivariate_normal(p0, cov, 10000)
 ysample = asarray([func(zz, *pi)/0.7 for pi in ps])
 lower = percentile(ysample, 15.9, axis=0)
 upper = percentile(ysample, 84.1, axis=0)
-ax2.fill_between(zz, upper, lower, color=myuv, alpha=0.2)
+#ax2.fill_between(zz, upper, lower, color=myuv, alpha=0.2)
 
 
 data = loadtxt('bouwens2015.txt')

@@ -98,7 +98,7 @@ In tracing the cosmic (or volumetric) rate history, the first precise measures o
 \end{deluxetable}
 
 
-From this rate history and a comparison to the cosmic star formation history, one can reconstruct (or infer) the distribution of times from SN progenitor formation to explosion, assuming the mechanism is ubiquitous enough that it can be characterized by a singular distribution of delay times. It has been long assumed that this delay time distribution can distinguish between single-degenerate \citep{Whelan:1973,Nomoto:1982vh} and double-degenerate \citep{Iben:1984, Webbink:1984} models. 
+From this rate history and a comparison to the cosmic star formation history, one can reconstruct (or infer) the distribution of times from SN progenitor formation to explosion, assuming the mechanism is ubiquitous enough that it can be characterized by a singular distribution of delay times. It has been long expected that this `delay time distribution' will distinguish between single-degenerate \citep{Whelan:1973,Nomoto:1982vh} and double-degenerate \citep{Iben:1984, Webbink:1984} models, depending on what the models for each of these scenarios would expect (see Section~\ref{sec:dtd} for more details).
 
 Another method in reconstructing delay times results from an analysis of the star-formation histories in individual host galaxies~\citep{Brandt:2010, Maoz:2011, Maoz:2012a}, under the same assumptions as above. Rather than using bulk star formation properties, averaged in large temporal bins (by redshift), the method uses spectral analysis tools to reconstruct star formation histories, then determine the contributions (in broad times bins) from a delay time distribution that maximize the likelihood that the hosts would produce SNe Ia in the duration of a survey. However, to date, this method has not been done to redshifts $z\sim1$, the results in clustered and field environments are different, and the results are dependent on the assumed model.
 
@@ -137,44 +137,30 @@ $1.73 \pm{0.52}$ & $0.61^{+0.14}_{-0.10}$& 7\\
    \label{tab:sn1a_bin}
 \end{table}
 
-It would be reasonable to assume the volumetric rates follow a broken power law evolution with redshift, $R_{\rm Ia}=R_0\,(1+z)^A$, where  the power-law slope at $z<1$ is $A=1.50\pm0.02$ (with $R_0 = 2.47\pm0.02\times10^{-5}$ yr$^{-1}$ Mpc$^{-3}$ $h_{70}^3$), which flattens substantially to $A=-0.06\pm0.2$ at redshifts greater than 1, as is shown in  Figure~\ref{fig:sn1a_rates}. This is broadly consistent with the power-law fit from \cite{Okumura:2014}, especially to $z\la1$. The locus is also consistent with the volumetric SN~Ia rate at $z\approx0$ converted by \cite{Li:2011b} to $2.7\pm0.3\times10^{-5}$ yr$^{-1}$. While the broken power-law model is useful for predicting yields from volumetric surveys, e.g., for the the Large Synoptics Survey Telescope (LSST) and the Wide Field InfraRed Survey Telescope \cite[\textit{WFIRST, }][]{Hounsell:2018fv}, it does not inherently reveal much on the nature of SN~Ia progenitor mechanisms. This is better done through an assessment of delay-time distributions.
+It would be reasonable to assume the volumetric rates follow a broken power law evolution with redshift, $R_{\rm Ia}=R_0\,(1+z)^A$, where  the power-law slope at $z<1$ is $A=1.50\pm0.02$ (with $R_0 = 2.47\pm0.02\times10^{-5}$ yr$^{-1}$ Mpc$^{-3}$ $h_{70}^3$), which flattens substantially to $A=-0.06\pm0.2$ at redshifts greater than 1, as is shown in  Figure~\ref{fig:sn1a_rates}. This is broadly consistent with the power-law fit from \cite{Okumura:2014}, especially to $z\la1$. The locus is also consistent with the volumetric SN~Ia rate at $z\approx0$ converted by \cite{Li:2011b} to $2.7\pm0.3\times10^{-5}$ yr$^{-1}$. While the broken power-law model is useful for predicting yields from volumetric surveys, e.g., for the Wide Field InfraRed Survey Telescope \cite[\textit{WFIRST, }][]{Hounsell:2018fv} and the Large Synoptics Survey Telescope (LSST), it does not inherently reveal much on the nature of SN~Ia progenitor mechanisms. This is better done through an assessment of delay-time distributions.
 
-For these types of analyses, the standard assumption is that the stellar death rate (or supernova rate) is related to the stellar birth rate, convolved with some delay-time distribution that contains all the temporal factors of stellar evolution (e.g., main sequence lifetime, etc.) and binary star evolution (e.g., accretion rates or merger times). Two additional terms include the fraction of the initial mass function (or IMF) that are the progenitors to the SNe~Ia (presumably $3 - 8\, \rm{M}_{\odot}$ zero-age main sequence stars, see discussion in Section~\ref{sec:wds}), and the fraction of that population that are actually capable of producing events, as not are necessarily in the right type of binary system or systems.
+For these types of analyses, the standard assumption is that the stellar death rate (or supernova rate) is related to the stellar birth rate, convolved with some delay-time distribution that contains all the temporal factors of stellar evolution (e.g., main sequence lifetime, etc.) and binary star evolution (e.g., accretion rates or merger times). Two additional terms include the fraction of the initial mass function (or IMF) that the progenitors of SNe~Ia arise from, presumably $3 - 8\, \rm{M}_{\odot}$ zero-age main sequence stars, as discussed in Section~\ref{sec:wds}, and the fraction of that population that are actually capable of producing events, as not all progenitor stars are necessarily in binary systems, or presumably the right type of binary systems to successfully result in SNe~Ia.
 
 We can relate volumetric SN~Ia rate history to the cosmic star formation history($\dot{\rho}_{\star}$) in a similar way, expressed mathematically by, 
 \begin{equation}
 R_{\rm Ia}(t) =  h^2\,k\,\varepsilon\,\biggl[\dot{\rho}_{\star}(t) \ast \Phi(t)\biggr],
 \label{eqn:std}
 \end{equation}
-\noindent where $\Phi(t)$ is the delay-time distribution of SNe~Ia, $k$ is the fraction of the IMF (by mass) responsible for SN~Ia progenitors, $\varepsilon$ is the fraction of that population that are ultimately successful in producing SNe~Ia, and $t$ is the forward-moving clock of the universe. 
+\noindent where $\Phi(t)$ is the delay-time distribution of SNe~Ia, $k$ is the fraction of the IMF (by mass) responsible for SN~Ia progenitors, $\varepsilon$ is the fraction of that population that are ultimately successful in producing SNe~Ia, and $t$ is the forward-moving clock of the universe. The two factors of the dimensionless Hubble constant arise from the determination of stellar mass formation from luminosity in $\dot{\rho}_{\star}(t)$~\citep{Croton:2013ty}.
 
 \subsection{The Fraction of Stars Responsible for SNe~Ia}~\label{sec:wds}
-Dissecting each of these terms, $k$ is perhaps the easiest to approximate. The progenitors of SNe~Ia have traditionally been CO WD which acquire sufficient mass to approach or exceed the Chandrasekhar mass limit, $M_{ch}=1.44\,M_{\odot}$. To only marginally achieve this, they can either start at sufficiently high mass to require only a small amount of accretion from a nearby companion (typically single-degenerate, or SD, scenarios), or as a pair of WD that have combined in mass to meet this criterion (the double-degenerate, or DD, scenario) setting an even lower constraint~\cite[see][ for a review]{Maoz:2013}. In the case of WD/WD mergers, WD mass distributions are strongly peaked around $M_{\rm WD}\approx0.6\pm0.1\,M_{\odot}$ \citep{Catalan:2008il}, in which a pair drawn from such distribution may be satisfactorily close to the ignition threshold of a carbon core for a non-rotating CO WD, approximately $1.38\, M_{\odot}$ \citep{Arnett:1969dw, Nomoto:1982vh}. Initial-Final Mass relations \cite[e.g.,][]{Catalan:2008il,Cummings:2018oe} would correspond these to zero-age main-sequence (ZAMS) masses of approximately $3\, M_{\odot}$, but no less than approximately $2.5\, M_{\odot}$. 
-
-The same Initial-Final Mass relations would suggest that a WD essentially at $M_{ch}$ would fall just below $8\, M_{\odot}$ ZAMS. On a more physical bases, simulations show that the lowest mass in which C ignition is still possible is around $6-8 \,M_{\odot}$~\cite{Chen:2014rb,Denissenkov:2015rf}, but likely no more than $\sim11\, M_{\odot}$ \citep{Takahashi:2013jx}, above which an electron-capture-induced collapse mechanism begins, marking the onset of core-collapse supernovae.
+Dissecting each of these terms, $k$ is perhaps the easiest to approximate. The progenitors of SNe~Ia have traditionally been CO WD which acquire sufficient mass to approach or exceed the Chandrasekhar mass limit, $M_{ch}=1.44\,M_{\odot}$. To only marginally achieve this, they can either start at sufficiently high mass to require only a small amount of accretion from a nearby companion (typically single-degenerate, or SD, scenarios), or as a pair of WD that have combined in mass to meet this criterion (the double-degenerate, or DD, scenario) setting an even lower constraint~\cite[see][ for a review]{Maoz:2013}. In the case of DD mergers, WD mass distributions are strongly peaked around $M_{\rm WD}\approx0.6\pm0.1\,M_{\odot}$ \citep{Catalan:2008il}, in which a pair drawn from such distribution may be satisfactorily close to the ignition threshold of a carbon core for a non-rotating CO WD, approximately $1.38\, M_{\odot}$ \citep{Arnett:1969dw, Nomoto:1982vh}. Initial-Final Mass relations \cite[e.g.,][]{Catalan:2008il,Cummings:2018oe} would correspond these to zero-age main-sequence (ZAMS) masses of approximately $3\, M_{\odot}$, but no less than approximately $2.5\, M_{\odot}$. The same Initial-Final Mass relations would suggest that a WD essentially at $M_{ch}$ would fall just below $8\, M_{\odot}$ ZAMS. Similarly, simulations show that the lowest mass in which C ignition is still possible is around $6-8 \,M_{\odot}$~\cite{Chen:2014rb,Denissenkov:2015rf}, but likely no more than $\sim11\, M_{\odot}$ \citep{Takahashi:2013jx}, above which an electron-capture-induced collapse mechanism begins, marking the onset of core-collapse supernovae.
 
 It is reasonable, therefore, to assume a progenitor mass range of about $3-8\,M_{\odot}$ ZAMS. From a numerical assessment of these stars, assuming they fall within an IMF that is a power-law distribution by mass (in this initial mass range) with $\alpha\approx-2.3$~\citep{Salpeter:1955rw,Kroupa:2001gf}, one would expect 
 \begin{equation}
-k = \frac{\int\limits_{3M_{\odot}}^{8M_{\odot}} \xi(M)\,dM}{\int\limits_{0.1M_{\odot}}^{125M_{\odot}} M\,\xi(M)\,dM},
+k = \frac{\int\limits_{3M_{\odot}}^{8M_{\odot}} \xi(M)\,dM}{\int\limits_{0.1M_{\odot}}^{125M_{\odot}} M\,\xi(M)\,dM}= 0.021^{+33\%}_{-24\%}\,M_{\odot}^{-1},
 \end{equation}
-\noindent where $k = 0.021^{+33\%}_{-24\%}\,M_{\odot}^{-1}$. The error in $k$ is driven more by choices in the upper and lower value in the selected mass range of SN~Ia progenitors than by the choice in IMF model, as detailed above.
+\noindent where error in $k$ is driven more by choices in the upper and lower value in the selected mass range of SN~Ia progenitors than by the choice in IMF model, as detailed above.
 
-The fraction of CO WDs that are successful in making SNe~Ia is hard to determine, as we do not quite yet know the details of the progenitor mechanism or mechanisms. Estimates swing rather wildly from (perhaps) from as low as 1 in 200~\citep{Breedt:2017rp} to as optimistic as 1 in 40~\citep{Maoz:2012}. There is at least strong consensus that accretion on to a CO WD is essential, but very different plausible WD close binary scenarios from at least a theoretical standpoint~\citep{Nelemans:2001hb,Nelemans:2001cs}. The binary fractions of WDs has been recently estimated from the  the ESO-VLT Supernova-Ia Progenitor Survey~\citep[ SPY]{Napiwotzki:2007} show close double WD systems may have $\varepsilon_{\rm bin}\simeq0.1\pm0.02$, with separations distributed following a power-law slope of $\alpha=-1.3\pm0.2$~\citep{Maoz:2017zl}. It is not likely all of these successfully yield SNe~Ia as their merger rates in the MW are at least a magnitude higher than best estimates of the SN~Ia rate in our galaxy, and presumably some of these will form AM CVn and R~Corona Borealis stars, but at least it could be treated as an upper limit on $\varepsilon$.
+The fraction of CO WDs that are ultimately successful in making SNe~Ia is hard to determine, as we do not quite yet know the details of the progenitor mechanism or mechanisms. Estimates swing rather wildly from (perhaps) as low as 1 in 200~\citep{Breedt:2017rp} to as optimistic as 1 in 40~\citep{Maoz:2012}. There is at least strong consensus that accretion on to a CO WD is essential, but very different plausible WD close binary scenarios from at least a theoretical standpoint~\citep{Nelemans:2001hb,Nelemans:2001cs}. The binary fractions of WDs has been recently estimated from the  the ESO-VLT Supernova-Ia Progenitor Survey~\citep[ SPY]{Napiwotzki:2007} show close double WD systems may have $\varepsilon_{\rm bin}\simeq0.1\pm0.02$ \citep{Maoz:2017zl}. It is not likely all of these successfully yield SNe~Ia as their merger rates in the MW are at least a magnitude higher than best estimates of the SN~Ia rate in our galaxy, and presumably some of these will form AM CVn and R~Corona Borealis stars, but at least it could be treated as an upper limit on $\varepsilon$.
 
-\subsection{The Star Formation Density History}
-The cosmic star formation history (CSFH), at least to $z < 5$, or over 90\% of the history of the universe, is fairly well understood, with~\cite[][ MD14 hereafter]{Madau:2014fk} providing one of the most complete compilations. More recently, the CSFH derived from the combined GAMA, G10-COSMOS, and 3D-HST datasets by~\cite{Driver:2018nr}, in a quasi-homogeneous analysis over a larger area, provides a dataset with greatly reduced uncertainties per datum, but fewer data than shown in the MD14 compendium (see Figure~\ref{fig:csfhs}).  We combine the MD14 and \cite{Driver:2018nr} data, with additional star-formation rate densities from \cite{Bouwens:2015qy} and \cite{Khusanova:2019kx}, to arrive at todays compendium CSFH using the parameterization,
-\begin{equation}
-\dot{\rho}_{\star}(z) = \frac{A\,(1+z)^C}{((1+z)/B)^D+1}.\label{eqn:mdp}
-\end{equation}
 
-\begin{figure}[b]
-   \centering
-   \includegraphics[width=6.1in]{figure_csfh_today}
-   \caption{\footnotesize Shown are a compendium of cosmic star formation histories, from ~\cite{Madau:2014fk}, \cite{Driver:2018nr}, \cite{Bouwens:2015qy}, and \cite{Khusanova:2019kx}. Dashed lines (and associated shaded regions) are previous models  from \cite{Madau:2014fk}, \cite{Finkelstein:2014fj}, \cite{Strolger:2015aa}, as indicated. Solid blue line (and blue shaded region) represent our best-fit model to the compendium of data.}
-   \label{fig:csfhs}
-\end{figure}
-
-\begin{table}[h]
+\begin{table}[t]
     \centering
     \caption{Cosmic Star Formation History Parameter Fits}
     \label{tab:csfh_fits}
@@ -190,26 +176,43 @@ The cosmic star formation history (CSFH), at least to $z < 5$, or over 90\% of t
     \end{tabular}
     \tablenotetext{a}{Corrected for dust attenuation.}
 \end{table}
+ 
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=6.1in]{figure_csfh_today}
+   \caption{\footnotesize Shown are a compendium of cosmic star formation histories, from ~\cite{Madau:2014fk}, \citeauthor{Driver:2018nr} (\citeyear{Driver:2018nr}; [a]-dust corrected), \cite{Bouwens:2015qy}, and \cite{Khusanova:2019kx}. Dashed and dotted lines are previous models  from \cite{Madau:2014fk}, \cite{Finkelstein:2014fj}, \cite{Strolger:2015aa}, as indicated. Solid blue line (and blue shaded region) represent our best-fit model to the compendium of data.}
+   \label{fig:csfhs}
+\end{figure}
 
-To do so, we must correct the \cite{Driver:2018nr} data for dust attenuation following the prescription in MD14, by applying 
+\subsection{The Star Formation Density History}
+The cosmic star formation history (CSFH), at least to $z < 5$ or over 90\% of the history of the universe, is fairly well understood, with~\citeauthor{Madau:2014fk} (\citeyear{Madau:2014fk}; MD14 hereafter) providing one of the most complete compilations. More recently, the CSFH derived from the combined GAMA, G10-COSMOS, and 3D-HST datasets by~\cite{Driver:2018nr}, in a quasi-homogeneous analysis over a larger area, provides a dataset with greatly reduced uncertainties per datum, but fewer data than presented in the MD14 compendium (see Figure~\ref{fig:csfhs}).  We combine the MD14 and \cite{Driver:2018nr} data, with additional star-formation rate densities from \cite{Bouwens:2015qy} and \cite{Khusanova:2019kx}, to arrive at today's compendium CSFH using the parameterization,
+\begin{equation}
+\dot{\rho}_{\star}(z) = \frac{A\,(1+z)^C}{((1+z)/B)^D+1}.\label{eqn:mdp}
+\end{equation}
+However, to do so we correct the \cite{Driver:2018nr} data for dust attenuation following the prescription in MD14, by applying 
 \begin{equation}
 	\dot{\rho}_{\star}(z) =h^3\,\biggl[1+10^{0.4\cdot A_{\rm FUV}(z)}\biggr]\, \dot{\rho}_{\star, {\rm uncorrected}}(z),
 \end{equation}
-where it is assumed $A_{\rm FUV}(z)$ has essentially the same functional form of Equation~\ref{eqn:mdp}, and when applied to the MD14 $A_{\rm FUV}(z)$ data results in a Levenberg-Marquardt least-squares solution of $A=1.4\pm0.1$, $B=3.5\pm0.4$, $C=0.7\pm0.2$, and $D=4.3\pm0.7$. We then fit Equation~\ref{eqn:mdp} to the combined CSFH datasets,    resulting in parameters which are shown in Table~\ref{tab:csfh_fits} and Figure~\ref{fig:csfhs}. 
+\noindent where it is assumed $A_{\rm FUV}(z)$ has the same functional form of Equation~\ref{eqn:mdp}, with $A=1.4\pm0.1$, $B=3.5\pm0.4$, $C=0.7\pm0.2$, and $D=4.3\pm0.7$ as determined from the $A_{\rm FUV}(z)$ data from MD14. We then fit Equation~\ref{eqn:mdp} to the combined CSFH datasets, resulting in Levenberg-Marquardt least-squares solution parameters which are extraordinarily constrained, as shown in Table~\ref{tab:csfh_fits} and Figure~\ref{fig:csfhs}. 
 
 
 
-\subsection{SN~Ia Progenitor Delay-Time Distribution Models}
-\noindent \textcolor{red}{Talk about the expected delay-time distribution, values from Graur and Maoz, inability to probe beyond turnover at `SN high noon', around $z\sim1$}. Power law models are defined as $\Phi(t)=t^{\beta}$\ldots
 
-\begin{figure}[b]
+
+\subsection{SN~Ia Progenitor Delay-Time Distribution Models}~\label{sec:dtd}
+%\noindent \textcolor{red}{Talk about the expected delay-time distribution, values from Graur and Maoz, inability to probe beyond turnover at `SN high noon', around $z\sim1$}. 
+Theoretical delay time distributions result from analyses of binary population synthesis, and from physical bases \cite[see][ for a review]{Wang:2012a}.  In the SD scenario, details ranging from composition of the companion donor star (H or He) to the mass-accretion efficiency lead to rather large variations in the expected delay time distributions \cite{Nelemans:2013}. However DD models are in reasonable agreement with one another, largely because the scenario is governed by the loss of angular momentum due in the radiation of gravitational waves. The timescales involved depend on the  initial separations of the WDs. If it is assumed WD binaries follow a power-law of radial distributions, $\Phi(r)=r^{\beta}$, with power $\beta\approx-1$ \citep{Opik:1924xr}, as is supported by  SPY close WD systems with separations distributed following $\beta=-1.3\pm0.2$~\citep{Maoz:2017zl}, the resultant delay time distribution will also follow a power-law distribution, $\Phi(t)=t^{\beta}$, with a power close to $\beta\approx-1$.
+
+Delay-time distribution recovery methods based on matching theoretical $\Phi(t)$ to CSFHs and SN~Ia volumetric rates has been hampered largely by the uncertainty in the latter two \citep{Dahlen:2008,Strolger:2010,Graur:2014,Rodney:2014fj}, specifically in the uncertainty in the SN~Ia rate above `SN high noon' (around $z\sim1$), and the uncertainty in CSFH above `cosmic high noon' (around $z\sim2$). It seems now, however, that those uncertainties have reduced to the point of making a $\Phi(t)$ reconstruction viable.
+
+\begin{figure}[t]
    \centering
    \includegraphics[width=6.5in]{figure_SNIa_rate_alpha}
    \caption{\footnotesize Shown in comparison to the data from Figure~\ref{fig:sn1a_rates} are the expected volumetric rates for power-law delay-time distributions ($\alpha = 1.0$ and 1.5 in red and blue, respectively) as applied to the compendium CSFH (in green and second ordinate). \textcolor{red}{Something about scaling, N/M or fraction}. Smaller $\alpha$ models require a higher fraction of WD progenitors.}
    \label{fig:sn1a_rates2}
 \end{figure}
 
-Following the methodology in \cite{Strolger:2010}, we can continue to test a more robust delay-time model, capable of reproducing the theoretical distributions for SD and DD models at one extreme, and $\delta$-function delay times at the other. The unimodal, skew-normal $\Phi(\tau)$ function is defined as:
+Following the methodology in \cite{Strolger:2010}, we can test the intrinsic shape of the delay time distribution using a robustly tunable unimodal model, then compare the results to the shapes of the theoretical distributions for SD and DD models. The unimodal, skew-normal $\Phi(\tau)$ function is defined as:
 
 \begin{equation}
 	\Phi(\tau)=\frac{1}{\omega\pi}\,\exp\biggl(\frac{-(\tau-\xi)^2}{2\omega^2}\biggr)\int_{-\infty}^{\alpha (\frac{\tau-\xi}{\omega})} \exp\biggl(\frac{-t'^2}{2}\biggr)\,dt',
@@ -217,10 +220,12 @@ Following the methodology in \cite{Strolger:2010}, we can continue to test a mor
 \end{equation}
 
 \noindent where location ($\xi$),\footnote{Different from the initial mass function, $\xi(M)$.} width ($\omega^2$), and shape ($\alpha$)\footnote{Different from the initial mass function power-law slope at the low-mass end.} are defined by the model. Figure~\ref{fig:dtd_families} demonstrates the flexibility of the model in producing various distributions in $\tau$. Either through and optimized fit of the model parameters, or through a Markov-chain monte carlo (MCMC), we can test model $\Phi(\tau)$ through Equation~\ref{eqn:std} in comparison to the volumetric rate measurements.
+[I AM HERE]
 
 \begin{figure}[t]
    \centering
-   \includegraphics[width=4in]{figure_dtd_families}
+   \includegraphics[width=6.5in]{figure_sd_fits}
+   % \includegraphics[width=4in]{figure_dtd_families}
    \caption{\footnotesize Families of delay-time distributions models shown for various values of location ($\xi$) fixing other parameters (left plot of figure), width ($\omega$, middle plot), and shape ($\alpha$, right plot), for illustration purposes.}
    \label{fig:dtd_families}
 \end{figure}

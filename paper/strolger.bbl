@@ -71,6 +71,10 @@ Chen, M.~C., Herwig, F., Denissenkov, P.~A., \& Paxton, B. 2014, Monthly
   Notices of the Royal Astronomical Society, 440, 1274,
   \dodoi{10.1093/mnras/stu108}
 
+\bibitem[{Croton(2013)}]{Croton:2013ty}
+Croton, D.~J. 2013, Publications of the Astronomical Society of Australia, 30,
+  e052, \dodoi{10.1017/pasa.2013.31}
+
 \bibitem[{{Cummings} {et~al.}(2018){Cummings}, {Kalirai}, {Tremblay},
   {Ramirez-Ruiz}, \& {Choi}}]{Cummings:2018oe}
 {Cummings}, J.~D., {Kalirai}, J.~S., {Tremblay}, P.-E., {Ramirez-Ruiz}, E., \&
@@ -258,6 +262,11 @@ Denissenkov, P.~A., Truran, J.~W., Herwig, F., {et~al.} 2015, Monthly Notices
 {Nelemans}, G., {Portegies Zwart}, S.~F., {Verbunt}, F., \& {Yungelson}, L.~R.
   2001{\natexlab{a}}, \aap, 368, 939, \dodoi{10.1051/0004-6361:20010049}
 
+\bibitem[{{Nelemans} {et~al.}(2013){Nelemans}, {Toonen}, \&
+  {Bours}}]{Nelemans:2013}
+{Nelemans}, G., {Toonen}, S., \& {Bours}, M. 2013, in IAU Symposium, Vol. 281,
+  IAU Symposium, 225--231
+
 \bibitem[{{Nelemans} {et~al.}(2001{\natexlab{b}}){Nelemans}, {Yungelson},
   {Portegies Zwart}, \& {Verbunt}}]{Nelemans:2001cs}
 {Nelemans}, G., {Yungelson}, L.~R., {Portegies Zwart}, S.~F., \& {Verbunt}, F.
@@ -272,6 +281,9 @@ Denissenkov, P.~A., Truran, J.~W., Herwig, F., {et~al.} 2015, Monthly Notices
   {Wang}}]{Okumura:2014}
 {Okumura}, J.~E., {Ihara}, Y., {Doi}, M., {et~al.} 2014, ArXiv e-prints.
 \newblock \doarXiv{1401.7701}
+
+\bibitem[{{{\"O}pik}(1924)}]{Opik:1924xr}
+{{\"O}pik}, E. 1924, Publications of the Tartu Astrofizica Observatory, 25, 1
 
 \bibitem[{{Pacifici} {et~al.}(2012){Pacifici}, {Charlot}, {Blaizot}, \&
   {Brinchmann}}]{Pacifici:2012ve}
@@ -368,6 +380,10 @@ Strolger, L.-G., Riess, A.~G., Dahlen, T., {et~al.} 2004, \apj, 613, 200
   {Stubbs}, \& {Suntzeff}}]{Tonry:2003}
 {Tonry}, J.~L., {Schmidt}, B.~P., {Barris}, B., {et~al.} 2003, \apj, 594, 1,
   \dodoi{10.1086/376865}
+
+\bibitem[{{Wang} \& {Han}(2012)}]{Wang:2012a}
+{Wang}, B., \& {Han}, Z. 2012, \nar, 56, 122,
+  \dodoi{10.1016/j.newar.2012.04.001}
 
 \bibitem[{{Webbink}(1984)}]{Webbink:1984}
 {Webbink}, R.~F. 1984, \apj, 277, 355, \dodoi{10.1086/161701}
