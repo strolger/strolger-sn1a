@@ -13,7 +13,7 @@ from strolger_util import imf
 import warnings
 warnings.simplefilter('ignore',RuntimeWarning)
 np.seterr(divide='ignore', invalid='ignore') 
-rcParams['font.size']=15.0
+#rcParams['font.size']=15.0
 
 def rate_per_galaxy(sfh_data, lbu=13.65, lbl=0.05, p0 = None,
                     frac_ia = 0.05,
@@ -309,15 +309,15 @@ if __name__=='__main__':
     #ax.fill_between(tx, log10(p_n[0]*p_n[3]**p_n[1]), -11, color='0.75', alpha=0.3)
 
 
-    ax2.annotate('Passive Gal. & UDGs', xy=(-12.4,-13.8), xycoords='data',
-                rotation=0, size=10, zorder=100,
-                bbox=dict(boxstyle="round4", fc="w", ec='w', alpha=0.7)
-                )
+    ## ax2.annotate('Passive Gal. & UDGs', xy=(-12.4,-13.8), xycoords='data',
+    ##             rotation=0, size=10, zorder=100,
+    ##             bbox=dict(boxstyle="round4", fc="w", ec='w', alpha=0.7)
+    ##             )
     
-    ax.annotate('Green\n Peas', (-8.75,-11.75), xycoords='data',
-                rotation=0, size=10, zorder=100,
-                bbox=dict(boxstyle="round4", fc="w", ec='w', alpha=0.7)
-                )
+    ## ax.annotate('Green\n Peas', (-8.75,-11.75), xycoords='data',
+    ##             rotation=0, size=10, zorder=100,
+    ##             bbox=dict(boxstyle="round4", fc="w", ec='w', alpha=0.7)
+    ##             )
                 
 
     savefig('figure_ssfr.png')
