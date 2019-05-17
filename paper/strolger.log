@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  16 MAY 2019 17:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  17 MAY 2019 15:10
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -602,76 +602,74 @@ Package pdftex.def Info: figure_csfh_today.png  used on input line 182.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[5]
-<figure_SNIa_rate_alpha.png, id=500, 462.528pt x 346.896pt>
-File: figure_SNIa_rate_alpha.png Graphic file (type png)
-<use figure_SNIa_rate_alpha.png>
-Package pdftex.def Info: figure_SNIa_rate_alpha.png  used on input line 210.
+[5] [6 <./figure_csfh_today.png>]
+<figure_sd_dd_fits.png, id=521, 462.528pt x 346.896pt>
+File: figure_sd_dd_fits.png Graphic file (type png)
+<use figure_sd_dd_fits.png>
+Package pdftex.def Info: figure_sd_dd_fits.png  used on input line 225.
 (pdftex.def)             Requested size: 469.75499pt x 352.33655pt.
- [6 <./figure_csfh_today.png>]
-<figure_sd_fits.png, id=522, 462.528pt x 346.896pt>
-File: figure_sd_fits.png Graphic file (type png)
-<use figure_sd_fits.png>
-Package pdftex.def Info: figure_sd_fits.png  used on input line 227.
-(pdftex.def)             Requested size: 469.75499pt x 352.33655pt.
- [7 <./figure_SNIa_rate_alpha.png>]
-<figure_sfd_optimized.png, id=548, 462.528pt x 346.896pt>
+
+Overfull \vbox (0.42145pt too high) has occurred while \output is active []
+
+
+[7 <./figure_sd_dd_fits.png>]
+<figure_sfd_optimized.png, id=550, 462.528pt x 346.896pt>
 File: figure_sfd_optimized.png Graphic file (type png)
 <use figure_sfd_optimized.png>
-Package pdftex.def Info: figure_sfd_optimized.png  used on input line 248.
+Package pdftex.def Info: figure_sfd_optimized.png  used on input line 249.
 (pdftex.def)             Requested size: 469.75499pt x 352.33655pt.
-<figure_fit_demo_werr.png, id=554, 462.528pt x 346.896pt>
+<figure_fit_demo_werr.png, id=558, 462.528pt x 346.896pt>
 File: figure_fit_demo_werr.png Graphic file (type png)
 <use figure_fit_demo_werr.png>
 Package pdftex.def Info: figure_fit_demo_werr.png  used on input line 263.
 (pdftex.def)             Requested size: 469.75499pt x 352.33655pt.
- [8 <./figure_sd_fits.png>] [9 <./figure_sfd_optimized.png>]
-<figure_sfh_demo_v1.png, id=585, 462.528pt x 346.896pt>
+ [8 <./figure_sfd_optimized.png>] [9 <./figure_fit_demo_werr.png>]
+<figure_sfh_demo_v1.png, id=588, 462.528pt x 346.896pt>
 File: figure_sfh_demo_v1.png Graphic file (type png)
 <use figure_sfh_demo_v1.png>
 Package pdftex.def Info: figure_sfh_demo_v1.png  used on input line 297.
 (pdftex.def)             Requested size: 216.81pt x 162.60709pt.
-<figure_sfh_demo_v2.png, id=586, 462.528pt x 346.896pt>
+<figure_sfh_demo_v2.png, id=589, 462.528pt x 346.896pt>
 File: figure_sfh_demo_v2.png Graphic file (type png)
 <use figure_sfh_demo_v2.png>
 Package pdftex.def Info: figure_sfh_demo_v2.png  used on input line 298.
 (pdftex.def)             Requested size: 216.81pt x 162.60709pt.
- [10 <./figure_fit_demo_werr.png>] [11 <./figure_sfh_demo_v1.png> <./figure_sfh
-_demo_v2.png>]
-<figure_loglog_dtd.png, id=627, 462.528pt x 346.896pt>
+ [10 <./figure_sfh_demo_v1.png> <./figure_sfh_demo_v2.png>]
+<figure_loglog_dtd.png, id=624, 462.528pt x 346.896pt>
 File: figure_loglog_dtd.png Graphic file (type png)
 <use figure_loglog_dtd.png>
 Package pdftex.def Info: figure_loglog_dtd.png  used on input line 338.
 (pdftex.def)             Requested size: 469.75499pt x 352.33655pt.
-<figure_toonan.png, id=628, 578.16pt x 433.62pt>
+<figure_toonan.png, id=625, 578.16pt x 433.62pt>
 File: figure_toonan.png Graphic file (type png)
 <use figure_toonan.png>
 Package pdftex.def Info: figure_toonan.png  used on input line 345.
 (pdftex.def)             Requested size: 469.75499pt x 352.31538pt.
-<figure_sfd_corners.png, id=629, 686.565pt x 686.565pt>
+<figure_sfd_corners.png, id=626, 686.565pt x 686.565pt>
 File: figure_sfd_corners.png Graphic file (type png)
 <use figure_sfd_corners.png>
 Package pdftex.def Info: figure_sfd_corners.png  used on input line 358.
 (pdftex.def)             Requested size: 469.75499pt x 469.74944pt.
- [12 <./figure_loglog_dtd.png>] [13 <./figure_toonan.png>] [14 <./figure_sfd_co
-rners.png>]
-<figure_sfh_corners.png, id=656, 686.565pt x 686.565pt>
+
+[11] [12 <./figure_loglog_dtd.png>] [13 <./figure_toonan.png>] [14 <./figure_sf
+d_corners.png>]
+<figure_sfh_corners.png, id=659, 686.565pt x 686.565pt>
 File: figure_sfh_corners.png Graphic file (type png)
 <use figure_sfh_corners.png>
 Package pdftex.def Info: figure_sfh_corners.png  used on input line 383.
 (pdftex.def)             Requested size: 469.75499pt x 469.74944pt.
-
-(./strolger.bbl [15 <./figure_sfh_corners.png>] [16]) [17]
+ (./strolger.bbl [15 <./figure_sfh_corners.png>] [16]) [17]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 407.
- (./strolger.aux)
+
+(./strolger.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 407.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 407.
  ) 
 Here is how much of TeX's memory you used:
- 9462 strings out of 492649
- 130932 string characters out of 6129622
- 346196 words of memory out of 5000000
- 13095 multiletter control sequences out of 15000+600000
+ 9455 strings out of 492649
+ 130772 string characters out of 6129622
+ 346068 words of memory out of 5000000
+ 13090 multiletter control sequences out of 15000+600000
  13460 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  35i,11n,37p,1698b,565s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -701,10 +699,10 @@ s/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2018/texmf-dist/fonts
 ype1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2018/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type
 1/public/amsfonts/symbols/msam10.pfb>
-Output written on strolger.pdf (17 pages, 994514 bytes).
+Output written on strolger.pdf (17 pages, 943397 bytes).
 PDF statistics:
- 843 PDF objects out of 1000 (max. 8388607)
- 631 compressed objects within 7 object streams
- 125 named destinations out of 1000 (max. 500000)
- 61 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 846 PDF objects out of 1000 (max. 8388607)
+ 634 compressed objects within 7 object streams
+ 124 named destinations out of 1000 (max. 500000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

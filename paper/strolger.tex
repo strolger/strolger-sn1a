@@ -137,7 +137,7 @@ $1.73 \pm{0.52}$ & $0.61^{+0.14}_{-0.10}$& 7\\
    \label{tab:sn1a_bin}
 \end{table}
 
-It would be reasonable to assume the volumetric rates follow a broken power law evolution with redshift, $R_{\rm Ia}=R_0\,(1+z)^A$, where  the power-law slope at $z<1$ is $A=1.50\pm0.02$ (with $R_0 = 2.47\pm0.02\times10^{-5}$ yr$^{-1}$ Mpc$^{-3}$ $h_{70}^3$), which flattens substantially to $A=-0.06\pm0.2$ at redshifts greater than 1, as is shown in  Figure~\ref{fig:sn1a_rates}. This is broadly consistent with the power-law fit from \cite{Okumura:2014}, especially to $z\la1$. The locus is also consistent with the volumetric SN~Ia rate at $z\approx0$ converted by \cite{Li:2011b} to $2.7\pm0.3\times10^{-5}$ yr$^{-1}$. While the broken power-law model is useful for predicting yields from volumetric surveys, e.g., for the Wide Field InfraRed Survey Telescope \cite[\textit{WFIRST, }][]{Hounsell:2018fv} and the Large Synoptics Survey Telescope (LSST), it does not inherently reveal much on the nature of SN~Ia progenitor mechanisms. This is better done through an assessment of delay-time distributions.
+It would be reasonable to assume the volumetric rates follow a broken power law evolution with redshift, $R_{\rm Ia}=R_0\,(1+z)^A$, where  the power-law slope at $z<1$ is $A=1.50\pm0.02$ (with $R_0 = 2.47\pm0.02\times10^{-5}$ yr$^{-1}$ Mpc$^{-3}$ $h_{70}^3$), which flattens substantially to $A=0.0\pm0.2$ at redshifts greater than 1, as is shown in  Figure~\ref{fig:sn1a_rates}. This is broadly consistent with the power-law fit from \cite{Okumura:2014}, especially to $z\la1$. The locus is also consistent with the volumetric SN~Ia rate at $z\approx0$ converted by \cite{Li:2011b} to $2.7\pm0.3\times10^{-5}$ yr$^{-1}$. While the broken power-law model is useful for predicting yields from volumetric surveys, e.g., for the Wide Field InfraRed Survey Telescope \cite[\textit{WFIRST, }][]{Hounsell:2018fv} and the Large Synoptics Survey Telescope (LSST), it does not inherently reveal much on the nature of SN~Ia progenitor mechanisms. This is better done through an assessment of delay-time distributions.
 
 For these types of analyses, the standard assumption is that the stellar death rate (or supernova rate) is related to the stellar birth rate, convolved with some delay-time distribution that contains all the temporal factors of stellar evolution (e.g., main sequence lifetime, etc.) and binary star evolution (e.g., accretion rates or merger times). Two additional terms include the fraction of the initial mass function (or IMF) that the progenitors of SNe~Ia arise from, presumably $3 - 8\, \rm{M}_{\odot}$ zero-age main sequence stars, as discussed in Section~\ref{sec:wds}, and the fraction of that population that are actually capable of producing events, as not all progenitor stars are necessarily in binary systems, or presumably the right type of binary systems to successfully result in SNe~Ia.
 
@@ -200,39 +200,40 @@ However, to do so we correct the \cite{Driver:2018nr} data for dust attenuation 
 
 
 \subsection{SN~Ia Progenitor Delay-Time Distribution Models}~\label{sec:dtd}
-%\noindent \textcolor{red}{Talk about the expected delay-time distribution, values from Graur and Maoz, inability to probe beyond turnover at `SN high noon', around $z\sim1$}. 
 Theoretical delay time distributions result from analyses of binary population synthesis, and from physical bases \cite[see][ for a review]{Wang:2012a}.  In the SD scenario, details ranging from composition of the companion donor star (H or He) to the mass-accretion efficiency lead to rather large variations in the expected delay time distributions \cite{Nelemans:2013}. However DD models are in reasonable agreement with one another, largely because the scenario is governed by the loss of angular momentum due in the radiation of gravitational waves. The timescales involved depend on the  initial separations of the WDs. If it is assumed WD binaries follow a power-law of radial distributions, $\Phi(r)=r^{\beta}$, with power $\beta\approx-1$ \citep{Opik:1924xr}, as is supported by  SPY close WD systems with separations distributed following $\beta=-1.3\pm0.2$~\citep{Maoz:2017zl}, the resultant delay time distribution will also follow a power-law distribution, $\Phi(t)=t^{\beta}$, with a power close to $\beta\approx-1$.
 
 Delay-time distribution recovery methods based on matching theoretical $\Phi(t)$ to CSFHs and SN~Ia volumetric rates has been hampered largely by the uncertainty in the latter two \citep{Dahlen:2008,Strolger:2010,Graur:2014,Rodney:2014fj}, specifically in the uncertainty in the SN~Ia rate above `SN high noon' (around $z\sim1$), and the uncertainty in CSFH above `cosmic high noon' (around $z\sim2$). It seems now, however, that those uncertainties have reduced to the point of making a $\Phi(t)$ reconstruction viable.
 
-\begin{figure}[t]
-   \centering
-   \includegraphics[width=6.5in]{figure_SNIa_rate_alpha}
-   \caption{\footnotesize Shown in comparison to the data from Figure~\ref{fig:sn1a_rates} are the expected volumetric rates for power-law delay-time distributions ($\alpha = 1.0$ and 1.5 in red and blue, respectively) as applied to the compendium CSFH (in green and second ordinate). \textcolor{red}{Something about scaling, N/M or fraction}. Smaller $\alpha$ models require a higher fraction of WD progenitors.}
-   \label{fig:sn1a_rates2}
-\end{figure}
+%\begin{figure}[t]
+%   \centering
+%   \includegraphics[width=6.5in]{figure_SNIa_rate_alpha}
+%   \caption{\footnotesize Shown in comparison to the data from Figure~\ref{fig:sn1a_rates} are the expected volumetric rates for power-law delay-time distributions ($\alpha = 1.0$ and 1.5 in red and blue, respectively) as applied to the compendium CSFH (in green and second ordinate). \textcolor{red}{Something about scaling, N/M or fraction}. Smaller $\alpha$ models require a higher fraction of WD progenitors.}
+%   \label{fig:sn1a_rates2}
+%\end{figure}
 
-Following the methodology in \cite{Strolger:2010}, we can test the intrinsic shape of the delay time distribution using a robustly tunable unimodal model, then compare the results to the shapes of the theoretical distributions for SD and DD models. The unimodal, skew-normal $\Phi(\tau)$ function is defined as:
+Following the methodology in \cite{Strolger:2010}, we can test the intrinsic shape of the delay time distribution using a robustly tunable unimodal model, then compare the results to the shapes of the theoretical distributions for SD and DD models. We use the skew-normal $\Phi(t)$ function, defined as:
 
 \begin{equation}
-	\Phi(\tau)=\frac{1}{\omega\pi}\,\exp\biggl(\frac{-(\tau-\xi)^2}{2\omega^2}\biggr)\int_{-\infty}^{\alpha (\frac{\tau-\xi}{\omega})} \exp\biggl(\frac{-t'^2}{2}\biggr)\,dt',
+	\Phi(t)=\frac{1}{\omega\pi}\,\exp\biggl(\frac{-(t-\xi)^2}{2\omega^2}\biggr)\int_{-\infty}^{\alpha (\frac{t-\xi}{\omega})} \exp\biggl(\frac{-t'^2}{2}\biggr)\,dt',
 \label{eqn:model}
 \end{equation}
 
-\noindent where location ($\xi$),\footnote{Different from the initial mass function, $\xi(M)$.} width ($\omega^2$), and shape ($\alpha$)\footnote{Different from the initial mass function power-law slope at the low-mass end.} are defined by the model. Figure~\ref{fig:dtd_families} demonstrates the flexibility of the model in producing various distributions in $\tau$. Either through and optimized fit of the model parameters, or through a Markov-chain monte carlo (MCMC), we can test model $\Phi(\tau)$ through Equation~\ref{eqn:std} in comparison to the volumetric rate measurements.
-[I AM HERE]
+\noindent where location ($\xi$),\footnote{Different from the initial mass function, $\xi(M)$.} width ($\omega^2$), and shape ($\alpha$)\footnote{Different from the initial mass function power-law slope at the low-mass end.} are the dependent variables. Figure~\ref{fig:dtd_families} demonstrates the flexibility of the function in reproducing various model SD and DD from \cite{Nelemans:2013}. As can be seen, the defined function is very good at reproducing the shapes of various binary population synthesis models, particularly SD distributions, and fairly reasonable in fitting DD distributions, although it should be emphasized that due to the exponential nature of the function, has trouble \textit{exactly} reproducing the shape of a distribution that is intrinsically a power-law, a point that will be revisited in Section~\ref{sec:discussion}.
 
 \begin{figure}[t]
    \centering
-   \includegraphics[width=6.5in]{figure_sd_fits}
+   \includegraphics[width=6.5in]{figure_sd_dd_fits}
    % \includegraphics[width=4in]{figure_dtd_families}
-   \caption{\footnotesize Families of delay-time distributions models shown for various values of location ($\xi$) fixing other parameters (left plot of figure), width ($\omega$, middle plot), and shape ($\alpha$, right plot), for illustration purposes.}
+   \caption{\footnotesize Examples of delay-time distributions from binary population synthesis analyses for SD (left) and DD (right) scenarios, from~\cite{Nelemans:2013}. Shown also are fits to these models using the function described in Equation~\ref{eqn:model}, tuning dependent variables $\xi$, $\omega$, and $\alpha$.}
    \label{fig:dtd_families}
 \end{figure}
 
+Either through an optimized fit of the fuctional parameters ($\xi$, $\omega$, and $\alpha$), or through a Markov-chain monte carlo (MCMC), we can test model $\Phi(t)$ through Equation~\ref{eqn:std} in comparison to the volumetric rate measurements.
+
+
 
 \subsection{The Optimized Solution\label{sec:optimized_soln}}
-We apply a maximum likelihood estimation method to determine the best-fit unimodal delay time model to Equation~\ref{eqn:std} using a method described in \cite{Hogg:2010fj} and the {\tt emcee.py} documentation~\citep{Foreman-Mackey:2013pd}. We assume, for simplicity, that the errors of all survey data are gaussian in nature, but may be underestimated by some factor ($f$), which may be correctly justified given we are only using the statistical error reported for each value.  As follows, we adopt the likelihood function to be:
+We apply a maximum likelihood estimation method to determine the best-fit skew normal delay time model to Equation~\ref{eqn:std} using a method described in \cite{Hogg:2010fj} and the {\tt emcee.py} documentation~\citep{Foreman-Mackey:2013pd}. For simplicity, we assume that the errors of all survey data are gaussian in nature, but may be underestimated by some factor ($f$), which is justified even if only by the fact that we are using just the statistical error reported for each rate value.  As follows, we adopt the likelihood function to be:
 \begin{equation}
 \ln p(y|x, \sigma, \varepsilon, \xi, \omega, \alpha, f) = -\frac{1}{2} \sum_i \biggl\{ \frac{[R_{{\rm Ia},i} - R_{\rm Ia}(t_i; \varepsilon, \xi, \omega, \alpha)]^2}{s_i^2}+\ln (2\pi s_i^2)\biggr\},
 	\label{eqn:lf}
@@ -241,24 +242,23 @@ where,
 \begin{equation}
 s_i^2 = \sigma_i^2+f^2\, R_{\rm Ia}(t_i; \varepsilon, \xi, \omega, \alpha)^2,
 \end{equation}
-\noindent $R_{{\rm Ia},i}$ are the various rate measures, and $R_{\rm Ia}(t_i)$ are the parameter-dependent model predictions at the cosmic time of the various rate measures. We then find the optimal parameters which maximize this likelihood. As for priors, we require the successful fraction of progenitors to be between zero and unity ($0<\varepsilon<1$), that the width parameter can only be positive ($\omega>0$), and the that underestimation fraction can only be between approximately zero and unity ($-4<\ln f<0$). Otherwise, we apply rather loose and arbitrarty bounds of $-2000<\xi<2000$ and  $-500 < \alpha < 500$. The results of this fit are shown in Figure~\ref{fig:sfd_optimized_curvefit} and Table~\ref{tab:results}. 
+\noindent $R_{{\rm Ia},i}$ is the various independent rate measures, and $R_{\rm Ia}(t_i)$ is the parameter-dependent model predictions at the cosmic time of the various rate measures. We then find the optimal parameters which maximize this likelihood. As for priors, we require the successful fraction of progenitors to be between zero and unity ($0<\varepsilon<1$), that the width parameter can only be positive ($\omega>0$), and the that underestimation fraction can only be between approximately zero and unity ($-4<\ln f<0$). Otherwise, we apply rather loose and arbitrary bounds of $-2000<\xi<2000$ and  $-500 < \alpha < 500$. 
 
-\begin{figure}[t] %  figure placement: here, top, bottom, or page
+\begin{figure}[t] 
    \centering
    \includegraphics[width=6.5in]{figure_sfd_optimized} 
    \caption{\footnotesize In addition to rate values shown in previous figures, the $R_{\rm Ia}(z)$ model results of from optimal parameter fitting of the unimodal $\Phi(\tau)$ model is shown (solid black line) in comparison to a $\beta=-1$ power-law $\Phi(\tau)$ (dashed black line). The inset shows the comparison of the two $\Phi(\tau)$ models. The CSFH is shown on in red, and along the secondary ordinate. }
    \label{fig:sfd_optimized_curvefit}
 \end{figure}
 
-While the optimization results a model that is broadly consistent with the $t^{-1}$ model, it is not directly possible to estimate errors on the best-fit parameters, or the range of validity in this maximum likelihood optimization method. A Markov chain Monte Carlo (MCMC) is better suited for that.
-
+The results of this optimized fit are shown in Figure~\ref{fig:sfd_optimized_curvefit} and tabulated in Table~\ref{tab:results}. While the optimization results a model that isconsistent with the $t^{-1}$ model, it is not directly possible to estimate errors on the best-fit parameters, or the range of validity via this maximum likelihood optimization method. %A Markov chain Monte Carlo (MCMC) is better suited for that.
 
 \subsection{The MCMC solution\label{sec:mcmc_sfd}}
 Exploring the parameter space in an MCMC allows both confirmation of the optimized solution and an exploration of the range of validity. We use the affine-invariant MCMC ensemble sampler from {\tt emcee.py}~\citep{Foreman-Mackey:2013pd} using the same likelihood function as shown in Equation~\ref{eqn:lf}, and set our uniform priors as described by the bounds, as shown in the previous section, with the exception of evaluating $\ln \varepsilon$ to allow MCMC step sizes of order unity, and using the prior $ -10 < \ln \varepsilon < 0$. We then set 1,000 walkers to explore 10,000 steps, for a total of 10 million iterations, the first 100,000 of which we discard as `burn-in'. The results of which are shown in Figure~\ref{fig:mcmc_sfd} and Table~\ref{tab:results}.
 
 
 
-\begin{figure}[t] %  figure placement: here, top, bottom, or page
+\begin{figure}[t]
    \centering
    \includegraphics[width=6.5in]{figure_fit_demo_werr} 
    \caption{\footnotesize Similar to Figure~\ref{fig:sfd_optimized_curvefit}, the $R_{\rm Ia}(z)$ result of from MCMC best-fit is shown (blue line), with the 68\% and 95\% confidence intevals, in dark and light green, respectively. }

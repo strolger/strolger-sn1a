@@ -1,0 +1,17 @@
+#!/usr/bin/env python
+import os,sys,pdb,scipy,glob
+from pylab import *
+from strolger_util import util as u
+from strolger_util import rates_z as rz
+
+if __name__=='__main__':
+
+    tt = arange(0,13,0.1)
+
+    yy = tt**-1.0
+
+    ax = subplot(111)
+    ax.plot(tt, yy)
+    show()
+    
+               
