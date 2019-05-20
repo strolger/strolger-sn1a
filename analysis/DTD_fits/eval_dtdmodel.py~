@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+import os,sys,pdb,scipy,glob
+from pylab import *
+from strolger_util import util as u
+from strolger_util import rates_z as rz
+
+
+if __name__=='__main__':
+
+
+    p =  (-1.12659790e+03,   5.69300820e+01,   1.20864134e+02)
+    dt = 0.05
+    tt = arange(dt, 13.6, dt)
+    dtd = rz.dtdfunc(tt, *p)
+    pwrl = (-0.45,1.0)
+
+    ax3  = subplot(111)
+    ax3.plot(tt,dtd,'b-', label= 'Fit')#label='Norm = %1.1f' %(simps(dtd,x=time)))
+    ax3.plot(tt,rz.powerdtd(tt, *pwrl), 'b:', label=r'$t^{%.1f}$'%(pwrl[0]))
+    ax3.set_ylabel('$\Phi$')
+    ax3.set_xlabel('Delay Time (Gyr)')
+    show()
