@@ -9,6 +9,15 @@ import pickle
 rcParams['font.size']=12.0
 #rcParams['figure.figsize']=8,8
 
+def redchisqg(ydata,ymod,sd, deg=2):  
+      # Chi-square statistic  
+      chisq=sum( ((ydata-ymod)/sd)**2 )  
+             
+      # Number of degrees of freedom assuming 2 free parameters  
+      nu=ydata.size-1-deg  
+        
+      return chisq/nu       
+
 
 scale = (0.0210)*0.062*(0.7)**2
 ax = subplot(111)
@@ -64,11 +73,21 @@ ax2.errorbar(data[idx][:,0], data[idx][:,3]*msc,
             xerr=[-1*data[idx][:,1],data[idx][:,2]],
             yerr=[-1*data[idx][:,4]*msc,data[idx][:,5]*msc],
             fmt='o', color='k', mfc='1.0', mec='red', label='Cluster Rates')
+pwrl = (-1.39,1.0)
+tmp=rz.powerdtd(data[idx][:,0], *pwrl, normed=False)*(5.4e-3)
+chi2 = redchisqg(data[idx][:,3]*msc, tmp, sd=data[idx][:,5]*msc)
+print(chi2, len(tmp)-1)
+
+
 idx = where(data[:,6]==0)
 ax2.errorbar(data[idx][:,0], data[idx][:,3]*msc,
             xerr=[-1*data[idx][:,1],data[idx][:,2]],
             yerr=[-1*data[idx][:,4]*msc,data[idx][:,5]*msc],
             fmt='o', color='k', mfc='1.0', mec='blue', label='Field Rates')
+pwrl = (-1.10,1.0)
+tmp=rz.powerdtd(data[idx][:,0], *pwrl, normed=False)*(1.6e-3)
+chi2 = redchisqg(data[idx][:,3]*msc, tmp, sd=data[idx][:,5]*msc, deg=0)
+print(chi2, len(tmp)-1)
 
 
 
@@ -76,7 +95,9 @@ ax2.errorbar(data[idx][:,0], data[idx][:,3]*msc,
 popt, pcov = curve_fit(func, data[:,0], data[:,3]*msc, p0=p_t, sigma=data[:,4]*msc)
 print(popt)
 ax.plot(time,dtd*scale*popt,'b-', lw=2, label= 'Exponential model')#label='Norm = %1.1f' %(simps(dtd,x=time)))
-
+tmp=rz.dtdfunc(data[:,0], *p0)*scale*popt
+chi2 = redchisqg(data[:,3]*msc, tmp, sd=data[:,5]*msc, deg=0)
+print(chi2,len(tmp)-1)
 
 files = glob.glob('mc_sfd_*.pkl')
 tot = 0

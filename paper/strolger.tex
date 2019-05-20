@@ -196,9 +196,6 @@ However, to do so we correct the \cite{Driver:2018nr} data for dust attenuation 
 \noindent where it is assumed $A_{\rm FUV}(z)$ has the same functional form of Equation~\ref{eqn:mdp}, with $A=1.4\pm0.1$, $B=3.5\pm0.4$, $C=0.7\pm0.2$, and $D=4.3\pm0.7$ as determined from the $A_{\rm FUV}(z)$ data from MD14. We then fit Equation~\ref{eqn:mdp} to the combined CSFH datasets, resulting in Levenberg-Marquardt least-squares solution parameters which are extraordinarily constrained, as shown in Table~\ref{tab:csfh_fits} and Figure~\ref{fig:csfhs}. 
 
 
-
-
-
 \subsection{SN~Ia Progenitor Delay-Time Distribution Models}~\label{sec:dtd}
 Theoretical delay time distributions result from analyses of binary population synthesis, and from physical bases \cite[see][ for a review]{Wang:2012a}.  In the SD scenario, details ranging from composition of the companion donor star (H or He) to the mass-accretion efficiency lead to rather large variations in the expected delay time distributions \cite{Nelemans:2013}. However DD models are in reasonable agreement with one another, largely because the scenario is governed by the loss of angular momentum due in the radiation of gravitational waves. The timescales involved depend on the  initial separations of the WDs. If it is assumed WD binaries follow a power-law of radial distributions, $\Phi(r)=r^{\beta}$, with power $\beta\approx-1$ \citep{Opik:1924xr}, as is supported by  SPY close WD systems with separations distributed following $\beta=-1.3\pm0.2$~\citep{Maoz:2017zl}, the resultant delay time distribution will also follow a power-law distribution, $\Phi(t)=t^{\beta}$, with a power close to $\beta\approx-1$.
 
@@ -251,7 +248,7 @@ s_i^2 = \sigma_i^2+f^2\, R_{\rm Ia}(t_i; \varepsilon, \xi, \omega, \alpha)^2,
    \label{fig:sfd_optimized_curvefit}
 \end{figure}
 
-The results of this optimized fit are shown in Figure~\ref{fig:sfd_optimized_curvefit} and tabulated in Table~\ref{tab:results}. While the optimization results a model that isconsistent with the $t^{-1}$ model, it is not directly possible to estimate errors on the best-fit parameters, or the range of validity via this maximum likelihood optimization method. 
+The results of this optimized fit are shown in Figure~\ref{fig:sfd_optimized_curvefit} and tabulated in Table~\ref{tab:results}. While the optimization results a model that is consistent with the $t^{-1}$ model, it is not directly possible to estimate errors on the best-fit parameters, or the range of validity via this maximum likelihood optimization method. 
 
 \begin{table}[h]
     \centering
@@ -280,7 +277,8 @@ Exploring the parameter space in an MCMC allows both confirmation of the optimiz
    \label{fig:figure_fit_demo_werr}
 \end{figure}
 
-As these result show, there is a clear convergence in $f$, the factor by which reported statistical errors in rate measures are misestimated. Nearly all values are underestimated from as little as 4\% to as much as 17\%, with most only about $7-9\%$ underestimated. So, while there is a large dispersion in rate values, these values are reasonably consistent to within statistical errors, which are not grossly misestimated. The fraction $\varepsilon$ is also very well constrained, and only $6.0\pm0.3\%$ of WD stars contribute as SN~Ia progenitors. 
+As these result show, there is a clear convergence in $f$, the factor by which reported statistical errors in rate measures are misestimated. Nearly all values are underestimated from as little as 4\% to as much as 17\%, with most only about $7-9\%$ underestimated. So, while there is a large dispersion in rate values, these values are reasonably consistent to within statistical errors, which are not grossly misestimated. The fraction $\varepsilon$ is also very well constrained, and only $6.0\pm0.3\%$ of WD stars contribute as SN~Ia progenitors. The Hubble-time integrated SN Ia production efficiency, combining the $k$ and $\varepsilon$ terms, yields $N/M_{\star}=1.26^{+0.42}_{-0.30}$ events per 1000 M$_{\odot}$ formed.
+
 
 However, the parameters which set the shape of the delay time distribution,  $\xi$, $\omega$, and $\alpha$, appear very much less constrained by the MCMC. There is a clear maximum at $\omega\approx60$ that is also highly degenerate with the value of $\xi$.  And there does not appear to be any convergence or preference in the value of $\alpha$. While it would appear there is no specific solution to the function, the resultant range in parameters indicate a family of solutions that are indeed related. Characterized by highly negative locations and broad widths, the only part of the distributions (in the 99\% confidence interval) which lie in the positive time space are the exponential-like tails, as is shown in the inset of Figure~\ref{fig:figure_fit_demo_werr}.
 
@@ -332,12 +330,18 @@ The SFH catalog contains 70,375 galaxies in the GOODS-North and South fields, se
 The model parameters, $\xi$, $\omega$, and $\alpha$ are then explorable via {\tt emcee.py}. We keep the same uniform priors as bounds, as described in Sections~\ref{sec:optimized_soln} and \ref{sec:mcmc_sfd}. We fix the fraction $\varepsilon=0.06$ for convenience, and set 100 walkers exploring 500 steps on these parameters, the first 50 of which are discarded as burn-in. The maximum likelihood results for the 45,000 iterations on SFHs are identical to the results for the CSFH assessment presented in Section~\ref{sec:csfh}, as is shown and Table~\ref{tab:results}. The MCMC likelihood distributions are presented in the Appendix (Section \ref{sec:mcmc_results}).
 
 \section{discussion}\label{sec:discussion}
-The three analyses presented above (two on CSFHs and one SFHs) point to a family of delay-time distribution models that are somewhat similar to power-law models, but are exponential, having much fewer prompt events in the 40 Myr to 1 Gyr range. The model also helps to clarify a discussion of 'prompt' vs 'delayed' progenitor mechanism. 
+These analyses point to a family of delay-time distribution models that are essentially exponential in shape, having fewer prompt events in the 40 Myr to 1 Gyr range than are expected in the $>1$ Gyr range. These model shapes are generally inconsistent with the SD binary population synthesis models shown in Figures~\ref{fig:dtd_families} and \ref{fig:dtd_eval}. They would also seem consistent with DD binary population synthesis models, keeping in mind the caveat that the exponential functional form has difficulty reproducing the distributions that are inherently power-law, as previously indicated. Yet despite this analytical limitation, it is worth further exploring the comparison in the exponential result from this analysis with the assumed power-law distributions in favor by the community.
 
-It is useful to evaluate the SN Ia rate that would result from the average galaxy (approx. $10^{10}$ M$_{\odot}$), undergoing a single, 1 M$_{\odot}$ yr$^{-1}$ burst of star formation, and the number of SNe Ia per year that would result over time. Figure~\ref{fig:logsnrate} shows the DTDs recovered in various time bins from Sloan galaxy data~\cite{Maoz:2010a, Maoz:2011, Maoz:2012a,Graur:2013} along with the derived power-law DTD models for field and galaxy cluster hosts. Rather than suggesting different power-law slopes, our best-fit DTD connects the data in clustered and field environments. 
+\begin{figure}[t]
+   \centering
+   \includegraphics[width=6.5in]{figure_pwr_law}
+   \caption{\footnotesize Similar to Figure~\ref{fig:dtd_families}, but showing the maximum likelihood model fit.}
+   \label{fig:dtd_eval}
+\end{figure}
 
+%It is useful to evaluate the SN Ia rate that would result from the average galaxy (approx. $10^{10}$ M$_{\odot}$), undergoing a single, 1 M$_{\odot}$ yr$^{-1}$ burst of star formation, and the number of SNe Ia per year that would result over time. 
+Figure~\ref{fig:logsnrate} shows the delay time distributions recovered in various time bins from SFH analysis of Sloan galaxy data~\citep{Maoz:2010a, Maoz:2011, Maoz:2012a,Graur:2013} along with the derived slopes for power-law models for SN~Ia hosts in field ($\beta=-1.1^{+0.08}_{-0.07}$) and galaxy cluster ($\beta=-1.4^{+0.32}_{-0.05}$) environments. Also shown is the exponential best fit models from our analysis, over plotted on the field and cluster data. As relative goodness of fit test, we find  $\chi^2_{\nu}=0.28$ for cluster hosts ($\nu=8$) relative to $\beta=-1.3$, $\chi^2_{\nu}=3.4$ for field hosts ($\nu=6$) relative to $\beta=-1.1$, and $\chi^2_{\nu}=2.3$ ($\nu=15$) for all data compared to our best fit model. It appears our exponential model is just as good as, if not better than, the power-law models at describing these recovered delay-time measurements, and has the convenience of not having to invoke different slopes (or presumably different progenitor channels) for field and clustered SN~Ia host environments.
 
-The Hubble-time integrated SN Ia production efficiency, combining the $k$ and $\varepsilon$ terms, yields $N/M_{\star}=1.26$ events per 1000 M$_{\odot}$ formed.
 
 
 \begin{figure}[t] %  figure placement: here, top, bottom, or page
@@ -347,17 +351,28 @@ The Hubble-time integrated SN Ia production efficiency, combining the $k$ and $\
    \label{fig:logsnrate}
 \end{figure}
 
+As a final note, 
+
 \begin{figure}[t] %  figure placement: here, top, bottom, or page
    \centering
    \includegraphics[width=6.5in]{figure_toonan}
    \caption{\footnotesize }
    \label{fig:toonan}
 \end{figure}
-\acknowledgments
+
+\section{Conclusions}
+\begin{itemize}
+	\item Volumetric rate measures at or near the same redshift are reasonably consistent with one another, to within the statistical errors, which are likely underestimated by $7-9\%$.
+	\item  Assuming $k$ based on an analytical argument, $\varepsilon$ is farily well constrained at $6.0\pm0.3\%$. This is nearly half the expected value from WD binaries~\citep{Maoz:2017zl}
+
+\end{itemize}
+
+\acknowledgments LS would like to thank \ldots
+
 
 
 \appendix
-\section{Rates from}\label{sec:mcmc_results}
+ \section{Rates from}\label{sec:mcmc_results}
 
 
 \begin{figure}[t] %  figure placement: here, top, bottom, or page
