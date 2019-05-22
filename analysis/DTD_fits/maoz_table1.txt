@@ -1,0 +1,2 @@
+#tau p_t m_t rate p_r m_rate cluster(0/1)
+0.18 -0.15 +0.16 580 -0.1 +2450 0

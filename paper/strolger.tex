@@ -12,10 +12,12 @@
 
 \renewcommand{\deg}{^{\circ}}
 \begin{document}
-\title{The Empirical Delay Time Distributions of Type Ia Supernovae From Galaxy and Cosmic Star Formation Histories}
+\title{Continuous Empirical Delay Time Distributions of Type Ia Supernovae From Galaxy and Cosmic Star Formation Histories}
 \author[0000-0002-7756-4440]{L.-G.~Strolger}
 \author{Steven Rodney}
 \author{Camila Pacifici}
+\author{Gautham Narajan}
+\author{Or Graur}
 \author{et al.}
 
 \begin{abstract}
@@ -201,13 +203,6 @@ Theoretical delay time distributions result from analyses of binary population s
 
 Delay-time distribution recovery methods based on matching theoretical $\Phi(t)$ to CSFHs and SN~Ia volumetric rates has been hampered largely by the uncertainty in the latter two \citep{Dahlen:2008,Strolger:2010,Graur:2014,Rodney:2014fj}, specifically in the uncertainty in the SN~Ia rate above `SN high noon' (around $z\sim1$), and the uncertainty in CSFH above `cosmic high noon' (around $z\sim2$). It seems now, however, that those uncertainties have reduced to the point of making a $\Phi(t)$ reconstruction viable.
 
-%\begin{figure}[t]
-%   \centering
-%   \includegraphics[width=6.5in]{figure_SNIa_rate_alpha}
-%   \caption{\footnotesize Shown in comparison to the data from Figure~\ref{fig:sn1a_rates} are the expected volumetric rates for power-law delay-time distributions ($\alpha = 1.0$ and 1.5 in red and blue, respectively) as applied to the compendium CSFH (in green and second ordinate). \textcolor{red}{Something about scaling, N/M or fraction}. Smaller $\alpha$ models require a higher fraction of WD progenitors.}
-%   \label{fig:sn1a_rates2}
-%\end{figure}
-
 Following the methodology in \cite{Strolger:2010}, we can test the intrinsic shape of the delay time distribution using a robustly tunable unimodal model, then compare the results to the shapes of the theoretical distributions for SD and DD models. We use the skew-normal $\Phi(t)$ function, defined as:
 
 \begin{equation}
@@ -267,9 +262,6 @@ The results of this optimized fit are shown in Figure~\ref{fig:sfd_optimized_cur
 
 \subsection{The MCMC solution\label{sec:mcmc_sfd}}
 Exploring the parameter space in an MCMC allows both confirmation of the optimized solution and an exploration of the range of validity. We use the affine-invariant MCMC ensemble sampler from {\tt emcee.py}~\citep{Foreman-Mackey:2013pd} using the same likelihood function as shown in Equation~\ref{eqn:lf}, and set our uniform priors as described by the bounds, as shown in the previous section, with the exception of evaluating $\ln \varepsilon$ to allow MCMC step sizes of order unity, and using the prior $ -10 < \ln \varepsilon < 0$. We then set 1,000 walkers to explore 10,000 steps, for a total of 10 million iterations, the first 100,000 of which we discard as `burn-in'. The MCMC likelihood distributions are presented in the Appendix (Section \ref{sec:mcmc_results}). The maximum-likelihood solution is shown in Figure~\ref{fig:figure_fit_demo_werr} and tabulated in Table~\ref{tab:results}.
-
-
-
 \begin{figure}[t]
    \centering
    \includegraphics[width=6.5in]{figure_fit_demo_werr} 
@@ -305,10 +297,9 @@ P(n_i | m_i) = \frac{m_i^{n_i}e^{-m_i}}{n_i!}.
 \begin{equation}
 L = \prod _i^N P(n_i|M_i) \Rightarrow \ln L = -\sum^N m_i+\sum^N\ln\biggl(\frac{m_i^{n_i}}{n_i!}\biggr)
 \end{equation}
-\noindent in which the last term is zero for the galaxies which did not host SNe~Ia during the survey.%\textcolor{red}{I should mention reference to the control times}.
+\noindent in which the last term is zero for the galaxies which did not host SNe~Ia during the survey.
 
 \begin{figure}[t] %  figure placement: here, top, bottom, or page
-   %\centering
    \includegraphics[width=3.5in]{figure_sfh_demo_v1} 
    \includegraphics[width=3.5in]{figure_sfh_demo_v2} 
    \caption{\footnotesize Example star formation histories (dashed-line and left ordinate), and the resultant SN Ia rate histories (dotted-line and right ordinate) for two SN Ia host galaxies in our sample, SNe 2002hp (left) and 2003dy (right), in the GOODS-South and GOODS-North fields, respectively. Insets show the delay time distribution applied (upper right, in red) compared to $t^{-1}$ (blue dashed), and a three-color HST ACS/WFC image (lower right) of the SN host galaxy.}
@@ -327,6 +318,7 @@ The SFH catalog contains 70,375 galaxies in the GOODS-North and South fields, se
    \label{fig:figure_cdfs}
 \end{figure}
 
+
 The model parameters, $\xi$, $\omega$, and $\alpha$ are then explorable via {\tt emcee.py}. We keep the same uniform priors as bounds, as described in Sections~\ref{sec:optimized_soln} and \ref{sec:mcmc_sfd}. We fix the fraction $\varepsilon=0.06$ for convenience, and set 100 walkers exploring 500 steps on these parameters, the first 50 of which are discarded as burn-in. The maximum likelihood results for the 45,000 iterations on SFHs are identical to the results for the CSFH assessment presented in Section~\ref{sec:csfh}, as is shown and Table~\ref{tab:results}. The MCMC likelihood distributions are presented in the Appendix (Section \ref{sec:mcmc_results}).
 
 \section{discussion}\label{sec:discussion}
@@ -339,11 +331,7 @@ These analyses point to a family of delay-time distribution models that are esse
    \label{fig:dtd_eval}
 \end{figure}
 
-%It is useful to evaluate the SN Ia rate that would result from the average galaxy (approx. $10^{10}$ M$_{\odot}$), undergoing a single, 1 M$_{\odot}$ yr$^{-1}$ burst of star formation, and the number of SNe Ia per year that would result over time. 
-Figure~\ref{fig:logsnrate} shows the delay time distributions recovered in various time bins from SFH analysis of Sloan galaxy data~\citep{Maoz:2010a, Maoz:2011, Maoz:2012a,Graur:2013} along with the derived slopes for power-law models for SN~Ia hosts in field ($\beta=-1.1^{+0.08}_{-0.07}$) and galaxy cluster ($\beta=-1.4^{+0.32}_{-0.05}$) environments. Also shown is the exponential best fit models from our analysis, over plotted on the field and cluster data. As relative goodness of fit test, we find  $\chi^2_{\nu}=0.28$ for cluster hosts ($\nu=8$) relative to $\beta=-1.3$, $\chi^2_{\nu}=3.4$ for field hosts ($\nu=6$) relative to $\beta=-1.1$, and $\chi^2_{\nu}=2.3$ ($\nu=15$) for all data compared to our best fit model. It appears our exponential model is just as good as, if not better than, the power-law models at describing these recovered delay-time measurements, and has the convenience of not having to invoke different slopes (or presumably different progenitor channels) for field and clustered SN~Ia host environments.
-
-
-
+Figure~\ref{fig:logsnrate} shows the delay time distributions recovered in various time bins from SFH analyses of the Magellanic Clouds \citep{Maoz:2010}, of Sloan galaxy data~\citep{Maoz:2010a, Maoz:2011, Maoz:2012a,Graur:2013}, and from high$-z$ cluster rates~\citep{Friedmann:2018hq}, along with the derived slopes for power-law models for SN~Ia hosts in field ($\beta=-1.1^{+0.08}_{-0.07}$) and galaxy cluster ($\beta=-1.4^{+0.32}_{-0.05}$) environments. Also shown is the exponential best fit models from our analysis, over plotted on the field and cluster data. As a relative goodness-of-fit test, we find  $\chi^2_{\nu}=0.21$ for cluster hosts ($\nu=10$) relative to $\beta=-1.3$, $\chi^2_{\nu}=3.4$ for field hosts ($\nu=6$, excluding the LMC+SMC upper limit) relative to $\beta=-1.1$, and $\chi^2_{\nu}=2.1$ ($\nu=17$) for all data compared to our best fit model (also excluding the LMC+SMC upper limit). It appears our exponential model is just as good as, if not better than, the power-law models at describing these recovered delay-time measurements, and has the added benefit of not having to invoke different slopes (or presumably different progenitor channels) for field and clustered SN~Ia host environments.
 \begin{figure}[t] %  figure placement: here, top, bottom, or page
    \centering
    \includegraphics[width=6.5in]{figure_loglog_dtd}
@@ -351,78 +339,102 @@ Figure~\ref{fig:logsnrate} shows the delay time distributions recovered in vario
    \label{fig:logsnrate}
 \end{figure}
 
-As a final note, 
+A common method to testing progenitor models is by comparing the measured rate of SNe~Ia in high specific star formation rate (sSFR; star-formation rate over the total stellar mass at the observed epoch) galaxies to that in their low-sSFR counterparts, in the modern `A+B'-model tests~\citep{Scannapieco:2005, Andersen:2018dp}. While this grossly addresses the promptness of some fraction of of SNe~Ia, the test is inherently flawed as it incorrectly assumes the observed SN~Ia rate is directly tied to the (A) total mass and (B) the current rate of star formation in a host galaxy, rather than appropriately connecting that SN rate to some past epoch of star formation. That, and the large uncertainties in SN rates that result from complex star-formation rate histories, are the largest sources of error in these tests in normal galaxies. 
+
+Using the methods described in Section~\ref{sec:sfh} to convolve, for each SN~Ia host, the SFH by the best derived delay time distribution to get the SN rate at the observed epoch, and using catalog SFR and total masses at the observed epoch, we derive a track (and associated uncertainty region) in which SNe~Ia should lie in specific SN rates (sSNR) as a function of sSFR, shown in Figure~\ref{fig:ssfr}. This method is inherently more direct than that done in \cite{Graur:2015fk}, where in the latter the SFHs are estimated by an exponential law, following \cite{Gallazzi:2005rf} and
+\cite{Kauffmann:2003sj}, and the references therein. This is shown in comparison to measurements from \cite{Mannucci:2005}, \cite{Sullivan:2006a}, and \cite{Smith:2012lr}, and in comparison to tracks expected from $\beta\approx-1.1$ power-law delay time models, and a piecewise model from \cite{Andersen:2018dp}. The measurements are consistent with all three tracks in over the region in which we have been able to measure them, for star-forming and `burst' galaxies. However, the tracks strongly diverge in the region of passive galaxies, where sSFR $\approx0$, where we only have upper limits to constrain them. It is expected that further studies in passive galaxies will provide some clarity. Additionally, tests of these tracks in field dwarf galaxies (not associated with galaxy clusters) may be illuminating as they are simpler to model by virtue of having many fewer episodes of star formation. 
 
 \begin{figure}[t] %  figure placement: here, top, bottom, or page
    \centering
-   \includegraphics[width=6.5in]{figure_toonan}
+   \includegraphics[width=6.5in]{figure_ssfr}
    \caption{\footnotesize }
-   \label{fig:toonan}
+   \label{fig:ssfr}
+\end{figure}
+
+As a final note, now that the evidence for double white dwarf mergers as the primary source of SNe~Ia reaches a fever pitch, it is increasingly interesting to investigate the fine details of the exact progenitor mechanism. 
+
+Delay time distribution reconstructions may finally be able to determine whether conservation of orbital energy is strictly dominant driver (the $\alpha\alpha$-model), as is the case for the common envelope path where both progenitors stars are stripped of their hydrogen envelopes, or if conservation of angular momentum plays a role for most WD/WD mergers initially (the $\gamma\alpha$-model), as it would be in a period of stable mass transfer or in a `formation reversal' evolutionary track \citep{Toonen:2013le}. Figure~\ref{fig:toonen} shows the SN~Ia rate implied from a binary merger rate as a function of delay time for the $\alpha\alpha$-model and $\gamma\alpha$-model of \cite{Toonen:2013ng}, assuming an initial metallicity of $z=0.02$. Also shown are the delay time distributions from the exponential model from this analysis, and the $\beta=-1$ power-law distributions. 
+
+\begin{figure}[t] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=6.5in]{figure_toonen}
+   \caption{\footnotesize }
+   \label{fig:toonen}
 \end{figure}
 
 \section{Conclusions}
 \begin{itemize}
 	\item Volumetric rate measures at or near the same redshift are reasonably consistent with one another, to within the statistical errors, which are likely underestimated by $7-9\%$.
-	\item  Assuming $k$ based on an analytical argument, $\varepsilon$ is farily well constrained at $6.0\pm0.3\%$. This is nearly half the expected value from WD binaries~\citep{Maoz:2017zl}
-
+	\item  Assuming $k$ based on analytical arguments, $\varepsilon$ is fairly well constrained at $6.0\pm0.3\%$. This is nearly half the expected value from WD binaries~\citep{Maoz:2017zl}. The combination $k\times\varepsilon$ yields $N/M_\star=1.3^{+0.4}_{-0.3}$ events per 1000 M$_{\odot}$.
+	\item Family of solutions for the analytical reconstruction of the delay time distribution from volumetric SN~Ia rates  indicate an exponential-like distribution that is somewhat similar to the $\beta\approx-1$ power-law distributions expected from DD progenitor scenarios, and inconsistent with many SD expectations from binary population synthesis. 
+	\item Solutions from host SFHs following the Maoz method are identical to those from volumetric rates. 
+	\item Exponential solutions are as consistent with empirically recovered delay times as power-law solutions, without having to invoke more than one power-law slope for clustered and field environments.
+	\item Exponential delay-time distributions may yield more consistent results in regards to specific SN~Ia rates as a function of their hosts' specific star formation.
 \end{itemize}
 
 \acknowledgments LS would like to thank \ldots
 
+\facilities{HST}
 
+%\begin{figure}[t]
+%   \centering
+%   \includegraphics[width=6.5in]{figure_SNIa_rate_alpha}
+%   \caption{\footnotesize Shown in comparison to the data from Figure~\ref{fig:sn1a_rates} are the expected volumetric rates for power-law delay-time distributions ($\alpha = 1.0$ and 1.5 in red and blue, respectively) as applied to the compendium CSFH (in green and second ordinate). \textcolor{red}{Something about scaling, N/M or fraction}. Smaller $\alpha$ models require a higher fraction of WD progenitors.}
+%   \label{fig:sn1a_rates2}
+%\end{figure}
 
-\appendix
- \section{Rates from}\label{sec:mcmc_results}
-
-
-\begin{figure}[t] %  figure placement: here, top, bottom, or page
-   \centering
-   \includegraphics[width=6.5in]{figure_sfd_corners} 
-   \caption{\footnotesize MCMC results on the parameters of a unimodal delay-time distribution model, fit to volumetric rate data and CSFH. Dashed lines indicate the maximum likelihood values. The $1-\sigma$ and $2-\sigma$ regions about those best fits are shown in dark and light blue, respectively. The plot generated using {\tt ChainConsumer.py} \citep{Hinton:2016qy}.}
-   \label{fig:mcmc_sfd}
-\end{figure}
 \clearpage
+\appendix
+ \section{MCMC Likelihood Distributions}\label{sec:mcmc_results}
+Shown in Figures~\ref{fig:mcmc_sfd} and \ref{fig:mcmc_sfh} are the MCMC likelihood distributions for the volumetric and individual rates, discussed in Sections~\ref{sec:mcmc_sfd} and \ref{sec:sfh}, respectively. Parameter correlations are shown in Tables~\ref{tab:parameter_correlations1} and \ref{tab:parameter_correlations2}.
 
-\begin{table}
+\begin{table}[h]
     \centering
-    \caption{Parameter Covariance MCMC SFD}
-    \label{tab:parameter_covariance1}
+    \caption{MCMC CSFH Parameter Correlations}
+    \label{tab:parameter_correlations1}
     \begin{tabular}{c|ccccc}
-         & $f$ & $\xi$ & $\omega$ & $\alpha$ & $\log \phi$\\ 
+         & $\ln\varepsilon$ & $\xi$ & $\omega$ & $\alpha$ & $\ln f$\\ 
         \hline
-              $f$ &  0.41 & -125.69 &  6.61 & 33.98 & -0.41 \\ 
-            $\xi$ & -125.69 & 412816.10 & -14898.10 & -52398.20 & 518.74 \\ 
-         $\omega$ &  6.61 & -14898.10 & 660.60 & 2209.32 & -22.89 \\ 
-         $\alpha$ & 33.98 & -52398.20 & 2209.32 & 27290.24 & -131.67 \\ 
-        $\log \phi$ & -0.41 & 518.74 & -22.89 & -131.67 &  2.35 \\ 
+        $\ln\varepsilon$ &  1.00 &  0.00 &  0.02 &  0.00 & -0.02 \\ 
+                   $\xi$ &  0.00 &  1.00 & -0.95 &  0.01 &  0.02 \\ 
+                $\omega$ &  0.02 & -0.95 &  1.00 & -0.01 & -0.05 \\ 
+                $\alpha$ &  0.00 &  0.01 & -0.01 &  1.00 &  0.00 \\ 
+                 $\ln f$ & -0.02 &  0.02 & -0.05 &  0.00 &  1.00 \\ 
         \hline
     \end{tabular}
 \end{table}
 
-
-\begin{figure}[t] %  figure placement: here, top, bottom, or page
+\begin{figure}[h] %  figure placement: here, top, bottom, or page
    \centering
-   \includegraphics[width=6.5in]{figure_sfh_corners} 
+   \includegraphics[width=5.0in]{figure_sfd_corners} 
+   \caption{\footnotesize MCMC results on the parameters of a unimodal delay-time distribution model, fit to volumetric rate data and CSFH. Dashed lines indicate the maximum likelihood values. The $1-\sigma$ and $2-\sigma$ regions about those best fits are shown in dark and light blue, respectively. The plot generated using {\tt ChainConsumer.py} \citep{Hinton:2016qy}.}
+   \label{fig:mcmc_sfd}
+\end{figure}
+
+
+
+\begin{figure}[h] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=5.0in]{figure_sfh_corners} 
    \caption{\footnotesize MCMC results on unimodal delay-time distribution model, fit to SFHs for 33,678 galaxies in the GOODS fields, 67 of which are SN~Ia hosts.}
    \label{fig:mcmc_sfh}
 \end{figure}
 
-\begin{table}
+\begin{table}[h]
     \centering
-    \caption{Parameter Covariance MCMC SFD}
-    \label{tab:parameter_covariance2}
-    \begin{tabular}{c|ccccc}
-         & $f$ & $\xi$ & $\omega$ & $\alpha$ & $\log \phi$\\ 
+    \caption{MCMC SFH Parameter Correlations}
+    \label{tab:parameter_correlations2}
+    \begin{tabular}{c|ccc}
+         & $\xi$ & $\omega$ & $\alpha$\\ 
         \hline
-              $f$ &  0.41 & -125.69 &  6.61 & 33.98 & -0.41 \\ 
-            $\xi$ & -125.69 & 412816.10 & -14898.10 & -52398.20 & 518.74 \\ 
-         $\omega$ &  6.61 & -14898.10 & 660.60 & 2209.32 & -22.89 \\ 
-         $\alpha$ & 33.98 & -52398.20 & 2209.32 & 27290.24 & -131.67 \\ 
-        $\log \phi$ & -0.41 & 518.74 & -22.89 & -131.67 &  2.35 \\ 
+           $\xi$ &  1.00 & -0.76 & -0.18 \\ 
+        $\omega$ & -0.76 &  1.00 &  0.14 \\ 
+        $\alpha$ & -0.18 &  0.14 &  1.00 \\ 
         \hline
     \end{tabular}
 \end{table}
 
+%\clearpage
 \bibliography{strolger}{}
 
 

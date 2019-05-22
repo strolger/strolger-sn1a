@@ -53,8 +53,8 @@ if __name__=='__main__':
     c = chc()
     c.add_chain(samples, parameters=parameters, walkers=100)
 
-    #latex_table = c.analysis.get_correlation_table()
-    #print (latex_table)
+    latex_table = c.analysis.get_correlation_table()
+    print (latex_table)
     #latex_table = c.analysis.get_covariance_table()
     #print(latex_table)
     #pdb.set_trace()
@@ -71,6 +71,7 @@ if __name__=='__main__':
 
 
     
+    c.configure(label_font_size=22, contour_labels='sigma')
     fig = c.plotter.plot(figsize="column",
                          truth={r'$\xi$': md0, r'$\omega$': md1, '$\alpha$': k_mcmc[0]},
                          extents = [[-1900.,-100.0], [-10., 90], [-10., 500]]

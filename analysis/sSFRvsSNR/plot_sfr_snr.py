@@ -47,7 +47,7 @@ def rate_per_galaxy(sfh_data, lbu=13.65, lbl=0.05, p0 = None,
     return(rate_fn)
 
 
-def peices(sSFR, *p):
+def pieces(sSFR, *p):
     a, b,  x1, x2 = p
     yy = a*sSFR**b
     yy[where(sSFR < x1)]=a*x1**b
@@ -97,14 +97,14 @@ def get_data(data, p0=(-1.4, 1., 1.), lbu=13.65, frac_ia=0.05, plotit=False):
 if __name__=='__main__':
 
     if not os.path.isfile('ssSFRN.pkl'):
-        idxs = loadtxt('../analysis/scripts/host_idxs.txt')
+        idxs = loadtxt('../analysis/DTD_fits/host_idxs.txt')
         sfhs = {}
         for idx in idxs:
             print('%d' %idx)
             if idx > 200000:
-                file = '../analysis/ALLSFH_new_z/gsznnpas/%05d.dat'%(idx-200000)
+                file = '../ALLSFH_new_z/gsznnpas/%05d.dat'%(idx-200000)
             else:
-                file = '../analysis/ALLSFH_new_z/gnznnpas/%05d.dat'%(idx-100000)
+                file = '../ALLSFH_new_z/gnznnpas/%05d.dat'%(idx-100000)
             if os.path.isfile(file):
                 data = loadtxt(file)
             else:
@@ -122,8 +122,8 @@ if __name__=='__main__':
         sfhs = pickle.load(open('ssSFRN.pkl','rb'))
         
 
-    data1 = loadtxt('../analysis/ALLSFH_new_z/Cami_GOODS-S_zbest.dat')
-    data2 = loadtxt('../analysis/ALLSFH_new_z/Cami_GOODS-N_zbest.dat')
+    data1 = loadtxt('../ALLSFH_new_z/Cami_GOODS-S_zbest.dat')
+    data2 = loadtxt('../ALLSFH_new_z/Cami_GOODS-N_zbest.dat')
     
 
     ax = subplot(111)
@@ -158,10 +158,10 @@ if __name__=='__main__':
     p_e = (2.20e-7, 0.084, 0.55e-11, 0.41e-9)
     pcov = diag(0.2*array(p_e)**2.)
     xx = arange(-13, -7.5, 0.5)
-    ax.plot(xx, log10(peices(10**xx, *p_n)), '--', color='#4BADFF',
+    ax.plot(xx, log10(pieces(10**xx, *p_n)), '--', color='#4BADFF',
             label='Andersen & Hjorth (2018)\n rate model')
     ps = np.random.multivariate_normal(p_n, pcov, 10000)
-    ysample = asarray([log10(peices(10**xx, *pi)) for pi in ps])
+    ysample = asarray([log10(pieces(10**xx, *pi)) for pi in ps])
     idx = where(~isnan(ysample[:,0]))
     ysample=ysample[idx]
     lower = percentile(ysample, 15.9, axis=0)
@@ -292,6 +292,17 @@ if __name__=='__main__':
                  uplims=0.5,
                  fmt='o', ms=10, mfc='white', color='#2CA02C')
     
+
+    data = loadtxt('graur15.txt')
+    data[:,:3]=data[:,:3]*1e-12
+    data[:,3:]=data[:,3:]*1e-12
+    
+    ax2.errorbar(log10(data[:,0]), log10(data[:,3]),
+                 xerr = [log10(1-data[:,1]/data[:,0]),log10(data[:,2]/data[:,0]+1)],
+                 yerr = [log10(1-data[:,4]/data[:,3]),log10(data[:,5]/data[:,3]+1)],
+                 fmt='o', ms=10, mfc='white', color='k', label='Graur et al. (2015)')
+
+
 
     ax.set_xticks(list(arange(-12.5, -7,1)))
     ax.set_yticks(list(arange(-14, -10, 1)))

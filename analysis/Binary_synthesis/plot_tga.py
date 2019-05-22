@@ -11,7 +11,7 @@ if __name__=='__main__':
 
     ax=subplot(111)
     ax2=ax.twinx()
-    data=loadtxt('toonan_ga.txt')
+    data=loadtxt('toonen_ga.txt')
 
 
     p1 = [-1257.93, 59.32, 248.88] ## from MCMC
@@ -27,7 +27,7 @@ if __name__=='__main__':
     popt,pcov = curve_fit(fn, data[:,0],data[:,2],p0=p0)
     print((popt*0.5))
     ax.plot(time,dtd,'b--', lw=2, label= 'Exponential model')#label='Norm = %1.1f' %(simps(dtd,x=time)))
-    ## ax2.plot(data[:,0], data[:,2]/(popt*0.5),'k-',label=r'$\alpha\alpha$ model, Toonan et al. 2012')
+    ## ax2.plot(data[:,0], data[:,2]/(popt*0.5),'k-',label=r'$\alpha\alpha$ model, Toonen et al. 2013')
     ax2.step(data[:,0], data[:,2]/(popt*0.5),  color='blue', where='mid',label=r'$\alpha\alpha$-model$\times %.2f$, ' %(popt*0.5))
 
     pwrl = (-1.39, 1.0)
@@ -42,7 +42,7 @@ if __name__=='__main__':
     print(popt)
    
     ax.plot(time, dtd, 'r--', lw=2, label=r'Power-law model, $\beta=-1$')
-    ax2.step(data[:,0], data[:,1]/(popt), color='red', where='mid',label=r'$\gamma\alpha$-model $\times %.2f$, Toonan et al. 2012' %popt)
+    ax2.step(data[:,0], data[:,1]/(popt), color='red', where='mid',label=r'$\gamma\alpha$-model $\times %.2f$, Toonen et al. 2013' %popt)
     
     ax.set_yscale('log')
     ax2.set_yscale('log')
@@ -55,5 +55,5 @@ if __name__=='__main__':
 
     ax.legend(frameon=False)
     ax2.legend(loc=3,frameon=False)
-    savefig('figure_toonan.png')
+    savefig('figure_toonen.png')
     

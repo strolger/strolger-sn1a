@@ -5,6 +5,10 @@
 \providecommand{\doeprint}[1]{\href{http://ascl.net/#1}{\nolinkurl{http://ascl.net/#1}}}
 \providecommand{\doarXiv}[1]{\href{https://arxiv.org/abs/#1}{\nolinkurl{https://arxiv.org/abs/#1}}}
 
+\bibitem[{{Andersen} \& {Hjorth}(2018)}]{Andersen:2018dp}
+{Andersen}, P., \& {Hjorth}, J. 2018, \mnras, 480, 68,
+  \dodoi{10.1093/mnras/sty1837}
+
 \bibitem[{{Arnett}(1969)}]{Arnett:1969dw}
 {Arnett}, W.~D. 1969, \apss, 5, 180, \dodoi{10.1007/BF00650291}
 
@@ -125,6 +129,20 @@ Denissenkov, P.~A., Truran, J.~W., Herwig, F., {et~al.} 2015, Monthly Notices
 {Foreman-Mackey}, D., {Hogg}, D.~W., {Lang}, D., \& {Goodman}, J. 2013, PASP,
   125, 306, \dodoi{10.1086/670067}
 
+\bibitem[{{Friedmann} \& {Maoz}(2018)}]{Friedmann:2018hq}
+{Friedmann}, M., \& {Maoz}, D. 2018, \mnras, 479, 3563,
+  \dodoi{10.1093/mnras/sty1664}
+
+\bibitem[{{Gallazzi} {et~al.}(2005){Gallazzi}, {Charlot}, {Brinchmann},
+  {White}, \& {Tremonti}}]{Gallazzi:2005rf}
+{Gallazzi}, A., {Charlot}, S., {Brinchmann}, J., {White}, S. D.~M., \&
+  {Tremonti}, C.~A. 2005, \mnras, 362, 41,
+  \dodoi{10.1111/j.1365-2966.2005.09321.x}
+
+\bibitem[{{Graur} {et~al.}(2015){Graur}, {Bianco}, \& {Modjaz}}]{Graur:2015fk}
+{Graur}, O., {Bianco}, F.~B., \& {Modjaz}, M. 2015, \mnras, 450, 905,
+  \dodoi{10.1093/mnras/stv713}
+
 \bibitem[{{Graur} \& {Maoz}(2013)}]{Graur:2013}
 {Graur}, O., \& {Maoz}, D. 2013, \mnras, 689, \dodoi{10.1093/mnras/sts718}
 
@@ -178,6 +196,14 @@ Denissenkov, P.~A., Truran, J.~W., Herwig, F., {et~al.} 2015, Monthly Notices
 {Iben}, Jr., I., \& {Tutukov}, A.~V. 1984, \apjs, 54, 335,
   \dodoi{10.1086/190932}
 
+\bibitem[{{Kauffmann} {et~al.}(2003){Kauffmann}, {Heckman}, {White}, {Charlot},
+  {Tremonti}, {Brinchmann}, {Bruzual}, {Peng}, {Seibert}, {Bernardi},
+  {Blanton}, {Brinkmann}, {Castander}, {Cs{\'a}bai}, {Fukugita}, {Ivezic},
+  {Munn}, {Nichol}, {Padmanabhan}, {Thakar}, {Weinberg}, \&
+  {York}}]{Kauffmann:2003sj}
+{Kauffmann}, G., {Heckman}, T.~M., {White}, S. D.~M., {et~al.} 2003, \mnras,
+  341, 33, \dodoi{10.1046/j.1365-8711.2003.06291.x}
+
 \bibitem[{{Khusanova} {et~al.}(2019){Khusanova}, {F{\`e}vre}, {Cassata},
   {Cucciati}, {Lemaux}, {Tasca}, {Thomas}, {Garilli}, {Brun}, {Maccagni},
   {Pentericci}, {Zamorani}, {Amor{\'\i}n}, {Bardelli}, {Castellano},
@@ -210,6 +236,10 @@ Denissenkov, P.~A., Truran, J.~W., Herwig, F., {et~al.} 2015, Monthly Notices
   {Turatto}}]{Mannucci:2005}
 {Mannucci}, F., {Della Valle}, M., {Panagia}, N., {et~al.} 2005, \aap, 433,
   807, \dodoi{10.1051/0004-6361:20041411}
+
+\bibitem[{{Maoz} \& {Badenes}(2010)}]{Maoz:2010}
+{Maoz}, D., \& {Badenes}, C. 2010, \mnras, 407, 1314,
+  \dodoi{10.1111/j.1365-2966.2010.16988.x}
 
 \bibitem[{{Maoz} \& {Graur}(2017)}]{Maoz:2017ck}
 {Maoz}, D., \& {Graur}, O. 2017, \apj, 848, 25,
@@ -346,6 +376,16 @@ Pain, R., Fabbro, S., Sullivan, M., {et~al.} 2002, \apj, 577, 120
 \bibitem[{{Salpeter}(1955)}]{Salpeter:1955rw}
 {Salpeter}, E.~E. 1955, \apj, 121, 161, \dodoi{10.1086/145971}
 
+\bibitem[{{Scannapieco} \& {Bildsten}(2005)}]{Scannapieco:2005}
+{Scannapieco}, E., \& {Bildsten}, L. 2005, \apjl, 629, L85,
+  \dodoi{10.1086/452632}
+
+\bibitem[{{Smith} {et~al.}(2012){Smith}, {Nichol}, {Dilday}, {Marriner},
+  {Kessler}, {Bassett}, {Cinabro}, {Frieman}, {Garnavich}, {Jha}, {Lampeitl},
+  {Sako}, {Schneider}, \& {Sollerman}}]{Smith:2012lr}
+{Smith}, M., {Nichol}, R.~C., {Dilday}, B., {et~al.} 2012, \apj, 755, 61,
+  \dodoi{10.1088/0004-637X/755/1/61}
+
 \bibitem[{{Strolger} {et~al.}(2010){Strolger}, {Dahlen}, \&
   {Riess}}]{Strolger:2010}
 {Strolger}, L., {Dahlen}, T., \& {Riess}, A.~G. 2010, \apj, 713, 32,
@@ -368,6 +408,15 @@ Strolger, L.-G., Riess, A.~G., Dahlen, T., {et~al.} 2004, \apj, 613, 200
 {Strolger}, L.-G., {Dahlen}, T., {Rodney}, S.~A., {et~al.} 2015, \apj, 813, 93,
   \dodoi{10.1088/0004-637X/813/2/93}
 
+\bibitem[{{Sullivan} {et~al.}(2006){Sullivan}, {Le Borgne}, {Pritchet},
+  {Hodsman}, {Neill}, {Howell}, {Carlberg}, {Astier}, {Aubourg}, {Balam},
+  {Basa}, {Conley}, {Fabbro}, {Fouchez}, {Guy}, {Hook}, {Pain},
+  {Palanque-Delabrouille}, {Perrett}, {Regnault}, {Rich}, {Taillet}, {Baumont},
+  {Bronder}, {Ellis}, {Filiol}, {Lusset}, {Perlmutter}, {Ripoche}, \&
+  {Tao}}]{Sullivan:2006a}
+{Sullivan}, M., {Le Borgne}, D., {Pritchet}, C.~J., {et~al.} 2006, \apj, 648,
+  868, \dodoi{10.1086/506137}
+
 \bibitem[{{Takahashi} {et~al.}(2013){Takahashi}, {Yoshida}, \&
   {Umeda}}]{Takahashi:2013jx}
 {Takahashi}, K., {Yoshida}, T., \& {Umeda}, H. 2013, \apj, 771, 28,
@@ -380,6 +429,16 @@ Strolger, L.-G., Riess, A.~G., Dahlen, T., {et~al.} 2004, \apj, 613, 200
   {Stubbs}, \& {Suntzeff}}]{Tonry:2003}
 {Tonry}, J.~L., {Schmidt}, B.~P., {Barris}, B., {et~al.} 2003, \apj, 594, 1,
   \dodoi{10.1086/376865}
+
+\bibitem[{{Toonen} \& {Nelemans}(2013)}]{Toonen:2013le}
+{Toonen}, S., \& {Nelemans}, G. 2013, \aap, 557, A87,
+  \dodoi{10.1051/0004-6361/201321753}
+
+\bibitem[{{Toonen} {et~al.}(2013){Toonen}, {Nelemans}, \& {Portegies
+  Zwart}}]{Toonen:2013ng}
+{Toonen}, S., {Nelemans}, G., \& {Portegies Zwart}, S. 2013, in IAU Symposium,
+  Vol. 281, Binary Paths to Type Ia Supernovae Explosions, ed. R.~{Di Stefano},
+  M.~{Orio}, \& M.~{Moe}, 223--224
 
 \bibitem[{{Wang} \& {Han}(2012)}]{Wang:2012a}
 {Wang}, B., \& {Han}, Z. 2012, \nar, 56, 122,

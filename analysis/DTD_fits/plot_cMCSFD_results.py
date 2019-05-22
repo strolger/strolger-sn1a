@@ -59,8 +59,8 @@ if __name__=='__main__':
     ## table1 = c.analysis.get_latex_table(caption="Results for the tested model", label="tab:example")
     ## print(table1)
 
-    ## latex_table = c.analysis.get_correlation_table()
-    ## print (latex_table)
+    latex_table = c.analysis.get_correlation_table()
+    print (latex_table)
 
     ## latex_table = c.analysis.get_covariance_table()
     ## print(latex_table)
@@ -79,7 +79,7 @@ if __name__=='__main__':
     ## gc = c.diagnostic.geweke()
     ## print(grc,gc)
 
-    c.configure(label_font_size=18, contour_labels='sigma')
+    c.configure(label_font_size=22, contour_labels='sigma')
     fig = c.plotter.plot(figsize="column",
                          truth={r'$\ln\varepsilon$':ff_mcmc[0], 
                                 r'$\xi$': m_mcmc[0], r'$\omega$': w_mcmc[0], r'$\alpha$': k_mcmc[0],

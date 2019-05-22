@@ -80,20 +80,29 @@ print(chi2, len(tmp)-1)
 
 
 idx = where(data[:,6]==0)
-ax2.errorbar(data[idx][:,0], data[idx][:,3]*msc,
-            xerr=[-1*data[idx][:,1],data[idx][:,2]],
-            yerr=[-1*data[idx][:,4]*msc,data[idx][:,5]*msc],
+
+ax2.errorbar(data[idx][1:,0], data[idx][1:,3]*msc,
+            xerr=[-1*data[idx][1:,1],data[idx][1:,2]],
+            yerr=[-1*data[idx][1:,4]*msc,data[idx][1:,5]*msc],
             fmt='o', color='k', mfc='1.0', mec='blue', label='Field Rates')
+ax2.errorbar(data[idx][0,0], data[idx][0,3]*msc,
+             xerr=data[idx][0,2],
+             yerr=0.05,#data[idx][0,5]*msc,#,data[idx][:,5]*msc],
+             lolims=data[idx][0,5]*msc,
+             fmt='o', color='k', mfc='1.0', marker='^', ms=10, mec='blue', label='LMC & SMC limit')
 pwrl = (-1.10,1.0)
-tmp=rz.powerdtd(data[idx][:,0], *pwrl, normed=False)*(1.6e-3)
-chi2 = redchisqg(data[idx][:,3]*msc, tmp, sd=data[idx][:,5]*msc, deg=0)
+tmp=rz.powerdtd(data[idx][1:,0], *pwrl, normed=False)*(1.6e-3)
+chi2 = redchisqg(data[idx][1:,3]*msc, tmp, sd=data[idx][1:,5]*msc, deg=0)
 print(chi2, len(tmp)-1)
 
 
 
 
-popt, pcov = curve_fit(func, data[:,0], data[:,3]*msc, p0=p_t, sigma=data[:,4]*msc)
-print(popt)
+
+
+#popt, pcov = curve_fit(func, data[:,0], data[:,3]*msc, p0=p_t, sigma=data[:,4]*msc)
+#print(popt)
+popt = [12.921]
 ax.plot(time,dtd*scale*popt,'b-', lw=2, label= 'Exponential model')#label='Norm = %1.1f' %(simps(dtd,x=time)))
 tmp=rz.dtdfunc(data[:,0], *p0)*scale*popt
 chi2 = redchisqg(data[:,3]*msc, tmp, sd=data[:,5]*msc, deg=0)
