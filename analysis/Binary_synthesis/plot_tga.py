@@ -4,6 +4,7 @@ from pylab import *
 from strolger_util import util as u
 from strolger_util import rates_z as rz
 from scipy.optimize import curve_fit
+rcParams['figure.figsize']=8, 4
 
 if __name__=='__main__':
 

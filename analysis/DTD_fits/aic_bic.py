@@ -1,10 +1,8 @@
 #!/usr/bin/env python
 '''
-Gives an optimal fit to binned rate data
-using Hoggs generative model
-https://arxiv.org/pdf/1008.4686.pdf
+Simple AIC/BIC
 L. Strolger
-2018
+2019
 '''
 import os,sys,pdb,scipy,glob,pickle,datetime
 from pylab import *
@@ -40,8 +38,44 @@ def lnlike(p, x, y, yerr):
     return -0.5*(np.sum((y-model)**2*inv_sigma2 - np.log(inv_sigma2)))
 
 
-def plot_one(rates,plotname,*p, frac=0.05, age=13.6):
-    brates = u.gimme_rebinned_data(rates,splits=arange(0,1.125,0.125).tolist())
+def aic_bic(x,y,ym,nvar):
+    ssc = sum((y - ym)**2.)
+    aic = 2.*nvar-2.*log(ssc)
+    bic = len(y) * log(ssc/len(y)) + nvar*log(ssc)
+    return(aic,bic)
+
+if __name__=='__main__':
+
+    calculate = False
+    
+    rates = loadtxt('SNeIa_rates.txt')
+    rates[:,1:] = rates[:,1:]#*1.0e-4 ## put on the right scale
+    rates = rates[:,:4]
+    brates = u.gimme_rebinned_data(rates,verbose=False,splits=arange(0,1.167,0.167).tolist())
+    data = deepcopy(rates) #this seems to work better than then actual values
+    #data = deepcopy(rates[rates[:,0].argsort()])
+    if calculate:
+        tt = 13.6-array([ct.cosmotime(x, ho=70) for x in data[:,0]])
+        data[:,0] = tt
+        data = data[argsort(data[:,0])]
+
+        import scipy.optimize as op
+        nll = lambda *args: -lnlike(*args)
+        p0 = (0.05, 3.5, 2.5, 2.5, 0.01)
+        res = op.minimize(nll, [p0[0],p0[1],p0[2],p0[3],log(p0[4])],
+                          bounds=[(0.,1.0),(-2000.,2000.),(0.001,100.),(-500.0,500.0),(-4.,0.)],
+                          args=(data[:,0], data[:,1], data[:,3]))
+
+        p2=res['x'][1:4]
+        frac = res['x'][0]
+        print(p2,frac)
+
+    else:
+        p2 = [-1518.39108091,    51.06020462,    49.98728772]
+        frac = 0.062
+
+
+    age = 13.6
     scale_k = quad(imf.salpeter,3,8)[0]/quad(imf.salpeter1,0.1,125)[0]
     scale = scale_k * 0.7**2.*1e4## factors of h...
     dt = 0.05
@@ -52,7 +86,7 @@ def plot_one(rates,plotname,*p, frac=0.05, age=13.6):
     par_model = [0.0134, 2.55, 3.3, 6.1]
 
     sfh = rz.csfh_time(tt, *par_model)
-    dtd = rz.dtdfunc(tt, *p)
+    dtd = rz.dtdfunc(tt, *p2)
     pwrl = (-1.0,1.0)
     dud = rz.powerdtd(tt, *pwrl)
     
@@ -61,6 +95,20 @@ def plot_one(rates,plotname,*p, frac=0.05, age=13.6):
 
     jdud = convolve(sfh, dud, 'full')*dt*scale*0.065
     jdud = jdud[:len(dtd)]
+
+
+    #from raw rates
+    junk, m_rates = u.recast(rates[:,0], 0., zz, rate_fn) ## optimized fit
+    (aic, bic)= aic_bic(rates[:,0], rates[:,1], m_rates, 4)
+    print(aic, bic)
+
+    junk, m_rates = u.recast(rates[:,0], 0., zz, jdud) ## power law
+    (aic, bic)= aic_bic(rates[:,0], rates[:,1], m_rates, 2)
+    print(aic, bic)
+    
+    pdb.set_trace()
+
+
     clf()
     ax = subplot(111)
     ax2 = ax.twinx()
@@ -96,39 +144,4 @@ def plot_one(rates,plotname,*p, frac=0.05, age=13.6):
     ax2.legend(loc=4, frameon=False)
     
     savefig(plotname)
-    return()
-
-
-
-
-if __name__=='__main__':
-
-    calculate = False
-    
-    rates = loadtxt('SNeIa_rates.txt')
-    rates[:,1:] = rates[:,1:]#*1.0e-4 ## put on the right scale
-    rates = rates[:,:4]
-    brates = u.gimme_rebinned_data(rates,verbose=False,splits=arange(0,1.167,0.167).tolist())
-    data = deepcopy(rates) #this seems to work better than then actual values
-    #data = deepcopy(rates[rates[:,0].argsort()])
-    if calculate:
-        tt = 13.6-array([ct.cosmotime(x, ho=70) for x in data[:,0]])
-        data[:,0] = tt
-        data = data[argsort(data[:,0])]
-
-        import scipy.optimize as op
-        nll = lambda *args: -lnlike(*args)
-        p0 = (0.05, 3.5, 2.5, 2.5, 0.01)
-        res = op.minimize(nll, [p0[0],p0[1],p0[2],p0[3],log(p0[4])],
-                          bounds=[(0.,1.0),(-2000.,2000.),(0.001,100.),(-500.0,500.0),(-4.,0.)],
-                          args=(data[:,0], data[:,1], data[:,3]))
-
-        p2=res['x'][1:4]
-        frac = res['x'][0]
-        print(p2,frac)
-
-    else:
-        p2 = [-1518.39108091,    51.06020462,    49.98728772]
-        frac = 0.062
-    plot_one(rates,'figure_sfd_optimized.png',*p2, frac=frac)
-    
+    #return()

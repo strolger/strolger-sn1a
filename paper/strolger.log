@@ -1,7 +1,6 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  21 MAY 2019 20:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  8 AUG 2019 16:39
 entering extended mode
- restricted \write18 enabled.
- file:line:error style messages enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **strolger.tex
 (./strolger.tex
@@ -100,18 +99,18 @@ Package: textcase 2004/10/07 v0.07 Text only upper/lower case changing (DPC)
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-(/Users/strolger/Library/texmf/tex/latex/misc/aastex52/natbib.sty
-Package: natbib 2003/06/06 7.1 (PWD)
+(/Users/strolger/Library/texmf/tex/latex/misc/aa-package/bibtex/natbib.sty
+Package: natbib 1999/02/25 6.9 (PWD)
 \bibhang=\skip45
 \bibsep=\skip46
-LaTeX Info: Redefining \cite on input line 518.
+LaTeX Info: Redefining \cite on input line 486.
 \c@NAT@ctr=\count95
 )
 
 LaTeX Warning: You have requested, on input line 7549, version
                `2009/11/07 8.31a (PWD, AO)' of package natbib,
                but only version
-               `2003/06/06 7.1 (PWD)'
+               `1999/02/25 6.9 (PWD)'
                is available.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/revtex/revsymb4-1.sty
@@ -551,193 +550,206 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 14.
 LaTeX Info: Redefining \pageref on input line 14.
 LaTeX Info: Redefining \nameref on input line 14.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 18.
 
-
-Class revtex4-1 Warning: Assuming \noaffiliation for authors.
-
-LaTeX Font Info:    Try loading font information for U+lasy on input line 27.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 27.
+LaTeX Font Info:    Try loading font information for U+msa on input line 18.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 27.
+LaTeX Font Info:    Try loading font information for U+msb on input line 18.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \vbox (1.09576pt too high) has occurred while \output is active []
+<figure_SNIa_rate_z_pwr_fit.pdf, id=20, 462.52798pt x 346.89601pt>
+File: figure_SNIa_rate_z_pwr_fit.pdf Graphic file (type pdf)
+<use figure_SNIa_rate_z_pwr_fit.pdf>
+Package pdftex.def Info: figure_SNIa_rate_z_pwr_fit.pdf  used on input line 44.
 
-
-[1{/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) detected at line 98
+(pdftex.def)             Requested size: 440.84743pt x 330.65031pt.
+ [1{/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Underfull \hbox (badness 10000) detected at line 78
 $\OML/cmm/m/it/9 a$
  []
 
-[2]
-<figure_SNIa_rate_z_pwr_fit.png, id=312, 462.528pt x 346.896pt>
-File: figure_SNIa_rate_z_pwr_fit.png Graphic file (type png)
-<use figure_SNIa_rate_z_pwr_fit.png>
-Package pdftex.def Info: figure_SNIa_rate_z_pwr_fit.png  used on input line 113
-.
-(pdftex.def)             Requested size: 440.84743pt x 330.6503pt.
-
-Underfull \hbox (badness 10000) detected at line 138
-$\OML/cmm/m/it/9 a$
- []
-
-[3 <./figure_SNIa_rate_z_pwr_fit.png>] [4]
-Underfull \hbox (badness 10000) detected at line 179
-$\OML/cmm/m/it/9 a$
- []
-
-<figure_csfh_today.png, id=410, 462.528pt x 346.896pt>
-File: figure_csfh_today.png Graphic file (type png)
-<use figure_csfh_today.png>
-Package pdftex.def Info: figure_csfh_today.png  used on input line 184.
-(pdftex.def)             Requested size: 440.84743pt x 330.6503pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[5] [6 <./figure_csfh_today.png>]
-<figure_sd_dd_fits.png, id=521, 462.528pt x 346.896pt>
-File: figure_sd_dd_fits.png Graphic file (type png)
-<use figure_sd_dd_fits.png>
-Package pdftex.def Info: figure_sd_dd_fits.png  used on input line 217.
-(pdftex.def)             Requested size: 469.75499pt x 352.33655pt.
- [7 <./figure_sd_dd_fits.png>]
-<figure_sfd_optimized.png, id=546, 462.528pt x 346.896pt>
-File: figure_sfd_optimized.png Graphic file (type png)
-<use figure_sfd_optimized.png>
-Package pdftex.def Info: figure_sfd_optimized.png  used on input line 241.
-(pdftex.def)             Requested size: 469.75499pt x 352.33655pt.
-<figure_fit_demo_werr.png, id=555, 462.528pt x 346.896pt>
-File: figure_fit_demo_werr.png Graphic file (type png)
-<use figure_fit_demo_werr.png>
-Package pdftex.def Info: figure_fit_demo_werr.png  used on input line 267.
-(pdftex.def)             Requested size: 469.75499pt x 352.33655pt.
- [8 <./figure_sfd_optimized.png>] [9 <./figure_fit_demo_werr.png>]
-<figure_sfh_demo_v1.png, id=586, 462.528pt x 346.896pt>
-File: figure_sfh_demo_v1.png Graphic file (type png)
-<use figure_sfh_demo_v1.png>
-Package pdftex.def Info: figure_sfh_demo_v1.png  used on input line 303.
-(pdftex.def)             Requested size: 252.94499pt x 189.70827pt.
-<figure_sfh_demo_v2.png, id=587, 462.528pt x 346.896pt>
-File: figure_sfh_demo_v2.png Graphic file (type png)
-<use figure_sfh_demo_v2.png>
-Package pdftex.def Info: figure_sfh_demo_v2.png  used on input line 304.
-(pdftex.def)             Requested size: 252.94499pt x 189.70827pt.
-<figure_cdfs.png, id=601, 462.528pt x 346.896pt>
-File: figure_cdfs.png Graphic file (type png)
-<use figure_cdfs.png>
-Package pdftex.def Info: figure_cdfs.png  used on input line 316.
-(pdftex.def)             Requested size: 361.34999pt x 271.0277pt.
- [10] [11 <./figure_sfh_demo_v1.png> <./figure_sfh_demo_v2.png> <./figure_cdfs.
-png>]
-<figure_pwr_law.png, id=630, 462.528pt x 346.896pt>
-File: figure_pwr_law.png Graphic file (type png)
-<use figure_pwr_law.png>
-Package pdftex.def Info: figure_pwr_law.png  used on input line 329.
-(pdftex.def)             Requested size: 469.75499pt x 352.33655pt.
-<figure_loglog_dtd.png, id=643, 462.528pt x 346.896pt>
-File: figure_loglog_dtd.png Graphic file (type png)
-<use figure_loglog_dtd.png>
-Package pdftex.def Info: figure_loglog_dtd.png  used on input line 337.
-(pdftex.def)             Requested size: 469.75499pt x 352.33655pt.
- [12 <./figure_pwr_law.png>]
-<figure_ssfr.png, id=675, 462.528pt x 346.896pt>
-File: figure_ssfr.png Graphic file (type png)
-<use figure_ssfr.png>
-Package pdftex.def Info: figure_ssfr.png  used on input line 349.
-(pdftex.def)             Requested size: 469.75499pt x 352.33655pt.
- [13 <./figure_loglog_dtd.png>]
-<figure_toonen.png, id=697, 578.16pt x 433.62pt>
-File: figure_toonen.png Graphic file (type png)
-<use figure_toonen.png>
-Package pdftex.def Info: figure_toonen.png  used on input line 360.
-(pdftex.def)             Requested size: 469.75499pt x 352.31538pt.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 367.
+[2 <./figure_SNIa_rate_z_pwr_fit.pdf>] [3]
+<figure_csfh_today.pdf, id=242, 462.52798pt x 346.89601pt>
+File: figure_csfh_today.pdf Graphic file (type pdf)
+<use figure_csfh_today.pdf>
+Package pdftex.def Info: figure_csfh_today.pdf  used on input line 109.
+(pdftex.def)             Requested size: 440.84743pt x 330.65031pt.
+
+Underfull \hbox (badness 10000) detected at line 144
+$\OML/cmm/m/it/9 a$
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 144
+$\OML/cmm/m/it/9 b$
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[4] [5 <./figure_csfh_today.pdf>]
+<figure_sd_dd_fits.pdf, id=444, 462.52798pt x 346.89601pt>
+File: figure_sd_dd_fits.pdf Graphic file (type pdf)
+<use figure_sd_dd_fits.pdf>
+Package pdftex.def Info: figure_sd_dd_fits.pdf  used on input line 163.
+(pdftex.def)             Requested size: 440.84743pt x 330.65031pt.
+
+Overfull \vbox (6.55391pt too high) has occurred while \output is active []
+
+
+[6 <./figure_sd_dd_fits.pdf>]
+<figure_sfd_optimized.pdf, id=527, 462.52798pt x 346.89601pt>
+File: figure_sfd_optimized.pdf Graphic file (type pdf)
+<use figure_sfd_optimized.pdf>
+Package pdftex.def Info: figure_sfd_optimized.pdf  used on input line 187.
+(pdftex.def)             Requested size: 440.84743pt x 330.65031pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figure_fit_demo_werr.pdf, id=534, 462.52798pt x 346.89601pt>
+File: figure_fit_demo_werr.pdf Graphic file (type pdf)
+<use figure_fit_demo_werr.pdf>
+Package pdftex.def Info: figure_fit_demo_werr.pdf  used on input line 213.
+(pdftex.def)             Requested size: 440.84743pt x 330.65031pt.
+[7 <./figure_sfd_optimized.pdf>] [8 <./figure_fit_demo_werr.pdf>]
+<figure_sfh_demo_v1.pdf, id=721, 462.52798pt x 346.89601pt>
+File: figure_sfh_demo_v1.pdf Graphic file (type pdf)
+<use figure_sfh_demo_v1.pdf>
+Package pdftex.def Info: figure_sfh_demo_v1.pdf  used on input line 248.
+(pdftex.def)             Requested size: 252.94499pt x 189.70828pt.
+<figure_sfh_demo_v2.pdf, id=722, 462.52798pt x 346.89601pt>
+File: figure_sfh_demo_v2.pdf Graphic file (type pdf)
+<use figure_sfh_demo_v2.pdf>
+Package pdftex.def Info: figure_sfh_demo_v2.pdf  used on input line 249.
+(pdftex.def)             Requested size: 252.94499pt x 189.70828pt.
+ [9]
+<figure_cdfs.pdf, id=752, 1445.4pt x 722.7pt>
+File: figure_cdfs.pdf Graphic file (type pdf)
+<use figure_cdfs.pdf>
+Package pdftex.def Info: figure_cdfs.pdf  used on input line 261.
+(pdftex.def)             Requested size: 440.84743pt x 220.41766pt.
+<figure_pwr_law.pdf, id=760, 462.52798pt x 346.89601pt>
+File: figure_pwr_law.pdf Graphic file (type pdf)
+<use figure_pwr_law.pdf>
+Package pdftex.def Info: figure_pwr_law.pdf  used on input line 272.
+(pdftex.def)             Requested size: 440.84743pt x 330.65031pt.
+ [10 <./figure_sfh_demo_v1.pdf> <./figure_sfh_demo_v2.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./figure_sfh_demo_v2.pdf): P
+DF inclusion: multiple pdfs with page group included in a single page
+>] [11 <./figure_cdfs.pdf> <./figure_pwr_law.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./figure_pwr_law.pdf): PDF i
+nclusion: multiple pdfs with page group included in a single page
+>]
+<figure_loglog_dtd.pdf, id=1034, 462.52798pt x 346.89601pt>
+File: figure_loglog_dtd.pdf Graphic file (type pdf)
+<use figure_loglog_dtd.pdf>
+Package pdftex.def Info: figure_loglog_dtd.pdf  used on input line 281.
+(pdftex.def)             Requested size: 440.84743pt x 330.65031pt.
+ [12 <./figure_loglog_dtd.pdf>]
+<figure_ssfr.pdf, id=1142, 462.52798pt x 346.89601pt>
+File: figure_ssfr.pdf Graphic file (type pdf)
+<use figure_ssfr.pdf>
+Package pdftex.def Info: figure_ssfr.pdf  used on input line 293.
+(pdftex.def)             Requested size: 440.84743pt x 330.65031pt.
+<figure_toonen.pdf, id=1152, 578.16pt x 289.08pt>
+File: figure_toonen.pdf Graphic file (type pdf)
+<use figure_toonen.pdf>
+Package pdftex.def Info: figure_toonen.pdf  used on input line 306.
+(pdftex.def)             Requested size: 440.84743pt x 220.42206pt.
+ [13 <./figure_ssfr.pdf>]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 314.
 
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 367.
- [14 <./figure_ssfr.png>] [15 <./figure_toonen.png>]
-<figure_sfd_corners.png, id=721, 686.565pt x 686.565pt>
-File: figure_sfd_corners.png Graphic file (type png)
-<use figure_sfd_corners.png>
-Package pdftex.def Info: figure_sfd_corners.png  used on input line 409.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 314.
+ (./strolger.bbl
+[14 <./figure_toonen.pdf>] [15]) [16] [17]
+Underfull \hbox (badness 10000) detected at line 397
+$\OML/cmm/m/it/9 a$
+ []
+
+<figure_sfd_corners.pdf, id=1651, 686.565pt x 686.565pt>
+File: figure_sfd_corners.pdf Graphic file (type pdf)
+<use figure_sfd_corners.pdf>
+Package pdftex.def Info: figure_sfd_corners.pdf  used on input line 408.
 (pdftex.def)             Requested size: 361.34999pt x 361.3425pt.
-<figure_sfh_corners.png, id=726, 686.565pt x 686.565pt>
-File: figure_sfh_corners.png Graphic file (type png)
-<use figure_sfh_corners.png>
-Package pdftex.def Info: figure_sfh_corners.png  used on input line 418.
+[18]
+<figure_sfh_corners.pdf, id=1664, 686.565pt x 686.565pt>
+File: figure_sfh_corners.pdf Graphic file (type pdf)
+<use figure_sfh_corners.pdf>
+Package pdftex.def Info: figure_sfh_corners.pdf  used on input line 431.
 (pdftex.def)             Requested size: 361.34999pt x 361.3425pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-(./strolger.bbl
-Overfull \vbox (19.5736pt too high) has occurred while \output is active []
-
-
-Overfull \vbox (19.5736pt too high) has occurred while \output is active []
-
-
-[16 <./figure_sfd_corners.png>] [17 <./figure_sfh_corners.png>] [18]) [19]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 441.
-
-(./strolger.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 441.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 441.
+ [19 <./figure_sfd_corners.pdf>] [20 <./figure_sfh_corners.pdf>]
+<SNuM_all.pdf, id=1738, 939.51pt x 1156.32pt>
+File: SNuM_all.pdf Graphic file (type pdf)
+<use SNuM_all.pdf>
+Package pdftex.def Info: SNuM_all.pdf  used on input line 471.
+(pdftex.def)             Requested size: 252.94499pt x 311.31073pt.
+ [21 <./SNuM_all.pdf>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 477.
+ (./strolger.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 477.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 477.
  ) 
 Here is how much of TeX's memory you used:
- 9549 strings out of 492616
- 132165 string characters out of 6129482
- 349527 words of memory out of 5000000
- 13196 multiletter control sequences out of 15000+600000
- 14105 words of font info for 57 fonts, out of 8000000 for 9000
+ 9555 strings out of 492616
+ 132766 string characters out of 6129482
+ 352272 words of memory out of 5000000
+ 13190 multiletter control sequences out of 15000+600000
+ 14113 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 35i,11n,37p,1698b,595s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 35i,11n,37p,1393b,571s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb>
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
 /usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
-usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></us
-r/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/
-local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/lo
-cal/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/loca
-l/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/
-texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/te
-xlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texli
-ve/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/
-2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/201
-9/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2019/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2019/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2019/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2019/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2019/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2019/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2019/texmf-dist/font
-s/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2019/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2019/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2019/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1
-/public/amsfonts/symbols/msam10.pfb>
-Output written on strolger.pdf (19 pages, 1099563 bytes).
+usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></u
+sr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr
+/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/l
+ocal/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/loc
+al/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local
+/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/t
+exlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/tex
+live/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texli
+ve/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive
+/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/20
+19/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2019/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2019/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2019/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2019/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2019/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2019/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2019/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2019/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2019/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/publi
+c/amsfonts/symbols/msam10.pfb>
+Output written on strolger.pdf (21 pages, 1242083 bytes).
 PDF statistics:
- 938 PDF objects out of 1000 (max. 8388607)
- 716 compressed objects within 8 object streams
- 141 named destinations out of 1000 (max. 500000)
- 71 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1950 PDF objects out of 2073 (max. 8388607)
+ 1014 compressed objects within 11 object streams
+ 154 named destinations out of 1000 (max. 500000)
+ 76 words of extra memory for PDF output out of 10000 (max. 10000000)
 

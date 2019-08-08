@@ -4,7 +4,8 @@ from pylab import *
 from strolger_util import util as u
 from scipy.stats import ks_2samp as ks
 
-
+rcParams['figure.figsize']=20, 10
+rcParams['font.size']=24.0
 
 file1 = '../ALLSFH_new_z/Cami_GOODS-N_zbest.dat'
 file2 = '../ALLSFH_new_z/Cami_GOODS-S_zbest.dat'
@@ -70,6 +71,7 @@ else:
 
 ax.set_xlabel(r'Log(M/M$_\odot$)')
 ax2.set_xlabel('Log(SFR)')
+ax.set_ylabel('CDF')
 
 u.adjust_spines(ax, (['left','bottom']))
 u.adjust_spines(ax2, (['bottom']))

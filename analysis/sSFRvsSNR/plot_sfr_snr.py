@@ -331,7 +331,7 @@ if __name__=='__main__':
     ##             )
                 
 
-    savefig('figure_ssfr.png')
+    savefig('figure_ssfr.pdf')
     
             
         

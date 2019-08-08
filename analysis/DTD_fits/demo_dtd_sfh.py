@@ -108,10 +108,10 @@ def rate_per_galaxy(sfh, lbu=13.65, lbl=0.05, p0 = None,
         #tight_layout()
 
         ax4 = axes([0.6, 0.2, 0.25, 0.25])
-        img = mpimg.imread('107.jpg') ## Thoth
-        ax4.imshow(img[75:135,50:140])
-        #img = mpimg.imread('206.jpg') ## Borg
-        #ax4.imshow(img[75:135,70:160])
+        #img = mpimg.imread('107.jpg') ## Thoth
+        #ax4.imshow(img[75:135,50:140])
+        img = mpimg.imread('206.jpg') ## Borg
+        ax4.imshow(img[75:135,70:160])
 
         ax4.set_yticks([])
         ax4.set_xticks([])
@@ -119,7 +119,7 @@ def rate_per_galaxy(sfh, lbu=13.65, lbl=0.05, p0 = None,
         if title:
             savefig(title+'.png')
         else:
-            savefig('figure_sfh_demo.png')
+            savefig('figure_sfh_demo_v2.png')
             
     return(rate)
 
@@ -135,8 +135,8 @@ if __name__=='__main__':
 
     p0 = (-1200., 50, 200)
 
-    ## sfh0 = 106969 ## Borg
-    sfh0 = 216531 ## Thoth
+    sfh0 = 106969 ## Borg
+    ## sfh0 = 216531 ## Thoth
     if sfh0 < 200000:
         sfh = '../ALLSFH_new_z/gnznnpas/%05d.dat'%(sfh0 - 100000)
     else:

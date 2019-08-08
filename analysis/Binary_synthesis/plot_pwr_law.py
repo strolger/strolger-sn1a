@@ -56,11 +56,11 @@ if __name__=='__main__':
 
     ## ax2 =subplot(122)
     data = loadtxt('nelemans_table2.txt')
-    ax2.errorbar(data[:,0], data[:,2]*1e-3, xerr=data[:,1], fmt='o',color=u.my_color(0), label='Yungelson 2010')
+    ax2.errorbar(data[:,0], data[:,2]*1e-3, xerr=data[:,1], fmt='o',color=u.my_color(2), label='Yungelson 2010')
 
     pa = (-1.0, 1.0)
     yy = rz.powerdtd(tt, *pa)
-    ax2.plot(tt, yy*2.0, color=u.my_color(2), label=r'$t^{-1}$')
+    ax2.plot(tt, yy*2.0, '--',color=u.my_color(2), label=r'$t^{-1}$')
     ## p1=(-662, 2200, 1101)
     ## ax2.plot(tt, 5*rz.dtdfunc(tt,*p1), '--', color=u.my_color(5), label='best model fit')
 
@@ -85,7 +85,7 @@ if __name__=='__main__':
 
 
     ax2.set_yticks([])
-    ax2.legend(loc=3, fontsize=9,frameon=False)
+    ax2.legend(loc=3, fontsize=8,frameon=False)
     ax2.set_title('DD Models')
 
     
@@ -98,7 +98,7 @@ if __name__=='__main__':
     ax.set_xlabel('Delay time (Myr)')
     ax.set_ylabel(r'SN Ia yr$^{-1}$ ($10^{10}$ M$_{\odot}$)$^{-1}$')
     ax.set_title('SD Models')
-    savefig('figure_pwr_law.png')
+    savefig('figure_pwr_law.pdf')
     
     
     

@@ -12,6 +12,19 @@
 \bibitem[{{Arnett}(1969)}]{Arnett:1969dw}
 {Arnett}, W.~D. 1969, \apss, 5, 180, \dodoi{10.1007/BF00650291}
 
+\bibitem[{{Barro} {et~al.}(2019){Barro}, {P{\'e}rez-Gonz{\'a}lez}, {Cava},
+  {Brammer}, {Pandya}, {Eliche Moral}, {Esquej}, {Dom{\'\i}nguez-S{\'a}nchez},
+  {Alcalde Pampliega}, {Guo}, {Koekemoer}, {Trump}, {Ashby}, {Cardiel},
+  {Castellano}, {Conselice}, {Dickinson}, {Dolch}, {Donley}, {Espino Briones},
+  {Faber}, {Fazio}, {Ferguson}, {Finkelstein}, {Fontana}, {Galametz},
+  {Gardner}, {Gawiser}, {Giavalisco}, {Grazian}, {Grogin}, {Hathi}, {Hemmati},
+  {Hern{\'a}n-Caballero}, {Kocevski}, {Koo}, {Kodra}, {Lee}, {Lin}, {Lucas},
+  {Mobasher}, {McGrath}, {Nandra}, {Nayyeri}, {Newman}, {Pforr}, {Peth},
+  {Rafelski}, {Rodr{\'\i}guez-Munoz}, {Salvato}, {Stefanon}, {van der Wel},
+  {Willner}, {Wiklind}, \& {Wuyts}}]{Barro:2019vn}
+{Barro}, G., {P{\'e}rez-Gonz{\'a}lez}, P.~G., {Cava}, A., {et~al.} 2019, \apjs,
+  243, 22, \dodoi{10.3847/1538-4365/ab23f2}
+
 \bibitem[{{Blanc} {et~al.}(2004){Blanc}, {Afonso}, {Alard}, {Albert},
   {Aldering}, {Amadon}, {Andersen}, {Ansari}, {Aubourg}, {Balland}, {Bareyre},
   {Beaulieu}, {Charlot}, {Conley}, {Coutures}, {Dahl{\'e}n}, {Derue}, {Fan},
@@ -204,6 +217,16 @@ Denissenkov, P.~A., Truran, J.~W., Herwig, F., {et~al.} 2015, Monthly Notices
 {Kauffmann}, G., {Heckman}, T.~M., {White}, S. D.~M., {et~al.} 2003, \mnras,
   341, 33, \dodoi{10.1046/j.1365-8711.2003.06291.x}
 
+\bibitem[{{Kessler} {et~al.}(2019){Kessler}, {Narayan}, {Avelino}, {Bachelet},
+  {Biswas}, {Brown}, {Chernoff}, {Connolly}, {Dai}, {Daniel}, {Di Stefano},
+  {Drout}, {Galbany}, {Gonz{\'a}lez-Gait{\'a}n}, {Graham}, {Hlo{\v{z}}ek},
+  {Ishida}, {Guillochon}, {Jha}, {Jones}, {Mand el}, {Muthukrishna},
+  {O{\textquoteright}Grady}, {Peters}, {Pierel}, {Ponder}, {Pr{\v{s}}a},
+  {Rodney}, {Villar}, {LSST Dark Energy Science Collaboration}, \& {Transient
+  and Variable Stars Science Collaboration}}]{Kessler:2019fr}
+{Kessler}, R., {Narayan}, G., {Avelino}, A., {et~al.} 2019, \pasp, 131, 094501,
+  \dodoi{10.1088/1538-3873/ab26f1}
+
 \bibitem[{{Khusanova} {et~al.}(2019){Khusanova}, {F{\`e}vre}, {Cassata},
   {Cucciati}, {Lemaux}, {Tasca}, {Thomas}, {Garilli}, {Brun}, {Maccagni},
   {Pentericci}, {Zamorani}, {Amor{\'\i}n}, {Bardelli}, {Castellano},
@@ -333,6 +356,11 @@ Denissenkov, P.~A., Truran, J.~W., Herwig, F., {et~al.} 2015, Monthly Notices
   Kim, Kim, Knop, Lee, Lidman, McMahon, Nugent, Panagia, Pennypacker,
   Perlmutter, Ruiz-Lapuente, Schahmaneche, Schaefer, \& Walton}]{Pain:2002}
 Pain, R., Fabbro, S., Sullivan, M., {et~al.} 2002, \apj, 577, 120
+
+\bibitem[{{Pakmor} {et~al.}(2013){Pakmor}, {Kromer}, {Taubenberger}, \&
+  {Springel}}]{Pakmor:2013gf}
+{Pakmor}, R., {Kromer}, M., {Taubenberger}, S., \& {Springel}, V. 2013, \apjl,
+  770, L8, \dodoi{10.1088/2041-8205/770/1/L8}
 
 \bibitem[{{Perlmutter} {et~al.}(1999){Perlmutter}, {Aldering}, {Goldhaber},
   {Knop}, {Nugent}, {Castro}, {Deustua}, {Fabbro}, {Goobar}, {Groom}, {Hook},

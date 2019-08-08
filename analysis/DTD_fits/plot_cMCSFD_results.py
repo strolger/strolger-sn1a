@@ -10,7 +10,7 @@ L. Strolger
 9/2018
 '''
 
-
+#rcParams['figure.figsize']=20,10
 
 if __name__=='__main__':
 
@@ -54,7 +54,7 @@ if __name__=='__main__':
 
     parameters = [r'$\ln\varepsilon$',r'$\xi$',r'$\omega$',r'$\alpha$', r'$\ln f$']
     c = chc()
-    c.add_chain(samples, parameters=parameters, walkers=1000, name='Unimodal Model')
+    c.add_chain(samples, parameters=parameters, walkers=1000, name='CSFH MCMC')
 
     ## table1 = c.analysis.get_latex_table(caption="Results for the tested model", label="tab:example")
     ## print(table1)
@@ -79,7 +79,14 @@ if __name__=='__main__':
     ## gc = c.diagnostic.geweke()
     ## print(grc,gc)
 
-    c.configure(label_font_size=22, contour_labels='sigma')
+    marker_data = array([[-2.78, -1518, 51, 50, -2.41],
+                         [-2.78, -1518, 51, 50, -2.41]])
+        
+    c.add_chain(marker_data, posterior=np.array([0,1]), plot_contour=False, 
+                plot_point=True, marker_size=170, marker_style="o", color="r",
+                name="CSFH Max. Likelihood (Optimized)")
+
+    c.configure(label_font_size=22, tick_font_size=14, contour_labels='sigma')
     fig = c.plotter.plot(figsize="column",
                          truth={r'$\ln\varepsilon$':ff_mcmc[0], 
                                 r'$\xi$': m_mcmc[0], r'$\omega$': w_mcmc[0], r'$\alpha$': k_mcmc[0],
@@ -87,6 +94,7 @@ if __name__=='__main__':
                          extents = [[-3.1, -2.5], [-2000.,0.0], [10., 90], [0., 500],[-4,0]]
                          ## extents = [[-0.2, 0.4], [-1900.,200.0], [-0.1, 90], [-200., 500],[-4.2,0.1]]
                          )
+    
     fig.set_size_inches(4.5 + fig.get_size_inches())
-    savefig('figure_sfd_corners.png')
+    savefig('figure_sfd_corners.pdf')
     

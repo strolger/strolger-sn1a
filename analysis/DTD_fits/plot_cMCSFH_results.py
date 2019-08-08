@@ -51,7 +51,7 @@ if __name__=='__main__':
 
     parameters = [r'$\xi$',r'$\omega$',r'$\alpha$']
     c = chc()
-    c.add_chain(samples, parameters=parameters, walkers=100)
+    c.add_chain(samples, parameters=parameters, walkers=100, name='SFH MCMC')
 
     latex_table = c.analysis.get_correlation_table()
     print (latex_table)
@@ -71,11 +71,18 @@ if __name__=='__main__':
 
 
     
-    c.configure(label_font_size=22, contour_labels='sigma')
+    marker_data = array([[-1518, 51, 50],
+                         [-1518, 51, 50]])
+        
+    c.add_chain(marker_data, posterior=np.array([0,1]), plot_contour=False, 
+                plot_point=True, marker_size=170, marker_style="o", color="r",
+                name="CSFH Max. Likelihood (Optimized)")
+
+    c.configure(label_font_size=22, tick_font_size=14, contour_labels='sigma')
     fig = c.plotter.plot(figsize="column",
                          truth={r'$\xi$': md0, r'$\omega$': md1, '$\alpha$': k_mcmc[0]},
                          extents = [[-1900.,-100.0], [-10., 90], [-10., 500]]
                          )
     fig.set_size_inches(4.5 + fig.get_size_inches())
-    savefig('figure_sfh_corners.png')
+    savefig('figure_sfh_corners.pdf')
     
