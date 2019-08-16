@@ -14,7 +14,7 @@
 \begin{document}
 \title{Delay Time Distributions of Type Ia Supernovae From Galaxy and Cosmic Star Formation Histories}
 \author[0000-0002-7756-4440]{Louis-Gregory Strolger}
-\affiliation{Space Telescope Science Institute, 3700 San Martin Drive, Baltimore MD 21218}
+\affiliation{Space Telescope Science Institute, 3700 San Martin Drive, Baltimore MD 21218, USA}
 \correspondingauthor{Lou Strolger}
 \email{strolger@stsci.edu}
 
@@ -22,22 +22,24 @@
 \affiliation{University of South Carolina}
 
 \author{Camila Pacifici}
-\affiliation{Space Telescope Science Institute, 3700 San Martin Drive, Baltimore MD 21218}
+\affiliation{Space Telescope Science Institute, 3700 San Martin Drive, Baltimore MD 21218, USA}
 
-\author{Gautham Narajan}
+\author{Gautham Narayan}
 \affiliation{University of Illinois Urbana-Champaign}
 
 \author{Or Graur}
-\affiliation{Harvard Smithsonian Center for Astrophysics}
+\affiliation{Center for Astrophysics | Harvard \& Smithsonian, 60 Garden Street, Cambridge, MA 02138, USA}
+\affiliation{Department of Astrophysics, American Museum of Natural History, Central Park West and 79th Street, New York, NY 10024, USA}
+\affiliation{NSF Astronomy and Astrophysics Postdoctoral Fellow.}
 
 \begin{abstract}
-We present analytical reconstructions of type Ia supernova (SN~Ia) delay time distributions (DTDs) by way of two independent methods: by a Markov chain Monte Carlo best-fit technique comparing the volumetric SN~Ia rate history to today's compendium cosmic star-formation history, and secondly through a maximum likelihood analysis of the star formation rate histories of individual galaxies in the GOODS/CANDLES field, in comparison to their resultant SN~Ia yields. We find a family of solutions that are essentially exponential DTDs, similar in shape to the $\beta\approx-1$ power-law DTDs, but with more delayed events ($>1$ Gyr in age) than prompt events ($<1$ Gyr). These solutions have the additional benefit of being consistent with empirically recovered delay time measures, without requiring different power-law slopes for events in field and galaxy cluster environments. These models are generally inconsistent with results from single-degenerate binary populations synthesis models, and seemingly supportive of double-degenerate progenitors for most SN~Ia events. 
+We present analytical reconstructions of type Ia supernova (SN~Ia) delay time distributions (DTDs) by way of two independent methods: by a Markov chain Monte Carlo best-fit technique comparing the volumetric SN~Ia rate history to today's compendium cosmic star-formation history, and secondly through a maximum likelihood analysis of the star formation rate histories of individual galaxies in the GOODS/CANDLES field, in comparison to their resultant SN~Ia yields. We find a family of solutions that are essentially exponential DTDs, similar in shape to the $\beta\approx-1$ power-law DTDs, but with more delayed events ($>1$ Gyr in age) than prompt events ($<1$ Gyr). These solutions have the additional benefit of being consistent with empirically recovered delay time measures, without requiring different power-law slopes for events in field and galaxy cluster environments. These models are generally inconsistent with results from single-degenerate binary populations synthesis models and seemingly supportive of double-degenerate progenitors for most SN~Ia events. 
 \end{abstract}
 
 \section{Introduction}
-The understanding of cosmic type Ia supernova (SN~Ia) rates has critical importance to understanding galaxy evolutionary feedback mechanisms, cosmic iron enrichment and $\alpha$-process element enrichment histories \citep[see][]{Maoz:2017ck}, and perhaps most importantly, constraining the physical mechanisms of SN~Ia progenitors, and therefore providing some constraint on the systematic uncertainties of dark energy. However determining precise SN~Ia rates and rate histories, and establishing the connections of those rates to host (and cosmic) properties has been a long slog. 
+The understanding of cosmic type Ia supernova (SN~Ia) rates has critical importance to understanding galaxy evolutionary feedback mechanisms, cosmic iron enrichment and $\alpha$-process element enrichment histories \citep[see][]{Maoz:2017ck}, and perhaps most importantly, constraining the physical mechanisms of SN~Ia progenitors, and therefore providing some constraint on the systematic uncertainties of dark energy. However, determining precise SN~Ia rates and rate histories, and establishing the connections of those rates to host (and cosmic) properties has been a long slog. 
 
-In tracing the cosmic (or volumetric) rate history, the first precise measures of the local ($z\sim0$) rate came in the early 1990s \cite[cf.][]{Cappellaro:1993qm,Cappellaro:1999}, and the first measures beyond the local Hubble flow came in the early 2000s, many as collateral results of the dark energy experiments~\citep{Riess:1998,Perlmutter:1999}. This trend of collateral benefit has continued since, leading to a vast collection of volumetric rates over various redshift ranges, and from various groups, as shown in Figure~\ref{fig:sn1a_rates} (the individual measures are shown in Appendix~\ref{sec:ratemeas}). 
+In tracing the cosmic (or volumetric) rate history, the first precise measures of the local ($z\sim0$) rate came in the early 1990s \cite[cf.][]{Cappellaro:1993qm,Cappellaro:1999}, and the first measures beyond the local Hubble flow came in the early 2000s, many as collateral results of dark energy experiments~\citep{Riess:1998,Perlmutter:1999}. This trend of collateral benefit has continued since, leading to a vast collection of volumetric rates over various redshift ranges, and from various groups, as shown in Figure~\ref{fig:sn1a_rates} (the individual measures are shown in Appendix~\ref{sec:ratemeas}). 
 
 \begin{figure}[t]
    \centering
