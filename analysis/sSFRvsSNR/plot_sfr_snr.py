@@ -46,6 +46,34 @@ def rate_per_galaxy(sfh_data, lbu=13.65, lbl=0.05, p0 = None,
     ## return(rate_fn[-1,1])
     return(rate_fn)
 
+def rate_per_galaxy_v2(sfh_data, lbu=13.65, lbl=0.05, p0 = None,
+                       frac_ia = 0.05,
+                       ):
+    
+    scale = quad(imf.salpeter,3,8)[0]/quad(imf.salpeter1,0.1,125)[0]
+    
+    ii = where((sfh_data[:,0]>lbl)&(sfh_data[:,0]<=lbu)) # cuts the data range
+    sfh_data = sfh_data[ii]
+
+    sfh_data[:,0] = lbu-sfh_data[:,0][::-1]
+    sfh_data[:,1] = sfh_data[:,1][::-1] ## now in forward time
+    warnings.simplefilter('ignore',RuntimeWarning)
+    dtd = rz.powerdtd(sfh_data[:,0], *p0)
+    if sum(dtd) == 0.0:
+        return (-np.inf)
+    
+    dt = sum(diff(sfh_data[:,0]))/(len(sfh_data[:,0])-1)
+    rate_fn = zeros((len(sfh_data),2),)
+    tmp = convolve(sfh_data[:,1], dtd, 'full')*dt*scale*frac_ia ## now convolved result in forward time
+    rate_fn[:,1]=tmp[:len(dtd)]
+
+    rate_fn[:,0]=sfh_data[:,0]
+    rate_fn[:,1]=rate_fn[:,1]
+    rate = rate_fn[-1,1] ## only need the current value
+    
+    ## return(rate_fn[-1,1])
+    return(rate_fn)
+
 
 def pieces(sSFR, *p):
     a, b,  x1, x2 = p
@@ -92,12 +120,43 @@ def get_data(data, p0=(-1.4, 1., 1.), lbu=13.65, frac_ia=0.05, plotit=False):
 
     return(out)
 
+def get_data_v2(data, p0=(-1.0, 1.0), lbu=13.65, frac_ia=0.05, plotit=False):
+    rdata = rate_per_galaxy_v2(data, p0=p0, frac_ia=frac_ia)
+    junk, rdn=u.recast(data[:,0], 0., lbu-rdata[:,0], rdata[:,1])
+    out = zeros((len(data), 3),)
+    out[:,0] = data[:,0]
+    out[:,1] = data[:,1]/data[:,3]
+    out[:,2] = rdn/data[:,3]
+    if plotit:
+        clf()
+        ax1 = subplot(411)
+        ax1.plot(data[:,0], data[:,1], 'r-', label='SFR')
+        ax2 = subplot(412)
+        ax2.plot(data[:,0], data[:,3]/1e10, 'b-', label='Total Mass')
+        ax3 = subplot(413)
+        ssfr = data[:,1]/data[:,3]*1e10
+        ax3.plot(data[:,0], data[:,1]/data[:,3]*1e10, 'g-', label='sSFR')
+        ax4 = subplot(414)
+        ax4.plot(lbu-rdata[:,0], rdata[:,1], '-', color='purple', label='sSNR')
+        ax1.set_xlim(0,20)
+        ax2.set_xlim(0,20)
+        ax3.set_xlim(0,20)
+        ax4.set_xlim(0,20)
+        ax4.set_xlabel('Lookback Time(Gyr)')
+        ax1.legend()
+        ax2.legend()
+        ax3.legend()
+        ax4.legend()
+        savefig('figure_%06d_history.png'%(idx))
+
+    return(out)
+
 
 
 if __name__=='__main__':
 
     if not os.path.isfile('ssSFRN.pkl'):
-        idxs = loadtxt('../analysis/DTD_fits/host_idxs.txt')
+        idxs = loadtxt('../DTD_fits/host_idxs.txt')
         sfhs = {}
         for idx in idxs:
             print('%d' %idx)
@@ -111,6 +170,10 @@ if __name__=='__main__':
                 print('%s not found'%file)
                 continue
             ndata = get_data(data, p0=(-1258, 59, 248), frac_ia = 0.06, plotit=True) ## my model
+            ## ndata = get_data_v2(data, p0=(-1.0,1.0), frac_ia = 0.06, plotit=True) ## t**-1
+            ## ndata = get_data_v2(data, p0=(-1.1,1.0), frac_ia = 0.06, plotit=True) ## t**-1.1
+            ## ndata = get_data_v2(data, p0=(-1.4,1.0), frac_ia = 0.06, plotit=True) ## t**-1.4
+
             ## ndata = get_data(data, p0=(-23.1, 4.1, -1.1), frac_ia = 0.06, plotit=True) ## t**-1
             ## ndata = get_data(data, p0=(-13.4, 2.4, -1.1), frac_ia = 0.06, plotit=True) ## t**-1.1
             ## ndata = get_data(data, p0=(-4.3, 1.3, -1.8), frac_ia = 0.06, plotit=True) ## t**-1.1
@@ -172,14 +235,20 @@ if __name__=='__main__':
 
 
     ## t**(-1)
-    popt=(-4.77238208e-04,  9.90040272e-01, -3.01111121e+00)
-    pcov=array([[5.09893718e-08, 1.02627168e-06, 5.12290288e-06],
-                [1.02627168e-06, 2.07089528e-05, 1.03610770e-04],
-                [5.12290288e-06, 1.03610770e-04, 5.19460796e-04]])
+    ## popt=(-4.77238208e-04,  9.90040272e-01, -3.01111121e+00)
+    ## pcov=array([[5.09893718e-08, 1.02627168e-06, 5.12290288e-06],
+    ##             [1.02627168e-06, 2.07089528e-05, 1.03610770e-04],
+    ##             [5.12290288e-06, 1.03610770e-04, 5.19460796e-04]])
+
+    
+    popt = (0.16241173, 3.82133413, 9.13755898)
+    pcov = array([[4.38667393e-05, 8.82913042e-04, 4.40728962e-03],
+                 [8.82913042e-04, 1.78161410e-02, 8.91374714e-02],
+                 [4.40728962e-03, 8.91374714e-02, 4.46897689e-01]])
 
 
     perr = sqrt(diag(pcov))
-    ax.plot(xx, line_fn(xx, *popt), '--', color='#F0CBC8')#, label=r'$\beta=-1.0$')
+    ax.plot(xx, line_fn(xx, *popt), '--', color='#F0CBC8', label=r'$\beta=-1$')
     ps = np.random.multivariate_normal(popt, pcov, 10000)
     ysample = asarray([line_fn(xx, *pi) for pi in ps])
     lower = percentile(ysample, 15.9, axis=0)
@@ -192,36 +261,51 @@ if __name__=='__main__':
 
 
     ## t**(-1.1)
-    popt=( -1.94866195e-04,   9.95757343e-01,  -2.95934114e+00)
-    pcov=array([[  8.37865874e-08,   1.68638241e-06,   8.41799528e-06],
-                [  1.68638241e-06,   3.40291314e-05,   1.70253711e-04],
-                [  8.41799528e-06,   1.70253711e-04,   8.53578632e-04]])
-    perr = sqrt(diag(pcov))
-    ax.plot(xx, line_fn(xx, *popt), '-', color='#F0CBC8', label=r'$\beta=-1.1^{+0.1}_{-0.3}$')
-    ps = np.random.multivariate_normal(popt, pcov, 10000)
-    ysample = asarray([line_fn(xx, *pi) for pi in ps])
-    lower = percentile(ysample, 15.9, axis=0)
-    upper = percentile(ysample, 84.1, axis=0)
-    ax.fill_between(xx, upper, lower, color='red', alpha=0.2)
-    lower = percentile(ysample, 2.5, axis=0)
-    upper = percentile(ysample, 97.5, axis=0)
-    ax.fill_between(xx, upper, lower, color='red', alpha=0.2)
+    ## popt=( -1.94866195e-04,   9.95757343e-01,  -2.95934114e+00)
+    ## pcov=array([[  8.37865874e-08,   1.68638241e-06,   8.41799528e-06],
+    ##             [  1.68638241e-06,   3.40291314e-05,   1.70253711e-04],
+    ##             [  8.41799528e-06,   1.70253711e-04,   8.53578632e-04]])
+
+    popt=(0.15659769, 3.74760117, 8.97331181)
+    pcov = array([[4.00984051e-05, 8.07067153e-04, 4.02868511e-03],
+                  [8.07067153e-04, 1.62856605e-02, 8.14801910e-02],
+                  [4.02868511e-03, 8.14801910e-02, 4.08507310e-01]])
+
+
+    ## perr = sqrt(diag(pcov))
+    ## ax.plot(xx, line_fn(xx, *popt), '-', color='#F0CBC8', label=r'$\beta=-1.1^{+0.1}_{-0.3}$')
+    ## ps = np.random.multivariate_normal(popt, pcov, 10000)
+    ## ysample = asarray([line_fn(xx, *pi) for pi in ps])
+    ## lower = percentile(ysample, 15.9, axis=0)
+    ## upper = percentile(ysample, 84.1, axis=0)
+    ## ax.fill_between(xx, upper, lower, color='red', alpha=0.2)
+    ## lower = percentile(ysample, 2.5, axis=0)
+    ## upper = percentile(ysample, 97.5, axis=0)
+    ## ax.fill_between(xx, upper, lower, color='red', alpha=0.2)
 
     ## t**(-1.4)
-    popt = (-5.31848823e-05,  9.98648036e-01, -2.89739937e+00)
-    pcov = array([[1.48390185e-07, 2.98669972e-06, 1.49089903e-05],
-                  [2.98669972e-06, 6.02686101e-05, 3.01537222e-04],
-                  [1.49089903e-05, 3.01537222e-04, 1.51179138e-03]])
-    perr = sqrt(diag(pcov))
-    ax.plot(xx, line_fn(xx, *popt), '--', color='#F0CBC8')#, label=r'$\beta=-1.4$')
-    ps = np.random.multivariate_normal(popt, pcov, 10000)
-    ysample = asarray([line_fn(xx, *pi) for pi in ps])
-    lower = percentile(ysample, 15.9, axis=0)
-    upper = percentile(ysample, 84.1, axis=0)
-    ax.fill_between(xx, upper, lower, color='red', alpha=0.2)
-    lower = percentile(ysample, 2.5, axis=0)
-    upper = percentile(ysample, 97.5, axis=0)
-    ax.fill_between(xx, upper, lower, color='red', alpha=0.2)
+    ## popt = (-5.31848823e-05,  9.98648036e-01, -2.89739937e+00)
+    ## pcov = array([[1.48390185e-07, 2.98669972e-06, 1.49089903e-05],
+    ##               [2.98669972e-06, 6.02686101e-05, 3.01537222e-04],
+    ##               [1.49089903e-05, 3.01537222e-04, 1.51179138e-03]])
+
+    popt = (0.1248399,  3.23965268, 7.05512731)
+    pcov = array([[3.49113931e-05, 7.02667322e-04, 3.50754624e-03],
+                  [7.02667322e-04, 1.41789956e-02, 7.09401536e-02],
+                  [3.50754624e-03, 7.09401536e-02, 3.55664004e-01]])
+                 
+
+
+    ## perr = sqrt(diag(pcov))
+    ## ax.plot(xx, line_fn(xx, *popt), '--', color='#F0CBC8')#, label=r'$\beta=-1.4$')
+    ## ps = np.random.multivariate_normal(popt, pcov, 10000)
+    ## ysample = asarray([line_fn(xx, *pi) for pi in ps])
+    ## lower = percentile(ysample, 15.9, axis=0)
+    ## upper = percentile(ysample, 84.1, axis=0)
+    ## ax.fill_between(xx, upper, lower, color='red', alpha=0.2)
+    ## lower = percentile(ysample, 2.5, axis=0)
+    ## upper = percentile(ysample, 97.5, axis=0)
+    ## ax.fill_between(xx, upper, lower, color='red', alpha=0.2)
 
 
     ## exponetial model
@@ -251,7 +335,7 @@ if __name__=='__main__':
     upper = percentile(ysample, 84.1, axis=0)
     #ax.fill_between(xx, upper, lower, color='green', alpha=0.2)
     print(popt,pcov)
-
+    
     
     ## plt.subplots_adjust(bottom=0.1, right=0.8, top=0.9)
     ## cax = plt.axes([0.85, 0.1, 0.075, 0.8])

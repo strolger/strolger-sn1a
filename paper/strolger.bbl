@@ -284,9 +284,9 @@ Denissenkov, P.~A., Truran, J.~W., Herwig, F., {et~al.} 2015, Monthly Notices
 {Maoz}, D., {Mannucci}, F., {Li}, W., {et~al.} 2011, \mnras, 412, 1508,
   \dodoi{10.1111/j.1365-2966.2010.16808.x}
 
-\bibitem[{{Maoz} {et~al.}(2013){Maoz}, {Mannucci}, \& {Nelemans}}]{Maoz:2013}
-{Maoz}, D., {Mannucci}, F., \& {Nelemans}, G. 2013, ArXiv e-prints.
-\newblock \doarXiv{1312.0628}
+\bibitem[{{Maoz} {et~al.}(2014){Maoz}, {Mannucci}, \& {Nelemans}}]{Maoz:2014fj}
+{Maoz}, D., {Mannucci}, F., \& {Nelemans}, G. 2014, \araa, 52, 107,
+  \dodoi{10.1146/annurev-astro-082812-141031}
 
 \bibitem[{{Maoz} {et~al.}(2010){Maoz}, {Sharon}, \& {Gal-Yam}}]{Maoz:2010a}
 {Maoz}, D., {Sharon}, K., \& {Gal-Yam}, A. 2010, \apj, 722, 1879,
@@ -299,6 +299,14 @@ Denissenkov, P.~A., Truran, J.~W., Herwig, F., {et~al.} 2015, Monthly Notices
   Society of the Pacific Conference Series, Vol. 372, 15th European Workshop on
   White Dwarfs, ed. R.~{Napiwotzki} \& M.~R. {Burleigh}, 387.
 \newblock \url{http://adsabs.harvard.edu/abs/2007ASPC..372..387N}
+
+\bibitem[{{Napiwotzki} {et~al.}(2019){Napiwotzki}, {Karl}, {Lisker}, {Catalan},
+  {Drechsel}, {Heber}, {Homeier}, {Koester}, {Leibundgut}, {Marsh}, {Moehler},
+  {Nelemans}, {Reimers}, {Renzini}, {Stroer}, \&
+  {Yungelson}}]{Napiwotzki:2019ez}
+{Napiwotzki}, R., {Karl}, C.~A., {Lisker}, T., {et~al.} 2019, arXiv e-prints,
+  arXiv:1906.10977.
+\newblock \doarXiv{1906.10977}
 
 \bibitem[{{Neill} {et~al.}(2006){Neill}, {Sullivan}, {Balam}, {Pritchet},
   {Howell}, {Perrett}, {Astier}, {Aubourg}, {Basa}, {Carlberg}, {Conley},
