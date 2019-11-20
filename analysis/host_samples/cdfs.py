@@ -22,45 +22,60 @@ ax = subplot(121) #Mass distributions
 tmp = data[:,1][where((data[:,1]>-99)&(data[:,1]!=8.0))]
 ## line = u.binmode(tmp, bins=200)[0]
 N1, bins1, j1 = ax.hist(tmp, bins=50, color='green', histtype='step', cumulative=True, normed=True)
+outfile = 'all_masses.txt'
+if os.path.isfile(outfile): os.remove(outfile)
+f = open(outfile,'w')
+for item in tmp:f.write('%s\n'%item)
+f.close()
+
 
 mask = in1d(data[:,0], idx)
-data = data[mask]
+data_ias = data[mask]
 
-#tmp = data[:,1][where(data[:,1]>-99)]
-tmp = data[:,1][where((data[:,1]>-99)&(data[:,1]!=8.0))]
-## line = u.binmode(tmp,bins=6)[0]
+tmp = data_ias[:,1][where((data_ias[:,1]>-99)&(data_ias[:,1]!=8.0))]
 N2, bins2, j2 = ax.hist(tmp, color='orange', cumulative=True, normed=True, alpha=0.3)
+outfile = 'host_masses.txt'
+if os.path.isfile(outfile): os.remove(outfile)
+f = open(outfile,'w')
+for item in tmp:f.write('%s\n'%item)
+f.close()
 
 dval, pval=ks(N1, N2)
 print(dval, pval)
 
-conf = 0.95
-ca = sqrt(-1/2.*log(1-conf))
+conf = 0.90
+ca = sqrt(-1/2.*log(1.-conf))
+print(ca)
 dnp = ca*sqrt((len(bins1)+len(bins2)-2)/((len(bins1)-1)*(len(bins2)-1)))
 print(dnp)
 if dval <= dnp:
-    print('Null hypothesis cannot be rejected at %d level' %(int(conf*100.)))
+    print('Null hypothesis cannot be rejected at %d level' %(int((conf)*100.)))
 else:
-    print('Distributions are different at %d level' %(int(conf*100.)))
-
+    print('Distributions are different at %d level' %(int((conf)*100.)))
 
 ax2 = subplot(122) #SFR
 tmp = data[:,3][where((data[:,3]>-99))]#&(data[:,1]!=8.0))]
 ## line = u.binmode(tmp, bins=200)[0]
 N1, bins1, j1 = ax2.hist(tmp, bins=200, color='green', histtype='step', cumulative=True, normed=True, label='All Catalog Galaxies')
+#pdb.set_trace()
+outfile = 'all_sfrs.txt'
+if os.path.isfile(outfile): os.remove(outfile)
+f = open(outfile,'w')
+for item in tmp:f.write('%s\n'%item)
+f.close()
 
-mask = in1d(data[:,0], idx)
-data = data[mask]
-
-tmp = data[:,3][where(data[:,3]>-99)]
-#tmp = data[:,1][where((data[:,1]>-99)&(data[:,1]!=8.0))]
-## line = u.binmode(tmp,bins=6)[0]
+tmp = data_ias[:,3][where(data_ias[:,3]>-99)]
 N2, bins2, j2 = ax2.hist(tmp, color='orange', cumulative=True, normed=True, alpha=0.3, label='SN Ia Hosts')
+outfile = 'host_sfrs.txt'
+if os.path.isfile(outfile): os.remove(outfile)
+f = open(outfile,'w')
+for item in tmp:f.write('%s\n'%item)
+f.close()
 
 dval, pval=ks(N1, N2)
 print(dval, pval)
 
-conf = 0.995
+conf = 0.50
 ca = sqrt(-1/2.*log(1-conf))
 dnp = ca*sqrt((len(bins1)+len(bins2)-2)/((len(bins1)-1)*(len(bins2)-1)))
 print(dnp)

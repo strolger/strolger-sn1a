@@ -6,8 +6,8 @@ from strolger_util import rates_z as rz
 from scipy.integrate import quad
 from strolger_util import cosmotools as ct
 
-rcParams['figure.figsize']=8,7
-rcParams['font.size']=12.0
+rcParams['figure.figsize']=13,16
+rcParams['font.size']=24.0
 
 def csfh_mo(z, A, B, C, D):
     sfr=A*((1+z)**C)/(1+((1+z)/B)**D)
@@ -60,13 +60,13 @@ if __name__=='__main__':
 
     data = loadtxt('evol_cos_mass.txt')
     redz = 0.5*(data[:,1]+data[:,0])
-    ax3 = subplot(313)
-    ax2 = subplot(312)
-    ax1 = subplot(311)
-    ax1.errorbar(redz, pow(10, data[:,2]), xerr=(data[:,1]-redz), yerr=[pow(10,data[:,2]+data[:,4])-pow(10,data[:,2]),
-                                                                        pow(10,data[:,2])-pow(10,data[:,2]-data[:,4])],
-                 fmt='o')
-    ax1.plot(zz, out*h, 'r-', label='Evolution of Stellar Mass Density')
+    ax3 = subplot(212)
+    ax2 = subplot(211)
+    ## ax1 = subplot(311)
+    ## ax1.errorbar(redz, pow(10, data[:,2]), xerr=(data[:,1]-redz), yerr=[pow(10,data[:,2]+data[:,4])-pow(10,data[:,2]),
+    ##                                                                     pow(10,data[:,2])-pow(10,data[:,2]-data[:,4])],
+    ##              fmt='o')
+    ## ax1.plot(zz, out*h, 'r-', label='Evolution of Stellar Mass Density')
 
 
     data1 = loadtxt('snia.txt')
@@ -120,25 +120,25 @@ if __name__=='__main__':
 
     ax3.set_xlim(0,3)
     ax2.set_xlim(0,3)
-    ax1.set_xlim(0,3)
-    ax3.set_ylim(0.01,11)
-    ax2.set_ylim(0.02,11)
-    ax1.set_ylim(1.1e7,1e9)
+    ## ax1.set_xlim(0,3)
+    ax3.set_ylim(0.01,9)
+    ax2.set_ylim(0.09,11)
+    ## ax1.set_ylim(1.1e7,1e9)
     ax2.set_xticklabels([])
-    ax1.set_xticklabels([])
+    ## ax1.set_xticklabels([])
     
     subplots_adjust(hspace=0)
-    ax1.set_yscale('log')
+    ## ax1.set_yscale('log')
     ax2.set_yscale('log')
     ## ax3.set_yscale('log')
 
-    ax1.legend(loc=8,frameon=False)
-    ax2.legend(loc=8,ncol=2,frameon=False,fontsize=12)
+    ## ax1.legend(loc=8,frameon=False)
+    ax2.legend(loc=8,ncol=2,frameon=False,fontsize=16)
     handles, labels = ax3.get_legend_handles_labels()
-    ax3.legend(handles[::-1], labels[::-1], loc=2, frameon=False, fontsize=12)
+    ax3.legend(handles[::-1], labels[::-1], loc=2, frameon=False, fontsize=20)
     ## ax3.legend(loc=2,frameon=False)
     ax3.set_xlabel('Redshift')
-    ax1.set_ylabel(r'$\rho_{\star}$ (M$_{\odot}$ Mpc$^{-3}$ $h_{70}$)')
+    ## ax1.set_ylabel(r'$\rho_{\star}$ (M$_{\odot}$ Mpc$^{-3}$ $h_{70}$)')
     ax2.set_ylabel(r'R (10$^{-4}$ yr$^{-1}$ Mpc$^{-3}$ $h_{70}^3$)')
     ax3.set_ylabel('SNuM')
     ## ax1.set_title ('Type Ia Supernovae')

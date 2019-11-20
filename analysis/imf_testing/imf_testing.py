@@ -25,11 +25,11 @@ for m1 in arange(2.5,4.1,0.1):
         data.append(imfs(m1,m2))
 
 data=array(data)
-print(average(data[:,0]), average(data[:,1]))
+#print(average(data[:,0]), average(data[:,1]))
 print(std(data[:,0]), std(data[:,1]))
-
-
-print(quad(imf.salpeter,3,8)[0]/quad(imf.salpeter1,0.1,125)[0])
+med=quad(imf.salpeter,3,8)[0]/quad(imf.salpeter1,0.1,125)[0]
+print(med)
+print('minus %2.1f%%, plus %2.1f%%' %(std(data[:,0])/med*100., std(data[:,1])/med*100.))
 
 
 
