@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.4.10)  19 NOV 2019 16:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.4.10)  20 NOV 2019 15:59
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -596,34 +596,34 @@ $\OML/cmm/m/it/9 b$
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [4] [5 <./figure_csfh_today.pdf>]
-<figure_sd_dd_fits.pdf, id=439, 462.52798pt x 346.89601pt>
+<figure_sd_dd_fits.pdf, id=440, 462.52798pt x 346.89601pt>
 File: figure_sd_dd_fits.pdf Graphic file (type pdf)
 <use figure_sd_dd_fits.pdf>
 Package pdftex.def Info: figure_sd_dd_fits.pdf  used on input line 166.
 (pdftex.def)             Requested size: 440.84743pt x 330.65031pt.
  [6 <./figure_sd_dd_fits.pdf>]
-<figure_sfd_optimized.pdf, id=526, 462.52798pt x 346.89601pt>
+<figure_sfd_optimized.pdf, id=527, 462.52798pt x 346.89601pt>
 File: figure_sfd_optimized.pdf Graphic file (type pdf)
 <use figure_sfd_optimized.pdf>
 Package pdftex.def Info: figure_sfd_optimized.pdf  used on input line 190.
 (pdftex.def)             Requested size: 440.84743pt x 330.65031pt.
-<figure_fit_demo_werr.pdf, id=534, 462.52798pt x 346.89601pt>
+<figure_fit_demo_werr.pdf, id=535, 462.52798pt x 346.89601pt>
 File: figure_fit_demo_werr.pdf Graphic file (type pdf)
 <use figure_fit_demo_werr.pdf>
 Package pdftex.def Info: figure_fit_demo_werr.pdf  used on input line 234.
 (pdftex.def)             Requested size: 440.84743pt x 330.65031pt.
  [7] [8 <./figure_sfd_optimized.pdf>] [9 <./figure_fit_demo_werr.pdf>]
-<figure_sfh_demo_v1.pdf, id=735, 462.52798pt x 346.89601pt>
+<figure_sfh_demo_v1.pdf, id=736, 462.52798pt x 346.89601pt>
 File: figure_sfh_demo_v1.pdf Graphic file (type pdf)
 <use figure_sfh_demo_v1.pdf>
 Package pdftex.def Info: figure_sfh_demo_v1.pdf  used on input line 271.
 (pdftex.def)             Requested size: 252.94499pt x 189.70828pt.
-<figure_sfh_demo_v2.pdf, id=736, 462.52798pt x 346.89601pt>
+<figure_sfh_demo_v2.pdf, id=737, 462.52798pt x 346.89601pt>
 File: figure_sfh_demo_v2.pdf Graphic file (type pdf)
 <use figure_sfh_demo_v2.pdf>
 Package pdftex.def Info: figure_sfh_demo_v2.pdf  used on input line 272.
 (pdftex.def)             Requested size: 252.94499pt x 189.70828pt.
-<figure_cdfs.pdf, id=750, 1445.4pt x 722.7pt>
+<figure_cdfs.pdf, id=751, 1445.4pt x 722.7pt>
 File: figure_cdfs.pdf Graphic file (type pdf)
 <use figure_cdfs.pdf>
 Package pdftex.def Info: figure_cdfs.pdf  used on input line 284.
@@ -633,24 +633,24 @@ Package pdftex.def Info: figure_cdfs.pdf  used on input line 284.
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./figure_sfh_demo_v2.pdf): P
 DF inclusion: multiple pdfs with page group included in a single page
 >]
-<figure_pwr_law.pdf, id=906, 462.52798pt x 346.89601pt>
+<figure_pwr_law.pdf, id=907, 462.52798pt x 346.89601pt>
 File: figure_pwr_law.pdf Graphic file (type pdf)
 <use figure_pwr_law.pdf>
 Package pdftex.def Info: figure_pwr_law.pdf  used on input line 295.
 (pdftex.def)             Requested size: 440.84743pt x 330.65031pt.
-<figure_loglog_dtd.pdf, id=919, 462.52798pt x 346.89601pt>
+<figure_loglog_dtd.pdf, id=920, 462.52798pt x 346.89601pt>
 File: figure_loglog_dtd.pdf Graphic file (type pdf)
 <use figure_loglog_dtd.pdf>
 Package pdftex.def Info: figure_loglog_dtd.pdf  used on input line 304.
 (pdftex.def)             Requested size: 440.84743pt x 330.65031pt.
  [11 <./figure_cdfs.pdf>]
-<figure_ssfr.pdf, id=1006, 462.52798pt x 346.89601pt>
+<figure_ssfr.pdf, id=1007, 462.52798pt x 346.89601pt>
 File: figure_ssfr.pdf Graphic file (type pdf)
 <use figure_ssfr.pdf>
 Package pdftex.def Info: figure_ssfr.pdf  used on input line 316.
 (pdftex.def)             Requested size: 440.84743pt x 330.65031pt.
  [12 <./figure_pwr_law.pdf>]
-<figure_toonen.pdf, id=1092, 578.16pt x 289.08pt>
+<figure_toonen.pdf, id=1093, 578.16pt x 289.08pt>
 File: figure_toonen.pdf Graphic file (type pdf)
 <use figure_toonen.pdf>
 Package pdftex.def Info: figure_toonen.pdf  used on input line 329.
@@ -677,19 +677,19 @@ Underfull \hbox (badness 10000) detected at line 421
 $\OML/cmm/m/it/9 b$
  []
 
-<figure_sfd_corners.pdf, id=1654, 686.565pt x 686.565pt>
+<figure_sfd_corners.pdf, id=1655, 686.565pt x 686.565pt>
 File: figure_sfd_corners.pdf Graphic file (type pdf)
 <use figure_sfd_corners.pdf>
 Package pdftex.def Info: figure_sfd_corners.pdf  used on input line 432.
 (pdftex.def)             Requested size: 361.34999pt x 361.3425pt.
 [19]
-<figure_sfh_corners.pdf, id=1669, 686.565pt x 686.565pt>
+<figure_sfh_corners.pdf, id=1670, 686.565pt x 686.565pt>
 File: figure_sfh_corners.pdf Graphic file (type pdf)
 <use figure_sfh_corners.pdf>
 Package pdftex.def Info: figure_sfh_corners.pdf  used on input line 455.
 (pdftex.def)             Requested size: 361.34999pt x 361.3425pt.
  [20 <./figure_sfd_corners.pdf>] [21 <./figure_sfh_corners.pdf>]
-<SNuM_all.pdf, id=1741, 578.16pt x 505.89pt>
+<SNuM_all.pdf, id=1742, 578.16pt x 505.89pt>
 File: SNuM_all.pdf Graphic file (type pdf)
 <use SNuM_all.pdf>
 Package pdftex.def Info: SNuM_all.pdf  used on input line 495.
@@ -701,47 +701,48 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 501.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 501.
  ) 
 Here is how much of TeX's memory you used:
- 9577 strings out of 492623
- 132943 string characters out of 6129552
+ 9579 strings out of 492623
+ 132964 string characters out of 6129552
  351598 words of memory out of 5000000
- 13202 multiletter control sequences out of 15000+600000
- 14113 words of font info for 57 fonts, out of 8000000 for 9000
+ 13203 multiletter control sequences out of 15000+600000
+ 14421 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 35i,11n,37p,1427b,625s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb>
-</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
-</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
-/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
-usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></u
-sr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr
-/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/l
-ocal/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/loc
-al/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local
-/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/t
-exlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/tex
-live/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texli
-ve/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive
-/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/20
-19/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2019/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2019/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2019/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2019/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2019/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2019/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2019/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2019/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2019/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/publi
-c/amsfonts/symbols/msam10.pfb>
-Output written on strolger.pdf (22 pages, 1244554 bytes).
+ 35i,11n,37p,1463b,625s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><
+/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><
+/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
+usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></u
+sr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></us
+r/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/
+local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/lo
+cal/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/loca
+l/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/
+texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/te
+xlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texl
+ive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texliv
+e/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/
+2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/201
+9/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2019/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2019/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2019/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2019/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2019/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2019/texmf-dist/font
+s/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2019/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2019/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2019/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmti9.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public
+/amsfonts/symbols/msam10.pfb>
+Output written on strolger.pdf (22 pages, 1256812 bytes).
 PDF statistics:
- 1953 PDF objects out of 2073 (max. 8388607)
- 1021 compressed objects within 11 object streams
+ 1957 PDF objects out of 2073 (max. 8388607)
+ 1024 compressed objects within 11 object streams
  157 named destinations out of 1000 (max. 500000)
  76 words of extra memory for PDF output out of 10000 (max. 10000000)
 
