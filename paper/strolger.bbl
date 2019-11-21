@@ -39,6 +39,11 @@
 {Blanc}, G., {Afonso}, C., {Alard}, C., {et~al.} 2004, \aap, 423, 881,
   \dodoi{10.1051/0004-6361:20035948}
 
+\bibitem[{{Blondin} {et~al.}(2018){Blondin}, {Dessart}, \&
+  {Hillier}}]{Blondin:2018wn}
+{Blondin}, S., {Dessart}, L., \& {Hillier}, D.~J. 2018, \mnras, 474, 3931,
+  \dodoi{10.1093/mnras/stx3058}
+
 \bibitem[{Botticella {et~al.}(2008)Botticella, Riello, Cappellaro, Benetti,
   Altavilla, Pastorello, Turatto, Greggio, Patat, Valenti, Zampieri,
   Harutyunyan, Pignata, \& Taubenberger}]{Botticella:2008}
@@ -102,6 +107,14 @@ Croton, D.~J. 2013, Publications of the Astronomical Society of Australia, 30,
   {Riess}}]{Dahlen:2008}
 {Dahlen}, T., {Strolger}, L.-G., \& {Riess}, A.~G. 2008, \apj, 681, 462,
   \dodoi{10.1086/587978}
+
+\bibitem[{{De} {et~al.}(2019){De}, {Kasliwal}, {Polin}, {Nugent}, {Bildsten},
+  {Adams}, {Bellm}, {Blagorodnova}, {Burdge}, {Cannella}, {Cenko}, {Dekany},
+  {Feeney}, {Hale}, {Fremling}, {Graham}, {Ho}, {Jencson}, {Kulkarni}, {Laher},
+  {Masci}, {Miller}, {Patterson}, {Rebbapragada}, {Riddle}, {Shupe}, \&
+  {Smith}}]{De:2019rv}
+{De}, K., {Kasliwal}, M.~M., {Polin}, A., {et~al.} 2019, \apjl, 873, L18,
+  \dodoi{10.3847/2041-8213/ab0aec}
 
 \bibitem[{Denissenkov {et~al.}(2015)Denissenkov, Truran, Herwig, Jones, Paxton,
   Nomoto, Suzuki, \& Toki}]{Denissenkov:2015rf}
@@ -236,6 +249,11 @@ Denissenkov, P.~A., Truran, J.~W., Herwig, F., {et~al.} 2015, Monthly Notices
 {Khusanova}, Y., {F{\`e}vre}, O.~L., {Cassata}, P., {et~al.} 2019, arXiv
   e-prints, arXiv:1903.01884.
 \newblock \doarXiv{1903.01884}
+
+\bibitem[{{Kirby} {et~al.}(2019){Kirby}, {Xie}, {Guo}, {de los Reyes},
+  {Bergemann}, {Kovalev}, {Shen}, {Piro}, \& {McWilliam}}]{Kirby:2019aa}
+{Kirby}, E.~N., {Xie}, J.~L., {Guo}, R., {et~al.} 2019, \apj, 881, 45,
+  \dodoi{10.3847/1538-4357/ab2c02}
 
 \bibitem[{{Kroupa}(2001)}]{Kroupa:2001gf}
 {Kroupa}, P. 2001, \mnras, 322, 231, \dodoi{10.1046/j.1365-8711.2001.04022.x}

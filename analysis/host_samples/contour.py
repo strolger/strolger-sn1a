@@ -50,18 +50,22 @@ Xgrid, Ygrid = np.meshgrid(xgrid, ygrid)
 Z = kde.evaluate(np.vstack([Xgrid.ravel(), Ygrid.ravel()]))
 
 
-## # Plot the result as an image
-## plt.imshow(Z.reshape(Xgrid.shape),
-##            origin='lower', aspect='auto',
-##            extent=[8,12, -3, 4],
-##            cmap=plt.cm.gist_earth_r)
-##            ## cmap='Blues')
-## cb = plt.colorbar()
-## cb.set_label("density")
-## ## pdb.set_trace()
+# Plot the result as an image
+plt.imshow(Z.reshape(Xgrid.shape),
+           origin='lower', aspect='auto',
+           extent=[8,12, -3, 4],
+           ##cmap=plt.cm.gist_earth_r)#, alpha=0.6)
+           cmap='bone_r')
+#cb = plt.colorbar()
+#cb.set_label("density")
+## pdb.set_trace()
 
 cs = plt.contour(Xgrid, Ygrid, Z.reshape(Xgrid.shape), [0.01, 0.05, 0.32], colors='black')
-plt.clabel(cs, inline=1)
+## fmt={}
+## strs = ['3$\sigma$','2$\sigma$','1$\sigma$']
+## for l, s in zip(cs.levels, strs):
+##     fmt[l]=s
+## plt.clabel(cs, cs.levels, inline=1, fmt=fmt)
 
 ## ii = range(len(X))
 ## ix = sample(ii,1000)
@@ -93,15 +97,19 @@ Z = kde.evaluate(np.vstack([Xgrid.ravel(), Ygrid.ravel()]))
 ## plt.imshow(Z.reshape(Xgrid.shape),
 ##            origin='lower', aspect='auto',
 ##            extent=[8,12, -3, 4],
-##            cmap=plt.cm.gist_earth_r)
-##            ## cmap='Blues')
+##            ## cmap=plt.cm.gist_earth_r, alpha=0.4)
+##            cmap='Blues', alpha=0.5)
 ## ## cb = plt.colorbar()
 ## ## cb.set_label("density")
 ## ## pdb.set_trace()
 
-cs=plt.contour(Xgrid, Ygrid, Z.reshape(Xgrid.shape))#,[0.01, 0.05, 0.32],  colors='blue')
-plt.clabel(cs, inline=1)
+cs=plt.contour(Xgrid, Ygrid, Z.reshape(Xgrid.shape),[0.01, 0.05, 0.2, 0.32],  colors='blue', linestyle='dashed')
+## cs=plt.contour(Xgrid, Ygrid, Z.reshape(Xgrid.shape),[0.01, 0.05, 0.32],  colors='blue')
+## fmt={}
+## strs = ['3$\sigma$','2$\sigma$','1$\sigma$']
+## for l, s in zip(cs.levels, strs):
+##     fmt[l]=s
+## plt.clabel(cs, cs.levels, inline=1, fmt=fmt)
 
 #plt.plot(X,Y, 'bo')
-
 savefig('figure_contor.png')
