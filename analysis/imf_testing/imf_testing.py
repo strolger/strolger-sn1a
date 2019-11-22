@@ -20,17 +20,18 @@ def imfs(m1,m2):
 
 
 data = []
-for m1 in arange(2.0,3.5,0.1):
-    for m2 in arange(6,11.0,0.1):
+for m1 in arange(2.0,3.5,0.025):
+    for m2 in arange(6,11.0,0.025):
         data.append(imfs(m1,m2))
 
 data=array(data)
+med=quad(imf.salpeter,3,8)[0]/quad(imf.salpeter1,0.1,125)[0]
+print(med)
 #print(average(data[:,0]), average(data[:,1]))
 #print(std(data[:,0]), std(data[:,1]))
-med=quad(imf.salpeter,3,8)[0]/quad(imf.salpeter1,0.1,125)[0]
-#print(med)
 #print('minus %2.1f%%, plus %2.1f%%' %(std(data[:,0])/med*100., std(data[:,1])/med*100.))
-N1, bins=histogram(data[:,0])
+bins =100
+N1, bins=histogram(data[:,0],bins=bins)
 N2, bins=histogram(data[:,1],bins=bins)
 
 N1 = N1/sum(N1)
@@ -40,14 +41,22 @@ ax=subplot(111)
 ax.plot(bins[:-1],0.5*(N1+N2), 'ko')
 
 yy,xx = zip(*sorted(zip((N1+N2)/2.,bins[:-1])))
-yy = array(yy)
-xx = array(xx)
+yy = array(yy)[::-1]
+xx = array(xx)[::-1]
 intv=0.68
-pdb.set_trace()
 
-idx = where(yy<=intv)
+idx = where(cumsum(yy)<=intv)
 print(min(xx[idx]), max(xx[idx]))
+ax.axvline(med)
+ax.axvline(min(xx[idx]),color='red')
+ax.axvline(max(xx[idx]),color='red')
+print('minus %2.1f%%, plus %2.1f%%' %((med-min(xx[idx]))/med*100., (max(xx[idx])-med)/med*100.))
+idx = where(yy.max())
+ax.axvline(xx[idx],linestyle='--', color='blue')
+print(xx[idx])
+ax.set_xlabel('k-value')
+ax.set_ylabel('Normalized distribution')
+ax.set_xlim(0,0.05)
 savefig('junk.png')
+
 pdb.set_trace()
-
-
