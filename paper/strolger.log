@@ -1,6 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.4.10)  21 NOV 2019 16:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  22 NOV 2019 10:07
 entering extended mode
- \write18 enabled.
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
 **strolger.tex
 (./strolger.tex
@@ -379,27 +380,46 @@ Package: array 2018/12/30 v2.4k Tabular extension package (FMi)
 \colheadcount=\count138
 \rotatetablebox=\box53
 \colorcount=\count139
-\refchangenumber=\count140
-\listchangenum=\count141
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/lineno/lineno.sty
+Package: lineno 2005/11/02 line numbers on paragraphs v4.41
+\linenopenalty=\count140
+\output=\toks21
+\linenoprevgraf=\count141
+\linenumbersep=\dimen126
+\linenumberwidth=\dimen127
+\c@linenumber=\count142
+\c@pagewiselinenumber=\count143
+\c@LN@truepage=\count144
+\c@internallinenumber=\count145
+\c@internallinenumbers=\count146
+\quotelinenumbersep=\dimen128
+\bframerule=\dimen129
+\bframesep=\dimen130
+\bframebox=\box54
+LaTeX Info: Redefining \\ on input line 3056.
+)
+\refchangenumber=\count147
+\listchangenum=\count148
 
 (/usr/local/texlive/2019/texmf-dist/tex/generic/ulem/ulem.sty
-\UL@box=\box54
-\UL@hyphenbox=\box55
+\UL@box=\box55
+\UL@hyphenbox=\box56
 \UL@skip=\skip62
-\UL@hook=\toks21
-\UL@height=\dimen126
-\UL@pe=\count142
-\UL@pixel=\dimen127
-\ULC@box=\box56
+\UL@hook=\toks22
+\UL@height=\dimen131
+\UL@pe=\count149
+\UL@pixel=\dimen132
+\ULC@box=\box57
 Package: ulem 2012/05/18
-\ULdepth=\dimen128
+\ULdepth=\dimen133
 )
-\AuthorCollaborationLimit=\count143
-\largestAffilNum=\count144
-\countauthors=\count145
-\c@affilcount=\count146
-\widetext@top=\box57
-\widetext@bot=\box58
+\AuthorCollaborationLimit=\count150
+\largestAffilNum=\count151
+\countauthors=\count152
+\c@affilcount=\count153
+\widetext@top=\box58
+\widetext@bot=\box59
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/units/nicefrac.sty
 Package: nicefrac 1998/08/04 v0.9b Nice fractions
@@ -427,55 +447,55 @@ Package: amstext 2000/06/29 v2.01
 (/Users/strolger/Library/texmf/tex/latex/misc/amslatex/tex/latex/amsmath/amsgen
 .sty
 File: amsgen.sty 1999/11/30 v2.0
-\@emptytoks=\toks22
-\ex@=\dimen129
+\@emptytoks=\toks23
+\ex@=\dimen134
 )
 LaTeX Info: Redefining \text on input line 53.
 )
 (/Users/strolger/Library/texmf/tex/latex/misc/amslatex/tex/latex/amsmath/amsbsy
 .sty
 Package: amsbsy 1999/11/29 v1.2d
-\pmbraise@=\dimen130
+\pmbraise@=\dimen135
 )
 (/Users/strolger/Library/texmf/tex/latex/misc/amslatex/tex/latex/amsmath/amsopn
 .sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
-\inf@bad=\count147
+\inf@bad=\count154
 LaTeX Info: Redefining \frac on input line 211.
-\uproot@=\count148
-\leftroot@=\count149
+\uproot@=\count155
+\leftroot@=\count156
 LaTeX Info: Redefining \overline on input line 307.
-\classnum@=\count150
-\DOTSCASE@=\count151
+\classnum@=\count157
+\DOTSCASE@=\count158
 LaTeX Info: Redefining \ldots on input line 379.
 LaTeX Info: Redefining \dots on input line 382.
 LaTeX Info: Redefining \cdots on input line 467.
-\Mathstrutbox@=\box59
-\strutbox@=\box60
-\big@size=\dimen131
+\Mathstrutbox@=\box60
+\strutbox@=\box61
+\big@size=\dimen136
 LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
-\macc@depth=\count152
-\c@MaxMatrixCols=\count153
+\macc@depth=\count159
+\c@MaxMatrixCols=\count160
 \dotsspace@=\muskip11
-\c@parentequation=\count154
-\dspbrk@lvl=\count155
-\tag@help=\toks23
-\row@=\count156
-\column@=\count157
-\maxfields@=\count158
-\andhelp@=\toks24
-\eqnshift@=\dimen132
-\alignsep@=\dimen133
-\tagshift@=\dimen134
-\tagwidth@=\dimen135
-\totwidth@=\dimen136
-\lineht@=\dimen137
-\@envbody=\toks25
+\c@parentequation=\count161
+\dspbrk@lvl=\count162
+\tag@help=\toks24
+\row@=\count163
+\column@=\count164
+\maxfields@=\count165
+\andhelp@=\toks25
+\eqnshift@=\dimen137
+\alignsep@=\dimen138
+\tagshift@=\dimen139
+\tagwidth@=\dimen140
+\totwidth@=\dimen141
+\lineht@=\dimen142
+\@envbody=\toks26
 \multlinegap=\skip67
 \multlinetaggap=\skip68
-\mathdisplay@stack=\toks26
+\mathdisplay@stack=\toks27
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
@@ -508,17 +528,17 @@ LaTeX Font Info:    ... okay on input line 14.
 
 (/usr/local/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count159
-\scratchdimen=\dimen138
-\scratchbox=\box61
-\nofMPsegments=\count160
-\nofMParguments=\count161
-\everyMPshowfont=\toks27
-\MPscratchCnt=\count162
-\MPscratchDim=\dimen139
-\MPnumerator=\count163
-\makeMPintoPDFobject=\count164
-\everyMPtoPDFconversion=\toks28
+\scratchcounter=\count166
+\scratchdimen=\dimen143
+\scratchbox=\box62
+\nofMPsegments=\count167
+\nofMParguments=\count168
+\everyMPshowfont=\toks28
+\MPscratchCnt=\count169
+\MPscratchDim=\dimen144
+\MPnumerator=\count170
+\makeMPintoPDFobject=\count171
+\everyMPtoPDFconversion=\toks29
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -536,7 +556,7 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\AtBeginShipoutBox=\box62
+\AtBeginShipoutBox=\box63
 Package hyperref Info: Link coloring ON on input line 14.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/nameref.sty
@@ -545,11 +565,15 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count165
+\c@section@level=\count172
 )
 LaTeX Info: Redefining \ref on input line 14.
 LaTeX Info: Redefining \pageref on input line 14.
 LaTeX Info: Redefining \nameref on input line 14.
+Class revtex4-1 Info: Overriding lineo.sty, restoring output routine, on input 
+line 14.
+Class revtex4-1 Info: Reinvoke \linenumbers on input line 14.
+Class revtex4-1 Info: Overriding \@LN@LLerror on input line 14.
 LaTeX Font Info:    Try loading font information for U+lasy on input line 18.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/base/ulasy.fd
@@ -571,13 +595,14 @@ File: figure_SNIa_rate_z_pwr_fit.pdf Graphic file (type pdf)
 Package pdftex.def Info: figure_SNIa_rate_z_pwr_fit.pdf  used on input line 47.
 
 (pdftex.def)             Requested size: 440.84743pt x 330.65031pt.
- [1{/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+ [1{/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2 <
+./figure_SNIa_rate_z_pwr_fit.pdf>]
 Underfull \hbox (badness 10000) detected at line 81
 $\OML/cmm/m/it/9 a$
  []
 
-[2 <./figure_SNIa_rate_z_pwr_fit.pdf>] [3]
-<figure_csfh_today.pdf, id=243, 462.52798pt x 346.89601pt>
+[3]
+<figure_csfh_today.pdf, id=247, 462.52798pt x 346.89601pt>
 File: figure_csfh_today.pdf Graphic file (type pdf)
 <use figure_csfh_today.pdf>
 Package pdftex.def Info: figure_csfh_today.pdf  used on input line 116.
@@ -592,34 +617,37 @@ Underfull \hbox (badness 10000) detected at line 151
 $\OML/cmm/m/it/9 b$
  []
 
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 [5 <./figure_csfh_today.pdf>]
-<figure_sd_dd_fits.pdf, id=445, 462.52798pt x 346.89601pt>
+<figure_sd_dd_fits.pdf, id=459, 462.52798pt x 346.89601pt>
 File: figure_sd_dd_fits.pdf Graphic file (type pdf)
 <use figure_sd_dd_fits.pdf>
 Package pdftex.def Info: figure_sd_dd_fits.pdf  used on input line 170.
 (pdftex.def)             Requested size: 440.84743pt x 330.65031pt.
-<figure_sfd_optimized.pdf, id=458, 462.52798pt x 346.89601pt>
+<figure_sfd_optimized.pdf, id=472, 462.52798pt x 346.89601pt>
 File: figure_sfd_optimized.pdf Graphic file (type pdf)
 <use figure_sfd_optimized.pdf>
 Package pdftex.def Info: figure_sfd_optimized.pdf  used on input line 194.
 (pdftex.def)             Requested size: 440.84743pt x 330.65031pt.
-
+ [6]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[6] [7 <./figure_sd_dd_fits.pdf>]
-<figure_fit_demo_werr.pdf, id=555, 462.52798pt x 346.89601pt>
+<figure_fit_demo_werr.pdf, id=495, 462.52798pt x 346.89601pt>
 File: figure_fit_demo_werr.pdf Graphic file (type pdf)
 <use figure_fit_demo_werr.pdf>
 Package pdftex.def Info: figure_fit_demo_werr.pdf  used on input line 238.
 (pdftex.def)             Requested size: 440.84743pt x 330.65031pt.
- [8 <./figure_sfd_optimized.pdf>] [9 <./figure_fit_demo_werr.pdf>]
-<figure_sfh_demo_v1.pdf, id=743, 462.52798pt x 346.89601pt>
+[7 <./figure_sd_dd_fits.pdf>] [8 <./figure_sfd_optimized.pdf>] [9 <./figure_fit
+_demo_werr.pdf>]
+<figure_sfh_demo_v1.pdf, id=750, 462.52798pt x 346.89601pt>
 File: figure_sfh_demo_v1.pdf Graphic file (type pdf)
 <use figure_sfh_demo_v1.pdf>
 Package pdftex.def Info: figure_sfh_demo_v1.pdf  used on input line 275.
 (pdftex.def)             Requested size: 252.94499pt x 189.70828pt.
-<figure_sfh_demo_v2.pdf, id=744, 462.52798pt x 346.89601pt>
+<figure_sfh_demo_v2.pdf, id=751, 462.52798pt x 346.89601pt>
 File: figure_sfh_demo_v2.pdf Graphic file (type pdf)
 <use figure_sfh_demo_v2.pdf>
 Package pdftex.def Info: figure_sfh_demo_v2.pdf  used on input line 276.
@@ -629,29 +657,33 @@ Package pdftex.def Info: figure_sfh_demo_v2.pdf  used on input line 276.
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./figure_sfh_demo_v2.pdf): P
 DF inclusion: multiple pdfs with page group included in a single page
 >]
-<figure_cdfs.pdf, id=906, 1445.4pt x 722.7pt>
+<figure_cdfs.pdf, id=913, 1445.4pt x 722.7pt>
 File: figure_cdfs.pdf Graphic file (type pdf)
 <use figure_cdfs.pdf>
 Package pdftex.def Info: figure_cdfs.pdf  used on input line 288.
 (pdftex.def)             Requested size: 440.84743pt x 220.41766pt.
-<figure_pwr_law.pdf, id=914, 462.52798pt x 346.89601pt>
+<figure_pwr_law.pdf, id=921, 462.52798pt x 346.89601pt>
 File: figure_pwr_law.pdf Graphic file (type pdf)
 <use figure_pwr_law.pdf>
 Package pdftex.def Info: figure_pwr_law.pdf  used on input line 299.
 (pdftex.def)             Requested size: 440.84743pt x 330.65031pt.
-<figure_loglog_dtd.pdf, id=927, 462.52798pt x 346.89601pt>
+ [11 <./figure_cdfs.pdf>]
+<figure_loglog_dtd.pdf, id=994, 462.52798pt x 346.89601pt>
 File: figure_loglog_dtd.pdf Graphic file (type pdf)
 <use figure_loglog_dtd.pdf>
 Package pdftex.def Info: figure_loglog_dtd.pdf  used on input line 308.
 (pdftex.def)             Requested size: 440.84743pt x 330.65031pt.
- [11 <./figure_cdfs.pdf>]
-<figure_ssfr.pdf, id=1012, 462.52798pt x 346.89601pt>
+
+Overfull \vbox (2.93144pt too high) has occurred while \output is active []
+
+
+[12 <./figure_pwr_law.pdf>]
+<figure_ssfr.pdf, id=1100, 462.52798pt x 346.89601pt>
 File: figure_ssfr.pdf Graphic file (type pdf)
 <use figure_ssfr.pdf>
 Package pdftex.def Info: figure_ssfr.pdf  used on input line 320.
 (pdftex.def)             Requested size: 440.84743pt x 330.65031pt.
- [12 <./figure_pwr_law.pdf>]
-<figure_toonen.pdf, id=1099, 578.16pt x 289.08pt>
+<figure_toonen.pdf, id=1110, 578.16pt x 289.08pt>
 File: figure_toonen.pdf Graphic file (type pdf)
 <use figure_toonen.pdf>
 Package pdftex.def Info: figure_toonen.pdf  used on input line 333.
@@ -678,19 +710,19 @@ Underfull \hbox (badness 10000) detected at line 425
 $\OML/cmm/m/it/9 b$
  []
 
-<figure_sfd_corners.pdf, id=1664, 686.565pt x 686.565pt>
+<figure_sfd_corners.pdf, id=1676, 686.565pt x 686.565pt>
 File: figure_sfd_corners.pdf Graphic file (type pdf)
 <use figure_sfd_corners.pdf>
 Package pdftex.def Info: figure_sfd_corners.pdf  used on input line 436.
 (pdftex.def)             Requested size: 361.34999pt x 361.3425pt.
 [19]
-<figure_sfh_corners.pdf, id=1679, 686.565pt x 686.565pt>
+<figure_sfh_corners.pdf, id=1691, 686.565pt x 686.565pt>
 File: figure_sfh_corners.pdf Graphic file (type pdf)
 <use figure_sfh_corners.pdf>
 Package pdftex.def Info: figure_sfh_corners.pdf  used on input line 459.
 (pdftex.def)             Requested size: 361.34999pt x 361.3425pt.
  [20 <./figure_sfd_corners.pdf>] [21 <./figure_sfh_corners.pdf>]
-<SNuM_all.pdf, id=1751, 578.16pt x 505.89pt>
+<SNuM_all.pdf, id=1763, 578.16pt x 505.89pt>
 File: SNuM_all.pdf Graphic file (type pdf)
 <use SNuM_all.pdf>
 Package pdftex.def Info: SNuM_all.pdf  used on input line 499.
@@ -702,13 +734,13 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 505.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 505.
  ) 
 Here is how much of TeX's memory you used:
- 9584 strings out of 492623
- 133045 string characters out of 6129552
- 352098 words of memory out of 5000000
- 13206 multiletter control sequences out of 15000+600000
- 14113 words of font info for 57 fonts, out of 8000000 for 9000
+ 9764 strings out of 492616
+ 135803 string characters out of 6129482
+ 354221 words of memory out of 5000000
+ 13387 multiletter control sequences out of 15000+600000
+ 14413 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 35i,11n,37p,1393b,615s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 35i,11n,37p,1393b,633s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb>
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
@@ -727,22 +759,23 @@ ve/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive
 texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2019/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2019/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2019/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2019/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2019/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2019/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2019/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2019/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/publi
-c/amsfonts/symbols/msam10.pfb>
-Output written on strolger.pdf (22 pages, 1245600 bytes).
+t/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2019/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2019/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2019/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2019/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2019/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmti9.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/
+amsfonts/symbols/msam10.pfb>
+Output written on strolger.pdf (22 pages, 1260690 bytes).
 PDF statistics:
- 1963 PDF objects out of 2073 (max. 8388607)
- 1031 compressed objects within 11 object streams
- 160 named destinations out of 1000 (max. 500000)
+ 1978 PDF objects out of 2073 (max. 8388607)
+ 1045 compressed objects within 11 object streams
+ 161 named destinations out of 1000 (max. 500000)
  76 words of extra memory for PDF output out of 10000 (max. 10000000)
 
