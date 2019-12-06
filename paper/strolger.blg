@@ -22,44 +22,44 @@ Reallocated out_buf (elt_size=1) to 80000 items from 60000.
 Reallocated name_tok (elt_size=4) to 80000 items from 60000.
 Reallocated name_sep_char (elt_size=1) to 80000 items from 60000.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 86 entries,
+You've used 88 entries,
             3166 wiz_defined-function locations,
-            1365 strings with 39860 characters,
-and the built_in function-call counts, 47381 in all, are:
-= -- 3283
-> -- 4772
+            1380 strings with 40271 characters,
+and the built_in function-call counts, 48346 in all, are:
+= -- 3366
+> -- 4850
 < -- 26
-+ -- 1577
-- -- 1683
-* -- 4821
-:= -- 9094
-add.period$ -- 93
-call.type$ -- 86
-change.case$ -- 456
-chr.to.int$ -- 85
-cite$ -- 86
-duplicate$ -- 1472
-empty$ -- 2373
-format.name$ -- 1793
-if$ -- 9193
++ -- 1604
+- -- 1713
+* -- 4910
+:= -- 9274
+add.period$ -- 95
+call.type$ -- 88
+change.case$ -- 471
+chr.to.int$ -- 87
+cite$ -- 88
+duplicate$ -- 1506
+empty$ -- 2425
+format.name$ -- 1824
+if$ -- 9383
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 82
-newline$ -- 273
-num.names$ -- 346
-pop$ -- 526
+missing$ -- 84
+newline$ -- 279
+num.names$ -- 354
+pop$ -- 541
 preamble$ -- 1
-purify$ -- 456
+purify$ -- 471
 quote$ -- 0
-skip$ -- 1210
+skip$ -- 1236
 stack$ -- 0
-substring$ -- 1531
+substring$ -- 1559
 swap$ -- 30
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 774
+type$ -- 792
 warning$ -- 0
-while$ -- 310
+while$ -- 318
 width$ -- 0
-write$ -- 944
+write$ -- 966

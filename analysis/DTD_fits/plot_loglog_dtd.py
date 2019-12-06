@@ -7,7 +7,7 @@ from scipy.optimize import curve_fit
 from scipy.stats import chisquare
 import pickle
 rcParams['font.size']=12.0
-#rcParams['figure.figsize']=8,8
+rcParams['figure.figsize']=9,6
 
 def redchisqg(ydata,ymod,sd, deg=2):  
       # Chi-square statistic  
@@ -50,7 +50,24 @@ ax.plot(time,rz.powerdtd(time, *pwrl, normed=False)*(1.6e-3), '--', color=color,
 
 
 
-color = '#F0CBC8'
+
+color = '0.5'#999933'#F0CBC8'
+pwrl = (-1.25,1.0)
+perr = (0.16, 0.0)
+cov = diag(array(perr)**2)
+ps = np.random.multivariate_normal(pwrl, cov, 100)
+ysample = asarray([rz.powerdtd(time, *pi, normed=False)*(5.75e-3) for pi in ps])
+lower = percentile(ysample, 15.9, axis=0)
+perr = (0.05, 0.0)
+cov = diag(array(perr)**2)
+ps = np.random.multivariate_normal(pwrl, cov, 100)
+ysample = asarray([rz.powerdtd(time, *pi, normed=False)*(5.75e-3) for pi in ps])
+upper = percentile(ysample, 84.1, axis=0)
+ax.fill_between(time, upper, lower, color=color, alpha=0.2)
+ax.plot(time,rz.powerdtd(time, *pwrl, normed=False)*(5.75e-3), '--', lw=2, color=color, label=r'HPK-CL ($\beta={%.1f}^{+0.16}_{-0.15}$)'%(pwrl[0]))
+
+
+color = '#AA4499'#F0CBC8'
 pwrl = (-1.39,1.0)
 perr = (0.32, 0.0)
 cov = diag(array(perr)**2)
@@ -63,8 +80,7 @@ ps = np.random.multivariate_normal(pwrl, cov, 100)
 ysample = asarray([rz.powerdtd(time, *pi, normed=False)*(5.4e-3) for pi in ps])
 upper = percentile(ysample, 84.1, axis=0)
 ax.fill_between(time, upper, lower, color=color, alpha=0.2)
-ax.plot(time,rz.powerdtd(time, *pwrl, normed=False)*(5.4e-3), '--', color=color, label=r'Clusters ($\beta={%.1f}^{+0.32}_{-0.05}$)'%(pwrl[0]))
-
+ax.plot(time,rz.powerdtd(time, *pwrl, normed=False)*(5.4e-3), '--', lw=2,  color=color, label=r'Clusters ($\beta={%.1f}^{+0.32}_{-0.05}$)'%(pwrl[0]))
 
 data = loadtxt('maoz_table2.txt')
 msc = 1.0e-4*0.7**2
@@ -145,5 +161,5 @@ ax.set_xscale('log')
 ax.set_yscale('log')
 ax2.set_yscale('log')
 ax2.set_yticks([])
-savefig('figure_loglog_dtd.png')
+savefig('figure_loglog_dtd.pdf')
 ##show()
