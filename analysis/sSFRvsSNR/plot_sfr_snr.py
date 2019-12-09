@@ -14,6 +14,8 @@ import warnings
 warnings.simplefilter('ignore',RuntimeWarning)
 np.seterr(divide='ignore', invalid='ignore') 
 #rcParams['font.size']=15.0
+rcParams['font.size']=12.0
+rcParams['figure.figsize']=9,6
 
 def rate_per_galaxy(sfh_data, lbu=13.65, lbl=0.05, p0 = None,
                     frac_ia = 0.05,
@@ -349,8 +351,10 @@ if __name__=='__main__':
                  yerr=log10((data[1:,1]-data[1:,2])/data[1:,1]),
                  fmt='o', ms=10, mfc='white', label='Mannucci et al. (2005)')
     ax2.errorbar(data[0,0], log10(data[0,1]),
-                 yerr=0.5,xerr=data[0,0]+11,
-                 uplims=0.5,
+                 yerr=-log10((data[0,1]-data[0,2])/data[0,1]),
+                 #yerr=0.5,
+                 xerr=[[data[0,0]+11.5],[data[0,0]-11.5]],
+                 #uplims=0.5,
                  fmt='o', ms=10, mfc='white', color='#2077B4')
 
 
@@ -360,20 +364,25 @@ if __name__=='__main__':
                  yerr=-log10((data[1:,1]-data[1:,2])/data[1:,1]),
                  fmt='o', ms=10, mfc='white', label='Sullivan et al. (2006)')
     ax2.errorbar(data[0,0], log10(data[0,1]),
-                 yerr=0.5,xerr=data[0,0]+11,
-                 uplims=0.5,
+                 yerr=-log10((data[0,1]-data[0,2])/data[0,1]),
+                 #yerr=0.5,
+                 xerr=[[data[0,0]+11.5],[data[0,0]-11.5]],
+                 #uplims=0.5,
                  fmt='o', ms=10, mfc='white',color='#FF7F0E')
+
 
     data = loadtxt('smith12.txt')
     lolims = zeros((len(data)),)
     lolims[0]=1.0
     ax2.errorbar(data[:,0], log10(data[:,1]),
                  yerr=[-log10((data[:,1]-data[:,2])/data[:,1]),log10((data[:,1]-data[:,2])/data[:,1])],
-                 uplims=lolims,
+                 #uplims=lolims,
                  fmt='o', ms=10, mfc='white', label='Smith et al. (2012)')
     ax2.errorbar(data[0,0], log10(data[0,1]),
-                 yerr=0.5,xerr=data[0,0]+11,
-                 uplims=0.5,
+                 yerr=-log10((data[0,1]-data[0,2])/data[0,1]),
+                 #yerr=0.5,
+                 xerr=[[data[0,0]+11.5],[data[0,0]-11.5]],
+                 #uplims=0.5,
                  fmt='o', ms=10, mfc='white', color='#2CA02C')
     
 

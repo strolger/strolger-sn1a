@@ -19,11 +19,12 @@ import emcee
 import control_time as tc
 import warnings
 
-## ndim, nwalkers, nsteps = 4, 30, 50
+## ndim, nwalkers, nsteps = 4, 30, 100
 ndim, nwalkers, nsteps = 4, 100, 225
 
 bounds = [
-    [0., 1.],
+    #[0., 1.],
+    [-10.,0.],
     [-2000., 2000.],
     [0.01,100.],
     [-500.,500.]
@@ -90,7 +91,7 @@ def rate_per_galaxy(sfh_data, lbu=13.65, lbl=0.05, p0 = None,
     scale = quad(imf.salpeter,3,8)[0]/quad(imf.salpeter1,0.1,125)[0]
     scale = scale * 0.70**2.
     if not tuple(p0):
-        p0 = (0.05, -1.4, 3.5, -1.0)
+        p0 = (-3, -1.4, 3.5, -1.0)
     
     ii = where((sfh_data[:,0]>lbl)&(sfh_data[:,0]<=lbu)) # cuts the data range
     sfh_data = sfh_data[ii]
@@ -104,7 +105,7 @@ def rate_per_galaxy(sfh_data, lbu=13.65, lbl=0.05, p0 = None,
     
     dt = sum(diff(sfh_data[:,0]))/(len(sfh_data[:,0])-1)
     rate_fn = zeros((len(sfh_data),2),)
-    tmp = convolve(sfh_data[:,1], dtd, 'full')*dt*scale*p0[0] ## now convolved result in forward time
+    tmp = convolve(sfh_data[:,1], dtd, 'full')*dt*scale*exp(p0[0]) ## now convolved result in forward time
     rate_fn[:,1]=tmp[:len(dtd)]
 
     rate_fn[:,0]=sfh_data[:,0]
@@ -169,8 +170,8 @@ if __name__ == '__main__':
 
     ncore = mpc.cpu_count()
     step_sep = 1.0
-    p0 = (0.05, -1200., 50, 200)
-    
+    #p0 = (0.05, -1200., 50, 200)
+    p0 = (-3, -1200., 50, 200)
     timestamp=datetime.datetime.now().strftime('%Y%m%d%H%M')
     out_sampler = 'mc_sfh_%s.pkl' %timestamp
     verbose=True
@@ -239,13 +240,13 @@ if __name__ == '__main__':
     f_mcmc, m_mcmc, w_mcmc, k_mcmc = map(lambda v: (v[1], v[2]-v[1], v[1]-v[0]),
                                          zip(*np.percentile(samples, [16, 50, 84],
                                                             axis=0)))     
-    print(r'parameters: f=%2.2f\pm%2.2f; $\xi=%2.2f\pm%2.2f$; $\omega=%2.2f\pm%2.2f$; $\alpha=%2.2f\pm%2.2f$' %(f_mcmc[0], f_mcmc[1],
+    print(r'parameters: $\varepsilon=%2.2f\pm%2.2f$; $\xi=%2.2f\pm%2.2f$; $\omega=%2.2f\pm%2.2f$; $\alpha=%2.2f\pm%2.2f$' %(f_mcmc[0], f_mcmc[1],
                                                                                                                 m_mcmc[0], m_mcmc[1],
                                                                                                                 w_mcmc[0], w_mcmc[1],
                                                                                                                 k_mcmc[0], k_mcmc[1]))
     import corner
     samples = samples.reshape((-1,ndim))
-    fig = corner.corner(samples,labels=['f',r'$\xi$',r'$\omega$',r'$\alpha$'],
+    fig = corner.corner(samples,labels=[r'$\varepsilon$',r'$\xi$',r'$\omega$',r'$\alpha$'],
                         truths=[f_mcmc[0], m_mcmc[0], w_mcmc[0], k_mcmc[0]])
     fig.savefig('figure_preliminary_sfh_corners.png')
     

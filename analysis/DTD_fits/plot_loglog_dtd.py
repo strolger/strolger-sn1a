@@ -49,8 +49,6 @@ ax.fill_between(time, upper, lower, color=color, alpha=0.2)
 ax.plot(time,rz.powerdtd(time, *pwrl, normed=False)*(1.6e-3), '--', color=color, label=r'Field ($\beta={%.2f}^{+0.08}_{-0.07}$)'%(pwrl[0]))
 
 
-
-
 color = '0.5'#999933'#F0CBC8'
 pwrl = (-1.25,1.0)
 perr = (0.16, 0.0)
@@ -67,7 +65,8 @@ ax.fill_between(time, upper, lower, color=color, alpha=0.2)
 ax.plot(time,rz.powerdtd(time, *pwrl, normed=False)*(5.75e-3), '--', lw=2, color=color, label=r'HPK-CL ($\beta={%.1f}^{+0.16}_{-0.15}$)'%(pwrl[0]))
 
 
-color = '#AA4499'#F0CBC8'
+#color = '#AA4499'#F0CBC8'
+color = 'red'
 pwrl = (-1.39,1.0)
 perr = (0.32, 0.0)
 cov = diag(array(perr)**2)
@@ -94,6 +93,11 @@ tmp=rz.powerdtd(data[idx][:,0], *pwrl, normed=False)*(5.4e-3)
 chi2 = redchisqg(data[idx][:,3]*msc, tmp, sd=data[idx][:,5]*msc)
 print(chi2, len(tmp)-1)
 
+pwrl = (-1.25,1.0)
+tmp=rz.powerdtd(data[idx][:,0], *pwrl, normed=False)*(5.8e-3)
+chi2 = redchisqg(data[idx][:,3]*msc, tmp, sd=data[idx][:,5]*msc)
+print(chi2, len(tmp)-1)
+
 
 idx = where(data[:,6]==0)
 
@@ -111,6 +115,13 @@ tmp=rz.powerdtd(data[idx][1:,0], *pwrl, normed=False)*(1.6e-3)
 chi2 = redchisqg(data[idx][1:,3]*msc, tmp, sd=data[idx][1:,5]*msc, deg=0)
 print(chi2, len(tmp)-1)
 
+pwrl = (-1.25,1.0)
+tmp=rz.powerdtd(data[idx][1:,0], *pwrl, normed=False)*(5.8e-3)
+chi2 = redchisqg(data[idx][1:,3]*msc, tmp, sd=data[idx][1:,5]*msc, deg=0)
+print(chi2, len(tmp)-1)
+
+
+
 
 
 
@@ -123,6 +134,11 @@ ax.plot(time,dtd*scale*popt,'b-', lw=2, label= 'Exponential model')#label='Norm 
 tmp=rz.dtdfunc(data[:,0], *p0)*scale*popt
 chi2 = redchisqg(data[:,3]*msc, tmp, sd=data[:,5]*msc, deg=0)
 print(chi2,len(tmp)-1)
+
+pwrl = (-1.25,1.0)
+tmp=rz.powerdtd(data[:,0], *pwrl, normed=False)*(5.8e-3)
+chi2 = redchisqg(data[:,3]*msc, tmp, sd=data[:,5]*msc, deg=0)
+print(chi2, len(tmp)-1)
 
 files = glob.glob('mc_sfd_*.pkl')
 tot = 0
