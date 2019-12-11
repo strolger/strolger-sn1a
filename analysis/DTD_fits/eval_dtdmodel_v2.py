@@ -27,7 +27,7 @@ if __name__=='__main__':
     tt = arange(dt,age,dt)
     ## p_val = [-2.810, -1518.39108091,    51.06020462,    49.98728772] ## from optimized fit
     p_val = [-2.814, -1257.93, 59.32, 248.88] ## from MCMC
-
+    
     ax = subplot(111)
     ax2 = axes([0.55, 0.6, 0.33, 0.25])
     ## ax2 = axes([0.65, 0.62, 0.23, 0.2])

@@ -135,10 +135,21 @@ tmp=rz.dtdfunc(data[:,0], *p0)*scale*popt
 chi2 = redchisqg(data[:,3]*msc, tmp, sd=data[:,5]*msc, deg=0)
 print(chi2,len(tmp)-1)
 
-pwrl = (-1.25,1.0)
-tmp=rz.powerdtd(data[:,0], *pwrl, normed=False)*(5.8e-3)
-chi2 = redchisqg(data[:,3]*msc, tmp, sd=data[:,5]*msc, deg=0)
-print(chi2, len(tmp)-1)
+idx = where(data[:,6]==0)
+tmp=rz.dtdfunc(data[idx][:,0], *p0)*scale*popt
+chi2 = redchisqg(data[idx][:,3]*msc, tmp, sd=data[idx][:,5]*msc, deg=0)
+print(chi2,len(tmp)-1)
+
+idx = where(data[:,6]==1)
+tmp=rz.dtdfunc(data[idx][:,0], *p0)*scale*popt
+chi2 = redchisqg(data[idx][:,3]*msc, tmp, sd=data[idx][:,5]*msc, deg=0)
+print(chi2,len(tmp)-1)
+
+
+## pwrl = (-1.25,1.0)
+## tmp=rz.powerdtd(data[:,0], *pwrl, normed=False)*(5.8e-3)
+## chi2 = redchisqg(data[:,3]*msc, tmp, sd=data[:,5]*msc, deg=0)
+## print(chi2, len(tmp)-1)
 
 files = glob.glob('mc_sfd_*.pkl')
 tot = 0

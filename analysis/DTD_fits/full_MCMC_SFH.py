@@ -19,12 +19,12 @@ import emcee
 import control_time as tc
 import warnings
 
-## ndim, nwalkers, nsteps = 4, 30, 100
+## ndim, nwalkers, nsteps = 4, 30, 60
 ndim, nwalkers, nsteps = 4, 100, 225
 
 bounds = [
     #[0., 1.],
-    [-10.,0.],
+    [-4.,0.],
     [-2000., 2000.],
     [0.01,100.],
     [-500.,500.]
@@ -206,7 +206,7 @@ if __name__ == '__main__':
             tmp2 = tc.run(item,45.0,26.2,type=['ia'],dstep=3,dmstep=0.5,dastep=0.5,
                          verbose=False,plot=False,parallel=False,Nproc=1,
                          prev=45.0, extinction=False)*(1.0+item)
-            tmp = 2*tmp1 + 8*tmp2
+            tmp = 2*tmp1 + 8*tmp2 + 2*tmp1 + 3*tmp2 + 8*tmp2 + 2*tmp1 + 10*tmp2 + 3*tmp1 + 11*tmp2
             yds.append(tmp)
         yds=array(yds)
         for k,v in redshifts.items():

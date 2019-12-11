@@ -12,6 +12,17 @@
 \bibitem[{{Arnett}(1969)}]{Arnett:1969dw}
 {Arnett}, W.~D. 1969, \apss, 5, 180, \dodoi{10.1007/BF00650291}
 
+\bibitem[{{Astropy Collaboration} {et~al.}(2013){Astropy Collaboration},
+  {Robitaille}, {Tollerud}, {Greenfield}, {Droettboom}, {Bray}, {Aldcroft},
+  {Davis}, {Ginsburg}, {Price-Whelan}, {Kerzendorf}, {Conley}, {Crighton},
+  {Barbary}, {Muna}, {Ferguson}, {Grollier}, {Parikh}, {Nair}, {Unther},
+  {Deil}, {Woillez}, {Conseil}, {Kramer}, {Turner}, {Singer}, {Fox}, {Weaver},
+  {Zabalza}, {Edwards}, {Azalee Bostroem}, {Burke}, {Casey}, {Crawford},
+  {Dencheva}, {Ely}, {Jenness}, {Labrie}, {Lim}, {Pierfederici}, {Pontzen},
+  {Ptak}, {Refsdal}, {Servillat}, \& {Streicher}}]{Astropy:2013}
+{Astropy Collaboration}, {Robitaille}, T.~P., {Tollerud}, E.~J., {et~al.} 2013,
+  \aap, 558, A33, \dodoi{10.1051/0004-6361/201322068}
+
 \bibitem[{{Barro} {et~al.}(2019){Barro}, {P{\'e}rez-Gonz{\'a}lez}, {Cava},
   {Brammer}, {Pandya}, {Eliche Moral}, {Esquej}, {Dom{\'\i}nguez-S{\'a}nchez},
   {Alcalde Pampliega}, {Guo}, {Koekemoer}, {Trump}, {Ashby}, {Cardiel},
@@ -232,6 +243,10 @@ Denissenkov, P.~A., Truran, J.~W., Herwig, F., {et~al.} 2015, Monthly Notices
   {Strolger}}]{Hounsell:2018fv}
 {Hounsell}, R., {Scolnic}, D., {Foley}, R.~J., {et~al.} 2018, \apj, 867, 23,
   \dodoi{10.3847/1538-4357/aac08b}
+
+\bibitem[{{Hunter}(2007)}]{Hunter:2007pv}
+{Hunter}, J.~D. 2007, Computing in Science and Engineering, 9, 90,
+  \dodoi{10.1109/MCSE.2007.55}
 
 \bibitem[{{Iben} \& {Tutukov}(1984)}]{Iben:1984}
 {Iben}, Jr., I., \& {Tutukov}, A.~V. 1984, \apjs, 54, 335,
