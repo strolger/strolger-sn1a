@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.4.10)  11 DEC 2019 14:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.4.10)  12 DEC 2019 10:31
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -743,7 +743,7 @@ Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 511.
 Here is how much of TeX's memory you used:
  9777 strings out of 492623
  136028 string characters out of 6129552
- 375444 words of memory out of 5000000
+ 376444 words of memory out of 5000000
  13389 multiletter control sequences out of 15000+600000
  14890 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -779,7 +779,7 @@ ublic/amsfonts/cm/cmti8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmti9.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public
 /amsfonts/symbols/msam10.pfb>
-Output written on strolger.pdf (22 pages, 1349935 bytes).
+Output written on strolger.pdf (22 pages, 1349461 bytes).
 PDF statistics:
  2022 PDF objects out of 2073 (max. 8388607)
  1078 compressed objects within 11 object streams

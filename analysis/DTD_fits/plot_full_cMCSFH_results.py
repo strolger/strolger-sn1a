@@ -18,7 +18,7 @@ if __name__=='__main__':
     #files = glob.glob('mc_sfh_2019*.pkl')
     #files = ['mc_sfh_201912061430.pkl']
     #files = ['mc_sfh_201912091319.pkl']
-    files = ['mc_sfh_201912101558.pkl']
+    files = glob.glob('mc_sfh_201912*.pkl')
     tot = 0
     for file in files:
         samples = pickle.load(open(file,'rb'))
