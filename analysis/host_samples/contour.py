@@ -40,10 +40,35 @@ data[idx[0]]=float('nan')
 idx = where(data[:,3]==-3.0)
 data[idx[0]]=float('nan')
 
+## and to get rid of stars
+"""
+This is tricky as the info for CLASS_STAR
+is in a separate set of files
+"""
+
+j1 = loadtxt('../ALLSFH_new_z/CANDELS_GDSN_znew_avgal_radec.dat')
+j2 = loadtxt('../ALLSFH_new_z/CANDELS_GDSS_znew_avgal_radec.dat')
+j1 = np.delete(j1,[38,39],1) ## remove the extra phot columns 
+
+## j3 = zeros((len(j2), len(j1[0])),)
+## j3[:,:len(j2[0])]=j2
+## j3[:,-3:]=j2[:,-3:]
+           
+
+j1[:,0] = j1[:,0]+100000
+j2[:,0] = j2[:,0]+200000
+junk = concatenate((j1,j2), axis=0)
+idx = where(junk[:,-3]>=0.8)
+data[idx[0]]=float('nan')
+
+
+
 X = data[:,1][~isnan(data[:,1])]
 Y = data[:,3][~isnan(data[:,3])]
 all_masses = X
 all_sfrs = Y
+print(len(X), len(Y))
+#sys.exit()
 
 # fit an array of size [Ndim, Nsamples]
 tmp = np.vstack([X, Y])

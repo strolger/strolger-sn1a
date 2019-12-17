@@ -19,8 +19,8 @@ import emcee
 import control_time as tc
 import warnings
 
-## ndim, nwalkers, nsteps = 4, 30, 60
-ndim, nwalkers, nsteps = 4, 100, 225
+ndim, nwalkers, nsteps = 4, 30, 60
+## ndim, nwalkers, nsteps = 4, 100, 225
 
 bounds = [
     #[0., 1.],
@@ -182,11 +182,17 @@ if __name__ == '__main__':
     sfhs = get_sfhs(verbose=verbose, delete=delete)
 
     candels_cat_north = loadtxt('../ALLSFH_new_z/CANDELS_GDSN_znew_avgal_radec.dat')
-    candels_cat_north = np.delete(candels_cat_north,[40,41],1) # removes two flag columns
+    ## candels_cat_north = np.delete(candels_cat_north,[40,41],1) # removes two flag columns
+    candels_cat_north = np.delete(candels_cat_north,[38,39],1) # removes two extra photometry columns
     candels_cat_north[:,0]+=100000 #disambiguate the indexes
     candels_cat_south = loadtxt('../ALLSFH_new_z/CANDELS_GDSS_znew_avgal_radec.dat')
     candels_cat_south[:,0]+=200000 #disambiguate the indexes
     candels_cat = concatenate((candels_cat_north, candels_cat_south), axis=0)
+
+    ## removing stars
+    idx = where(candels_cat[:,-3]>0.8)
+    candels_cat = np.delete(candels_cat,idx[0],0)
+
 
     ia_host_codex=match_sne_hosts(gxycat=candels_cat,verbose=verbose)
     if verbose: print ('Getting Redshifts...')
