@@ -86,12 +86,21 @@ if __name__=='__main__':
                 plot_point=True, marker_size=170, marker_style="o", color="r",
                 name="CSFH Max. Likelihood (Optimized)")
 
+    marker_data = array([[-2.78, 10, 600, 220, -2.41],
+                         [-2.78, 110, 1000, 2, -2.41],
+                         [-2.78, 350, 1200, 20, -2.41],
+                         [-2.78, 6000, 6000, -2, -2.41]])
+        
+    c.add_chain(marker_data, posterior=np.array([0,1,2,3]), plot_contour=False, 
+                plot_point=True, marker_size=170, marker_style="o", color="y",
+                name="Other SD best parameters")
+
     c.configure(label_font_size=22, tick_font_size=14, contour_labels='sigma')
     fig = c.plotter.plot(figsize="column",
                          truth={r'$\ln\varepsilon$':ff_mcmc[0], 
                                 r'$\xi$': m_mcmc[0], r'$\omega$': w_mcmc[0], r'$\alpha$': k_mcmc[0],
                                 r'$\ln f$':md3},
-                         extents = [[-3.1, -2.5], [-2000.,0.0], [10., 90], [0., 500],[-4,0]]
+                         extents = [[-3.1, -2.5], [-2000.,2000.0], [0., 9000], [0., 500],[-4,0]]
                          ## extents = [[-0.2, 0.4], [-1900.,200.0], [-0.1, 90], [-200., 500],[-4.2,0.1]]
                          )
     

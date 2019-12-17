@@ -99,8 +99,8 @@ if __name__=='__main__':
         cell.set_linewidth(0)
 
 
-    ax2.set_xscale('log')
-    ax2.set_yscale('log')
+    #ax2.set_xscale('log')
+    #ax2.set_yscale('log')
 
     ax2.set_xlim(100,10000)
     ## ax2.set_ylim(1e-5, 0.005)
@@ -109,14 +109,14 @@ if __name__=='__main__':
 
 
     ax2.set_yticks([])
-    ax2.legend(loc=3, fontsize=8,frameon=False)
+    #ax2.legend(loc=3, fontsize=8,frameon=False)
     ax2.set_title('DD Models')
 
     
-    ax.set_xscale('log')
-    ax.set_yscale('log')
-    ax.set_ylim(4e-7,2e-2)
-    ax.legend(loc=3, frameon=True)
+    #ax.set_xscale('log')
+    #ax.set_yscale('log')
+    ax.set_ylim(4e-7,1.25e-2)
+    #ax.legend(loc=3, frameon=True)
 
     ax.set_xlabel('Delay time (Myr)')
     ax.set_ylabel(r'SN Ia yr$^{-1}$ ($10^{10}$ M$_{\odot}$)$^{-1}$')

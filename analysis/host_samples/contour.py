@@ -110,7 +110,7 @@ Z = kde.evaluate(np.vstack([Xgrid.ravel(), Ygrid.ravel()]))
 ## ## cb.set_label("density")
 ## ## pdb.set_trace()
 
-cs2=ax1.contour(Xgrid, Ygrid, Z.reshape(Xgrid.shape),[0.01, 0.05, 0.2, 0.32],  colors='C3', linestyle='dashed')
+#cs2=ax1.contour(Xgrid, Ygrid, Z.reshape(Xgrid.shape),[0.01, 0.05, 0.2, 0.32],  colors='C3', linestyle='dashed')
 ## cs=plt.contour(Xgrid, Ygrid, Z.reshape(Xgrid.shape),[0.01, 0.05, 0.32],  colors='blue')
 ## fmt={}
 ## strs = ['3$\sigma$','2$\sigma$','1$\sigma$']
