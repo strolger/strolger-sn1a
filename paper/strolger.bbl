@@ -5,6 +5,12 @@
 \providecommand{\doeprint}[1]{\href{http://ascl.net/#1}{\nolinkurl{http://ascl.net/#1}}}
 \providecommand{\doarXiv}[1]{\href{https://arxiv.org/abs/#1}{\nolinkurl{https://arxiv.org/abs/#1}}}
 
+\bibitem[{Akaike(1998)}]{Akaike:1998fp}
+Akaike, H. 1998, Information Theory and an Extension of the Maximum Likelihood
+  Principle, ed. E.~Parzen, K.~Tanabe, \& G.~Kitagawa (New York, NY: Springer
+  New York), 199--213.
+\newblock \url{https://doi.org/10.1007/978-1-4612-1694-0_15}
+
 \bibitem[{{Andersen} \& {Hjorth}(2018)}]{Andersen:2018dp}
 {Andersen}, P., \& {Hjorth}, J. 2018, \mnras, 480, 68,
   \dodoi{10.1093/mnras/sty1837}
@@ -35,6 +41,13 @@
   {Willner}, {Wiklind}, \& {Wuyts}}]{Barro:2019vn}
 {Barro}, G., {P{\'e}rez-Gonz{\'a}lez}, P.~G., {Cava}, A., {et~al.} 2019, \apjs,
   243, 22, \dodoi{10.3847/1538-4365/ab23f2}
+
+\bibitem[{{Bertin} \& {Arnouts}(1996)}]{Bertin:1996}
+{Bertin}, E., \& {Arnouts}, S. 1996, \aaps, 117, 393
+
+\bibitem[{Bertin \& Arnouts(2010)}]{Bertin:yg}
+Bertin, E., \& Arnouts, S. 2010, Astrophysics Source Code Library, record
+  ascl:1010.064
 
 \bibitem[{{Blanc} {et~al.}(2004){Blanc}, {Afonso}, {Alard}, {Albert},
   {Aldering}, {Amadon}, {Andersen}, {Ansari}, {Aubourg}, {Balland}, {Bareyre},
@@ -181,6 +194,10 @@ Denissenkov, P.~A., Truran, J.~W., Herwig, F., {et~al.} 2015, Monthly Notices
   {Tremonti}, C.~A. 2005, \mnras, 362, 41,
   \dodoi{10.1111/j.1365-2966.2005.09321.x}
 
+\bibitem[{{Gao} \& {Pritchet}(2013)}]{Gao:2013kk}
+{Gao}, Y., \& {Pritchet}, C. 2013, \aj, 145, 83,
+  \dodoi{10.1088/0004-6256/145/3/83}
+
 \bibitem[{{Graur} {et~al.}(2015){Graur}, {Bianco}, \& {Modjaz}}]{Graur:2015fk}
 {Graur}, O., {Bianco}, F.~B., \& {Modjaz}, M. 2015, \mnras, 450, 905,
   \dodoi{10.1093/mnras/stv713}
@@ -293,6 +310,10 @@ Denissenkov, P.~A., Truran, J.~W., Herwig, F., {et~al.} 2015, Monthly Notices
 {Li}, W., {Chornock}, R., {Leaman}, J., {et~al.} 2011, \mnras, 412, 1473,
   \dodoi{10.1111/j.1365-2966.2011.18162.x}
 
+\bibitem[{{Livio} \& {Mazzali}(2018)}]{Livio:2018rz}
+{Livio}, M., \& {Mazzali}, P. 2018, \physrep, 736, 1,
+  \dodoi{10.1016/j.physrep.2018.02.002}
+
 \bibitem[{{Madau} \& {Dickinson}(2014)}]{Madau:2014fk}
 {Madau}, P., \& {Dickinson}, M. 2014, \araa, 52, 415,
   \dodoi{10.1146/annurev-astro-081811-125615}
@@ -319,6 +340,10 @@ Denissenkov, P.~A., Truran, J.~W., Herwig, F., {et~al.} 2015, Monthly Notices
 \bibitem[{{Maoz} \& {Hallakoun}(2017)}]{Maoz:2017zl}
 {Maoz}, D., \& {Hallakoun}, N. 2017, \mnras, 467, 1414,
   \dodoi{10.1093/mnras/stx102}
+
+\bibitem[{{Maoz} {et~al.}(2018){Maoz}, {Hallakoun}, \& {Badenes}}]{Maoz:2018eu}
+{Maoz}, D., {Hallakoun}, N., \& {Badenes}, C. 2018, \mnras, 476, 2584,
+  \dodoi{10.1093/mnras/sty339}
 
 \bibitem[{{Maoz} \& {Mannucci}(2012)}]{Maoz:2012}
 {Maoz}, D., \& {Mannucci}, F. 2012, PASA, 29, 447, \dodoi{10.1071/AS11052}
@@ -464,6 +489,9 @@ Pain, R., Fabbro, S., Sullivan, M., {et~al.} 2002, \apj, 577, 120
 {Scannapieco}, E., \& {Bildsten}, L. 2005, \apjl, 629, L85,
   \dodoi{10.1086/452632}
 
+\bibitem[{Schwarz(1978)}]{Schwarz:1978qd}
+Schwarz, G. 1978, Ann. Statist., 6, 461, \dodoi{10.1214/aos/1176344136}
+
 \bibitem[{{Smith} {et~al.}(2012){Smith}, {Nichol}, {Dilday}, {Marriner},
   {Kessler}, {Bassett}, {Cinabro}, {Frieman}, {Garnavich}, {Jha}, {Lampeitl},
   {Sako}, {Schneider}, \& {Sollerman}}]{Smith:2012lr}
@@ -533,5 +561,10 @@ Strolger, L.-G., Riess, A.~G., Dahlen, T., {et~al.} 2004, \apj, 613, 200
 
 \bibitem[{{Whelan} \& {Iben}(1973)}]{Whelan:1973}
 {Whelan}, J., \& {Iben}, I.~J. 1973, \apj, 186, 1007, \dodoi{10.1086/152565}
+
+\bibitem[{{Wu} {et~al.}(2018){Wu}, {Dor{\'e}}, {Teyssier}, \&
+  {Serra}}]{Wu:2018qy}
+{Wu}, H.-Y., {Dor{\'e}}, O., {Teyssier}, R., \& {Serra}, P. 2018, \mnras, 475,
+  3974, \dodoi{10.1093/mnras/sty071}
 
 \end{thebibliography}

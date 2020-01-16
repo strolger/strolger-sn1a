@@ -4,6 +4,8 @@ from pylab import *
 from strolger_util import util as u
 from strolger_util import rates_z as rz
 from scipy.optimize import curve_fit
+rcParams['font.size']=12.0
+rcParams['figure.figsize']=9,6
 
 from kapteyn import kmpfit
 #matplotlib.rcParams.update({'font.size': 14})
@@ -167,6 +169,12 @@ upper = percentile(ysample, 84.1, axis=0)
 #ax2.fill_between(zz, upper, lower, color=myuv, alpha=0.2)
 
 
+## from Wu et al. FIR background galaxies
+p0 = [0.0157, 2.51, 3.64, 5.46]
+perr = [0.0004, 0.04, 0.05, 0.1]
+ax2.plot(redshifts, func(redshifts, *p0)*0.7, 'r--', label = r'$\dot{\rho}_{\star}(z)$ FIR Background, Wu et al. (2018)', alpha=0.3)
+
+
 data = loadtxt('bouwens2015.txt')
 redshifts = data[:,0]
 csfh = 10**(data[:,1])*0.7
@@ -250,6 +258,6 @@ lg2=ax2.legend(loc=3, frameon=False)
 #u.allblack2(ax,lg)
 #u.adjust_spines(ax,['left','bottom'])
 
-savefig('figure_csfh_today.png')#,transparent=True)
+savefig('figure_csfh_today.pdf')#,transparent=True)
 
 

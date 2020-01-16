@@ -33,6 +33,7 @@ def rate_per_galaxy(sfh, lbu=13.65, lbl=0.05, p0 = None,
 
     sfh_data[:,0] = lbu-sfh_data[:,0][::-1]
     sfh_data[:,1] = sfh_data[:,1][::-1] ## now in forward time
+    sfh_data[:,2] = sfh_data[:,2][::-1] ## now in forward time
 
     if testing:
         ## reframes everything in a more continuous time.
@@ -76,14 +77,17 @@ def rate_per_galaxy(sfh, lbu=13.65, lbl=0.05, p0 = None,
     if plotit:
         clf()
         ax1 = subplot(111)
-        ax1.plot(lbu-sfh_data[:,0], sfh_data[:,1], '--', color='0.25')#,alpha=0.3)
+        ax1.plot(lbu-sfh_data[:,0], sfh_data[:,1], '--', color='0.25',alpha=0.3)
+        #ax1.plot(lbu-sfh_data[:,0], sfh_data[:,1]+sfh_data[:,2], '--', color='r',alpha=0.3)
+        #ax1.plot(lbu-sfh_data[:,0], sfh_data[:,1]-sfh_data[:,2], '--', color='r',alpha=0.3)
+        ax1.fill_between(lbu-sfh_data[:,0], sfh_data[:,1]-sfh_data[:,2], sfh_data[:,1]+sfh_data[:,2], color='0.25', alpha=0.3)
         ax1.set_xlabel('Lookback Time (Gyr)')
         ax1.set_ylabel('$\psi(M_{\odot}\,yr^{-1})$')
         if title: ax1.set_title(title)
         ## ax1.axvline(x=0, color='r')
 
         ax3 = ax1.twinx()
-        ax3.plot(lbu-rate_fn[:,0],rate_fn[:,1]*1.e3, 'k-', label = '$R_{Ia}(0)=%2.2f\, (1000\, yr)^{-1}$' %(rate*1.e3), alpha=0.3)
+        ax3.plot(lbu-rate_fn[:,0],rate_fn[:,1]*1.e3, 'g-', lw=3,  label = '$R_{Ia}(0)=%2.2f\, (1000\, yr)^{-1}$' %(rate*1.e3), alpha=0.3)
         ax3.set_ylabel('$R_{Ia}[\#\,(1000\, yr)^{-1}]$')
         ax3.legend(frameon=False)
 
@@ -99,27 +103,27 @@ def rate_per_galaxy(sfh, lbu=13.65, lbl=0.05, p0 = None,
         ax2 = axes([0.6, 0.55, 0.25, 0.25])
         ax2.plot(time,dtd,'r-', label= 'Best Fit')#label='Norm = %1.1f' %(simps(dtd,x=time)))
         ax2.plot(time,rz.powerdtd(time, *pwrl), 'b--', label=r'$t^{%.1f}$'%(pwrl[0]))
-        ## ax2.plot(ttt,ddd,'b--', label='Greggio')
         ax2.set_ylabel('$\Phi$')
         ax2.set_xlabel('Delay Time (Gyr)')
         ax2.set_xlim(0,12)
         ax2.set_ylim(0,1.3)
         ax2.legend(frameon=False)
-        #tight_layout()
 
         ax4 = axes([0.6, 0.2, 0.25, 0.25])
-        #img = mpimg.imread('107.jpg') ## Thoth
-        #ax4.imshow(img[75:135,50:140])
-        img = mpimg.imread('206.jpg') ## Borg
-        ax4.imshow(img[75:135,70:160])
+        img = mpimg.imread('107.jpg') ## Thoth
+        ax4.imshow(img[75:135,50:140])
+        #img = mpimg.imread('206.jpg') ## Borg
+        #ax4.imshow(img[75:135,70:160])
 
         ax4.set_yticks([])
         ax4.set_xticks([])
-
+        ax1.set_xlim(0,8)
+        ax3.set_ylim(-1.3,20.5)
+        
         if title:
             savefig(title+'.png')
         else:
-            savefig('figure_sfh_demo_v2.png')
+            savefig('figure_sfh_demo_v1.pdf')
             
     return(rate)
 
@@ -135,8 +139,8 @@ if __name__=='__main__':
 
     p0 = (-1200., 50, 200)
 
-    sfh0 = 106969 ## Borg
-    ## sfh0 = 216531 ## Thoth
+    ## sfh0 = 106969 ## Borg
+    sfh0 = 216531 ## Thoth
     if sfh0 < 200000:
         sfh = '../ALLSFH_new_z/gnznnpas/%05d.dat'%(sfh0 - 100000)
     else:

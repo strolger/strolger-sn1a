@@ -22,44 +22,46 @@ Reallocated out_buf (elt_size=1) to 80000 items from 60000.
 Reallocated name_tok (elt_size=4) to 80000 items from 60000.
 Reallocated name_sep_char (elt_size=1) to 80000 items from 60000.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 90 entries,
+Warning--can't use both author and editor fields in Akaike:1998fp
+You've used 98 entries,
             3166 wiz_defined-function locations,
-            1395 strings with 41392 characters,
-and the built_in function-call counts, 49618 in all, are:
-= -- 3430
-> -- 5014
-< -- 27
-+ -- 1658
-- -- 1768
-* -- 5054
-:= -- 9536
-add.period$ -- 97
-call.type$ -- 90
-change.case$ -- 479
-chr.to.int$ -- 89
-cite$ -- 90
-duplicate$ -- 1538
-empty$ -- 2478
-format.name$ -- 1881
-if$ -- 9617
+            1464 strings with 42962 characters,
+and the built_in function-call counts, 52929 in all, are:
+= -- 3732
+> -- 5204
+< -- 33
++ -- 1720
+- -- 1831
+* -- 5319
+:= -- 10125
+add.period$ -- 106
+call.type$ -- 98
+change.case$ -- 520
+chr.to.int$ -- 97
+cite$ -- 99
+duplicate$ -- 1677
+empty$ -- 2707
+format.name$ -- 1964
+if$ -- 10305
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 86
-newline$ -- 285
-num.names$ -- 362
-pop$ -- 548
+missing$ -- 94
+newline$ -- 310
+num.names$ -- 395
+pop$ -- 599
 preamble$ -- 1
-purify$ -- 479
+purify$ -- 520
 quote$ -- 0
-skip$ -- 1263
+skip$ -- 1380
 stack$ -- 0
-substring$ -- 1590
-swap$ -- 30
+substring$ -- 1735
+swap$ -- 39
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 810
-warning$ -- 0
-while$ -- 325
+type$ -- 879
+warning$ -- 1
+while$ -- 359
 width$ -- 0
-write$ -- 988
+write$ -- 1075
+(There was 1 warning)
