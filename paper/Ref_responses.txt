@@ -1,4 +1,4 @@
-Dear Frank,
+Dear Dr. Timmes,
 
 
 We have revised our manuscript in accordance with the comments of our referee. Those revisions are marked in red (using \textcolor in the LaTex), and often followed by a note (using \authorcomment2) at the end of the revised paragraph. We've added line numbers to aid in locating some revisions. 
@@ -7,9 +7,9 @@ We have revised our manuscript in accordance with the comments of our referee. T
 
 Response to the referee comments:
 
-1. We agree that the exponential fit is no better the the power-law model in most tests, except it does appear to do better in matching the reconstructed delay-time measures without having to invoke different power-law fits for clustered and field environments. We have also add a brief discussion on the comparison of the Herringer et al. 2019 result, which we comment on in the response to comment #9.
+1. We agree that the exponential fit is no better the power-law model in most tests, except it does appear to do better in matching the reconstructed delay-time measures without having to invoke different power-law fits for clustered and field environments. We have also add a brief discussion on the comparison of the Herringer et al. 2019 result, which we comment on in the response to comment #9.
 
-2. We do a more thorough job of addressing other plausible SN Ia models, including sub-Chandrasekhar scenarios, in section 2.1, as highlighted. The main point, as written in the revision, is that these other scenarios do not match well the observed characteristics of most SNe Ia, and therefore not likely the dominate channels for SN Ia production. 
+2. We do a more thorough job of addressing other plausible SN Ia models, including sub-Chandrasekhar scenarios, in section 2.1, as highlighted. The main point, as written in the revision, is that these other scenarios do not match well the observed characteristics of most SNe Ia, and therefore not likely the dominant channels for SN Ia production. 
 
 3. We do a more thorough job of discussing the error in the bounds of the fraction of the IMF responsible for SNe Ia (k) in section 2.1. The paragraph on the lower limit has been corrected. A pair of WD drawn from the Catalan WD distribution should be, on average, around 0.7 M_sun, not 0.6 M_sun as previously stated. The MIST-bast IFMRs from Cummings puts these at ZAMS mass of around 3 M_sun, but no less than 2 M_sun. On the upper limit we now note, in addition to the mass limit for C ignition, the paucity of CO WDs above 8 M_sun. 
 
