@@ -188,6 +188,12 @@ Denissenkov, P.~A., Truran, J.~W., Herwig, F., {et~al.} 2015, Monthly Notices
 {Friedmann}, M., \& {Maoz}, D. 2018, \mnras, 479, 3563,
   \dodoi{10.1093/mnras/sty1664}
 
+\bibitem[{{Frohmaier} {et~al.}(2019){Frohmaier}, {Sullivan}, {Nugent}, {Smith},
+  {Dimitriadis}, {Bloom}, {Cenko}, {Kasliwal}, {Kulkarni}, {Maguire}, {Ofek},
+  {Poznanski}, \& {Quimby}}]{Frohmaier:2019mb}
+{Frohmaier}, C., {Sullivan}, M., {Nugent}, P.~E., {et~al.} 2019, \mnras, 486,
+  2308, \dodoi{10.1093/mnras/stz807}
+
 \bibitem[{{Gallazzi} {et~al.}(2005){Gallazzi}, {Charlot}, {Brinchmann},
   {White}, \& {Tremonti}}]{Gallazzi:2005rf}
 {Gallazzi}, A., {Charlot}, S., {Brinchmann}, J., {White}, S. D.~M., \&
@@ -551,6 +557,12 @@ Strolger, L.-G., Riess, A.~G., Dahlen, T., {et~al.} 2004, \apj, 613, 200
 {Toonen}, S., {Nelemans}, G., \& {Portegies Zwart}, S. 2013, in IAU Symposium,
   Vol. 281, Binary Paths to Type Ia Supernovae Explosions, ed. R.~{Di Stefano},
   M.~{Orio}, \& M.~{Moe}, 223--224
+
+\bibitem[{{Totani} {et~al.}(2008){Totani}, {Morokuma}, {Oda}, {Doi}, \&
+  {Yasuda}}]{Totani:2008}
+{Totani}, T., {Morokuma}, T., {Oda}, T., {Doi}, M., \& {Yasuda}, N. 2008,
+  \pasj, 60, 1327.
+\newblock \doarXiv{0804.0909}
 
 \bibitem[{{Wang} \& {Han}(2012)}]{Wang:2012a}
 {Wang}, B., \& {Han}, Z. 2012, \nar, 56, 122,

@@ -23,45 +23,45 @@ Reallocated name_tok (elt_size=4) to 80000 items from 60000.
 Reallocated name_sep_char (elt_size=1) to 80000 items from 60000.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Warning--can't use both author and editor fields in Akaike:1998fp
-You've used 98 entries,
+You've used 100 entries,
             3166 wiz_defined-function locations,
-            1464 strings with 42962 characters,
-and the built_in function-call counts, 52929 in all, are:
-= -- 3732
-> -- 5204
+            1481 strings with 43702 characters,
+and the built_in function-call counts, 54039 in all, are:
+= -- 3818
+> -- 5306
 < -- 33
-+ -- 1720
-- -- 1831
-* -- 5319
-:= -- 10125
-add.period$ -- 106
-call.type$ -- 98
-change.case$ -- 520
-chr.to.int$ -- 97
-cite$ -- 99
-duplicate$ -- 1677
-empty$ -- 2707
-format.name$ -- 1964
-if$ -- 10305
++ -- 1754
+- -- 1870
+* -- 5429
+:= -- 10332
+add.period$ -- 109
+call.type$ -- 100
+change.case$ -- 532
+chr.to.int$ -- 99
+cite$ -- 101
+duplicate$ -- 1711
+empty$ -- 2765
+format.name$ -- 2003
+if$ -- 10526
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 94
-newline$ -- 310
-num.names$ -- 395
-pop$ -- 599
+missing$ -- 96
+newline$ -- 317
+num.names$ -- 403
+pop$ -- 613
 preamble$ -- 1
-purify$ -- 520
+purify$ -- 532
 quote$ -- 0
-skip$ -- 1380
+skip$ -- 1408
 stack$ -- 0
-substring$ -- 1735
+substring$ -- 1775
 swap$ -- 39
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 879
+type$ -- 897
 warning$ -- 1
-while$ -- 359
+while$ -- 366
 width$ -- 0
-write$ -- 1075
+write$ -- 1098
 (There was 1 warning)
