@@ -14,8 +14,13 @@ import warnings
 warnings.simplefilter('ignore',RuntimeWarning)
 np.seterr(divide='ignore', invalid='ignore') 
 #rcParams['font.size']=15.0
+<<<<<<< HEAD
 rcParams['font.size']=16.0
 rcParams['figure.figsize']=15,8
+=======
+rcParams['font.size']=12.0
+rcParams['figure.figsize']=9,5
+>>>>>>> c43b1d03648e3126c749e881703dec64bc7b267a
 
 def rate_per_galaxy(sfh_data, lbu=13.65, lbl=0.05, p0 = None,
                     frac_ia = 0.05,

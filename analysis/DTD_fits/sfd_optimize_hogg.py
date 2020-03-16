@@ -95,7 +95,7 @@ def plot_one(rates,plotname,*p, frac=0.05, age=13.6):
     ax.legend(loc=2, frameon=False)
     ax2.legend(loc=4, frameon=False)
     
-    savefig(plotname)
+    savefig(plotname, transparent=True)
     return()
 
 
@@ -130,5 +130,5 @@ if __name__=='__main__':
     else:
         p2 = [-1518.39108091,    51.06020462,    49.98728772]
         frac = 0.062
-    plot_one(rates,'figure_sfd_optimized.png',*p2, frac=frac)
+    plot_one(rates,'figure_sfd_optimized.pdf',*p2, frac=frac)
     
