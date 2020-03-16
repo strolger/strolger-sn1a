@@ -15,7 +15,7 @@ warnings.simplefilter('ignore',RuntimeWarning)
 np.seterr(divide='ignore', invalid='ignore') 
 #rcParams['font.size']=15.0
 rcParams['font.size']=12.0
-rcParams['figure.figsize']=9,6
+rcParams['figure.figsize']=9,5
 
 def rate_per_galaxy(sfh_data, lbu=13.65, lbl=0.05, p0 = None,
                     frac_ia = 0.05,
@@ -171,14 +171,8 @@ if __name__=='__main__':
             else:
                 print('%s not found'%file)
                 continue
-            ndata = get_data(data, p0=(-1258, 59, 248), frac_ia = 0.06, plotit=True) ## my model
-            ## ndata = get_data_v2(data, p0=(-1.0,1.0), frac_ia = 0.06, plotit=True) ## t**-1
-            ## ndata = get_data_v2(data, p0=(-1.1,1.0), frac_ia = 0.06, plotit=True) ## t**-1.1
-            ## ndata = get_data_v2(data, p0=(-1.4,1.0), frac_ia = 0.06, plotit=True) ## t**-1.4
-
-            ## ndata = get_data(data, p0=(-23.1, 4.1, -1.1), frac_ia = 0.06, plotit=True) ## t**-1
-            ## ndata = get_data(data, p0=(-13.4, 2.4, -1.1), frac_ia = 0.06, plotit=True) ## t**-1.1
-            ## ndata = get_data(data, p0=(-4.3, 1.3, -1.8), frac_ia = 0.06, plotit=True) ## t**-1.1
+            #ndata = get_data(data, p0=(-1258, 59, 248), frac_ia = 0.06, plotit=True) ## my model
+            ndata = get_data(data, p0=(110, 1100, 2), frac_ia = 0.06, plotit=True)## SD model
             ## ndata = get_data(data, p0=(2.5, 1.0, 2.), frac_ia = 0.06, plotit=True) ## very delayed
             
             sfhs[idx]=ndata
@@ -250,7 +244,7 @@ if __name__=='__main__':
 
 
     perr = sqrt(diag(pcov))
-    ax.plot(xx, line_fn(xx, *popt), '--', color='#F0CBC8', label=r'$\beta=-1$')
+    ax.plot(xx, line_fn(xx, *popt), '--', color='#F0CBC8', label=r'$\beta=-1$ power-law DD model')
     ps = np.random.multivariate_normal(popt, pcov, 10000)
     ysample = asarray([line_fn(xx, *pi) for pi in ps])
     lower = percentile(ysample, 15.9, axis=0)
@@ -317,7 +311,7 @@ if __name__=='__main__':
                   [9.46250054e-03, 1.91379154e-01, 9.59494348e-01]])
 
     perr = sqrt(diag(pcov))
-    ax.plot(xx, line_fn(xx, *popt), 'b-', label=r'Exponential model')
+    ax.plot(xx, line_fn(xx, *popt), 'b-', label=r'Exponential DD model')
     ps = np.random.multivariate_normal(popt, pcov, 10000)
     ysample = asarray([line_fn(xx, *pi) for pi in ps])
     lower = percentile(ysample, 15.9, axis=0)
@@ -328,14 +322,20 @@ if __name__=='__main__':
     ax.fill_between(xx, upper, lower, color='green', alpha=0.2)
 
     p0 = (1.,1.,0.0)
+    
+    out[:,1] = out[:,1]*(-0.0130*out[:,0]+0.869)## scaled efficiency fraction, for SD mechanism
+    ## ax.plot(out[:,0], out[:,1], 'k.')
     popt, pcov = curve_fit(line_fn, out[:,0], out[:,1], p0=p0)
     perr = sqrt(diag(pcov))
-    #ax.plot(xx, line_fn(xx, *popt), 'g-', label=r'$\Phi(t)\propto$G(2.5,1..0)')
+    ax.plot(xx, line_fn(xx, *popt), 'y-', label='SD model, scaled eff.')
     ps = np.random.multivariate_normal(popt, pcov, 10000)
     ysample = asarray([line_fn(xx, *pi) for pi in ps])
     lower = percentile(ysample, 15.9, axis=0)
     upper = percentile(ysample, 84.1, axis=0)
-    #ax.fill_between(xx, upper, lower, color='green', alpha=0.2)
+    ax.fill_between(xx, upper, lower, color='orange', alpha=0.2)
+    lower = percentile(ysample, 2.5, axis=0)
+    upper = percentile(ysample, 97.5, axis=0)
+    ax.fill_between(xx, upper, lower, color='orange', alpha=0.2)
     print(popt,pcov)
     
     

@@ -110,7 +110,7 @@ if __name__=='__main__':
     ax2.set_xlabel('Delay Time (Gyr)')
     ax.set_title(r'$k=%.4f\,M_{\odot}^{-1},\,\,\varepsilon=%2.1f\%%$' %(scale_k, np.exp(p_val[0])*100))
     ax.legend(loc=2, frameon=False)
-    savefig('figure_fit_demo_werr.png', transparent=True)
+    savefig('figure_fit_demo_werr.pdf', transparent=True)
 
 
 

@@ -85,7 +85,7 @@ def plot_one(rates,plotname,*p, frac=0.05, age=13.6):
     ax2.set_ylabel(r'M$_{\odot}$ per year per Mpc$^3$')
     ax.set_title(r'$k=%.4f\,M_{\odot}^{-1},\,\,f=%2.1f\%%$' %(scale_k,frac*100))
 
-    savefig(plotname)
+    savefig(plotname, transparent=True)
     return()
     
 
@@ -101,7 +101,7 @@ if __name__=='__main__':
     popt,pcov=fit_one(brates,*p0)
     print(popt,pcov)
     print(sqrt(diag(pcov))[0],sqrt(diag(pcov))[1],sqrt(diag(pcov))[2],sqrt(diag(pcov))[3])
-    plot_one(rates,'figure_sfd_optimized_curvefit.png',*popt[1:],frac=popt[0])
+    plot_one(rates,'figure_sfd_optimized_curvefit.pdf',*popt[1:],frac=popt[0])
     
     
     

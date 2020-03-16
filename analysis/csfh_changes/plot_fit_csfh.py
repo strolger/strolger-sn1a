@@ -4,7 +4,7 @@ from pylab import *
 from strolger_util import util as u
 from strolger_util import rates_z as rz
 from scipy.optimize import curve_fit
-rcParams['font.size']=12.0
+rcParams['font.size']=14.0
 rcParams['figure.figsize']=9,6
 
 from kapteyn import kmpfit
@@ -258,6 +258,6 @@ lg2=ax2.legend(loc=3, frameon=False)
 #u.allblack2(ax,lg)
 #u.adjust_spines(ax,['left','bottom'])
 
-savefig('figure_csfh_today.pdf')#,transparent=True)
+savefig('figure_csfh_today.pdf',transparent=True)
 
 
