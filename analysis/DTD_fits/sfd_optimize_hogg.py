@@ -18,6 +18,8 @@ import emcee
 import warnings
 warnings.simplefilter("ignore",RuntimeWarning)
 
+rcParams['figure.figsize']=9,4
+rcParams['font.size']=12.0
 
 
 def dtdfit(time,*p):
@@ -68,16 +70,16 @@ def plot_one(rates,plotname,*p, frac=0.05, age=13.6):
     ax.plot(zz, rate_fn, 'k-', label='Fit', zorder=3)
     ax.plot(zz, jdud, 'k:', label=r'$t^{%.1f}$'%(pwrl[0]))
     
-    ax.errorbar(rates[:,0], rates[:,1], yerr=[rates[:,3],rates[:,2]], fmt='o', color='0.6', alpha=0.4)
+    ax.errorbar(rates[:,0], rates[:,1], yerr=[rates[:,3],rates[:,2]], fmt='o', ms=8, color='0.6', alpha=0.2)
     ax.errorbar(brates[:,0], brates[:,1], yerr=[brates[:,3],brates[:,2]],
-                xerr=[brates[:,5],brates[:,4]], fmt='o', color='0.0',zorder=10)
+                xerr=[brates[:,5],brates[:,4]], fmt='o', ms=8, color='0.0',zorder=10)
 
     pwrl = (-1.0,1.0)
     ax.set_xlim(0,2.6)
     ax.set_ylim(0,1.8)
     ax2.set_ylim(0,0.16)
     
-    ax3 = axes([0.65, 0.62, 0.23, 0.2])
+    ax3 = axes([0.2, 0.66, 0.20, 0.2])
     ## ax3 = axes([0.55, 0.6, 0.33, 0.25])
     ax3.plot(tt,log10(dtd),'b-', label= 'Fit')#label='Norm = %1.1f' %(simps(dtd,x=time)))
     ax3.plot(tt,log10(rz.powerdtd(tt, *pwrl)), 'b:', label=r'$t^{%.1f}$'%(pwrl[0]))
@@ -92,8 +94,8 @@ def plot_one(rates,plotname,*p, frac=0.05, age=13.6):
     ax2.set_ylabel(r'M$_{\odot}$ per year per Mpc$^3$')
     ## ax.set_title(r' $k=%.4f$ M$_{\odot}^{-1}$, $f=%2.1f\%%$' %(scale_k,frac*100))
     ax.set_title(r'$k=%.4f\,M_{\odot}^{-1},\,\,\varepsilon=%2.1f\%%$' %(scale_k,frac*100))
-    ax.legend(loc=2, frameon=False)
-    ax2.legend(loc=4, frameon=False)
+    ax.legend(loc=5, frameon=False)
+    ax2.legend(loc=1, frameon=False)
     
     savefig(plotname, transparent=True)
     return()
