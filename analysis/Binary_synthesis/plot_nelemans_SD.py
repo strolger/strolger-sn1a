@@ -69,34 +69,34 @@ if __name__=='__main__':
         ax2.errorbar(data[:,0], data[:,2]*1e-3, xerr=data[:,1], fmt='o',color=u.my_color(2), label='Yungelson 2010')
 
     p1=[[-650, 2200, 1100]]
-    ax2.plot(tt, 5*rz.dtdfunc(tt,*p1[0]), '-', color=u.my_color(2))#, label='best model fit')
+    ## ax2.plot(tt, 5*rz.dtdfunc(tt,*p1[0]), '-', color=u.my_color(2))#, label='best model fit')
     pa = (-1.0, 1.0)
     yy = rz.powerdtd(tt, *pa)
-    ax2.plot(tt, yy*2.0,'--', color=u.my_color(2), label=r'$t^{-1}$')
+    ax2.plot(tt, yy*2.0,'-', color=u.my_color(2), label=r'$t^{-1}$')
 
+    ### for adding tables to the plot
+    ## col_labels = [r'$\xi$', r'$\omega$', r'$\alpha$']
+    ## table_vals = p0
+    ## the_table = ax.table(cellText=table_vals,
+    ##                      colWidths = [0.1]*3,
+    ##                      #rowLabels=row_labels,
+    ##                      colLabels=col_labels,
+    ##                      cellLoc='center',
+    ##                      loc='best')
+    ## ax.text(12,3.4,'Table Title',size=9)
+    ## for key, cell in the_table.get_celld().items():
+    ##     cell.set_linewidth(0)
 
-    col_labels = [r'$\xi$', r'$\omega$', r'$\alpha$']
-    table_vals = p0
-    the_table = ax.table(cellText=table_vals,
-                         colWidths = [0.1]*3,
-                         #rowLabels=row_labels,
-                         colLabels=col_labels,
-                         cellLoc='center',
-                         loc='best')
-    ax.text(12,3.4,'Table Title',size=9)
-    for key, cell in the_table.get_celld().items():
-        cell.set_linewidth(0)
-
-    table_vals = p1
-    the_table = ax2.table(cellText=table_vals,
-                          colWidths = [0.26]*3,
-                          #rowLabels=row_labels,
-                          colLabels=col_labels,
-                          cellLoc='center',
-                          loc='best')
-    ax2.text(12,3.4,'Table Title',size=9)
-    for key, cell in the_table.get_celld().items():
-        cell.set_linewidth(0)
+    ## table_vals = p1
+    ## the_table = ax2.table(cellText=table_vals,
+    ##                       colWidths = [0.26]*3,
+    ##                       #rowLabels=row_labels,
+    ##                       colLabels=col_labels,
+    ##                       cellLoc='center',
+    ##                       loc='best')
+    ## ax2.text(12,3.4,'Table Title',size=9)
+    ## for key, cell in the_table.get_celld().items():
+    ##     cell.set_linewidth(0)
 
 
     ax2.set_xscale('log')

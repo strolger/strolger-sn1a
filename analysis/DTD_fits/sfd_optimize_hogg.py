@@ -21,6 +21,7 @@ warnings.simplefilter("ignore",RuntimeWarning)
 rcParams['figure.figsize']=9,4
 rcParams['font.size']=12.0
 
+mycolor='#999933'
 
 def dtdfit(time,*p):
     ff, aa, bb, cc = p
@@ -67,9 +68,10 @@ def plot_one(rates,plotname,*p, frac=0.05, age=13.6):
     ax = subplot(111)
     ax2 = ax.twinx()
     ax2.plot(zz, sfh, 'r-', label='CSFH')
-    ax.plot(zz, rate_fn, 'k-', label='Fit', zorder=3)
-    ax.plot(zz, jdud, 'k:', label=r'$t^{%.1f}$'%(pwrl[0]))
+    ax.plot(zz, rate_fn, '-', color=mycolor, label='Fit', zorder=3)
+    ax.plot(zz, jdud, ':', color =mycolor, label=r'$t^{%.1f}$'%(pwrl[0]))
     
+
     ax.errorbar(rates[:,0], rates[:,1], yerr=[rates[:,3],rates[:,2]], fmt='o', ms=8, color='0.6', alpha=0.2)
     ax.errorbar(brates[:,0], brates[:,1], yerr=[brates[:,3],brates[:,2]],
                 xerr=[brates[:,5],brates[:,4]], fmt='o', ms=8, color='0.0',zorder=10)
@@ -94,6 +96,7 @@ def plot_one(rates,plotname,*p, frac=0.05, age=13.6):
     ax2.set_ylabel(r'M$_{\odot}$ per year per Mpc$^3$')
     ## ax.set_title(r' $k=%.4f$ M$_{\odot}^{-1}$, $f=%2.1f\%%$' %(scale_k,frac*100))
     ax.set_title(r'$k=%.4f\,M_{\odot}^{-1},\,\,\varepsilon=%2.1f\%%$' %(scale_k,frac*100))
+
     ax.legend(loc=5, frameon=False)
     ax2.legend(loc=1, frameon=False)
     
@@ -132,5 +135,5 @@ if __name__=='__main__':
     else:
         p2 = [-1518.39108091,    51.06020462,    49.98728772]
         frac = 0.062
-    plot_one(rates,'figure_sfd_optimized.pdf',*p2, frac=frac)
+    plot_one(rates,'figure_sfd_optimized.png',*p2, frac=frac)
     

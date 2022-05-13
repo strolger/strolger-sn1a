@@ -12,7 +12,7 @@ from kapteyn import kmpfit
 
 myir = '#CC6677'
 ## myuv = '#117733'
-myuv = '0.5'
+myuv = '#DDCC77' #0.5
 bar1 = myir
 bar2 = '#88CCEE'
 
@@ -144,7 +144,7 @@ print(popt, perr)
 
 h2 = ax.errorbar(redshifts, csfh, xerr=d_red, yerr=[csfh-em_csfh,ep_csfh-csfh],
                  label=r'Driver et al. (2018)$^{a}$',
-                 fmt='o',color='0.3',ms=7,
+                 fmt='o',color='#999933',ms=7, #0.3
                  zorder=4, alpha=0.9)
 
 ## fobj = kmpfit.simplefit(model,p0, redshifts, csfh, err= ep_csfh)
@@ -255,9 +255,11 @@ lg1=ax.legend(loc=1, frameon=False)
 lg2=ax2.legend(loc=3, frameon=False)
 
 
-#u.allblack2(ax,lg)
+u.allblack2(ax,lg1)
 #u.adjust_spines(ax,['left','bottom'])
+u.allblack2(ax2,lg2)
+#u.adjust_spines(ax2,['right','bottom'])
 
-savefig('figure_csfh_today.pdf',transparent=True)
+savefig('figure_csfh_today.png',transparent=True)
 
 
