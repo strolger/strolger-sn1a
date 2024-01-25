@@ -101,8 +101,8 @@ plt.clabel(cs1, cs1.levels, inline=1, fmt=fmt)
 ## ix = sample(ii,1000)
 ## plt.plot(X[ix],Y[ix], 'ko')
 
-ax2.hist(all_masses, bins=100,  color='0.5', normed=True, label='All Catalog Galaxies')
-ax3.hist(all_sfrs, bins=100,  color='0.5', normed=True, orientation='horizontal')
+ax2.hist(all_masses, bins=100,  color='0.5', density=True, label='All Catalog Galaxies')
+ax3.hist(all_sfrs, bins=100,  color='0.5', density=True, orientation='horizontal')
 
 idx = loadtxt('../DTD_fits/host_idxs.txt')
 mask = in1d(data[:,0], idx)
@@ -144,9 +144,9 @@ Z = kde.evaluate(np.vstack([Xgrid.ravel(), Ygrid.ravel()]))
 ## plt.clabel(cs, cs.levels, inline=1, fmt=fmt)
 
 ax1.plot(X,Y, 'o', color='C3', ms=10)
-ax2.hist(host_masses, bins=10,  align='left', color ='C3', lw=3, histtype = 'step', normed=True, label='SN Ia Hosts')
-ax3.hist(host_sfrs, bins=10,  color='C3', lw=3, histtype= 'step', normed=True, orientation='horizontal')
-
+ax2.hist(host_masses, bins=10,  align='left', color ='C3', lw=3, histtype = 'step', density=True, label='SN Ia Hosts')
+ax3.hist(host_sfrs, bins=10,  color='C3', lw=3, histtype= 'step', density=True, orientation='horizontal')
+pdb.set_trace()
 
 ax2.legend(loc=1, ncol=2, frameon=False, fontsize=20)
 
