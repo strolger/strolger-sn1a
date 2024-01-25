@@ -127,8 +127,9 @@ print(chi2, len(tmp)-1)
 
 
 
-#popt, pcov = curve_fit(func, data[:,0], data[:,3]*msc, p0=p_t, sigma=data[:,4]*msc)
-#print(popt)
+popt, pcov = curve_fit(func, data[:,0], data[:,3]*msc, p0=p_t, sigma=data[:,4]*msc)
+print(popt)
+pdb.set_trace()
 popt = [12.921]
 ax.plot(time,dtd*scale*popt,'b-', lw=2, label= 'Exponential model')#label='Norm = %1.1f' %(simps(dtd,x=time)))
 tmp=rz.dtdfunc(data[:,0], *p0)*scale*popt
