@@ -1,14 +1,39 @@
 #!/usr/bin/env python
 import os,sys,pdb,scipy,glob
 from pylab import *
-from strolger_util import util as u
-from strolger_util import rates_z as rz
+#from strolger_util import util as u
+#from strolger_util import rates_z as rz
 from scipy.optimize import curve_fit
 rcParams['font.size']=14.0
 rcParams['figure.figsize']=9,6
 
 from kapteyn import kmpfit
 #matplotlib.rcParams.update({'font.size': 14})
+
+def MD_sfr_2014(z,fink=True):
+    A=0.015
+    B=2.9
+    C=2.7
+    if not fink:
+        D=5.6 #M+D_2014
+    else:
+        D=7.0 #Finkelstein+_2014
+    sfr=A*((1+z)**C)/(1+((1+z)/B)**D)
+    return(sfr)
+
+def allblack2(ax, lg):
+    for text in lg.get_texts():
+        text.set_color('white')
+
+    ax.spines['bottom'].set_color('white')
+    ax.spines['top'].set_color('white')
+    ax.spines['right'].set_color('white')
+    ax.spines['left'].set_color('white')
+    ax.xaxis.label.set_color('white')
+    ax.yaxis.label.set_color('white')
+    ax.title.set_color('white')
+    ax.tick_params(axis='x', colors='white')
+    ax.tick_params(axis='y', colors='white')
 
 myir = '#CC6677'
 ## myuv = '#117733'
@@ -106,8 +131,8 @@ yjunk, upperband, lowerband = fobj.confidence_band(redshifts, dfdp, confprob, mo
 ##             zorder=10, alpha=0.5)
 
 
-ax2.plot(redshifts, rz.MD_sfr_2014(redshifts, fink=False), 'b--', label=r'$\dot{\rho}_{\star}(z)$ Madau & Dickinson (2014)')
-ax2.plot(redshifts, rz.MD_sfr_2014(redshifts), 'b:', label = r'$\dot{\rho}_{\star}(z)$  Finkelstein et al. (2014)')
+ax2.plot(redshifts, MD_sfr_2014(redshifts, fink=False), 'b--', label=r'$\dot{\rho}_{\star}(z)$ Madau & Dickinson (2014)')
+ax2.plot(redshifts, MD_sfr_2014(redshifts), 'b:', label = r'$\dot{\rho}_{\star}(z)$  Finkelstein et al. (2014)')
 ## ax.plot(redshifts, func(redshifts, *fobj.params), 'b-', label = 'Fit to Madau & Dickinson',zorder=10)
 ## ax.fill_between(redshifts, upperband, lowerband, color = bar2, alpha = 0.4)
 
@@ -255,10 +280,10 @@ lg1=ax.legend(loc=1, frameon=False)
 lg2=ax2.legend(loc=3, frameon=False)
 
 
-u.allblack2(ax,lg1)
-#u.adjust_spines(ax,['left','bottom'])
-u.allblack2(ax2,lg2)
-#u.adjust_spines(ax2,['right','bottom'])
+allblack2(ax,lg1)
+#adjust_spines(ax,['left','bottom'])
+allblack2(ax2,lg2)
+#adjust_spines(ax2,['right','bottom'])
 
 savefig('figure_csfh_today.png',transparent=True)
 
